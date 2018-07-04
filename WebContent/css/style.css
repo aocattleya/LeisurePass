@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+/* reset css */
+body, html {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* micro clearfix */
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    *zoom: 1;
+}
+
+
+/* layout */
+#navigation {
+	float: left;
+	width: 30%;
+}
+
+#contents {
+	float: left;
+	width: 70%;
+}
+
+header #header_container {
+
+}
+
+header .logo {
+	float: left;
+}
+
+header .header_menu {
+	float: right;
+}
+
+header .header_menu li {
+	float: left;
+	list-style: none;
+	margin-left: 10px;
+}
+
+#navigation ul li {
+	list-style: none;
+}
+
+footer {
+	text-align: center;
+}
