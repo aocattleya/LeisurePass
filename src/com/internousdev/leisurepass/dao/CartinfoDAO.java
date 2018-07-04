@@ -9,7 +9,6 @@ import java.util.List;
 
 import com.internousdev.leisurepass.dto.CartinfoDTO;
 
-
 public class CartinfoDAO {
 //	カートに表示する表の中身list,
 //	AddCartActionに続く
@@ -94,7 +93,6 @@ public int TotalPrice(String userId){
 	}
 	return totalPrice;
 }
-
 
 //	cart.jspの削除ボタンを押した際にDeleteCartActionにて機能
 public int delete(String id) {
