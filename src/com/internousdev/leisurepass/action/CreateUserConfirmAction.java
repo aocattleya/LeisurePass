@@ -23,11 +23,11 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 
 	private List<String> loginIdErrorMessageList = new ArrayList<String>();
 	private List<String> passwordErrorMessageList = new ArrayList<String>();
-	private List<String> emailErrorMessqgeList = new ArrayList<String>();
-	private List<String> familyNameErrorMessage = new ArrayList<String>();
-	private List<String> firstNameErrorMessage = new ArrayList<String>();
-	private List<String> familyNameKanaErrorMessage = new ArrayList<String>();
-	private List<String> firstNameKanaErrorMessage = new ArrayList<String>();
+	private List<String> emailErrorMessageList = new ArrayList<String>();
+	private List<String> familyNameErrorMessageList = new ArrayList<String>();
+	private List<String> firstNameErrorMessageList = new ArrayList<String>();
+	private List<String> familyNameKanaErrorMessageList = new ArrayList<String>();
+	private List<String> firstNameKanaErrorMessageList = new ArrayList<String>();
 
 	private String categoryId;
 	private List<String> sexList = new ArrayList<String>();
