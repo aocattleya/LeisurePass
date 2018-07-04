@@ -257,11 +257,11 @@
 -->
 
 
-<!-- 山本  購入履歴を削除 (home.jsp→遠藤) -->
+<!-- 山本  購入履歴を削除 -->
 <!--
 	<action name="DeletePurchaseHistoryAction" class="com.internousdev.leisurepass.action.DeletePurchaseHistoryAction" method="execute">
 		<result name="success">purchaseHistory.jsp</result>
-		<result name="error">home.jsp</result>
+		<result name="error">purchaseHistory.jsp</result>
 	</action>
 -->
 
