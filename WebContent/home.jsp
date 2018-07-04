@@ -17,12 +17,15 @@
 			<jsp:include page="navigation.jsp" />
 
 			<div id="contents">
-				<h1>ホーム画面</h1>
+				<div><a href="#">スライドショー</a></div>
+				<div><a href="#">おすすめ1</a></div>
+				<div><a href="#">おすすめ2</a></div>
+				<div><a href="#">おすすめ3</a></div>
 			</div>
 
 		</div>
 
-		<s:include value="footer.jsp" />
+		<jsp:include page="footer.jsp" />
 
 	</body>
 </html>
