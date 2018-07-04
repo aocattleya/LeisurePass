@@ -2,7 +2,7 @@ package com.internousdev.leisurepass.dto;
 
 import java.util.Date;
 
-public class CartinfoDTO {
+public class CartInfoDTO {
 
 	private int id;
 	private String userId;
