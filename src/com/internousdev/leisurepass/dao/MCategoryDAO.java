@@ -12,7 +12,7 @@ import com.internousdev.leisurepass.util.DBConnector;
 
 public class MCategoryDAO {
 
-	public List<MCategoryDTO> selectAll(){
+	public List<MCategoryDTO> getMCategoryList(){
 
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
