@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.leisurepass.dao.CartInfoDAO;
 import com.internousdev.leisurepass.util.CommonUtility;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -44,6 +45,11 @@ public String execute(){
 		tempUserId = String.valueOf(session.get("tempUserId"));
 	}
 
+	productCount = String.valueOf((productCount.split(" ,",0))[0]);//勉強中
+
+	//商品画面からカートに何かしら商品等の情報が入ればSUCCESS→画面遷移
+	CartInfoDAO cartInfoDAO =new CartInfoDAO();
+	int count = cartInfoDAO.
 
 	return result;
 }

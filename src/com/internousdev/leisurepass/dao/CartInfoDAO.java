@@ -8,8 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.internousdev.leisurepass.dto.CartinfoDTO;
+import com.internousdev.leisurepass.util.DBConnector;
 
-public class CartinfoDAO {
+public class CartInfoDAO {
 //	カートに表示する表の中身list,
 //	AddCartActionに続く
 public List<CartinfoDTO> CartInfoList(String loginId){
@@ -32,7 +33,7 @@ public List<CartinfoDTO> CartInfoList(String loginId){
 			+ " ci.product_count * pi.price as subtotal"
 			+ " From cart_info as ci"
 			+ " Left join product_info as pi"
-			+ " ON ci.product_id = pi.product_id"
+			+ " ON ci.product_id = pi.product_id	"
 			+ " Where ci.user_id=?";
 	try {
 		PreparedStatement ps = connection.prepareStatement(sql);
@@ -115,4 +116,33 @@ public int delete(String id) {
 	}
 	return count;
 }
+//カート(cart_info)にものを入れる動作
+public int regist(String userId, String tempUserId, int productId, String productCount, int price) {
+	DBConnector dbConnector = new DBConnector();
+	Connection connection = dbConnector.getConnection();
+	int count = 0;
+	String sql ="insert into cart_info(user_id, product_id, product_count, price, regist_date)"
+			+ "";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	return count;
+
+	}
 }

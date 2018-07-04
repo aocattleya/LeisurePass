@@ -9,8 +9,7 @@
 </head>
 <body>
 
-<jsp:include page="header.jsp">
-<h1>カート画面</h1>
+
 
 <tr>
 <th><s:label value="#"/></th>
