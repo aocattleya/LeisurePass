@@ -5,13 +5,41 @@
 <header>
 	<div id="header_container" class="cf">
 		<div class="logo">
-			<a href="#">レジャパス</a>
+			<s:form action="HomeAction">
+				<s:submit value="レジャパス" />
+			</s:form>
 		</div>
 		<div class="header_menu">
 			<ul>
-				<li><a href="#">一覧</a></li>
-				<li><a href="#">カート</a></li>
-				<li><a href="#">ログイン</a></li>
+				<li>
+					<s:form action="ProductListAction">
+						<s:submit value="商品一覧" />
+					</s:form>
+				</li>
+				<li>
+					<s:form action="CartAction">
+						<s:submit value="カート" />
+					</s:form>
+				</li>
+				<s:if test="#session.logined == 0">
+					<li>
+						<s:form action="GoLoginAction">
+							<s:submit value="ログイン" />
+						</s:form>
+					</li>
+				</s:if>
+				<s:if test="#session.logined == 1">
+					<li>
+						<s:form action="GoMyPageAction">
+							<s:submit value="マイページ" />
+						</s:form>
+					</li>
+					<li>
+						<s:form action="LogoutAction">
+							<s:submit value="ログアウト" />
+						</s:form>
+					</li>
+				</s:if>
 			</ul>
 		</div>
 	</div>
