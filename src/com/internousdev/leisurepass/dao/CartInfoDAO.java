@@ -7,14 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.leisurepass.dto.CartinfoDTO;
+import com.internousdev.leisurepass.dto.CartInfoDTO;
 import com.internousdev.leisurepass.util.DBConnector;
 
 public class CartInfoDAO {
 //	カートに表示する表の中身list,
 //	AddCartActionに続く
-public List<CartinfoDTO> CartInfoList(String loginId){
-	List<CartinfoDTO> CartList = new ArrayList<CartinfoDTO>();
+public List<CartInfoDTO> CartInfoList(String loginId){
+	List<CartInfoDTO> CartList = new ArrayList<CartInfoDTO>();
 	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
 
@@ -40,7 +40,7 @@ public List<CartinfoDTO> CartInfoList(String loginId){
 		ps.setString(1, loginId);
 		ResultSet rs = ps.executeQuery();
 		while(rs.next()){
-			CartinfoDTO cartInfoDTO = new CartinfoDTO();
+			CartInfoDTO cartInfoDTO = new CartInfoDTO();
 			cartInfoDTO.setId(rs.getInt("id"));
 			cartInfoDTO.setUserId(rs.getString("user_id"));
 			cartInfoDTO.setTempUserId(rs.getString("temp_user_id"));
@@ -116,33 +116,28 @@ public int delete(String id) {
 	}
 	return count;
 }
-//カート(cart_info)にものを入れる動作
+//カート(cart_infoテーブル)に商品等の情報を入れる
 public int regist(String userId, String tempUserId, int productId, String productCount, int price) {
 	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
 	int count = 0;
 	String sql ="insert into cart_info(user_id, product_id, product_count, price, regist_date)"
-			+ "";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			+ "values(?,?,?,?,?,now())";
+	try{
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, userId);
+		ps.setString(2, tempUserId);
+		ps.setInt(3, productId);
+		ps.setString(4, productCount);
+		ps.setInt(5, price);
+		count=ps.executeUpdate();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}try {
+		connection.close();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
 	return count;
-
 	}
 }

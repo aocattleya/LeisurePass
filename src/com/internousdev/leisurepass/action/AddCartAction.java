@@ -1,11 +1,15 @@
 package com.internousdev.leisurepass.action;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.leisurepass.dao.CartInfoDAO;
+import com.internousdev.leisurepass.dto.CartInfoDTO;
 import com.internousdev.leisurepass.util.CommonUtility;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -45,17 +49,36 @@ public String execute(){
 		tempUserId = String.valueOf(session.get("tempUserId"));
 	}
 
-	productCount = String.valueOf((productCount.split(" ,",0))[0]);//勉強中
+//	productCount = String.valueOf((productCount.split(" ,",0))[0]);勉強中
 
-	//商品画面からカートに何かしら商品等の情報が入ればSUCCESS→画面遷移
+	//商品画面からカート(cart_infoテーブル)に何かしら情報が入ればSUCCESS→画面遷移
 	CartInfoDAO cartInfoDAO =new CartInfoDAO();
-	int count = cartInfoDAO.
+	int count = cartInfoDAO.regist(userId,tempUserId,productId,productCount,price);
+	if(count>0){
+		result=SUCCESS;
+	}
 
+	//リストの中身取り出し
+	List<CartInfoDTO> cartinfoDTOlist = new ArrayList<CartInfoDTO>();
+	cartinfoDTOlist = cartInfoDAO.CartInfoList(userId);
+	Iterator<CartInfoDTO> iterator = cartinfoDTOlist.iterator();
+
+	//リストに何も入っていなければsessionにnullを入れ、
+	//JSPにて「カート情報はありません」の表示を出させる
+	if(!(iterator.hasNext())){
+		cartinfoDTOlist=null;
+	}
+
+	//sessionにデータを入れて次の画面に持っていく
+	session.put("cartinfoDTOlist", cartinfoDTOlist);
+
+	//合計金額の表示
+	int TotalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.TotalPrice(userId)));
+	session.put("TotalPrice", TotalPrice);
 	return result;
 }
 
-
-
+//////////////////////////////////////////////////////////////////////////////////
 	public int getProductId() {
 		return productId;
 	}
