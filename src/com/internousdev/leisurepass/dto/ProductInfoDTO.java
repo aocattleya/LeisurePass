@@ -13,7 +13,7 @@ public class ProductInfoDTO {
 	private int categoryId;
 	private int price;
 	private String imageFilePath;
-	private String inamgeFileName;
+	private String imageFileName;
 	private Date releaseDate;
 	private String releaseCompany;
 	private int status;
@@ -70,11 +70,11 @@ public class ProductInfoDTO {
 	public void setImageFilePath(String imageFilePath) {
 		this.imageFilePath = imageFilePath;
 	}
-	public String getInamgeFileName() {
-		return inamgeFileName;
+	public String getImageFileName() {
+		return imageFileName;
 	}
-	public void setInamgeFileName(String inamgeFileName) {
-		this.inamgeFileName = inamgeFileName;
+	public void setImageFileName(String inamgeFileName) {
+		this.imageFileName = inamgeFileName;
 	}
 	public Date getReleaseDate() {
 		return releaseDate;
