@@ -26,7 +26,7 @@ public class HomeAction extends ActionSupport implements SessionAware{
 		if (!(session.containsKey("loginId")) && !(session.containsKey("tempUserId"))) {
 			// ログインしていない場合は一時的にユーザーIDをランダムで設定
 			 CommonUtility commonUtility = new CommonUtility();
-			 session.put("tempUserId", commonUtility.RandomValue());
+			 session.put("tempUserId", commonUtility.randomValue());
 		}
 
 		if(!session.containsKey("logined")) {
