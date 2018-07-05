@@ -147,7 +147,7 @@ public int regist(String userId, String tempUserId, int productId, String produc
 	return count;
 	}
 
-
+//マイページ画面にて商品購入履歴の削除に用いられる
 public int deleteAll(String userId){
 	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
@@ -168,7 +168,7 @@ public int deleteAll(String userId){
 	return count;
 }
 
-
+//決済画面にて使用
 public int linkToLoginId(String tempUserId, String loginId){
 	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();

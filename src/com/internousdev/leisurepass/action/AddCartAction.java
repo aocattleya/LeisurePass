@@ -13,7 +13,7 @@ import com.internousdev.leisurepass.dto.CartInfoDTO;
 import com.internousdev.leisurepass.util.CommonUtility;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class AddCartAction extends ActionSupport implements SessionAware{
+public class AddCartAction extends ActionSupport implements SessionAware {
 	private int productId;
 	private String productName;
 	private String productNameKana;
@@ -26,93 +26,124 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 	private String productDescription;
 	private String categoryId;
 	private Map<String, Object> session;
+	private String overErrorMessage;
+	private String shortageErrorMessage;
+	private String noCountErrorMessage;
+	private String errorMessage;
 
-public String execute(){
-	CommonUtility commonUtility=new CommonUtility();
-	String tempUserId=null;
-	String userId=null;
-	String result=ERROR;
-	//ログインしてないときにカートに商品を入れた場合、仮ＩＤを生成して
-	//ひとまず仮のユーザーのカートに商品が入るようになる
-	if(!(session.containsKey("loginId") && session.containsKey("tempUserId"))){
-		session.put("tempUserId", commonUtility.randomValue());
+	public String execute() {
+		CommonUtility commonUtility = new CommonUtility();
+		String tempUserId = null;
+		String userId = null;
+		String result = ERROR;
+		// ログインしてないときにカートに商品を入れた場合、仮ＩＤを生成して
+		// ひとまず仮のユーザーのカートに商品が入るようになる
+		if (!(session.containsKey("loginId") && session.containsKey("tempUserId"))) {
+			session.put("tempUserId", commonUtility.randomValue());
+		}
+		// loginIdがsessionに入っていればsessionのloginIdをStringに変換代入することで
+		// テーブルにはloginIdはないのでここでuserIdとloginIdをヒモ付ける
+		if (session.containsKey("loginId")) {
+			userId = String.valueOf(session.get("loginId"));
+		}
+		// 仮IDしかない状態でもsessionによって商品情報を送れる
+		if (session.containsKey("tempUserId")) {
+			userId = String.valueOf(session.get("tempUserId"));
+		}
+		// 仮ＩＤのみ入ってる場合、仮ＩＤをuserIdに代入し
+		// 「session」のtempUserIdを「変数」のtempUserIdに代入
+		if (!(session.containsKey("loginId")) && session.containsKey("tempUserId")) {
+			userId = String.valueOf(session.get("tempUserId"));
+			tempUserId = String.valueOf(session.get("tempUserId"));
+		}
+
+		// productCount = String.valueOf((productCount.split("
+		// ,",0))[0]);サンプルにある謎文
+
+		// 商品画面からカート(cart_infoテーブル)に何かしら情報が入ればSUCCESS→画面遷移
+		CartInfoDAO cartInfoDAO = new CartInfoDAO();
+		int count = cartInfoDAO.regist(userId, tempUserId, productId, productCount, price);
+		if (count > 0 && count < 6) {
+			result = SUCCESS;
+		} else if (count > 6) {
+			result = ERROR;
+			setOverErrorMessage("在庫を超える数値が投入されたため、カートに商品が投入されませんでした");
+		} else if (count == 0) {
+			result = ERROR;
+			setNoCountErrorMessage("投入数が0のため、カートに商品が投入されませんでした");
+		} else if (count < -1) {
+			result = ERROR;
+			setShortageErrorMessage("投入数が不足しているため、カートに商品が投入されませんでした");
+		} else {
+			result = ERROR;
+			setErrorMessage("カート投入数が不正です。");
+		}
+
+		// リストの中身取り出し
+		List<CartInfoDTO> getCartInfoDtoList = new ArrayList<CartInfoDTO>();
+		getCartInfoDtoList = cartInfoDAO.getCartInfoDtoList(userId);
+		Iterator<CartInfoDTO> iterator = getCartInfoDtoList.iterator();
+
+		// リストに何も入っていなければsessionにnullを入れ、
+		// JSPにて「カート情報はありません」の表示を出させる
+		if (!(iterator.hasNext())) {
+			getCartInfoDtoList = null;
+		}
+
+		// sessionにデータを入れて次の画面に持っていく
+		session.put("cartinfoDTOlist", getCartInfoDtoList);
+
+		// 合計金額の表示
+		int TotalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
+		session.put("TotalPrice", TotalPrice);
+		return result;
 	}
-	//loginIdがsessionに入っていればsessionのloginIdをStringに変換代入することで
-	//テーブルにはloginIdはないのでここでuserIdとloginIdをヒモ付ける
-	if(session.containsKey("loginId")){
-		userId = String.valueOf(session.get("loginId"));
-	}
-	//仮ＩＤのみ入ってる場合、仮ＩＤをuserIdに代入し
-	//「session」のtempUserIdを「変数」のtempUserIdに代入
-	if(!(session.containsKey("loginId")) && session.containsKey("tempUserId")){
-		userId = String.valueOf(session.get("tempUserId"));
-		tempUserId = String.valueOf(session.get("tempUserId"));
-	}
 
-//	productCount = String.valueOf((productCount.split(" ,",0))[0]);勉強中
-
-	//商品画面からカート(cart_infoテーブル)に何かしら情報が入ればSUCCESS→画面遷移
-	CartInfoDAO cartInfoDAO =new CartInfoDAO();
-	int count = cartInfoDAO.regist(userId,tempUserId,productId,productCount,price);
-	if(count>0){
-		result=SUCCESS;
-	}
-
-	//リストの中身取り出し
-	List<CartInfoDTO> getCartInfoDtoList = new ArrayList<CartInfoDTO>();
-	getCartInfoDtoList = cartInfoDAO.getCartInfoDtoList(userId);
-	Iterator<CartInfoDTO> iterator = getCartInfoDtoList.iterator();
-
-	//リストに何も入っていなければsessionにnullを入れ、
-	//JSPにて「カート情報はありません」の表示を出させる
-	if(!(iterator.hasNext())){
-		getCartInfoDtoList=null;
-	}
-
-	//sessionにデータを入れて次の画面に持っていく
-	session.put("cartinfoDTOlist", getCartInfoDtoList);
-
-	//合計金額の表示
-	int TotalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
-	session.put("TotalPrice", TotalPrice);
-	return result;
-}
-
-
-/////////////////getter/setter//////////////
+	///////////////// getter/setter//////////////
 	public int getProductId() {
 		return productId;
 	}
+
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}
+
 	public String getProductName() {
 		return productName;
 	}
+
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
+
 	public String getProductNameKana() {
 		return productNameKana;
 	}
+
 	public void setProductNameKana(String productNameKana) {
 		this.productNameKana = productNameKana;
 	}
+
 	public String getImageFilePath() {
 		return imageFilePath;
 	}
+
 	public void setImageFilePath(String imageFilePath) {
 		this.imageFilePath = imageFilePath;
 	}
+
 	public String getImageFileName() {
 		return imageFileName;
 	}
+
 	public void setImageFileName(String imageFileName) {
 		this.imageFileName = imageFileName;
 	}
+
 	public int getPrice() {
 		return price;
 	}
+
 	public void setPrice(int price) {
 		this.price = price;
 	}
@@ -120,24 +151,31 @@ public String execute(){
 	public String getProductCount() {
 		return productCount;
 	}
+
 	public void setProductCount(String productCount) {
 		this.productCount = productCount;
 	}
+
 	public String getReleaseCompany() {
 		return releaseCompany;
 	}
+
 	public void setReleaseCompany(String releaseCompany) {
 		this.releaseCompany = releaseCompany;
 	}
+
 	public Date getReleaseDate() {
 		return releaseDate;
 	}
+
 	public void setReleaseDate(Date releaseDate) {
 		this.releaseDate = releaseDate;
 	}
+
 	public String getProductDescription() {
 		return productDescription;
 	}
+
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
 	}
@@ -145,14 +183,49 @@ public String execute(){
 	public String getCategoryId() {
 		return categoryId;
 	}
+
 	public void setCategoryId(String categoryId) {
 		this.categoryId = categoryId;
 	}
+
 	public Map<String, Object> getSession() {
 		return session;
 	}
+
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+	public String getOverErrorMessage() {
+		return overErrorMessage;
+	}
+
+	public void setOverErrorMessage(String overErrorMessage) {
+		this.overErrorMessage = overErrorMessage;
+	}
+
+	public String getShortageErrorMessage() {
+		return shortageErrorMessage;
+	}
+
+	public void setShortageErrorMessage(String shortageErrorMessage) {
+		this.shortageErrorMessage = shortageErrorMessage;
+	}
+
+	public String getNoCountErrorMessage() {
+		return noCountErrorMessage;
+	}
+
+	public void setNoCountErrorMessage(String noCountErrorMessage) {
+		this.noCountErrorMessage = noCountErrorMessage;
+	}
+
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
 	}
 
 }

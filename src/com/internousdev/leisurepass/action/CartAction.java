@@ -4,68 +4,48 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.struts2.interceptor.SessionAware;
-
-import com.internousdev.leisurepass.dao.CartInfoDAO;
-import com.internousdev.leisurepass.dao.MCategoryDAO;
-import com.internousdev.leisurepass.dto.CartInfoDTO;
-import com.internousdev.leisurepass.dto.MCategoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
+import com.internousdev.leisurepass.dao.CartInfoDAO;
+import com.internousdev.leisurepass.dto.CartInfoDTO;
 
 public class CartAction extends ActionSupport implements SessionAware{
-	private String categoryId;
-	private String keywords;
-	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
 	private Map<String, Object> session;
-	public String execute() {
+
+	public String execute(){
+		String userId=null;
+		String tempUserId=null;
+		List<CartInfoDTO> cartInfoDtolist=new ArrayList<CartInfoDTO>();
 		String result = ERROR;
-		String userId = null;
-		CartInfoDAO cartInfoDao = new CartInfoDAO();
-		List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
-		if(session.containsKey("loginId")) {
-			userId = String.valueOf(session.get("loginId"));
-		}else if (session.containsKey("tempUserId")) {
-			userId = String.valueOf(session.get("tempUserId"));
-		}
-		cartInfoDtoList = cartInfoDao.getCartInfoDtoList(userId);
-		Iterator<CartInfoDTO> iterator = cartInfoDtoList.iterator();
-		if(!(iterator.hasNext())) {
-			cartInfoDtoList = null;
-		}
-		session.put("cartInfoDtoList", cartInfoDtoList);
 
-		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(userId)));
-		session.put("totalPrice", totalPrice);
-		result = SUCCESS;
-
-		if(!session.containsKey("mCategoryList")) {
-			MCategoryDAO mCategoryDao = new MCategoryDAO();
-			mCategoryDtoList = mCategoryDao.getMCategoryList();
-			session.put("mCategoryDtoList", mCategoryDtoList);
-		}
-		return result;
+	//loginId か tempUserIdがあればuserIdに変換しとりあえずユーザー確認
+	if(session.containsKey("loginId")){
+		userId = String.valueOf(session.get("loginId"));
+	}	else if(session.containsKey(tempUserId)){
+		userId = String.valueOf(session.get("tempUserId"));
 	}
 
-	public String getCategoryId() {
-		return categoryId;
-	}
+	CartInfoDAO cartInfoDao=new CartInfoDAO();
+	Iterator<CartInfoDTO> iterator= cartInfoDtolist.iterator();
 
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
+	//jspで商品情報なしのメッセージを表示するためにリストにnullを代入
+	if(!(iterator.hasNext())){
+		cartInfoDtolist = null;
 	}
+	session.put("cartInfoDtolist", cartInfoDtolist);
 
-	public String getKeywords() {
-		return keywords;
-	}
+	//カート内合計金額の表示
+	int TotalPrice = Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(userId)));
+	session.put("TotalPrice", TotalPrice);
 
-	public void setKeywords(String keywords) {
-		this.keywords = keywords;
+	result = SUCCESS;
+	return result;
 	}
 
 	public Map<String, Object> getSession() {
 		return session;
 	}
+
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
