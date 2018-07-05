@@ -19,7 +19,7 @@ import java.util.List;
 
 
 
-//		get/setの設定
+//get/setの設定
 		public int getTotalPageSize() {
 			return totalPageSize;
 		}

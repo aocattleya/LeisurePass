@@ -15,7 +15,7 @@
 	<div id="main" class="cf">
 		<jsp:include page="navigation.jsp" />
 		<div id="contents">
-			<h1>商品詳細画面</h1>
+			<h1>商品詳細</h1>
 			<s:form action="AddCartAction">
 				<div class="box">
 					<div class="2column-container">

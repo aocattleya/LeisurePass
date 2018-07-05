@@ -61,7 +61,7 @@ public class ProductInfoDAO {
 
 		DBConnector dbConnector=new DBConnector();
 		Connection connection=dbConnector.getConnection();
-//		Listのインスタンス化は？
+
 		ProductInfoDTO dto=new ProductInfoDTO();
 		String sql="SELECT * FROM product_info WHERE product_id=?";
 

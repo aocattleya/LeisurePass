@@ -12,8 +12,8 @@ public class Pagination {
 
 		PaginationDTO pageDTO = new PaginationDTO();
 		pageDTO.setTotalPageSize((int)(Math.ceil(list.size() / pageSize)));//	全ページ数
-		pageDTO.setCurrentPageNo(1);//					現在のページ番号
-		pageDTO.setTotalRecordSize(list.size() - 1);//	全レコード数
+		pageDTO.setCurrentPageNo(1);//											現在のページ番号
+		pageDTO.setTotalRecordSize(list.size() - 1);//							全レコード数
 		pageDTO.setStartRecordNo(pageSize * (pageDTO.getCurrentPageNo() - 1));//現在のページ番号に対する開始レコード番号(オフセット)
 		pageDTO.setEndRecordNo(pageDTO.getStartRecordNo() + (pageSize - 1));//	現在のページ番号に対する終了レコード番号
 

@@ -47,8 +47,8 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 		session.put("previousPageNo", pageDTO.getPreviousPageNo());
 
 		if(!session.containsKey("mCategoryList")) {
-			MCategoryDAO mCategoryDao = new MCategoryDAO();
-			mCategoryList = mCategoryDao.getMCategoryList();
+			MCategoryDAO mCategoryDAO = new MCategoryDAO();
+			mCategoryList = mCategoryDAO.getMCategoryList();
 			session.put("mCategoryDtoList", mCategoryList);
 		}
 

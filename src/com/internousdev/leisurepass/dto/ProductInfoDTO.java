@@ -58,7 +58,7 @@ public class ProductInfoDTO {
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
-	public int getPrice() {
+	public int getPrice(){
 		return price;
 	}
 	public void setPrice(int price) {

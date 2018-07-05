@@ -33,7 +33,7 @@ public class MypageAction extends ActionSupport implements SessionAware{
 		UserInfoDAO userInfoDAO=new UserInfoDAO();
 		UserInfoDTO userInfoDTO=new UserInfoDTO();
 
-		userInfoDTO=userInfoDAO.getUserInfo(String.valueOf(session.get("loginId")));
+		userInfoDTO=userInfoDAO.getUserInfo(String.valueOf(session.get("loginId")),String.valueOf(session.get("loginPassword")));
 
 
 //		userInfoDTOに値があれば、セッションへ名前・性別・メールアドレスを保存する
