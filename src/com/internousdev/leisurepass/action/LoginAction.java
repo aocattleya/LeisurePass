@@ -2,6 +2,7 @@ package com.internousdev.leisurepass.action;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -10,8 +11,10 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.leisurepass.dao.CartInfoDAO;
 import com.internousdev.leisurepass.dao.DestinationInfoDAO;
 import com.internousdev.leisurepass.dao.MCategoryDAO;
+import com.internousdev.leisurepass.dao.UserInfoDAO;
 import com.internousdev.leisurepass.dto.DestinationInfoDTO;
 import com.internousdev.leisurepass.dto.MCategoryDTO;
+import com.internousdev.leisurepass.dto.UserInfoDTO;
 import com.internousdev.leisurepass.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -27,7 +30,10 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public String execute(){
 		String result = ERROR;
 
-			//ログインID保持にチェックが入っているか判定します
+			/*ログインID保持にチェックが入っているか判定します
+			 * true→ログイン保持する
+			 * false→ログイン保持しない
+			 */
 		if(savedLoginId == true){
 			session.put("savedLoginId", true);
 			session.put("loginId", loginId);
@@ -58,11 +64,9 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			session.put("mCategoryDtoList", mCategoryDtoList);
 		}
 
-			/*ログイン可否の判定を行います
-			 * !管理者ページに遷移するコードは後ほど作成します
-			 */
+			//ログイン可否の判定を2段階に分けて実行します
 		UserInfoDAO userInfoDao = new UserInfoDAO();
-		if(userInfoDao.isExistsUserInfo(loginId, password)){
+		if(userInfoDao.isExistsUserinfo(loginId, password)){
 			if(userInfoDao.login(loginId, password) > 0){
 				UserInfoDTO userInfoDTO = userInfoDao.getUserInfo(loginId, password);
 				session.put("loginId", userInfoDTO.getUserId());
@@ -96,7 +100,18 @@ public class LoginAction extends ActionSupport implements SessionAware{
 				//ヘッダーにログアウトとマイページを表示させるようにします。
 			session.put("logined", 1);
 			//管理者用ユーザーIDとパスワードを入力した場合、管理者用のページに遷移します。
-		if(String.valueOf(session.get("loginId")).equals("admin")){
+		if(String.valueOf(session.get("loginId")).equals("admin")
+			|| String.valueOf(session.get("loginId")).equals("admin2")
+			|| String.valueOf(session.get("loginId")).equals("admin3")
+			|| String.valueOf(session.get("loginId")).equals("admin4")
+			|| String.valueOf(session.get("loginId")).equals("admin5")
+			|| String.valueOf(session.get("loginId")).equals("admin6")
+			|| String.valueOf(session.get("loginId")).equals("admin7")
+			|| String.valueOf(session.get("loginId")).equals("admin8")
+			|| String.valueOf(session.get("loginId")).equals("admin9")
+			|| String.valueOf(session.get("loginId")).equals("admin10")
+			|| String.valueOf(session.get("loginId")).equals("admin11")
+			|| String.valueOf(session.get("loginId")).equals("admin12")){
 			result = "admin";
 		}
 		}
