@@ -9,10 +9,10 @@
 				<s:textfield name="keywords" placeholder="検索ワード" />
 			</li>
 			<li>
-				<s:select name="placeId" list="#session.mPlaceDtoList" listValue="placeName" listKey="placeId" />
+				<%-- <s:select name="placeId" list="#session.mPlaceDtoList" listValue="placeName" listKey="placeId" /> --%>
 			</li>
 			<li>
-				<s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" />
+				<%-- <s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" /> --%>
 			</li>
 			<li>
 				<a href="#">カレンダー</a>

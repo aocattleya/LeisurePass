@@ -21,16 +21,38 @@
 				<div><a href="#">おすすめ1</a></div>
 				<div><a href="#">おすすめ2</a></div>
 				<div><a href="#">おすすめ3</a></div>
+
+				<div>	<!--  テスト用  -->
+					<s:form action="HomeAction">
+						<s:submit value="HomeAction" />
+					</s:form>
+					<s:form action="GoLoginAction">
+						<s:submit value="GoLoginAction" />
+					</s:form>
+					<s:form action="CreateUserAction">
+						<s:submit value="CreateUserAction" />
+					</s:form>
+					<s:form action="ProductListAction">
+						<s:submit value="ProductListAction" />
+					</s:form>
+					<s:form action="CartAction">
+						<s:submit value="CartAction" />
+					</s:form>
+					<s:form action="MyPageAction">
+						<s:submit value="MyPageAction" />
+					</s:form>
+					<s:form action="PurchaseHistoryAction">
+						<s:submit value="PurchaseHistoryAction" />
+					</s:form>
+					<s:form action="CreateDestinationAction">
+						<s:submit value="CreateDestinationAction" />
+					</s:form>
+					<s:form action="ResetPasswordAction">
+						<s:submit value="ResetPasswordAction" />
+					</s:form>
+				</div>	<!--  テスト用  -->
+
 			</div>
-
-			<!--  テスト用  -->
-			<s:form action="CreateDestinationAction">
-				<s:submit value="CreateDestinationAction" />
-			</s:form>
-			<s:form action="ResetPasswordAction">
-				<s:submit value="ResetPasswordAction" />
-			</s:form>
-
 		</div>
 
 		<jsp:include page="footer.jsp" />
