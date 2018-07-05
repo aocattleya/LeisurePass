@@ -147,6 +147,7 @@ public int regist(String userId, String tempUserId, int productId, String produc
 	return count;
 	}
 
+
 public int deleteAll(String userId){
 	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
@@ -166,6 +167,7 @@ public int deleteAll(String userId){
 	}
 	return count;
 }
+
 
 public int linkToLoginId(String tempUserId, String loginId){
 	DBConnector dbConnector = new DBConnector();
