@@ -23,6 +23,11 @@
 				<div><a href="#">おすすめ3</a></div>
 			</div>
 
+			<!--  テスト用  -->
+			<s:form action="CreateDestinationAction">
+				<s:submit value="CreateDestinationAction" />
+			</s:form>
+
 		</div>
 
 		<jsp:include page="footer.jsp" />
