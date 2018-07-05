@@ -11,7 +11,12 @@
 </head>
 <body>
 	<jsp:include page="header.jsp" />
-	<div id="contents">
+
+	<div id="main" class="cf">
+
+		<jsp:include page="navigation.jsp" />
+
+		<div id="contents">
 		<h1>宛先情報入力画面</h1>
 
 		<s:if test="#session.familyNameErrorMassageList.isEmpty()">
@@ -142,6 +147,8 @@
 		</div>
 		</s:form>
 	</div>
-	<s:include value="footer.jsp" />
+	</div>
+
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
