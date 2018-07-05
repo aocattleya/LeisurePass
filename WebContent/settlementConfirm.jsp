@@ -16,9 +16,7 @@
 		<div id="contents">
 			<h1>決済確認画面</h1>
 			<div class="info">送り先情報を選択してください</div>
-
 			<s:form id="form" action="SettlementCompleteAction">                    <!-- ここから決済ボタンまでの要素 -->
-
 				<table class="horizontal-list-table">                               <!-- リストテーブルの作成↓ -->
 					<thead>                                                         <!-- ヘッダーラベル↓ -->
 						<tr>
@@ -35,27 +33,32 @@
 						<s:iterator value="#session.destinationInfoDtoList" status="st">
 							<tr>
 								<td>
-									<s:if test="#st.index == 0">
+									<s:if test="#st.index == 0">                        <!-- 1つ目をチェックしておく -->
 										<input type="radio" name="id" checked="checked" value="<s:property value='id'/>" />
-									</s:if>
+									</s:if>                                             <!-- チェック -->
 									<s:else>
 										<input type="radio" name="id" value="<s:property value='id'/>" />
-									</s:else>
+									</s:else>                                           <!-- それ以外はNOチェック -->
 								</td>
 
 								<td>
-									<s:property value="familyName" /><span></span>
-									<s:property value="firstName" /><br>
+									<s:property value="familyName" /><span></span>      <!-- 名前：苗字 -->
+									<s:property value="firstName" /><br>                <!-- 名前：名 -->
 								</td>
 
 								<td>
-									<s:property value="familyNameKana" /><span></span>
-									<s:property value="firstNameKana" /><br>
+									<s:property value="familyNameKana" /><span></span>  <!-- なまえ：みょう -->
+									<s:property value="firstNameKana" /><br>            <!-- なまえ：めい -->
 								</td>
-
-								<td><s:property value="userAddress" /></td>
-								<td><s:property value="telNumber" /></td>
-								<td><s:property value="email" /></td>
+								<td>
+									<s:property value="userAddress" />                  <!-- 住所 -->
+								</td>
+								<td>
+									<s:property value="telNumber" />                    <!-- 電話番号 -->
+								</td>
+								<td>
+									<s:property value="email" />                        <!-- メール -->
+								</td>
 						</s:iterator>
 
 					</tbody>                                                        <!-- ボディラベル↑ -->
@@ -66,7 +69,6 @@
 						<s:submit value="決済" class="submit_btn" />
 					</div>
 				</div>                                                     <!-- 決済ボタン↑ -->
-
 			</s:form>                                                               <!-- ここまで決済ボタンまでの要素 -->
 
 			<div class="submit_btn_box">                                   <!-- 新規登録ボタン↓ -->

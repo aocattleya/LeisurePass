@@ -12,11 +12,11 @@
 
 
 <!-- 遠藤  ホーム画面へ -->
-<!--
+
   	<action name="HomeAction" class="com.internousdev.leisurepass.action.HomeAction" method="execute">
 		<result name="success">home.jsp</result>
 	</action>
--->
+
 
 
 
