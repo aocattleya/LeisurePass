@@ -4,11 +4,11 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-//import org.apache.struts2.intercepter.SessionAware;
 //import com.internousdev.sampleweb.dao.UserInfoDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LogoutAction extends ActionSupport implements SessionAware{
+
 	private String categoryId;
 	private Map<String, Object> session;
 	public String execute() {
@@ -35,7 +35,7 @@ public class LogoutAction extends ActionSupport implements SessionAware{
 	public Map<String, Object> getSession(){
 		return session;
 	}
-	public void setSession(Map<String, Oblect> session) {
+	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 }
