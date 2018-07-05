@@ -13,10 +13,9 @@
 
 <!-- 遠藤  ホーム画面へ -->
 
-  	<action name="HomeAction" class="com.internousdev.leisurepass.action.HomeAction" method="execute">
+	<action name="HomeAction" class="com.internousdev.leisurepass.action.HomeAction" method="execute">
 		<result name="success">home.jsp</result>
 	</action>
-
 
 
 
@@ -29,16 +28,13 @@
  -->
 
 
-
 <!-- 遠藤  商品検索をして商品一覧へ (productList.jsp→横山)-->
 <!--
   	<action name="SearchItemAction" class="com.internousdev.leisurepass.action.SearchItemAction" method="execute">
 		<result name="success">productList.jsp</result>
 		<result name="error">productList.jsp</result>
 	</action>
--->
-
-
+ -->
 
 
 <!-- 山本・久保田  ログイン画面へ (home.jsp→遠藤) -->
@@ -47,10 +43,7 @@
 		<result name="success">login.jsp</result>
 		<result name="error">home.jsp</result>
 	</action>
--->
-
-
-
+ -->
 
 <!-- 山本・久保田  ゲストIDでログインをしてホームへ、買物中なら決済確認画面へ (settlementConfirm.jsp→北中)-->
 <!--
@@ -60,8 +53,7 @@
 		<result name="settlement">settlementConfirm.jsp</result>
 		<result name="error">login.jsp</result>
 	</action>
--->
-
+ -->
 
 <!-- 久保田  管理者IDで管理者画面へ -->
 <!--
@@ -69,30 +61,23 @@
 		<result name="SUCCESS">admin.jsp</result>
 		<result name="ERROR">login.jsp</result>
 	</action>
--->
-
-
+ -->
 
 <!-- 久保田　管理者もろもろ -->
 <!--
 	<action name="AddItemAction" class="com.internousdev.leisurepass.action.AddItemAction" method="execute">
 		<result name="SUCCESS">addItem.jsp</result>
 	</action>
-
 	<action name="AddItemConfirmAction" class="com.internousdev.leisurepass.AddItemConfirmAction" method="execute">
 		<result name="SUCCESS">addItemConfirm.jsp</result>
 	</action>
-
 	<action name="AddItemCompleteAction" class="com.internousdev.leisurepass.AddItemCompleteAction" method="execute">
 		<result name="SUCCESS">addItemComplete.jsp</result>
 	</action>
-
 	<action name="EditItemAction" class="com.internousdev.leisurepass.EditItemAction" method="execute">
 		<result name="SUCCESS">editItem.jsp</result>
 	</action>
  -->
-
-
 
 <!-- 内野  ユーザー情報入力画面へ (home.jsp→遠藤)-->
 <!--
@@ -102,7 +87,6 @@
 	</action>
  -->
 
-
 <!-- 内野  ユーザー登録内容確認画面へ　入力内容の確認 -->
 <!--
 	<action name="CreateUserConfirmAction" class="com.internousdev.leisurepass.action.CreateUserConfirmAction" method="execute">
@@ -111,16 +95,13 @@
 	</action>
  -->
 
-
 <!-- 内野  ユーザー登録完了画面へ 　→完了したらHOMEへ自動遷移 -->
 <!--
   	<action name="CreateUserCompleteAction" class="com.internousdev.leisurepass.action.CreateUserCompleteAction" method="execute">
 		<result name="success">createUserComplete.jsp</result>
 		<result name="error">createUser.jsp</result>
 	</action>
--->
-
-
+ -->
 
 <!-- 中山  パスワード再設定画面へ　新しいパスワードを入力する (login.jsp→山本久保田) -->
 <!--
@@ -128,8 +109,7 @@
 		<result name="success">resetPassword.jsp</result>
 		<result name="error">login.jsp</result>
 	</action>
--->
-
+ -->
 
 <!-- 中山  パスワード再設定確認画面へ　入力内容の確認 -->
 <!--
@@ -137,8 +117,7 @@
 		<result name="success">resetPasswordConfirm.jsp</result>
 		<result name="error">resetPassword.jsp</result>
 	</action>
--->
-
+ -->
 
 <!-- 中山  パスワード再設定完了画面へ  →完了したらHOMEへ自動遷移 -->
 <!--
@@ -146,9 +125,7 @@
 		<result name="success">resetPasswordComplete.jsp</result>
 		<result name="error">resetPassword.jsp</result>
 	</action>
--->
-
-
+ -->
 
 <!-- 横山  商品一覧画面へ -->
 <!--
@@ -156,8 +133,7 @@
 		<result name="success">productList.jsp</result>
 		<result name="error">home.jsp</result>
 	</action>
--->
-
+ -->
 
 <!-- 横山  選択した商品の商品詳細画面へ -->
 <!--
@@ -165,9 +141,7 @@
 		<result name="success">productDetails.jsp</result>
 		<result name="error">productList.jsp</result>
 	</action>
--->
-
-
+ -->
 
 <!-- 伊藤  カートに入れるボタンでカートに追加してカート画面へ (home.jsp→遠藤) -->
 <!--
@@ -176,9 +150,7 @@
 		<result name="error">home.jsp</result>
 		<result name="input">cart.jsp</result>
 	</action>
--->
-
-
+ -->
 
 <!-- 伊藤  カート画面へ -->
 <!--
@@ -186,8 +158,7 @@
 		<result name="success">cart.jsp</result>
 		<result name="error">home.jsp</result>
 	</action>
--->
-
+ -->
 
 <!-- 伊藤  カートに入っている項目の削除 -->
 <!--
@@ -195,8 +166,7 @@
 		<result name="success">cart.jsp</result>
 		<result name="error">cart.jsp</result>
 	</action>
--->
-
+ -->
 
 <!-- 北中  決済確認画面へ　送り先を指定 (login.jsp→山本久保田) -->
 <!--
@@ -204,8 +174,7 @@
 		<result name="success">settlementConfirm.jsp</result>
 		<result name="error">login.jsp</result>
 	</action>
-​-->
-
+ -->
 
 <!-- 北中  決済完了画面へ -->
 <!--
@@ -213,9 +182,7 @@
 		<result name="success">settlementComplete.jsp</result>
 		<result name="error">settlementConfirm.jsp</result>
 	</action>
--->
-
-
+ -->
 
 <!-- 根岸  宛先情報入力画面へ (home.jsp→遠藤)-->
 <!--
@@ -223,8 +190,7 @@
 		<result name="success">createDestination.jsp</result>
 		<result name="error">home.jsp</result>
 	</action>
--->
-
+ -->
 
 <!-- 根岸  宛先情報確認画面へ  入力した内容を表示 -->
 <!--
@@ -232,8 +198,7 @@
 		<result name="success">createDestinationConfirm.jsp</result>
 		<result name="error">createDestination.jsp</result>
 	</action>
--->
-
+ -->
 
 <!-- 根岸  宛先情報完了画面へ  -->
 <!--
@@ -241,8 +206,7 @@
 		<result name="success">createDestinationComplete.jsp</result>
 		<result name="error">createDestination.jsp</result>
 	</action>
--->
-
+ -->
 
 <!-- 横山  マイページへ -->
 <!--
@@ -250,15 +214,14 @@
 		<result name="success">mypage.jsp</result>
 		<result name="error">home.jsp</result>
 	</action>
--->
+ -->
 
 <!-- 山本  マイページから購入履歴へ -->
 <!--
 	<action name="PurchaseHistoryAction" class="com.internousdev.leisurepass.action.PurchaseHistoryAction" method="execute">
 		<result name="success">purchaseHistory.jsp</result>
 	</action>
--->
-
+ -->
 
 <!-- 山本  購入履歴を削除 -->
 <!--
@@ -266,8 +229,7 @@
 		<result name="success">purchaseHistory.jsp</result>
 		<result name="error">purchaseHistory.jsp</result>
 	</action>
--->
-
+ -->
 
 
 	</package>
