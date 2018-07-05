@@ -38,7 +38,7 @@ insert into user_info values
 (10,"admin10","admin10","管理者","管理者","かんりしゃ","かんりしゃ",0,"admin@gmail.com",0,0,now(),now());
 (11,"admin11","admin11","管理者","管理者","かんりしゃ","かんりしゃ",0,"admin@gmail.com",0,0,now(),now());
 (12,"admin12","admin12","管理者","管理者","かんりしゃ","かんりしゃ",0,"admin@gmail.com",0,0,now(),now());
-(2,"guest","guest","インターノウス","ゲストユーザー","いんたーのうす","げすとゆーざー",0,"guest@gmail.com",0,0,now(),now());
+(13,"guest","guest","インターノウス","ゲストユーザー","いんたーのうす","げすとゆーざー",0,"guest@gmail.com",0,0,now(),now());
 
 -- 商品
 create table product_info(
