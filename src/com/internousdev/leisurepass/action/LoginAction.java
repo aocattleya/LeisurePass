@@ -8,7 +8,9 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.leisurepass.dao.CartInfoDAO;
+import com.internousdev.leisurepass.dao.DestinationInfoDAO;
 import com.internousdev.leisurepass.dao.MCategoryDAO;
+import com.internousdev.leisurepass.dto.DestinationInfoDTO;
 import com.internousdev.leisurepass.dto.MCategoryDTO;
 import com.internousdev.leisurepass.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
@@ -74,9 +76,11 @@ public class LoginAction extends ActionSupport implements SessionAware{
 				if(count > 0){
 					DestinationInfoDAO destinationInfoDao = new DestinationInfoDAO();
 					try{
+							//ログインユーザーの宛先情報を取得します。
 						List<DestinationInfoDTO> destinationInfoDtoList = new ArrayList<DestinationInfoDTO>();
 						destinationInfoDtoList = destinationInfoDao.getDestinationInfo(loginId);
 						Iterator<DestinationInfoDTO> iterator = destinationInfoDtoList.iterator();
+							//宛先情報がひとつもなければ、nullを格納します。
 						if(!(iterator.hasNext())){
 							destinationInfoDtoList = null;
 						}
@@ -89,7 +93,12 @@ public class LoginAction extends ActionSupport implements SessionAware{
 					result = SUCCESS;
 				}
 			}
+				//ヘッダーにログアウトとマイページを表示させるようにします。
 			session.put("logined", 1);
+			//管理者用ユーザーIDとパスワードを入力した場合、管理者用のページに遷移します。
+		if(String.valueOf(session.get("loginId")).equals("admin")){
+			result = "admin";
+		}
 		}
 		return result;
 	}
