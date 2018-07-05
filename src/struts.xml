@@ -100,16 +100,16 @@
 		<result name="success">createUser.jsp</result>
 		<result name="error">home.jsp</result>
 	</action>
--->
+ -->
 
 
 <!-- 内野  ユーザー登録内容確認画面へ　入力内容の確認 -->
 <!--
-  	<action name="CreateUserConfirmAction" class="com.internousdev.leisurepass.action.CreateUserConfirmAction" method="execute">
+	<action name="CreateUserConfirmAction" class="com.internousdev.leisurepass.action.CreateUserConfirmAction" method="execute">
 		<result name="success">createUserConfirm.jsp</result>
 		<result name="error">createUser.jsp</result>
 	</action>
-​ -->
+ -->
 
 
 <!-- 内野  ユーザー登録完了画面へ 　→完了したらHOMEへ自動遷移 -->

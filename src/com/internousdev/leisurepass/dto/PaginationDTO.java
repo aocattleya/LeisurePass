@@ -8,7 +8,7 @@ import java.util.List;
 		private int totalPageSize;//	全ページ数
 		private int currentPageNo;//	現在のページ数
 		private int totalRecordSize;//	全レコード数
-		private int startrecordNo;//	開始レコード番号
+		private int startRecordNo;//	開始レコード番号
 		private int endRecordNo;//		終了レコード番号
 		private List<Integer> pageNuberList=new ArrayList<Integer>();//	ページャーに表示するページ番号一覧
 		private List<ProductInfoDTO> currentProductPage;//				1ページ文のリストページ情報(商品情報)
@@ -16,6 +16,10 @@ import java.util.List;
 		private boolean hasPreviousPage;//		前ページが存在するか
 		private int nextPageNo;//				次ページ番号
 		private int previousPageNo;//			前ページ番号
+
+
+
+//		get/setの設定
 		public int getTotalPageSize() {
 			return totalPageSize;
 		}
@@ -34,11 +38,11 @@ import java.util.List;
 		public void setTotalRecordSize(int totalRecordSize) {
 			this.totalRecordSize = totalRecordSize;
 		}
-		public int getStartrecordNo() {
-			return startrecordNo;
+		public int getStartRecordNo() {
+			return startRecordNo;
 		}
-		public void setStartrecordNo(int startrecordNo) {
-			this.startrecordNo = startrecordNo;
+		public void setStartRecordNo(int startrecordNo) {
+			this.startRecordNo = startrecordNo;
 		}
 		public int getEndRecordNo() {
 			return endRecordNo;
@@ -46,7 +50,7 @@ import java.util.List;
 		public void setEndRecordNo(int endRecordNo) {
 			this.endRecordNo = endRecordNo;
 		}
-		public List<Integer> getPageNuberList() {
+		public List<Integer> getPageNumberList() {
 			return pageNuberList;
 		}
 		public void setPageNuberList(List<Integer> pageNuberList) {
@@ -58,16 +62,16 @@ import java.util.List;
 		public void setCurrentProductPage(List<ProductInfoDTO> currentProductPage) {
 			this.currentProductPage = currentProductPage;
 		}
-		public boolean isHasNextPage() {
+		public boolean hasNextPage() {
 			return hasNextPage;
 		}
-		public void setHasNextPage(boolean hasNextPage) {
+		public void setNextPage(boolean hasNextPage) {
 			this.hasNextPage = hasNextPage;
 		}
-		public boolean isHasPreviousPage() {
+		public boolean hasPreviousPage() {
 			return hasPreviousPage;
 		}
-		public void setHasPreviousPage(boolean hasPreviousPage) {
+		public void setPreviousPage(boolean hasPreviousPage) {
 			this.hasPreviousPage = hasPreviousPage;
 		}
 		public int getNextPageNo() {
