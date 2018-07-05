@@ -57,7 +57,7 @@ public class ProductInfoDAO {
 	}
 
 
-	public ProductInfoDTO getProductInfo(String productId){
+	public ProductInfoDTO getProductInfo(int productId){
 
 		DBConnector dbConnector=new DBConnector();
 		Connection connection=dbConnector.getConnection();
@@ -67,7 +67,7 @@ public class ProductInfoDAO {
 
 		try{
 			PreparedStatement preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setString(1, productId);
+			preparedStatement.setInt(1, productId);
 			ResultSet resultSet=preparedStatement.executeQuery();
 
 			while(resultSet.next()){
