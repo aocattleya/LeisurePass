@@ -1,12 +1,13 @@
 package com.internousdev.leisurepass.action;
 
 import java.util.Map;
+
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.leisurepass.dao.UserInfoDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ResetPasswordCompleteAction {
+public class ResetPasswordCompleteAction extends ActionSupport implements SessionAware {
 
 	private String categoryId;
 	private String loginId;

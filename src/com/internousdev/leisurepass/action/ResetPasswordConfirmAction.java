@@ -7,7 +7,6 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.leisurepass.dao.UserInfoDAO;
 import com.internousdev.leisurepass.util.InputChecker;
-
 import com.opensymphony.xwork2.ActionSupport;
 
 
