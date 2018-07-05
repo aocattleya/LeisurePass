@@ -54,6 +54,7 @@
 <!--
 	<action name="LoginAction" class="com.internousdev.leisurepass.action.LoginAction" method="execute">
 		<result name="success">home.jsp</result>
+		<result name="admin">admin.jsp</result>
 		<result name="settlement">settlementConfirm.jsp</result>
 		<result name="error">login.jsp</result>
 	</action>
