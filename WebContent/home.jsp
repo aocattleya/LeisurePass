@@ -27,6 +27,9 @@
 			<s:form action="CreateDestinationAction">
 				<s:submit value="CreateDestinationAction" />
 			</s:form>
+			<s:form action="ResetPasswordAction">
+				<s:submit value="ResetPasswordAction" />
+			</s:form>
 
 		</div>
 
