@@ -35,7 +35,7 @@ public String execute(){
 	//ログインしてないときにカートに商品を入れた場合、仮ＩＤを生成して
 	//ひとまず仮のユーザーのカートに商品が入るようになる
 	if(!(session.containsKey("loginId") && session.containsKey("tempUserId"))){
-		session.put("tempUserId", commonUtility.RandomValue());
+		session.put("tempUserId", commonUtility.randomValue());
 	}
 	//loginIdがsessionに入っていればsessionのloginIdをStringに変換代入することで
 	//テーブルにはloginIdはないのでここでuserIdとloginIdをヒモ付ける
@@ -59,26 +59,27 @@ public String execute(){
 	}
 
 	//リストの中身取り出し
-	List<CartInfoDTO> cartinfoDTOlist = new ArrayList<CartInfoDTO>();
-	cartinfoDTOlist = cartInfoDAO.CartInfoList(userId);
-	Iterator<CartInfoDTO> iterator = cartinfoDTOlist.iterator();
+	List<CartInfoDTO> getCartInfoDtoList = new ArrayList<CartInfoDTO>();
+	getCartInfoDtoList = cartInfoDAO.getCartInfoDtoList(userId);
+	Iterator<CartInfoDTO> iterator = getCartInfoDtoList.iterator();
 
 	//リストに何も入っていなければsessionにnullを入れ、
 	//JSPにて「カート情報はありません」の表示を出させる
 	if(!(iterator.hasNext())){
-		cartinfoDTOlist=null;
+		getCartInfoDtoList=null;
 	}
 
 	//sessionにデータを入れて次の画面に持っていく
-	session.put("cartinfoDTOlist", cartinfoDTOlist);
+	session.put("cartinfoDTOlist", getCartInfoDtoList);
 
 	//合計金額の表示
-	int TotalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.TotalPrice(userId)));
+	int TotalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
 	session.put("TotalPrice", TotalPrice);
 	return result;
 }
 
-//////////////////////////////////////////////////////////////////////////////////
+
+/////////////////getter/setter//////////////
 	public int getProductId() {
 		return productId;
 	}

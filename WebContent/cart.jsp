@@ -8,12 +8,17 @@
 <title>カート画面</title>
 </head>
 <body>
+<jsp:include page="header.jsp" />
+	<div id="main" class="cf">
+		<jsp:include page="navigation.jsp" />
+		<div id="contents">
+
 <h1>カート画面</h1>
-<%--
+
 <s:if test="#session.ErrorMessageList !=null">
-	<s:iterator#session.ErrorMessageList />
+	<s:iterator value="#session.ErrorMessageList" />
 </s:if>
- --%>
+
 
  <s:if test="#session.cartinfoDTOlist !=null">
  <s:form>
@@ -73,5 +78,9 @@
 	カート情報はありません
 </s:else>
 
+</div>
+	</div>
+	<jsp:include page="footer.jsp" />
+</body>
 </body>
 </html>
