@@ -10,12 +10,26 @@
 <link rel="stylesheet" href="./css/style.css">
 <title>宛先情報完了</title>
 </head>
+
 <body>
+
 	<jsp:include page="header.jsp" />
-	<div id="contents">
-		<h1>宛先情報完了画面</h1>
-		<div class="success">宛先情報の登録が完了しました。</div>
+
+	<div id="main" class="cf">
+
+		<jsp:include page="navigation.jsp" />
+
+		<div id="contents">
+
+			<h1>宛先情報完了画面</h1>
+			<div class="success">宛先情報の登録が完了しました。</div>
+
+
+		</div>
+
 	</div>
-	<s:include value="footer.jsp" />
+
+	<jsp:include page="footer.jsp" />
+
 </body>
 </html>
