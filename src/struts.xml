@@ -50,6 +50,8 @@
 -->
 
 
+
+
 <!-- 山本・久保田  ゲストIDでログインをしてホームへ、買物中なら決済確認画面へ (settlementConfirm.jsp→北中)-->
 <!--
 	<action name="LoginAction" class="com.internousdev.leisurepass.action.LoginAction" method="execute">
