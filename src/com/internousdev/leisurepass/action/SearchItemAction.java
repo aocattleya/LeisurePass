@@ -1,4 +1,4 @@
-package com.internousdev.sampleweb.action;
+package com.internousdev.leisurepass.action;
 
 import java.util.ArrayList;
 import java.util.Iterator;
