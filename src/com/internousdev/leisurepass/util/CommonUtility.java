@@ -13,5 +13,8 @@ public class CommonUtility {
 		}
 		return value;
 	}
+public String [] parseArrayList(String s){
+	return s.split(",",0);
+}
 
 }
