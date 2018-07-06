@@ -14,7 +14,7 @@ import com.internousdev.leisurepass.dao.MCategoryDAO;
 import com.internousdev.leisurepass.dao.UserInfoDAO;
 import com.internousdev.leisurepass.dto.DestinationInfoDTO;
 import com.internousdev.leisurepass.dto.MCategoryDTO;
-import com.internousdev.leisurepass.dto.UserInfoDTO;
+//import com.internousdev.leisurepass.dto.UserInfoDTO;
 import com.internousdev.leisurepass.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -68,8 +68,12 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		UserInfoDAO userInfoDao = new UserInfoDAO();
 		if (userInfoDao.isExistsUserinfo(loginId, password)) {
 			if (userInfoDao.login(loginId, password) > 0) {
-				UserInfoDTO userInfoDTO = userInfoDao.getUserInfo(loginId, password);
-				session.put("loginId", userInfoDTO.getUserId());
+				//UserInfoDTO userInfoDTO = userInfoDao.getUserInfo(loginId, password);
+				//System.out.println(userInfoDTO.getUserId());	←結果：null
+				//System.out.println(loginId);					←結果：入力した文字列
+				//session.put("loginId", userInfoDTO.getUserId());	←元のコード
+				//↓のコードに修正します
+				session.put("loginId", loginId);
 				int count = 0;
 				CartInfoDAO cartInfoDao = new CartInfoDAO();
 
