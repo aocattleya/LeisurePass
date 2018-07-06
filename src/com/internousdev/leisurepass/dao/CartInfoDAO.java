@@ -179,8 +179,8 @@ public int linkToLoginId(String loginId, String tempUserId){
 
 	try{
 		PreparedStatement ps = connection.prepareStatement(sql);
-		ps.setString(1, tempUserId);
-		ps.setString(2, loginId);
+		ps.setString(1, loginId);
+		ps.setString(2, tempUserId);
 		count=ps.executeUpdate();
 	}catch(SQLException e){
 		e.printStackTrace();

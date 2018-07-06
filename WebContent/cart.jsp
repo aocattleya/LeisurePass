@@ -78,7 +78,7 @@
 					<br>
 
 <s:submit value="決済" class="submit_btn"/>
-<s:submit value="削除" class="submit_btn" onclick="action='DeleteCartAction';" />
+<s:submit value="削除" class="submit_btn" onclick="this.form.action='DeleteCartAction';" />
 
 				</s:form>
 			</s:if>
