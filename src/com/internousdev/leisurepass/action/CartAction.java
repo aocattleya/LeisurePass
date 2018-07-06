@@ -14,7 +14,7 @@ public class CartAction extends ActionSupport implements SessionAware {
 
 	public String execute() {
 		String userId = null;
-		List<CartInfoDTO> cartInfoDtolist = new ArrayList<CartInfoDTO>();
+		List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
 		String result = ERROR;
 
 		// loginId か tempUserIdがあればuserIdに変換しとりあえずユーザー確認
@@ -25,14 +25,14 @@ public class CartAction extends ActionSupport implements SessionAware {
 		}
 
 		CartInfoDAO cartInfoDao = new CartInfoDAO();
-		cartInfoDtolist = cartInfoDao.getCartInfoDtoList(userId);
-		Iterator<CartInfoDTO> iterator = cartInfoDtolist.iterator();
+		cartInfoDtoList = cartInfoDao.getCartInfoDtoList(userId);
+		Iterator<CartInfoDTO> iterator = cartInfoDtoList.iterator();
 
 		// jspで商品情報なしのメッセージを表示するためにリストにnullを代入
 		if (!(iterator.hasNext())) {
-			cartInfoDtolist = null;
+			cartInfoDtoList = null;
 		}
-		session.put("cartInfoDtolist", cartInfoDtolist);
+		session.put("cartInfoDtoList", cartInfoDtoList);
 
 		// カート内合計金額の表示
 		int TotalPrice = Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(userId)));
