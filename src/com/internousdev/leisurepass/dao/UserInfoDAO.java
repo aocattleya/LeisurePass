@@ -1,6 +1,4 @@
-/**
- *
- */
+
 package com.internousdev.leisurepass.dao;
 
 import java.sql.Connection;
@@ -17,6 +15,7 @@ public class UserInfoDAO {
 	public int createUserDAO(String familyName,String firstName,String familyNameKana,String firstNameKana,String sex,String email,String loginId,String password){
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
+		System.out.println(familyNameKana);
 		int count = 0;
 		String sql = "insert into user_info(user_id,password,family_name,first_name,family_name_kana,"
 				+ " first_name_kana,sex,email,status,logined,regist_date,update_date)"
@@ -51,7 +50,7 @@ public class UserInfoDAO {
 	 * 『}catch』はDBに接続できなかったなどの例外を示しています。
 	 */
 
-public boolean isExistsUserinfo(String loginId,String password){
+public boolean isExistsUserInfo(String loginId,String password){
 	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
 	boolean result = false;
@@ -83,7 +82,7 @@ public UserInfoDTO getUserInfo(String loginId,String password){
 	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
 	UserInfoDTO userInfoDTO = new UserInfoDTO();
-	String sql= "select from user_info where user_id=? and password=?";
+	String sql= "select * from user_info where user_id=? and password=?";
 	try{
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setString(1, loginId);
@@ -100,7 +99,7 @@ public UserInfoDTO getUserInfo(String loginId,String password){
 			userInfoDTO.setSex(resultSet.getInt("sex"));
 			userInfoDTO.setEmail(resultSet.getString("email"));
 			userInfoDTO.setStatus(resultSet.getString("status"));
-			userInfoDTO.setLogined(resultSet.getInt("status"));
+			userInfoDTO.setLogined(resultSet.getInt("logined"));
 			userInfoDTO.setRegistDate(resultSet.getDate("regist_date"));
 			userInfoDTO.setUpdateDate(resultSet.getDate("update_date"));
 		}
@@ -122,6 +121,43 @@ public UserInfoDTO getUserInfo(String loginId,String password){
  *
  * loginIdだけ入力しPASSWORDを変更したい場合↓
  */
+
+public UserInfoDTO getUserInfo(String loginId) {
+	DBConnector dbConnector = new DBConnector();
+	Connection connection = dbConnector.getConnection();
+	UserInfoDTO userInfoDTO = new UserInfoDTO();
+	String sql = "select * from user_info where user_id=?";
+	try {
+		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+		preparedStatement.setString(1, loginId);
+		ResultSet resultSet = preparedStatement.executeQuery();
+		while(resultSet.next()) {
+			userInfoDTO.setId(resultSet.getInt("id"));
+			userInfoDTO.setUserId(resultSet.getString("user_id"));
+			userInfoDTO.setPassword(resultSet.getString("password"));
+			userInfoDTO.setFamilyName(resultSet.getString("family_name"));
+			userInfoDTO.setFirstName(resultSet.getString("first_name"));
+			userInfoDTO.setFamilyNameKana(resultSet.getString("family_name_kana"));
+			userInfoDTO.setFirstNameKana(resultSet.getString("first_name_kana"));
+			userInfoDTO.setSex(resultSet.getInt("sex"));
+			userInfoDTO.setEmail(resultSet.getString("email"));
+			userInfoDTO.setStatus(resultSet.getString("status"));
+			userInfoDTO.setLogined(resultSet.getInt("logined"));
+			userInfoDTO.setRegistDate(resultSet.getDate("regist_date"));
+			userInfoDTO.setUpdateDate(resultSet.getDate("update_date"));
+		}
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	try {
+		connection.close();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	return userInfoDTO;
+}
+
+
 
 public int resetPassword(String loginId,String password){
 	DBConnector dbConnector = new DBConnector();
@@ -224,14 +260,17 @@ public int logout(String loginId){
  */
 
 
-public String concealPassword(String password){
+public String concealPassword(String password) {
 	int beginIndex = 0;
-	int endIndex = 4;
-
+	int endIndex = 1;
+	if(password.length() > 1) {
+		endIndex = 2;
+	}
 	StringBuilder stringBuilder = new StringBuilder("****************");
 
-	String concealPassword = stringBuilder.replace(beginIndex, endIndex,password.substring(beginIndex, endIndex)).toString();
+	String concealPassword = stringBuilder.replace(beginIndex, endIndex, password.substring(beginIndex,endIndex)).toString();
 	return concealPassword;
+
 }
 }
 
