@@ -66,7 +66,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 		// ログイン可否の判定を2段階に分けて実行します
 		UserInfoDAO userInfoDao = new UserInfoDAO();
-		if (userInfoDao.isExistsUserinfo(loginId, password)) {
+		if (userInfoDao.isExistsUserInfo(loginId, password)) {
 			if (userInfoDao.login(loginId, password) > 0) {
 				//UserInfoDTO userInfoDTO = userInfoDao.getUserInfo(loginId, password);
 				//System.out.println(userInfoDTO.getUserId());	←結果：null
