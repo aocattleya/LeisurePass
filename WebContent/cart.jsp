@@ -6,6 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>カート画面</title>
+<script type="text/javascript">
+	function goDeleteCartAction() {
+		document.getElementById("form").action = 'DeleteCartAction';
+	}
+</script>
 </head>
 <body>
 	<h1>カート画面</h1>
@@ -19,7 +24,7 @@
 			</s:if>
 
 			<s:if test="#session.cartinfoDTOlist !=null">
-				<s:form>
+				<s:form action="SettlementConfirmAction">
 					<table>
 					<thead>
 						<tr>
@@ -72,8 +77,8 @@
 					</h2>
 					<br>
 
-<s:submit value="決済" />
-<s:submit value="削除" onclick="action='DeleteCartAction';" />
+<s:submit value="決済" class="submit_btn"/>
+<s:submit value="削除" class="submit_btn" onclick="action='DeleteCartAction';" />
 
 				</s:form>
 			</s:if>

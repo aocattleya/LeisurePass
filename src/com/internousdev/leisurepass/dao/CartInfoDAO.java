@@ -109,10 +109,10 @@ public int delete(String id) {
 	int count = 0;
 	String sql = "delete from cart_info where id=?";
 	try {
-		PreparedStatement preparedStatement = connection.prepareStatement(sql);
-		preparedStatement.setString(1, id);
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, id);
 
-		count = preparedStatement.executeUpdate();
+		count = ps.executeUpdate();
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}
