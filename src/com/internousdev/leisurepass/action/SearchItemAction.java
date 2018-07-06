@@ -35,6 +35,9 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 		keywordsErrorMessageList = inputChecker.doCheck("検索ワード", keywords, 0, 16, true, true, true, true, false,true,true);
 
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
+		if (categoryId == null){
+			categoryId = "1";
+		}
 		switch (categoryId) {
 			case "1":
 				productInfoDtoList = productInfoDAO.getProductInfoListAll(keywords.replaceAll("　", " ").split(" "));
