@@ -14,8 +14,8 @@
 		<jsp:include page="navigation.jsp" />
 		<div id="contents">
 
-			<s:if test="#session.ErrorMessageList !=null">
-				<s:iterator value="#session.ErrorMessageList" />
+			<s:if test="#session.noCheckErrorMessage !=null">
+				<s:iterator value="#session.noCheckErrorMessage" />
 			</s:if>
 
 			<s:if test="#session.cartinfoDTOlist !=null">
