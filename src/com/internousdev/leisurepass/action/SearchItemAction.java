@@ -10,11 +10,12 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.leisurepass.dao.MCategoryDAO;
 import com.internousdev.leisurepass.dao.ProductInfoDAO;
 import com.internousdev.leisurepass.dto.MCategoryDTO;
+import com.internousdev.leisurepass.dto.PaginationDTO;
 import com.internousdev.leisurepass.dto.ProductInfoDTO;
 import com.internousdev.leisurepass.util.InputChecker;
+import com.internousdev.leisurepass.util.Pagination;
 import com.opensymphony.xwork2.ActionSupport;
 
-import javafx.scene.control.Pagination;
 
 public class SearchItemAction extends ActionSupport implements SessionAware{
 	private String categoryId;
