@@ -30,7 +30,7 @@
 				</s:if>
 				<s:if test="#session.logined == 1">
 					<li>
-						<s:form action="GoMyPageAction">
+						<s:form action="MyPageAction">
 							<s:submit value="マイページ" />
 						</s:form>
 					</li>
