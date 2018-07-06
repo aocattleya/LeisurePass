@@ -127,8 +127,8 @@ public int regist(String userId, String tempUserId, int productId, String produc
 	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
 	int count = 0;
-	String sql ="insert into cart_info(user_id, product_id, product_count, price, regist_date)"
-			+ "values(?,?,?,?,?,now())";
+	String sql ="insert into cart_info(user_id, tempUserId, product_id, product_count, price, regist_date)"
+			+ "values(?,?,?,?,?,?,now())";
 	try{
 		PreparedStatement ps = connection.prepareStatement(sql);
 		ps.setString(1, userId);

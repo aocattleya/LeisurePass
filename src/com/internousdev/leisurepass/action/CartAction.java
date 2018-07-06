@@ -9,37 +9,38 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.internousdev.leisurepass.dao.CartInfoDAO;
 import com.internousdev.leisurepass.dto.CartInfoDTO;
 
-public class CartAction extends ActionSupport implements SessionAware{
+public class CartAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> session;
 
-	public String execute(){
-		String userId=null;
-		String tempUserId=null;
-		List<CartInfoDTO> cartInfoDtolist=new ArrayList<CartInfoDTO>();
+	public String execute() {
+		String userId = null;
+		String tempUserId = null;
+		List<CartInfoDTO> cartInfoDtolist = new ArrayList<CartInfoDTO>();
 		String result = ERROR;
 
-	//loginId か tempUserIdがあればuserIdに変換しとりあえずユーザー確認
-	if(session.containsKey("loginId")){
-		userId = String.valueOf(session.get("loginId"));
-	}	else if(session.containsKey(tempUserId)){
-		userId = String.valueOf(session.get("tempUserId"));
-	}
+		// loginId か tempUserIdがあればuserIdに変換しとりあえずユーザー確認
+		if (session.containsKey("loginId")) {
+			userId = String.valueOf(session.get("loginId"));
+		} else if (session.containsKey(tempUserId)) {
+			userId = String.valueOf(session.get("tempUserId"));
+		}
 
-	CartInfoDAO cartInfoDao=new CartInfoDAO();
-	Iterator<CartInfoDTO> iterator= cartInfoDtolist.iterator();
+		CartInfoDAO cartInfoDao = new CartInfoDAO();
+		cartInfoDtolist = cartInfoDao.getCartInfoDtoList(userId);
+		Iterator<CartInfoDTO> iterator = cartInfoDtolist.iterator();
 
-	//jspで商品情報なしのメッセージを表示するためにリストにnullを代入
-	if(!(iterator.hasNext())){
-		cartInfoDtolist = null;
-	}
-	session.put("cartInfoDtolist", cartInfoDtolist);
+		// jspで商品情報なしのメッセージを表示するためにリストにnullを代入
+		if (!(iterator.hasNext())) {
+			cartInfoDtolist = null;
+		}
+		session.put("cartInfoDtolist", cartInfoDtolist);
 
-	//カート内合計金額の表示
-	int TotalPrice = Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(userId)));
-	session.put("TotalPrice", TotalPrice);
+		// カート内合計金額の表示
+		int TotalPrice = Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(userId)));
+		session.put("TotalPrice", TotalPrice);
 
-	result = SUCCESS;
-	return result;
+		result = SUCCESS;
+		return result;
 	}
 
 	public Map<String, Object> getSession() {
