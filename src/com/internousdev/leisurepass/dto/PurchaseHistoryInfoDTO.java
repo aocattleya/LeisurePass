@@ -32,148 +32,196 @@ public class PurchaseHistoryInfoDTO {
 	/* その他 */
 	private int subtotal;
 
-	public int getId(){
+	public int getId() {
 		return id;
 	}
-	public void setId(int id){
+
+	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUserId(){
+
+	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(String userId){
+
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public int getProductId(){
+
+	public int getProductId() {
 		return productId;
 	}
-	public void setProductId(int productId){
+
+	public void setProductId(int productId) {
 		this.productId = productId;
 	}
-	public int getProductCount(){
+
+	public int getProductCount() {
 		return productCount;
 	}
-	public void setProductCount(int productCount){
+
+	public void setProductCount(int productCount) {
 		this.productCount = productCount;
 	}
-	public int price(){
+
+	public int price() {
 		return price;
 	}
-	public void setPrice(int price){
+
+	public void setPrice(int price) {
 		this.price = price;
 	}
-	public int getDestinationId(){
+
+	public int getDestinationId() {
 		return destinationId;
 	}
-	public void setDestinationId(int destinationId){
+
+	public void setDestinationId(int destinationId) {
 		this.destinationId = destinationId;
 	}
-	public Date getRegistDate(){
+
+	public Date getRegistDate() {
 		return registDate;
 	}
-	public void setRegistDate(Date registDate){
+
+	public void setRegistDate(Date registDate) {
 		this.registDate = registDate;
 	}
-	public Date getUpdateDate(){
+
+	public Date getUpdateDate() {
 		return updateDate;
 	}
-	public void setUpdateDate(Date updateDate){
+
+	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
-	public String getProductName(){
+
+	public String getProductName() {
 		return productName;
 	}
-	public void setProductName(String productName){
+
+	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-	public String getProductNameKana(){
+
+	public String getProductNameKana() {
 		return productNameKana;
 	}
-	public void setProductNameKana(String productNameKana){
+
+	public void setProductNameKana(String productNameKana) {
 		this.productNameKana = productNameKana;
 	}
-	public String getProductDescription(){
+
+	public String getProductDescription() {
 		return productDescription;
 	}
-	public void setProductDescription(String productDescription){
+
+	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
 	}
-	public int getCategoryId(){
+
+	public int getCategoryId() {
 		return categoryId;
 	}
-	public void setCategoryId(int categoryId){
+
+	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
-	public String getImageFileName(){
+
+	public String getImageFileName() {
 		return imageFileName;
 	}
-	public void setImageFileName(String imageFileName){
+
+	public void setImageFileName(String imageFileName) {
 		this.imageFileName = imageFileName;
 	}
-	public String getImageFilePath(){
+
+	public String getImageFilePath() {
 		return imageFilePath;
 	}
-	public void setImageFilePath(String imageFilePath){
+
+	public void setImageFilePath(String imageFilePath) {
 		this.imageFilePath = imageFilePath;
 	}
-	public String getReleaseCompany(){
+
+	public String getReleaseCompany() {
 		return releaseCompany;
 	}
-	public void setReleaseCompany(String releaseCompany){
+
+	public void setReleaseCompany(String releaseCompany) {
 		this.releaseCompany = releaseCompany;
 	}
-	public Date getReleaseDate(){
+
+	public Date getReleaseDate() {
 		return releaseDate;
 	}
-	public void setReleaseDate(Date releaseDate){
+
+	public void setReleaseDate(Date releaseDate) {
 		this.releaseDate = releaseDate;
 	}
-	public String getFamilyName(){
+
+	public String getFamilyName() {
 		return familyName;
 	}
-	public void setFamilyName(String familyName){
-		this.familyName=familyName;;
+
+	public void setFamilyName(String familyName) {
+		this.familyName = familyName;
+		;
 	}
-	public String getFirstName(){
+
+	public String getFirstName() {
 		return firstName;
 	}
-	public void setFirstName(String firstName){
-		this.firstName= firstName;
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-	public String getFamilyNameKana(){
+
+	public String getFamilyNameKana() {
 		return familyNameKana;
 	}
-	public void setFamilyNameKana(String familyNameKana){
-		this.familyNameKana= familyNameKana;
+
+	public void setFamilyNameKana(String familyNameKana) {
+		this.familyNameKana = familyNameKana;
 	}
-	public String getFirstNameKana(){
+
+	public String getFirstNameKana() {
 		return firstNameKana;
 	}
-	public void setFirstNameKana(String firstNameKana){
-		this.firstNameKana= firstNameKana;
+
+	public void setFirstNameKana(String firstNameKana) {
+		this.firstNameKana = firstNameKana;
 	}
-	public String getEmail(){
+
+	public String getEmail() {
 		return email;
 	}
-	public void setEmail(String email){
-		this.email= email;
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getTelNumber(){
+
+	public String getTelNumber() {
 		return telNumber;
 	}
-	public void setTelNumber(String telNumber){
-		this.telNumber= telNumber;
+
+	public void setTelNumber(String telNumber) {
+		this.telNumber = telNumber;
 	}
-	public String getUserAddress(){
+
+	public String getUserAddress() {
 		return userAddress;
 	}
-	public void setUserAddress(String userAddress){
-		this.userAddress= userAddress;
+
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
 	}
-	public int getSubtotal(){
+
+	public int getSubtotal() {
 		return subtotal;
 	}
-	public void setSubtotal(int subtotal){
+
+	public void setSubtotal(int subtotal) {
 		this.subtotal = subtotal;
 	}
 }
