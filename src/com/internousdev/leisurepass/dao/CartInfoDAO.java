@@ -51,10 +51,11 @@ public List<CartInfoDTO> getCartInfoDtoList(String loginId){
 			cartInfoDTO.setUserId(rs.getString("user_id"));
 			cartInfoDTO.setTempUserId(rs.getString("temp_user_id"));
 			cartInfoDTO.setProductId(rs.getInt("product_id"));
-			cartInfoDTO.setProductCount(rs.getInt("product_count"));
+			cartInfoDTO.setProductCount(rs.getString("product_count"));
 			cartInfoDTO.setPrice(rs.getInt("price"));
 			cartInfoDTO.setProductName(rs.getString("product_name"));
 			cartInfoDTO.setProductNameKana(rs.getString("product_name_kana"));
+			cartInfoDTO.setProductDescription(rs.getString("product_description"));
 			cartInfoDTO.setCategoryId(rs.getInt("category_id"));
 			cartInfoDTO.setImageFilePath(rs.getString("image_file_path"));
 			cartInfoDTO.setImageFileName(rs.getString("image_file_name"));
@@ -127,8 +128,8 @@ public int regist(String userId, String tempUserId, int productId, String produc
 	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
 	int count = 0;
-	String sql ="insert into cart_info(user_id, tempUserId, product_id, product_count, price, regist_date)"
-			+ "values(?,?,?,?,?,?,now())";
+	String sql ="insert into cart_info(user_id, temp_user_id, product_id, product_count, price, regist_date)"
+			+ "values(?,?,?,?,?,now())";
 	try{
 		PreparedStatement ps = connection.prepareStatement(sql);
 		ps.setString(1, userId);

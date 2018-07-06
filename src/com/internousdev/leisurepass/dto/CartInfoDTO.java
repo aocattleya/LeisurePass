@@ -8,7 +8,7 @@ public class CartInfoDTO {
 	private String userId;
 	private String tempUserId;
 	private int productId;
-	private int productCount;
+	private String productCount;
 	private int price;
 	private String productName;
 	private String productNameKana;
@@ -45,10 +45,10 @@ public class CartInfoDTO {
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}
-	public int getProductCount() {
+	public String getProductCount() {
 		return productCount;
 	}
-	public void setProductCount(int productCount) {
+	public void setProductCount(String productCount) {
 		this.productCount = productCount;
 	}
 	public int getPrice() {

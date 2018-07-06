@@ -14,14 +14,13 @@ public class CartAction extends ActionSupport implements SessionAware {
 
 	public String execute() {
 		String userId = null;
-		String tempUserId = null;
 		List<CartInfoDTO> cartInfoDtolist = new ArrayList<CartInfoDTO>();
 		String result = ERROR;
 
 		// loginId か tempUserIdがあればuserIdに変換しとりあえずユーザー確認
 		if (session.containsKey("loginId")) {
 			userId = String.valueOf(session.get("loginId"));
-		} else if (session.containsKey(tempUserId)) {
+		} else if (session.containsKey("tempUserId")) {
 			userId = String.valueOf(session.get("tempUserId"));
 		}
 

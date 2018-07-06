@@ -41,15 +41,18 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		if (!(session.containsKey("loginId") && session.containsKey("tempUserId"))) {
 			session.put("tempUserId", commonUtility.randomValue());
 		}
+
 		// loginIdがsessionに入っていればsessionのloginIdをStringに変換代入することで
 		// テーブルにはloginIdはないのでここでuserIdとloginIdをヒモ付ける
 		if (session.containsKey("loginId")) {
 			userId = String.valueOf(session.get("loginId"));
 		}
+
 		// 仮IDしかない状態でもsessionによって商品情報を送れる
 		if (session.containsKey("tempUserId")) {
 			userId = String.valueOf(session.get("tempUserId"));
 		}
+
 		// 仮ＩＤのみ入ってる場合、仮ＩＤをuserIdに代入し
 		// 「session」のtempUserIdを「変数」のtempUserIdに代入
 		if (!(session.containsKey("loginId")) && session.containsKey("tempUserId")) {
@@ -57,21 +60,18 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 			tempUserId = String.valueOf(session.get("tempUserId"));
 		}
 
-		// productCount = String.valueOf((productCount.split("
-		// ,",0))[0]);サンプルにある謎文
-
 		// 商品画面からカート(cart_infoテーブル)に何かしら情報が入ればSUCCESS→画面遷移
-		CartInfoDAO cartInfoDAO = new CartInfoDAO();
-		int count = cartInfoDAO.regist(userId, tempUserId, productId, productCount, price);
-		if (count > 0 && count < 6) {
+		CartInfoDAO cartInfoDao = new CartInfoDAO();
+		cartInfoDao.regist(userId, tempUserId, productId, productCount, price);
+		if (Integer.parseInt(productCount) > 0 && Integer.parseInt(productCount) < 6) {
 			result = SUCCESS;
-		} else if (count > 6) {
+		} else if (Integer.parseInt(productCount) > 6) {
 			result = ERROR;
 			setOverErrorMessage("在庫を超える数値が投入されたため、カートに商品が投入されませんでした");
-		} else if (count == 0) {
+		} else if (Integer.parseInt(productCount) == 0) {
 			result = ERROR;
 			setNoCountErrorMessage("投入数が0のため、カートに商品が投入されませんでした");
-		} else if (count < -1) {
+		} else if (Integer.parseInt(productCount) < -1) {
 			result = ERROR;
 			setShortageErrorMessage("投入数が不足しているため、カートに商品が投入されませんでした");
 		} else {
@@ -80,21 +80,21 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		}
 
 		// リストの中身取り出し
-		List<CartInfoDTO> getCartInfoDtoList = new ArrayList<CartInfoDTO>();
-		getCartInfoDtoList = cartInfoDAO.getCartInfoDtoList(userId);
-		Iterator<CartInfoDTO> iterator = getCartInfoDtoList.iterator();
+		List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
+		cartInfoDtoList = cartInfoDao.getCartInfoDtoList(userId);
+		Iterator<CartInfoDTO> iterator = cartInfoDtoList.iterator();
 
 		// リストに何も入っていなければsessionにnullを入れ、
 		// JSPにて「カート情報はありません」の表示を出させる
 		if (!(iterator.hasNext())) {
-			getCartInfoDtoList = null;
+			cartInfoDtoList = null;
 		}
 
 		// sessionにデータを入れて次の画面に持っていく
-		session.put("cartinfoDTOlist", getCartInfoDtoList);
+		session.put("cartinfoDTOlist", cartInfoDtoList);
 
 		// 合計金額の表示
-		int TotalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
+		int TotalPrice = Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(userId)));
 		session.put("TotalPrice", TotalPrice);
 		return result;
 	}
