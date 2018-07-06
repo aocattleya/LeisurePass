@@ -158,6 +158,7 @@ public int deleteAll(String userId){
 	try{
 		PreparedStatement ps = connection.prepareStatement(sql);
 		ps.setString(1, userId);
+		count=ps.executeUpdate();
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}
@@ -170,7 +171,7 @@ public int deleteAll(String userId){
 }
 
 //決済画面にて使用
-public int linkToLoginId(String tempUserId, String loginId){
+public int linkToLoginId(String loginId, String tempUserId){
 	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
 	int count=0;
@@ -180,6 +181,7 @@ public int linkToLoginId(String tempUserId, String loginId){
 		PreparedStatement ps = connection.prepareStatement(sql);
 		ps.setString(1, tempUserId);
 		ps.setString(2, loginId);
+		count=ps.executeUpdate();
 	}catch(SQLException e){
 		e.printStackTrace();
 	}
