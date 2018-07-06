@@ -209,7 +209,7 @@
 
 <!-- 横山  マイページへ -->
 
-	<action name="MypageAction" class="com.internousdev.leisurepass.action.MypageAction" method="execute">
+	<action name="MyPageAction" class="com.internousdev.leisurepass.action.MyPageAction" method="execute">
 		<result name="success">mypage.jsp</result>
 		<result name="error">home.jsp</result>
 	</action>

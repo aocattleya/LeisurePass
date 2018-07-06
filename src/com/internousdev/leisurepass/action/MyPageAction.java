@@ -16,7 +16,7 @@ import com.opensymphony.xwork2.ActionSupport;
 //
 
 
-public class MypageAction extends ActionSupport implements SessionAware{
+public class MyPageAction extends ActionSupport implements SessionAware{
 
 	private String categoryId;
 	private String keywords;
