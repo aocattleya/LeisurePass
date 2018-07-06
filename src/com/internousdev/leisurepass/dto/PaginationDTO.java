@@ -11,7 +11,7 @@ public class PaginationDTO {
 	private int startRecordNo;										// 開始レコード番号
 	private int endRecordNo;										// 終了レコード番号
 	private List<Integer> pageNuberList = new ArrayList<Integer>();	// ページャーに表示するページ番号一覧
-	private List<ProductInfoDTO> currentProductPage;				// 1ページ文のリストページ情報(商品情報)
+	private List<ProductInfoDTO> currentProductInfoPage;				// 1ページ文のリストページ情報(商品情報)
 	private boolean hasNextPage;									// 次ページが存在するか
 	private boolean hasPreviousPage;								// 前ページが存在するか
 	private int nextPageNo;											// 次ページ番号
@@ -66,12 +66,12 @@ public class PaginationDTO {
 		this.pageNuberList = pageNuberList;
 	}
 
-	public List<ProductInfoDTO> getCurrentProductPage() {
-		return currentProductPage;
+	public List<ProductInfoDTO> getCurrentProductInfoPage() {
+		return currentProductInfoPage;
 	}
 
-	public void setCurrentProductPage(List<ProductInfoDTO> currentProductPage) {
-		this.currentProductPage = currentProductPage;
+	public void setCurrentProductInfoPage(List<ProductInfoDTO> currentProductInfoPage) {
+		this.currentProductInfoPage = currentProductInfoPage;
 	}
 
 	public boolean hasNextPage() {

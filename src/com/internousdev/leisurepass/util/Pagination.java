@@ -11,7 +11,7 @@ public class Pagination {
 	public PaginationDTO initialize(List<ProductInfoDTO> list, int pageSize) {
 
 		PaginationDTO pageDTO = new PaginationDTO();
-		pageDTO.setTotalPageSize((int) (Math.ceil(list.size() / pageSize)));	// 全ページ数
+		pageDTO.setTotalPageSize((int) (Math.ceil(list.size() / (double)pageSize)));	// 全ページ数
 		pageDTO.setCurrentPageNo(1);											// 現在のページ番号
 		pageDTO.setTotalRecordSize(list.size() - 1);							// 全レコード数
 		pageDTO.setStartRecordNo(pageSize * (pageDTO.getCurrentPageNo() - 1));	// 現在のページ番号に対する開始レコード番号(オフセット)
@@ -24,10 +24,15 @@ public class Pagination {
 
 		List<ProductInfoDTO> productPages = new ArrayList<ProductInfoDTO>();
 		for (int pageNumberOffset = pageDTO.getStartRecordNo(); pageNumberOffset <= pageDTO
-				.getEndRecordNo(); pageNumberOffset++) {
+				.getEndRecordNo(); pageNumberOffset++){
+			if(pageNumberOffset>=list.size()){
+				break;
+			}
 			productPages.add(list.get(pageNumberOffset));
 		}
-		pageDTO.setCurrentProductPage(productPages);
+
+
+		pageDTO.setCurrentProductInfoPage(productPages);
 
 		if ((pageDTO.getStartRecordNo() - 1) <= 0) {
 			pageDTO.setPreviousPage(false);
@@ -48,7 +53,7 @@ public class Pagination {
 	public PaginationDTO getPage(List<ProductInfoDTO> list, int pageSize, String pageNo) {
 
 		PaginationDTO paginationDTO = new PaginationDTO();										// 全ページ数
-		paginationDTO.setTotalPageSize((int) (Math.ceil(list.size() / pageSize)));				// 現在のページ番号
+		paginationDTO.setTotalPageSize((int) (Math.ceil(list.size() / (double)pageSize)));				// 現在のページ番号
 		paginationDTO.setCurrentPageNo(Integer.parseInt(pageNo));								// 全レコード数
 		paginationDTO.setTotalRecordSize(list.size() - 1);										// 現在のページ番号に対する開始レコード番号（オフセット）
 		paginationDTO.setStartRecordNo(pageSize * (paginationDTO.getCurrentPageNo() - 1));		// 現在のページ番号に対する開始レコード番号
@@ -63,9 +68,12 @@ public class Pagination {
 		List<ProductInfoDTO> productInfoPages = new ArrayList<ProductInfoDTO>();
 		for (int pageNumberOffset = paginationDTO.getStartRecordNo(); pageNumberOffset <= paginationDTO
 				.getEndRecordNo(); pageNumberOffset++) {
+			if(pageNumberOffset>=list.size()){
+				break;
+			}
 			productInfoPages.add(list.get(pageNumberOffset));
 		}
-		paginationDTO.setCurrentProductPage(productInfoPages);
+		paginationDTO.setCurrentProductInfoPage(productInfoPages);
 
 		if ((paginationDTO.getStartRecordNo() - 1) <= 0) {
 			paginationDTO.setPreviousPage(false);

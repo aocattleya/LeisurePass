@@ -40,7 +40,7 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 		session.put("startRecordNo", pageDTO.getStartRecordNo());
 		session.put("endRecordNo", pageDTO.getEndRecordNo());
 		session.put("pageNumberList", pageDTO.getPageNumberList());
-		session.put("productInfoDtoList", pageDTO.getCurrentProductPage());
+		session.put("productInfoDtoList", pageDTO.getCurrentProductInfoPage());
 		session.put("hasNextPage", pageDTO.hasNextPage());
 		session.put("hasPreviousPage", pageDTO.hasPreviousPage());
 		session.put("nextPageNo", pageDTO.getNextPageNo());
