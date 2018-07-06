@@ -15,22 +15,21 @@
 		<jsp:include page="navigation.jsp" />
 
 		<div id="contents">
-			<h1>管理者画面</h1>
-		<!-- 商品管理画面へ。 -->
-			<s:form action="AdminItemAction">
-				<s:submit value="商品管理" />
+			<h1>商品管理画面</h1>
+
+		<!-- 商品編集画面へ。 -->
+			<s:form action="EditItemAction">
+				<s:submit value="編集" />
 			</s:form>
-		<!-- カテゴリ管理画面へ。 -->
-			<s:form action="AdminCategoryAction">
-				<s:submit value="カテゴリ管理" />
+
+
+		<!-- 商品追加画面へ。 -->
+			<s:form action="AddItemAction">
+				<s:submit value="追加" />
 			</s:form>
-		<!-- 場所管理画面へ。 -->
-			<s:form action="AdminPlaceAction">
-				<s:submit value="場所管理" />
-			</s:form>
-		<!-- ユーザー管理画面へ。 -->
-			<s:form action="AdminUserAction">
-				<s:submit value="ユーザー管理" />
+		<!-- 商品削除確認画面へ。 -->
+			<s:form action="DeleteConfirmAction">
+				<s:submit value="削除" />
 			</s:form>
 		</div>
 	</div>
