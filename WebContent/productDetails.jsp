@@ -60,7 +60,8 @@
 					</div>
 					<s:hidden name="productId" value="%{#session.productId}" />
 					<s:hidden name="productName" value="%{#session.productName}" />
-					<s:hidden name="productNameKana" value="%{#session.productNameKana}" />
+					<s:hidden name="productNameKana"
+						value="%{#session.productNameKana}" />
 					<s:hidden name="imageFilePath" value="%{#session.imageFilePath}" />
 					<s:hidden name="imageFileName" value="%{#session.imageFileName}" />
 					<s:hidden name="price" value="%{#session.price}" />

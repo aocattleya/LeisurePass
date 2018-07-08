@@ -48,10 +48,6 @@
 						<td><s:property value="#session.email" /></td>
 					</tr>
 
-					<tr>
-						<th scope="row"><s:label value="ゆーざーID " /></th>
-						<td><s:property value="#session.userId" /></td>
-					</tr>
 				</table>
 
 				<div class="submit_btn_box">

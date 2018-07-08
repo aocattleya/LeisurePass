@@ -21,6 +21,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 	public String execute() {
 		String result = ERROR;
 
+
 		System.out.println(categoryId);
 		System.out.println(keywords);
 
@@ -36,7 +37,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 			session.put("familyNameKana", userInfoDTO.getFamilyNameKana());
 			session.put("firstNameKana", userInfoDTO.getFirstNameKana());
 			session.put("sex", userInfoDTO.getSex());
-			session.put("emial", userInfoDTO.getEmail());
+			session.put("email", userInfoDTO.getEmail());
 
 			System.out.println(session.get("familyName"));
 
