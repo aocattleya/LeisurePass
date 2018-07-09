@@ -64,7 +64,7 @@ public class PurchaseHistoryInfoDTO {
 		this.productCount = productCount;
 	}
 
-	public int price() {
+	public int getPrice() {
 		return price;
 	}
 

@@ -21,7 +21,8 @@ public class PurchaseHistoryInfoDAO {
 		// phiはpurchase_history_info、piはproduct_info、diはdestination_infoの略称
 		String sql = "SELECT " + "phi.id AS id, " // ID
 				+ "phi.user_id AS user_id, " // ユーザーID
-				+ "phi.product_count AS product_count, " // 個数
+				+ "phi.product_count AS product_count, "
+				+ "pi.product_id as product_id, " // 個数
 				+ "pi.product_name AS product_name, " // 商品名
 				+ "pi.product_name_kana AS product_name_kana, " // 商品名かな
 				+ "pi.product_description AS product_description, " // 商品詳細
