@@ -14,7 +14,7 @@ import com.internousdev.leisurepass.dao.MCategoryDAO;
 import com.internousdev.leisurepass.dao.UserInfoDAO;
 import com.internousdev.leisurepass.dto.DestinationInfoDTO;
 import com.internousdev.leisurepass.dto.MCategoryDTO;
-//import com.internousdev.leisurepass.dto.UserInfoDTO;
+import com.internousdev.leisurepass.dto.UserInfoDTO;
 import com.internousdev.leisurepass.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -71,12 +71,9 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		UserInfoDAO userInfoDao = new UserInfoDAO();
 		if (userInfoDao.isExistsUserInfo(loginId, password)) {
 			if (userInfoDao.login(loginId, password) > 0) {
-				// UserInfoDTO userInfoDTO = userInfoDao.getUserInfo(loginId,
-				// password);
-				// System.out.println(userInfoDTO.getUserId()); ←結果：null
-				// System.out.println(loginId); ←結果：入力した文字列
-				// session.put("loginId", userInfoDTO.getUserId()); ←元のコード
-				// ↓のコードに修正します
+				//ログインユーザー情報を取得します
+				UserInfoDTO userInfoDTO = userInfoDao.getUserInfo(loginId, password);
+				session.put("userInfo", userInfoDTO);
 				session.put("loginId", loginId);
 				int count = 0;
 				CartInfoDAO cartInfoDao = new CartInfoDAO();
@@ -91,16 +88,12 @@ public class LoginAction extends ActionSupport implements SessionAware {
 						// ログインユーザーの宛先情報を取得します。
 						List<DestinationInfoDTO> destinationInfoDtoList = new ArrayList<DestinationInfoDTO>();
 						destinationInfoDtoList = destinationInfoDao.getDestinationInfo(loginId);
-						System.out.println(destinationInfoDtoList);
 						Iterator<DestinationInfoDTO> iterator = destinationInfoDtoList.iterator();
-						System.out.println(iterator);
 						// 宛先情報がひとつもなければ、nullを格納します。
 						if (!(iterator.hasNext())) {
 							destinationInfoDtoList = null;
 						}
-						System.out.println(destinationInfoDtoList);
 						session.put("destinationInfoDtoList", destinationInfoDtoList);
-						System.out.println(session.get("destinationInfoDtoList"));
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
@@ -111,21 +104,14 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			}
 			// ヘッダーにログアウトとマイページを表示させるようにします。
 			session.put("logined", 1);
+
 			// 管理者用ユーザーIDとパスワードを入力した場合、管理者用のページに遷移します。
-			if (String.valueOf(session.get("loginId")).equals("admin")
-					|| String.valueOf(session.get("loginId")).equals("admin2")
-					|| String.valueOf(session.get("loginId")).equals("admin3")
-					|| String.valueOf(session.get("loginId")).equals("admin4")
-					|| String.valueOf(session.get("loginId")).equals("admin5")
-					|| String.valueOf(session.get("loginId")).equals("admin6")
-					|| String.valueOf(session.get("loginId")).equals("admin7")
-					|| String.valueOf(session.get("loginId")).equals("admin8")
-					|| String.valueOf(session.get("loginId")).equals("admin9")
-					|| String.valueOf(session.get("loginId")).equals("admin10")
-					|| String.valueOf(session.get("loginId")).equals("admin11")
-					|| String.valueOf(session.get("loginId")).equals("admin12")) {
+			UserInfoDTO d = (UserInfoDTO)session.get("userInfo");
+			if(d.getStatus().equals("1")){
 				result = "admin";
 			}
+		}else{
+			session.put("loginFailedMessage", "ログインIDまたはパスワードが異なります。");
 		}
 		return result;
 	}
