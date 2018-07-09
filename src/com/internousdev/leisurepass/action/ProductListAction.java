@@ -6,12 +6,12 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.leisurepass.dao.MCategoryDAO;
 import com.internousdev.leisurepass.dao.ProductInfoDAO;
 import com.internousdev.leisurepass.dto.MCategoryDTO;
 import com.internousdev.leisurepass.dto.PaginationDTO;
 import com.internousdev.leisurepass.dto.ProductInfoDTO;
 import com.internousdev.leisurepass.util.Pagination;
+import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ProductListAction extends ActionSupport implements SessionAware{
@@ -46,11 +46,8 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 		session.put("nextPageNo", pageDTO.getNextPageNo());
 		session.put("previousPageNo", pageDTO.getPreviousPageNo());
 
-		if(!session.containsKey("mCategoryList")) {
-			MCategoryDAO mCategoryDAO = new MCategoryDAO();
-			mCategoryList = mCategoryDAO.getMCategoryList();
-			session.put("mCategoryDtoList", mCategoryList);
-		}
+		SearchConditionLoader loader = new SearchConditionLoader();
+		loader.execute(session);
 
 		result = SUCCESS;
 		return result;

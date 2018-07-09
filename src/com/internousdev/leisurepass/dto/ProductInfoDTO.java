@@ -11,12 +11,15 @@ public class ProductInfoDTO {
 	private String productNameKana;
 	private String productDescription;
 	private int categoryId;
+	private int placeId;
 	private int price;
 	private String imageFilePath;
 	private String imageFileName;
 	private Date releaseDate;
 	private String releaseCompany;
 	private int status;
+	private Date startDate;
+	private Date endDate;
 	private Date registDate;
 	private Date updateDate;
 
@@ -58,6 +61,12 @@ public class ProductInfoDTO {
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
+	public int getPlaceId() {
+		return placeId;
+	}
+	public void setPlaceId(int placeId) {
+		this.placeId = placeId;
+	}
 	public int getPrice(){
 		return price;
 	}
@@ -93,6 +102,18 @@ public class ProductInfoDTO {
 	}
 	public void setStatus(int status) {
 		this.status = status;
+	}
+	public Date getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+	public Date getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
 	public Date getRegistDate() {
 		return registDate;
