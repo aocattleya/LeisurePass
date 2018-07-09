@@ -6,10 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
-
-<!-- 3秒後にHomeActionを実行して移動する -->
-<meta http-equiv="refresh" content="3;URL='HomeAction'" />
-
+<jsp:include page="includeHead.jsp" />
 <title>決済完了</title>
 </head>
 
@@ -22,6 +19,10 @@
 			<h1>決済完了画面</h1>
 			<div class="success">決済が完了しました。</div>
 		</div>
+
+		<s:form action="HomeAction">
+			<s:submit value="TOPへ戻る" />
+		</s:form>
 
 	</div>
 	<jsp:include page="footer.jsp" />              <!-- フッター -->
