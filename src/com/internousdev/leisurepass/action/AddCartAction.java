@@ -63,6 +63,7 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		// 商品画面からカート(cart_infoテーブル)に何かしら情報が入ればSUCCESS→画面遷移
 		CartInfoDAO cartInfoDao = new CartInfoDAO();
 			cartInfoDao.regist(userId, tempUserId, productId, productCount, price);
+			
 
 		if (Integer.parseInt(productCount) > 0 && Integer.parseInt(productCount) < 6) {
 			result = SUCCESS;
@@ -96,6 +97,9 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		}
 
 		// sessionにデータを入れて次の画面に持っていく
+		if(session.containsKey(productId)){
+			
+		}
 		session.put("cartInfoDtoList", cartInfoDtoList);
 
 		// 合計金額の表示
