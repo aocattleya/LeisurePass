@@ -62,11 +62,7 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 
 		// 商品画面からカート(cart_infoテーブル)に何かしら情報が入ればSUCCESS→画面遷移
 		CartInfoDAO cartInfoDao = new CartInfoDAO();
-		if(){
-			cartInfoDao.productUoDate(userId, tempUserId, productId, productCount, price);
-		}else{
 			cartInfoDao.regist(userId, tempUserId, productId, productCount, price);
-		}
 
 		if (Integer.parseInt(productCount) > 0 && Integer.parseInt(productCount) < 6) {
 			result = SUCCESS;
