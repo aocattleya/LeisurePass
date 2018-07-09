@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
+<jsp:include page="includeHead.jsp">
 <title>ログイン画面</title>
 </head>
 <body>
@@ -21,6 +22,7 @@
 
 			<h1>ログイン画面</h1>
 			<s:form id="form" action="LoginAction">
+			<p>ログインIDを入力してください。</p>
 				<s:if test="!#session.loginIdErrorMessageList.isEmpty()">
 					<div class="error">
 						<div class="error-message">
@@ -31,6 +33,19 @@
 						</div>
 					</div>
 				</s:if>
+				<s:if test ="#session.savedLoginId == true">
+					<s:textfield name="loginId" class="txt"
+						placeholder="ログインID" value='%{session.loginId}]'
+						autocomplete="off"/>
+						<br>
+				</s:if>
+				<s:else>
+					<s:textfield name="loginId" class="txt"
+						placeholder="ログインID" autocomplete="off"/>
+						<br>
+				</s:else>
+
+				<p>パスワードを入力してください。</p>
 				<s:if test="!#session.passwordErrorMessageList.isEmpty()">
 					<div class="error">
 						<div class="error-message">
@@ -41,29 +56,15 @@
 						</div>
 					</div>
 				</s:if>
+				<s:password name="password" class="txt"
+								placeholder="パスワード" autocomplete="off" />
+								<br>
+
+
 				<!--
 	SAVED:<s:property value="%{#session.savedLoginId}"/>
 	LOGINID:<s:property value="%{#session.loginId}"/>
 -->
-				<table class="vertical-list-table">
-					<tr>
-						<th scope="row"><s:label value="ログインID:" /></th>
-						<s:if test="#session.savedLoginId==true">
-							<td><s:textfield name="loginId" class="txt"
-									placeholder="ログインID" value='%{#session.loginId}'
-									autocomplete="off" /></td>
-						</s:if>
-						<s:else>
-							<td><s:textfield name="loginId" class="txt"
-									placeholder="ログインID" autocomplete="off" /></td>
-						</s:else>
-					</tr>
-					<tr>
-						<th scope="row"><s:label value="パスワード:" /></th>
-						<td><s:password name="password" class="txt"
-								placeholder="パスワード" autocomplete="off" /></td>
-					</tr>
-				</table>
 				<div class="box">
 					<s:if test="#session.savedLoginId==true">
 						<s:checkbox name="savedLoginId" checked="checked" />

@@ -41,6 +41,9 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			session.remove("loginId");
 		}
 
+		session.remove("loginIdErrorMessageList");
+		session.remove("passwordErrorMessageList");
+
 		// フォームに入力できる文字を指定します
 		InputChecker inputChecker = new InputChecker();
 		// ユーザーID:1～8文字, 半角英数字のみ入力可能
@@ -68,11 +71,12 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		UserInfoDAO userInfoDao = new UserInfoDAO();
 		if (userInfoDao.isExistsUserInfo(loginId, password)) {
 			if (userInfoDao.login(loginId, password) > 0) {
-				//UserInfoDTO userInfoDTO = userInfoDao.getUserInfo(loginId, password);
-				//System.out.println(userInfoDTO.getUserId());	←結果：null
-				//System.out.println(loginId);					←結果：入力した文字列
-				//session.put("loginId", userInfoDTO.getUserId());	←元のコード
-				//↓のコードに修正します
+				// UserInfoDTO userInfoDTO = userInfoDao.getUserInfo(loginId,
+				// password);
+				// System.out.println(userInfoDTO.getUserId()); ←結果：null
+				// System.out.println(loginId); ←結果：入力した文字列
+				// session.put("loginId", userInfoDTO.getUserId()); ←元のコード
+				// ↓のコードに修正します
 				session.put("loginId", loginId);
 				int count = 0;
 				CartInfoDAO cartInfoDao = new CartInfoDAO();
