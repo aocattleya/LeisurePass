@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
+<jsp:include page="includeHead.jsp" />
 <title>宛先情報完了</title>
 </head>
 
