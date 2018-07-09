@@ -24,15 +24,7 @@ public class AdminProductAction extends ActionSupport implements SessionAware {
 		return SUCCESS;
 	}
 
-	// public String getProductName() {
-	// return productName;
-	// }
-	//
-	// public void setProductName(String productName) {
-	// this.productName = productName;
-	// }
-
-	public List<ProductInfoDTO> getItemList() {
+	public List<ProductInfoDTO> getProductList() {
 		return productList;
 	}
 

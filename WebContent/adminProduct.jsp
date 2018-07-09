@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
+<jsp:include page="includeHead.jsp" />
 <title>商品管理画面</title>
 </head>
 <body>
@@ -32,7 +33,7 @@
 					<th>発売年月日</th>
 					<th>商品詳細情報</th>
 				</tr>
-				<s:iterator value="%{list}">
+				<s:iterator value="%{productList}">
 					<tr>
 						<td><s:property value="productName" /></td>
 						<td><s:property value="productNameKana" /></td>
