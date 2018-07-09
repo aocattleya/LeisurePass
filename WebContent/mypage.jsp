@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
+<jsp:include page="includeHead.jsp" />
 <title>マイページ</title>
 
 </head>
