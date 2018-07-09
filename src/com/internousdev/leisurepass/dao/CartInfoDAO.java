@@ -51,7 +51,7 @@ public class CartInfoDAO {
 				cartInfoDTO.setUserId(rs.getString("user_id"));
 				cartInfoDTO.setTempUserId(rs.getString("temp_user_id"));
 				cartInfoDTO.setProductId(rs.getInt("product_id"));
-				cartInfoDTO.setProductCount(rs.getString("product_count"));
+				cartInfoDTO.setProductCount(rs.getInt("product_count"));
 				cartInfoDTO.setPrice(rs.getInt("price"));
 				cartInfoDTO.setProductName(rs.getString("product_name"));
 				cartInfoDTO.setProductNameKana(rs.getString("product_name_kana"));

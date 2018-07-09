@@ -9,13 +9,23 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.leisurepass.dao.CartInfoDAO;
 import com.internousdev.leisurepass.dto.CartInfoDTO;
+import com.internousdev.leisurepass.dto.MCategoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class DeleteCartAction extends ActionSupport implements SessionAware {
 	private Collection<String> checkList;
-	private Map<String, Object> session;
+	private String categoryId;
+	private String productId;
+
+	private String sex;
+	private List<String> sexList = new ArrayList<String>();
+	private static final String MALE = "男性";
+	private static final String FEMALE = "女性";
+	private String defaultSexValue = MALE;
+	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
+
 	private String productName;
-	private String productNameSKana;
+	private String productNameKana;
 	private String imageFilePath;
 	private String imageFileName;
 	private String price;
@@ -23,6 +33,7 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 	private String releaseDate;
 	private String productCount;
 	private String subtotal;
+	private Map<String, Object> session;
 
 
 	public String execute() {
@@ -39,6 +50,7 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 		}
 		// カート内削除文、処理内容はcartInfoDAO.delete
 		for (String id : checkList) {
+			System.out.println(id);
 			count += cartInfoDAO.delete(id);
 		}
 		// チェックしたもののIdが上手く[id]に入ってない場合に出るエラー文
@@ -48,26 +60,28 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 			return ERROR;
 		} else {
 			String userId = null;
-
-			List<CartInfoDTO> cartInfoDtoList=new ArrayList<CartInfoDTO>();
+			List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
 			if (session.containsKey("loginId")) {
 				userId = String.valueOf(session.get("loginId"));
-			}
-			else if (session.containsKey("tempUserId")) {
+			} else if (session.containsKey("tempUserId")) {
 				userId = String.valueOf(session.get("tempUserId"));
 			}
 			// 削除後の結果をsessionに入れて遷移できるようにする
 
 			cartInfoDtoList = cartInfoDAO.getCartInfoDtoList(userId);
-			Iterator<CartInfoDTO> Iterator = cartInfoDtoList.iterator();
-			if (!(Iterator.hasNext())) {
+			Iterator<CartInfoDTO> iterator = cartInfoDtoList.iterator();
+			if (!(iterator.hasNext())) {
 				cartInfoDtoList = null;
 			}
 			session.put("cartInfoDtoList", cartInfoDtoList);
 
 			 int totalPrice =
-					 Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
-					 session.put("totalPrice", totalPrice);
+			 Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
+			 session.put("totalPrice", totalPrice);
+
+			 sexList.add(MALE);
+			 sexList.add(FEMALE);
+
 			result = SUCCESS;
 		}
 
@@ -94,13 +108,6 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 		this.productName = productName;
 	}
 
-	public String getProductNameSKana() {
-		return productNameSKana;
-	}
-
-	public void setProductNameSKana(String productNameSKana) {
-		this.productNameSKana = productNameSKana;
-	}
 
 	public String getImageFilePath() {
 		return imageFilePath;
@@ -148,6 +155,62 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 
 	public void setProductCount(String productCount) {
 		this.productCount = productCount;
+	}
+
+	public String getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public String getProductId() {
+		return productId;
+	}
+
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public List<MCategoryDTO> getmCategoryDtoList() {
+		return mCategoryDtoList;
+	}
+
+	public void setmCategoryDtoList(List<MCategoryDTO> mCategoryDtoList) {
+		this.mCategoryDtoList = mCategoryDtoList;
+	}
+
+	public String getProductNameKana() {
+		return productNameKana;
+	}
+
+	public void setProductNameKana(String productNameKana) {
+		this.productNameKana = productNameKana;
+	}
+
+	public static String getMale() {
+		return MALE;
+	}
+
+	public static String getFemale() {
+		return FEMALE;
+	}
+
+	public String getDefaultSexValue() {
+		return defaultSexValue;
+	}
+
+	public void setDefaultSexValue(String defaultSexValue) {
+		this.defaultSexValue = defaultSexValue;
 	}
 
 	public String getSubtotal() {
