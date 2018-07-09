@@ -30,9 +30,16 @@
 				</s:if>
 				<s:if test="#session.logined == 1">
 					<li>
-						<s:form action="MyPageAction">
-							<s:submit value="マイページ" />
-						</s:form>
+						<s:if test="#session.userInfo.status == 1">
+							<s:form action="GoAdminAction">
+								<s:submit value="管理者" />
+							</s:form>
+						</s:if>
+						<s:else>
+							<s:form action="MyPageAction">
+								<s:submit value="マイページ" />
+							</s:form>
+						</s:else>
 					</li>
 					<li>
 						<s:form action="LogoutAction">
