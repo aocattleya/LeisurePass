@@ -35,8 +35,8 @@ public class CartAction extends ActionSupport implements SessionAware {
 		session.put("cartInfoDtoList", cartInfoDtoList);
 
 		// カート内合計金額の表示
-		int TotalPrice = Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(userId)));
-		session.put("TotalPrice", TotalPrice);
+		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(userId)));
+		session.put("totalPrice", totalPrice);
 
 		result = SUCCESS;
 		return result;

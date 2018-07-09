@@ -48,11 +48,6 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 			userId = String.valueOf(session.get("loginId"));
 		}
 
-		// 仮IDしかない状態でもsessionによって商品情報を送れる
-		if (session.containsKey("tempUserId")) {
-			userId = String.valueOf(session.get("tempUserId"));
-		}
-
 		// 仮ＩＤのみ入ってる場合、仮ＩＤをuserIdに代入し
 		// 「session」のtempUserIdを「変数」のtempUserIdに代入
 		if (!(session.containsKey("loginId")) && session.containsKey("tempUserId")) {
@@ -91,11 +86,11 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		}
 
 		// sessionにデータを入れて次の画面に持っていく
-		session.put("cartinfoDTOlist", cartInfoDtoList);
+		session.put("cartInfoDtoList", cartInfoDtoList);
 
 		// 合計金額の表示
-		int TotalPrice = Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(userId)));
-		session.put("TotalPrice", TotalPrice);
+		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(userId)));
+		session.put("totalPrice", totalPrice);
 		return result;
 	}
 

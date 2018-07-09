@@ -13,17 +13,19 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class DeleteCartAction extends ActionSupport implements SessionAware {
 	private Collection<String> checkList;
-	private String noCheckErrorMessage;
 	private Map<String, Object> session;
-	CartInfoDAO cartInfoDAO = new CartInfoDAO();
+
 
 	public String execute() {
 		String result = ERROR;
 		int count = 0;
-		String userId = null;
+		CartInfoDAO cartInfoDAO = new CartInfoDAO();
+		List<String>checkListErrorMessageList=new ArrayList<String>();
+
 		// jspでチェックされなかった場合に出るエラー文
 		if (checkList == null) {
-			setNoCheckErrorMessage("チェックされていません。");
+			checkListErrorMessageList.add("チェックされていません。");
+			session.put("checkListErrorMessageList", checkListErrorMessageList);
 			return ERROR;
 		}
 		// カート内削除文、処理内容はcartInfoDAO.delete
@@ -32,23 +34,31 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 		}
 		// チェックしたもののIdが上手く[id]に入ってない場合に出るエラー文
 		if (count <= 0) {
-			setNoCheckErrorMessage("チェックされていません。");
+			checkListErrorMessageList.add("チェックされていません。");
+			session.put("checkListErrorMessageList", checkListErrorMessageList);
 			return ERROR;
 		} else {
+			String userId = null;
+
+			List<CartInfoDTO> cartInfoDtoList=new ArrayList<CartInfoDTO>();
 			if (session.containsKey("loginId")) {
 				userId = String.valueOf(session.get("loginId"));
 			}
-			if (session.containsKey("tempUserId")) {
+			else if (session.containsKey("tempUserId")) {
 				userId = String.valueOf(session.get("tempUserId"));
 			}
 			// 削除後の結果をsessionに入れて遷移できるようにする
-			List<CartInfoDTO> cartInfoDtoList=new ArrayList<CartInfoDTO>();
+
 			cartInfoDtoList = cartInfoDAO.getCartInfoDtoList(userId);
 			Iterator<CartInfoDTO> Iterator = cartInfoDtoList.iterator();
 			if (!(Iterator.hasNext())) {
 				cartInfoDtoList = null;
 			}
 			session.put("cartInfoDtoList", cartInfoDtoList);
+
+			 int totalPrice =
+					 Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
+					 session.put("totalPrice", totalPrice);
 			result = SUCCESS;
 		}
 
@@ -63,19 +73,8 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 		this.session = session;
 	}
 
-	public String getNoCheckErrorMessage() {
-		return noCheckErrorMessage;
+	public void setCheckList(Collection<String> checkList) {
+		this.checkList = checkList;
 	}
 
-	public void setNoCheckErrorMessage(String noCheckErrorMessage) {
-		this.noCheckErrorMessage = noCheckErrorMessage;
-	}
-
-	public CartInfoDAO getCartInfoDAO() {
-		return cartInfoDAO;
-	}
-
-	public void setCartInfoDAO(CartInfoDAO cartInfoDAO) {
-		this.cartInfoDAO = cartInfoDAO;
-	}
 }

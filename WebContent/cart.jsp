@@ -5,7 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>カート画面</title>
+<link rel="stylesheet" href="./css/style.css">
+<title>カート</title>
+
 <script type="text/javascript">
 	function goDeleteCartAction() {
 		document.getElementById("form").action = 'DeleteCartAction';
@@ -13,19 +15,23 @@
 </script>
 </head>
 <body>
-	<h1>カート画面</h1>
 	<jsp:include page="header.jsp" />
-	<div id="main" class="cf">
-		<jsp:include page="navigation.jsp" />
-		<div id="contents">
+	<div id="contents">
+		<h1>カート画面</h1>
 
-			<s:if test="#session.noCheckErrorMessage !=null">
-				<s:iterator value="#session.noCheckErrorMessage" />
-			</s:if>
+		<s:if test="#session.checkListErrorMessageList!=null">
+			<div class="error">
+				<div class="error-message">
+					<s:iterator value="#session.checkListErrorMessageList">
+						<s:property />
+					</s:iterator>
+				</div>
+			</div>
+		</s:if>
 
-			<s:if test="#session.cartinfoDTOlist !=null">
-				<s:form action="SettlementConfirmAction">
-					<table>
+		<s:if test="#session.cartInfoDtoList.size()>0">
+			<s:form id="form" action="SettlementConfirmAction">
+				<table class="horizontal-list-table">
 					<thead>
 						<tr>
 							<th><s:label value="#" /></th>
@@ -39,12 +45,10 @@
 							<th><s:label value="合計金額" /></th>
 						</tr>
 					</thead>
-
 					<tbody>
-						<s:iterator value="#session.cartinfoDTOlist">
+						<s:iterator value="#session.cartInfoDtoList">
 							<tr>
-								<td><s:checkbox name="checkList" value="checked"
-										fieldValue="%{id}" /></td>
+								<td><s:checkbox name="checkList" value="checked" fieldValue="%{id}" /></td>
 								<s:hidden name="productId" value="%{productId}" />
 								<td><s:property value="productName" /></td>
 								<td><s:property value="productNameKana" /></td>
@@ -67,24 +71,32 @@
 							<s:hidden name="productCount" value="%{productCount}" />
 							<s:hidden name="subtotal" value="%{subtotal}" />
 						</s:iterator>
-
 					</tbody>
-					</table>
-					<h2>
-						<s:label value="カート合計金額 :" />
-						<s:property value="#session.totalPrice" />
-						円
-					</h2>
-					<br>
+				</table>
+				<h2>
+					<s:label value="カート合計金額 :" />
+					<s:property value="#session.totalPrice" />
+					円
+				</h2>
+				<br>
+				<div class="submit_btn_box">
+					<div id=".contents-btn-set">
+						<s:submit value="決済" class="submit_btn" />
+					</div>
+				</div>
 
-<s:submit value="決済" class="submit_btn"/>
-<s:submit value="削除" class="submit_btn" onclick="this.form.action='DeleteCartAction';" />
+				<div class="submit_btn_box">
+					<div id=".contents-btn-set">
+						<s:submit value="削除" class="submit_btn"
+							onclick="this.form.action='DeleteCartAction';" />
+					</div>
+				</div>
 
-				</s:form>
-			</s:if>
-			<s:else>
-	カート情報はありません
-</s:else>
+			</s:form>
+		</s:if>
+		<s:else>
+			<div class="info">カート情報はありません。</div>
+		</s:else>
 	<s:if test="overErrorMessage != null">
 		<h3>
 		<s:property value="overErrorMessage" />
@@ -107,8 +119,9 @@
 	</s:if>
 
 		</div>
+	<div id="footer">
+		<jsp:include page="footer.jsp" />
 	</div>
-	<jsp:include page="footer.jsp" />
 </body>
 </body>
 </html>
