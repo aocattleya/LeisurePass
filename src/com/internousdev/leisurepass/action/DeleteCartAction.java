@@ -14,6 +14,15 @@ import com.opensymphony.xwork2.ActionSupport;
 public class DeleteCartAction extends ActionSupport implements SessionAware {
 	private Collection<String> checkList;
 	private Map<String, Object> session;
+	private String productName;
+	private String productNameSKana;
+	private String imageFilePath;
+	private String imageFileName;
+	private String price;
+	private String releaseCompany;
+	private String releaseDate;
+	private String productCount;
+	private String subtotal;
 
 
 	public String execute() {
@@ -75,6 +84,78 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 
 	public void setCheckList(Collection<String> checkList) {
 		this.checkList = checkList;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public String getProductNameSKana() {
+		return productNameSKana;
+	}
+
+	public void setProductNameSKana(String productNameSKana) {
+		this.productNameSKana = productNameSKana;
+	}
+
+	public String getImageFilePath() {
+		return imageFilePath;
+	}
+
+	public void setImageFilePath(String imageFilePath) {
+		this.imageFilePath = imageFilePath;
+	}
+
+	public String getImageFileName() {
+		return imageFileName;
+	}
+
+	public void setImageFileName(String imageFileName) {
+		this.imageFileName = imageFileName;
+	}
+
+	public String getPrice() {
+		return price;
+	}
+
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
+	public String getReleaseCompany() {
+		return releaseCompany;
+	}
+
+	public void setReleaseCompany(String releaseCompany) {
+		this.releaseCompany = releaseCompany;
+	}
+
+	public String getReleaseDate() {
+		return releaseDate;
+	}
+
+	public void setReleaseDate(String releaseDate) {
+		this.releaseDate = releaseDate;
+	}
+
+	public String getProductCount() {
+		return productCount;
+	}
+
+	public void setProductCount(String productCount) {
+		this.productCount = productCount;
+	}
+
+	public String getSubtotal() {
+		return subtotal;
+	}
+
+	public void setSubtotal(String subtotal) {
+		this.subtotal = subtotal;
 	}
 
 }

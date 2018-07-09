@@ -38,7 +38,7 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		String result = ERROR;
 		// ログインしてないときにカートに商品を入れた場合、仮ＩＤを生成して
 		// ひとまず仮のユーザーのカートに商品が入るようになる
-		if (!(session.containsKey("loginId") && session.containsKey("tempUserId"))) {
+		if (!(session.containsKey("loginId")) && !(session.containsKey("tempUserId"))) {
 			session.put("tempUserId", commonUtility.randomValue());
 		}
 
@@ -46,6 +46,10 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		// テーブルにはloginIdはないのでここでuserIdとloginIdをヒモ付ける
 		if (session.containsKey("loginId")) {
 			userId = String.valueOf(session.get("loginId"));
+		}
+
+		if (!(session.containsKey("loginId")) && session.containsKey("tempUserId")) {
+			userId = String.valueOf(session.get("tempUserId"));
 		}
 
 		// 仮ＩＤのみ入ってる場合、仮ＩＤをuserIdに代入し
