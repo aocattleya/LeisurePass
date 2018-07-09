@@ -80,19 +80,23 @@ public class LoginAction extends ActionSupport implements SessionAware {
 				/*
 				 * 未ログイン状態でカートの商品を決済しようとしたとき、 仮ログインIDを入力したログインIDに差し替えます。
 				 */
-				count = cartInfoDao.linkToLoginId(String.valueOf(session.get("tempUserId")), loginId);
+				count = cartInfoDao.linkToLoginId(loginId, String.valueOf(session.get("tempUserId")));
 				if (count > 0) {
 					DestinationInfoDAO destinationInfoDao = new DestinationInfoDAO();
 					try {
 						// ログインユーザーの宛先情報を取得します。
 						List<DestinationInfoDTO> destinationInfoDtoList = new ArrayList<DestinationInfoDTO>();
 						destinationInfoDtoList = destinationInfoDao.getDestinationInfo(loginId);
+						System.out.println(destinationInfoDtoList);
 						Iterator<DestinationInfoDTO> iterator = destinationInfoDtoList.iterator();
+						System.out.println(iterator);
 						// 宛先情報がひとつもなければ、nullを格納します。
 						if (!(iterator.hasNext())) {
 							destinationInfoDtoList = null;
 						}
-						session.put("destinationDtoList", destinationInfoDtoList);
+						System.out.println(destinationInfoDtoList);
+						session.put("destinationInfoDtoList", destinationInfoDtoList);
+						System.out.println(session.get("destinationInfoDtoList"));
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
