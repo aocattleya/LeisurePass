@@ -79,11 +79,12 @@ public class CartInfoDAO {
 
 	// 商品詳細画面からカートに追加した際にカート内の合計金額を表示するのに使用されるメソッド
 	public int getTotalPrice(String userId) {
+		int totalPrice = 0;
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
-		int totalPrice = 0;
-		// group by user_idでSUM()の中身をuser_idに集計している
+
 		String sql = "select sum(product_count * price) as total_price from cart_info where user_id=? group by user_id";
+
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, userId);
@@ -102,7 +103,7 @@ public class CartInfoDAO {
 		return totalPrice;
 	}
 
-	// cart.jspの削除ボタンを押した際にDeleteCartActionにて機能
+	// cart.jspの削除ボタンを押した際にDeleteCartActionにて使用される機能
 	public int delete(String id) {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
@@ -194,6 +195,31 @@ public class CartInfoDAO {
 			e.printStackTrace();
 		}
 
+		return count;
+	}
+
+	public int productUoDate(String userId, String tempUserId, int productId, String productCount, int price) {
+		DBConnector dbConnector = new DBConnector();
+		Connection connection = dbConnector.getConnection();
+		int count = 0;
+		String sql = "UPDATE cart_info SET user_id=?, temp_user_id=?, product_id=?, product_count=?, price=?, regist_date=?"
+				+ "values(?,?,?,?,?,now())";
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, userId);
+			ps.setString(2, tempUserId);
+			ps.setInt(3, productId);
+			ps.setString(4, productCount);
+			ps.setInt(5, price);
+			count = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return count;
 	}
 }

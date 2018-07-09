@@ -88,6 +88,7 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 		return result;
 	}
 
+///////////////// getter/setter//////////////
 	public Map<String, Object> getSession() {
 		return session;
 	}
@@ -195,14 +196,6 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 
 	public void setProductNameKana(String productNameKana) {
 		this.productNameKana = productNameKana;
-	}
-
-	public static String getMale() {
-		return MALE;
-	}
-
-	public static String getFemale() {
-		return FEMALE;
 	}
 
 	public String getDefaultSexValue() {

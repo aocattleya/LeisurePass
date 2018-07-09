@@ -8,12 +8,12 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 import com.internousdev.leisurepass.dao.CartInfoDAO;
 import com.internousdev.leisurepass.dto.CartInfoDTO;
-import com.internousdev.leisurepass.dao.MCategoryDAO;
-import com.internousdev.leisurepass.dto.MCategoryDTO;
+//import com.internousdev.leisurepass.dao.MCategoryDAO;
+//import com.internousdev.leisurepass.dto.MCategoryDTO;
 
 public class CartAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> session;
-	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
+//	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
 	private String categoryId;
 	private String keywords;
 
@@ -45,15 +45,16 @@ public class CartAction extends ActionSupport implements SessionAware {
 
 		result = SUCCESS;
 
-		if (!session.containsKey("mCategoryList")) {
-			MCategoryDAO mCategoryDao = new MCategoryDAO();
-			mCategoryDtoList = mCategoryDao.getMCategoryList();
-			session.put("mCategoryDtoList", mCategoryDtoList);
-		}
+//		if (!session.containsKey("mCategoryList")) {
+//			MCategoryDAO mCategoryDao = new MCategoryDAO();
+//			mCategoryDtoList = mCategoryDao.getMCategoryList();
+//			session.put("mCategoryDtoList", mCategoryDtoList);
+//		}
 
 		return result;
 	}
 
+	//////////getter,setter//////////
 	public Map<String, Object> getSession() {
 		return session;
 	}

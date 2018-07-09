@@ -26,12 +26,13 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 	private String productDescription;
 	private String categoryId;
 	private Map<String, Object> session;
-	private String overErrorMessage;
-	private String shortageErrorMessage;
-	private String noCountErrorMessage;
-	private String errorMessage;
+
 
 	public String execute() {
+		List<String> overErrorMessage = new ArrayList<String>();
+		List<String> shortageErrorMessage = new ArrayList<String>();
+		List<String> noCountErrorMessage = new ArrayList<String>();
+		List<String> errorMessage = new ArrayList<String>();
 		CommonUtility commonUtility = new CommonUtility();
 		String tempUserId = null;
 		String userId = null;
@@ -61,21 +62,30 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 
 		// 商品画面からカート(cart_infoテーブル)に何かしら情報が入ればSUCCESS→画面遷移
 		CartInfoDAO cartInfoDao = new CartInfoDAO();
-		cartInfoDao.regist(userId, tempUserId, productId, productCount, price);
+		if(){
+			cartInfoDao.productUoDate(userId, tempUserId, productId, productCount, price);
+		}else{
+			cartInfoDao.regist(userId, tempUserId, productId, productCount, price);
+		}
+
 		if (Integer.parseInt(productCount) > 0 && Integer.parseInt(productCount) < 6) {
 			result = SUCCESS;
 		} else if (Integer.parseInt(productCount) > 6) {
+			overErrorMessage.add("在庫を超える数値が投入されたため、カートに商品が投入されませんでした");
+			session.put("overErrorMessage",overErrorMessage);
 			result = ERROR;
-			setOverErrorMessage("在庫を超える数値が投入されたため、カートに商品が投入されませんでした");
 		} else if (Integer.parseInt(productCount) == 0) {
+			noCountErrorMessage.add("投入数が0のため、カートに商品が投入されませんでしたた");
+			session.put("noCountErrorMessage",noCountErrorMessage);
 			result = ERROR;
-			setNoCountErrorMessage("投入数が0のため、カートに商品が投入されませんでした");
 		} else if (Integer.parseInt(productCount) < -1) {
+			shortageErrorMessage.add("投入数が不足しているため、カートに商品が投入されませんでした");
+			session.put("shortageErrorMessage",shortageErrorMessage);
 			result = ERROR;
-			setShortageErrorMessage("投入数が不足しているため、カートに商品が投入されませんでした");
 		} else {
+			errorMessage.add("カート投入数が不正です。");
+			session.put("errorMessage",errorMessage);
 			result = ERROR;
-			setErrorMessage("カート投入数が不正です。");
 		}
 
 		// リストの中身取り出し
@@ -193,38 +203,6 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
-	}
-
-	public String getOverErrorMessage() {
-		return overErrorMessage;
-	}
-
-	public void setOverErrorMessage(String overErrorMessage) {
-		this.overErrorMessage = overErrorMessage;
-	}
-
-	public String getShortageErrorMessage() {
-		return shortageErrorMessage;
-	}
-
-	public void setShortageErrorMessage(String shortageErrorMessage) {
-		this.shortageErrorMessage = shortageErrorMessage;
-	}
-
-	public String getNoCountErrorMessage() {
-		return noCountErrorMessage;
-	}
-
-	public void setNoCountErrorMessage(String noCountErrorMessage) {
-		this.noCountErrorMessage = noCountErrorMessage;
-	}
-
-	public String getErrorMessage() {
-		return errorMessage;
-	}
-
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
 	}
 
 }
