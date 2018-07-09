@@ -10,16 +10,6 @@
 <link rel="stylesheet" href="./css/style.css">
 <title>マイページ</title>
 
-<%-- <script type="text/javascript">
-	// ========================================
-	// 効果音を鳴らす（★今回のメインはこれ★）
-	// ========================================
-	function ring() {
-		document.getElementById("Sound").play();
-	}
-</script>
- --%>
-
 </head>
 <body>
 
@@ -29,24 +19,6 @@
 		<div id="contents">
 			<h1>マイページ</h1>
 			<s:form action="PurchaseHistoryAction">
-
-<%--
-				<audio id="Sound" preload="auto">
-					<source src="audio/dog1a.mp3" type="audio/mp3">
-				</audio>
- --%>
-<!--
-		これ		<p class="SoundButton">
-					<input type="button" onclick="ring()" value="ワン"/>
-				</p>
- -->
-
-<!-- 			<p class="button">
-					<input type="button"
-						onclick="ring(); ShowKuji( 'KujiRes', 'KujiCom' );"
-						value="おみくじを引く" />
-				</p>
- -->
 
 
 				<table class="vertical-list-table">
@@ -84,14 +56,6 @@
 					<s:submit value="購入履歴" class="submit_btn" />
 				</div>
 
-
-
-
-<%--
-				<audio controls>
-					<source src="audio/dog1a.mp3" type="audio/mp3">
-				</audio>
- --%>
 			</s:form>
 		</div>
 
