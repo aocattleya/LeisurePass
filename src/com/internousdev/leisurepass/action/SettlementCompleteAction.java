@@ -10,7 +10,6 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.leisurepass.dao.CartInfoDAO;
 import com.internousdev.leisurepass.dao.PurchaseHistoryInfoDAO;
 import com.internousdev.leisurepass.dto.CartInfoDTO;
-import com.internousdev.leisurepass.dto.DestinationInfoDTO;
 import com.internousdev.leisurepass.dto.PurchaseHistoryInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -18,6 +17,7 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 
 	private Map<String, Object> session;
 	private String noDestinationMassage;
+	private int id;
 
 	public String execute() {
 
@@ -33,19 +33,12 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 		// 警告を抑制
 		@SuppressWarnings("unchecked")
 		// 購入履歴の取得
-		ArrayList<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList = (ArrayList<PurchaseHistoryInfoDTO>) session
-				.get("purchaseHistoryInfoDtoList");
-
-		// 警告を抑制
-		@SuppressWarnings("unchecked")
-		// 宛先の取得
-		ArrayList<DestinationInfoDTO> destinationInfoDtoList = (ArrayList<DestinationInfoDTO>) session
-				.get("destinationInfoDtoList");
+		ArrayList<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList = (ArrayList<PurchaseHistoryInfoDTO>) session.get("purchaseHistoryInfoDtoList");
 
 		for (int i = 0; i < purchaseHistoryInfoDtoList.size(); i++) {
 
-			// 行(i)の宛先のIDを変える（宛先のリストの0番のIDに変える）
-			purchaseHistoryInfoDtoList.get(i).setDestinationId(destinationInfoDtoList.get(0).getId());
+			// 行(i)の宛先のIDを変える  修正箇所：idに変更
+			purchaseHistoryInfoDtoList.get(i).setDestinationId(id);
 		}
 
 		PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();
@@ -96,6 +89,15 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 			}
 		}
 		return result;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public Map<String, Object> getSession() {
