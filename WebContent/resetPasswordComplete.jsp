@@ -7,6 +7,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/style.css">
+<meta http-equiv="refresh" content="2;URL='HomeAction'"/>
 <jsp:include page="includeHead.jsp" />
 
 <title>パスワード再設定完了</title>
@@ -23,6 +24,9 @@
 		<h1>パスワード再設定完了画面</h1>
 
 		<p>パスワード再設定が完了しました。</p>
+		<p>2秒後に自動でホームに戻ります。</p>
+
+
 
 
 		</div>
