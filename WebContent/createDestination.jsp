@@ -20,7 +20,7 @@
 		<div id="contents">
 		<h1>宛先情報入力画面</h1>
 
-		<s:if test="#session.familyNameErrorMassageList.isEmpty()">
+		<s:if test="!#session.familyNameErrorMessageList.isEmpty()">
 			<div class="error">
 				<div class="error-message">
 					<s:iterator value="#session.familyNameErrorMessageList">
@@ -31,7 +31,7 @@
 			</div>
 		</s:if>
 
-		<s:if test="!#session.firstNameErrorMessage.isEmpty()">
+		<s:if test="!#session.firstNameErrorMessageList.isEmpty()">
 			<div class="error">
 				<div class="error-message">
 					<s:iterator value="#session.firstNameErrorMessageList">
@@ -64,7 +64,7 @@
 			</div>
 		</s:if>
 
-		<s:if test="!#session.emailEroorMessageList.isEmpty()">
+		<s:if test="!#session.emailErrorMessageList.isEmpty()">
 			<div class="error">
 				<div class="error-message">
 					<s:iterator value="#session.emailErrorMessageList">
@@ -75,7 +75,7 @@
 			</div>
 		</s:if>
 
-		<s:if test="!#session.telNumberEroorMessageList.isEmpty()">
+		<s:if test="!#session.telNumberErrorMessageList.isEmpty()">
 			<div class="error">
 				<div class="error-message">
 					<s:iterator value="#session.telNumberErrorMessageList">
@@ -86,7 +86,7 @@
 			</div>
 		</s:if>
 
-		<s:if test="!#session.userAddressEroorMessageList.isEmpty()">
+		<s:if test="!#session.userAddressErrorMessageList.isEmpty()">
 			<div class="error">
 				<div class="error-message">
 					<s:iterator value="#session.userAddressErrorMessageList">

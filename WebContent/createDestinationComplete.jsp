@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="./css/style.css">
 <jsp:include page="includeHead.jsp" />
 <title>宛先情報完了</title>
+<meta http-equiv="refresh" content="2;URL='HomeAction'"/>
 </head>
 
 <body>
@@ -24,6 +25,7 @@
 
 			<h1>宛先情報完了画面</h1>
 			<div class="success">宛先情報の登録が完了しました。</div>
+			<p>2秒後に自動でホームに戻ります。</p>
 
 
 		</div>
