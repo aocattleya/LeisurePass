@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
 import org.apache.struts2.interceptor.SessionAware;
-import com.opensymphony.xwork2.ActionSupport;
+
 import com.internousdev.leisurepass.dao.CartInfoDAO;
 import com.internousdev.leisurepass.dto.CartInfoDTO;
+import com.opensymphony.xwork2.ActionSupport;
 //import com.internousdev.leisurepass.dao.MCategoryDAO;
 //import com.internousdev.leisurepass.dto.MCategoryDTO;
 
@@ -21,6 +23,7 @@ public class CartAction extends ActionSupport implements SessionAware {
 		String userId = null;
 		List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
 		String result = ERROR;
+		session.remove("checkListErrorMessageList");
 
 		// loginId か tempUserIdがあればuserIdに変換しとりあえずユーザー確認
 		if (session.containsKey("loginId")) {

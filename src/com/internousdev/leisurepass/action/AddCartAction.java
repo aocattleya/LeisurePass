@@ -37,6 +37,7 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		String tempUserId = null;
 		String userId = null;
 		String result = ERROR;
+		session.remove("checkListErrorMessageList");
 		// ログインしてないときにカートに商品を入れた場合、仮ＩＤを生成して
 		// ひとまず仮のユーザーのカートに商品が入るようになる
 		if (!(session.containsKey("loginId")) && !(session.containsKey("tempUserId"))) {
