@@ -102,16 +102,16 @@
 				<div class="info">カート情報はありません。</div>
 			</s:else>
 		</div>
-		<s:if test="overErrorMessage != null">
+		<s:if test="#session.overErrorMessage != null">
 			<s:iterator value="#session.overErrorMessage" />
 		</s:if>
-		<s:if test="shortageErrorMessage != null">
+		<s:if test="#session.shortageErrorMessage != null">
 			<s:iterator value="#session.shortageErrorMessage" />
 		</s:if>
-		<s:if test="noCountErrorMessage != null">
+		<s:if test="#session.noCountErrorMessage != null">
 			<s:iterator value="#session.noCountErrorMessage" />
 		</s:if>
-		<s:if test="errorMessage != null">
+		<s:if test="#session.errorMessage != null">
 			<s:iterator value="#session.errorMessage" />
 		</s:if>
 

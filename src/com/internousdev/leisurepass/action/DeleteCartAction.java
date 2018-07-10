@@ -43,7 +43,7 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 		List<String>checkListErrorMessageList=new ArrayList<String>();
 
-		session.remove("checkListErrorMessageList", checkListErrorMessageList);
+		session.remove("checkListErrorMessageList");
 
 		// jspでチェックされなかった場合に出るエラー文
 		if (checkList == null) {
@@ -56,7 +56,7 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 			System.out.println(id);
 			count += cartInfoDAO.delete(id);
 		}
-		// チェックしたもののIdが上手く[id]に入ってない場合に出るエラー文
+		// チェックしたもののIdが[id]に入ってない場合に出るエラー文
 		if (count <= 0) {
 			checkListErrorMessageList.add("チェックされていません。");
 			session.put("checkListErrorMessageList", checkListErrorMessageList);
