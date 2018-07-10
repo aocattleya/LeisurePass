@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
+
 import com.internousdev.leisurepass.dao.CartInfoDAO;
 import com.internousdev.leisurepass.dto.CartInfoDTO;
 import com.internousdev.leisurepass.dto.MCategoryDTO;
@@ -41,6 +42,8 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 		int count = 0;
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 		List<String>checkListErrorMessageList=new ArrayList<String>();
+
+		session.remove("checkListErrorMessageList", checkListErrorMessageList);
 
 		// jspでチェックされなかった場合に出るエラー文
 		if (checkList == null) {

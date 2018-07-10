@@ -20,6 +20,20 @@ public class CartInfoDTO {
 	private String releaseCompany;
 	private String status;
 	private int subtotal;
+	private Date registDate;
+	public Date getRegistDate() {
+		return registDate;
+	}
+	public Date getUpdateDate() {
+		return updateDate;
+	}
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
+	public void setRegistDate(Date registDate) {
+		this.registDate = registDate;
+	}
+	private Date updateDate;
 
 	public int getId() {
 		return id;
