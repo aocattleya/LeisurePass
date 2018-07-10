@@ -43,6 +43,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 		session.remove("loginIdErrorMessageList");
 		session.remove("passwordErrorMessageList");
+		session.remove("loginFailedMessage");
 
 		// フォームに入力できる文字を指定します
 		InputChecker inputChecker = new InputChecker();
