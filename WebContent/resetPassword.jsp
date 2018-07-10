@@ -53,7 +53,7 @@
 	<s:if test="!#session.passwordIncorrectErrorMessageList.isEmpty()">
 		<div class="error">
 			<div class="error-message">
-				<s:iterator value="#session.passwordIncorrectErrorMessageErrorMessageList">
+				<s:iterator value="#session.passwordIncorrectErrorMessageList">
 					<s:property />
 					<br>
 				</s:iterator>
@@ -92,7 +92,7 @@
 	<s:if test="!#session.newPasswordIncorrectErrorMessageList.isEmpty()">
 		<div class="error">
 			<div class="error-message">
-				<s:iterator value="#session.newPasswordIncorrectErrorMessageErrorMessageList">
+				<s:iterator value="#session.newPasswordIncorrectErrorMessageList">
 					<s:property />
 					<br>
 				</s:iterator>
