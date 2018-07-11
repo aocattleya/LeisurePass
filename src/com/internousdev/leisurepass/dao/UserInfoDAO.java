@@ -12,7 +12,7 @@ import com.internousdev.leisurepass.util.DBConnector;
 
 
 public class UserInfoDAO {
-	public int createUserDAO(String familyName,String firstName,String familyNameKana,String firstNameKana,String sex,String email,String loginId,String password){
+	public int createUser(String familyName,String firstName,String familyNameKana,String firstNameKana,String sex,String email,String loginId,String password){
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		System.out.println(familyNameKana);
@@ -76,6 +76,49 @@ public boolean isExistsUserInfo(String loginId,String password){
 	return result;
 
 }
+
+
+
+/*
+ * 同じIDがないかチェックしている↓
+ */
+
+
+public boolean existLoginId(String loginId) {
+
+	DBConnector db = new DBConnector();
+	Connection con = db.getConnection();
+
+	boolean result = false;
+
+
+	String sql = "SELECT * FROM user_info WHERE user_id = ?";
+
+	try {
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, loginId);
+		ResultSet rs = ps.executeQuery();
+
+		if (rs.next()) {
+			result = true;
+
+		}
+
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	try{
+		con.close();
+	}catch(SQLException e){
+		e.printStackTrace();
+	}
+	return result;
+}
+
+
+
+
+
 
 
 public UserInfoDTO getUserInfo(String loginId,String password){
@@ -192,7 +235,7 @@ public int resetPassword(String loginId,String password){
 public int login(String loginId,String password){
 	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
-	String sql= "update user_info set logined=1 where user_Id=? and password =? ";
+	String sql= "update user_info set logined=1 where user_Id=? and password =?";
 	int result= 0;
 	try{
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);

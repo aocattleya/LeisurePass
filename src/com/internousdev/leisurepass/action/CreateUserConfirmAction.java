@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.leisurepass.dao.UserInfoDAO;
 import com.internousdev.leisurepass.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -20,6 +21,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 	private String email;
 	private String loginId;
 	private String password;
+	private String existLoginIdErrorMessage;
 
 	private List<String> loginIdErrorMessageList = new ArrayList<String>();
 	private List<String> passwordErrorMessageList = new ArrayList<String>();
@@ -58,10 +60,10 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 				false);
 		firstNameErrorMessageList = inputChecker.doCheck("名", firstName, 1, 16, true, true, true, false, false, true,
 				false);
-		familyNameKanaErrorMessageList = inputChecker.doCheck("姓ふりがな", familyNameKana, 1, 16, false, false, true, false,
-				false, false, false);
-		firstNameKanaErrorMessageList = inputChecker.doCheck("名ふりがな", firstNameKana, 1, 16, false, false, true, false,
-				false, false, false);
+		familyNameKanaErrorMessageList = inputChecker.doCheck("姓ふりがな", familyNameKana, 1, 16, true, true, true, false,
+				false, true,false);
+		firstNameKanaErrorMessageList = inputChecker.doCheck("名ふりがな", firstNameKana, 1, 16,true, true, true, false,
+				false, true,false);
 		emailErrorMessageList = inputChecker.doCheck("メールアドレス", email, 14, 32, true, false, false, true, true, false,
 				false);
 		loginIdErrorMessageList = inputChecker.doCheck("ログインID", loginId, 1, 8, true, false, false, true, false, false,
@@ -69,20 +71,34 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		passwordErrorMessageList = inputChecker.doCheck("パスワード", password, 1, 16, true, false, false, true, false,
 				false, false);
 
+
+
+
 		if (familyNameErrorMessageList.size() == 0 && firstNameErrorMessageList.size() == 0
 				&& familyNameKanaErrorMessageList.size() == 0 && firstNameKanaErrorMessageList.size() == 0
 				&& emailErrorMessageList.size() == 0 && loginIdErrorMessageList.size() == 0
 				&& passwordErrorMessageList.size() == 0) {
 			result = SUCCESS;
 		} else {
-			session.put("familyNameErrorMessageList", familyNameErrorMessageList);
+			session.put("familyNameErroressageList", familyNameErrorMessageList);
 			session.put("firstNameErrorMessageList", firstNameErrorMessageList);
+			session.put("firstNameKanaErrorMessageList", firstNameKanaErrorMessageList);
 			session.put("familyNameKanaErrorMessageList", familyNameKanaErrorMessageList);
 			session.put("emailErrorMessageList", emailErrorMessageList);
 			session.put("loginIdErrorMessageList", loginIdErrorMessageList);
 			session.put("passwordErrorMessageList", passwordErrorMessageList);
 			result = ERROR;
 		}
+
+
+		UserInfoDAO dao = new UserInfoDAO();
+		if (dao.existLoginId(loginId)){
+			existLoginIdErrorMessage ="そのIDは既に使われています。";
+			System.out.println("aaa");
+			session.put("existLoginIdErrorMessage",existLoginIdErrorMessage);
+			result= ERROR;
+		}
+
 
 		// 性別リストに性別の変数を入れresultで結果を返す
 		sexList.add(MALE);
@@ -229,6 +245,14 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 
 	public Map<String, Object> getSession() {
 		return session;
+	}
+
+	public void setExistLoginIdErrorMessage(String setExistLoginIdErrorMessage, String existLoginIdErrorMessage) {
+		this.existLoginIdErrorMessage = existLoginIdErrorMessage;
+	}
+
+	public String getExistLoginIdErrorMessage() {
+		return existLoginIdErrorMessage;
 	}
 
 	@Override

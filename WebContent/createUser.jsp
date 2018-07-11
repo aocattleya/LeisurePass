@@ -13,9 +13,13 @@
 </head>
 <body>
 
+<jsp:include page="header.jsp" />
 
+	<div id="main" class="cf">
 
+		<jsp:include page="navigation.jsp" />
 
+		<div id="contents">
 
 	<div id="contents">
 		<h1>ユーザー情報入力画面</h1>
@@ -98,6 +102,21 @@
 			</div>
 		</s:if>
 
+
+		<s:if test="#session.containsKey('existLoginIdErrorMessage')">
+			<div class="error">
+				<div class="error-message">
+						<s:property value="#session.existLoginIdErrorMessage"/>
+						<br>
+				</div>
+			</div>
+		</s:if>
+
+
+
+
+
+
 		<s:form action="CreateUserConfirmAction">
 
 			<table class="vertical-list-table">
@@ -164,6 +183,16 @@
 	<div id="footer">
 		<s:include value="footer.jsp" />
 	</div>
+
+
+		</div>
+
+	</div>
+
+	<jsp:include page="footer.jsp" />
+
+
+
 
 </body>
 </html>

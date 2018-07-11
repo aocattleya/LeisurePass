@@ -24,9 +24,9 @@ public class CreateUserCompleteAction extends ActionSupport implements SessionAw
 	public String execute() {
 		String result = ERROR;
 		UserInfoDAO UserInfoDao = new UserInfoDAO();
-		int count = UserInfoDao.createUserDAO(familyName, firstName, familyNameKana, firstNameKana, sex, email, loginId,
-				password);
+		int count = UserInfoDao.createUser(familyName,firstName,familyNameKana,firstNameKana,sex,email,loginId,password);
 		if (count > 0) {
+			session.put("logined", 1);
 			result = SUCCESS;
 		}
 		return result;

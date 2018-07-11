@@ -36,6 +36,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 		session.remove("emailErrorMessageList");
 		session.remove("userIdErrorMessageList");
 		session.remove("passwordErrorMessageList");
+		session.remove("existLoginIdErrorMessage");
 
 		session.put("familyName", familyName);
 		session.put("firstName", firstName);
@@ -49,7 +50,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 		sexList.add(MALE);
 		sexList.add(FEMALE);
 		session.put("sexList", sexList);
-		session.put("eamil",email);
+		session.put("email",email);
 		session.put("loginId",loginId);
 		session.put("password",password);
 		result = SUCCESS;

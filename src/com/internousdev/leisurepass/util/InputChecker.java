@@ -16,7 +16,7 @@ public class InputChecker {
 	 * 結果はList形式で渡されることに気を付けてください。
 	 *
 	 */
-	public List<String> doCheck(String propertyName,String value,int minLength,int maxLength,boolean availableAlphabeticCharacters,boolean availableKanji,boolean availableHiragana,boolean availableHalfWidthDigit,boolean availableHalfWidthSymbols,boolean availableKatakana,boolean availableFullWidthSymbols){
+	public List<String> doCheck(String propertyName,String value,int minLength,int maxLength,boolean availableAlphabeticCharacters,boolean availableKanji,boolean availableHiragana,boolean availableHalfWidthDigit,boolean availableHalfWidthSymbols,boolean availableKatakana,boolean availableFullWidthSymbols, boolean availableSpace){
 
 		//検証した結果を入れるList
 				List<String> stringList = new ArrayList<String>();
@@ -38,10 +38,10 @@ public class InputChecker {
 				String errorExpression = "";
 
 
-				if(availableAlphabeticCharacters || availableKanji || availableHiragana || availableHalfWidthDigit || availableHalfWidthSymbols||availableKatakana||availableFullWidthSymbols){
+				if(availableAlphabeticCharacters || availableKanji || availableHiragana || availableHalfWidthDigit || availableHalfWidthSymbols||availableKatakana||availableFullWidthSymbols||availableSpace){
 					regularExpression = "[^";
 				}
-				if(!(availableAlphabeticCharacters) || !(availableKanji) || !(availableHiragana) || !(availableHalfWidthDigit) || !(availableHalfWidthSymbols)|| !(availableKatakana)|| !(availableFullWidthSymbols)){
+				if(!(availableAlphabeticCharacters) || !(availableKanji) || !(availableHiragana) || !(availableHalfWidthDigit) || !(availableHalfWidthSymbols)|| !(availableKatakana)|| !(availableFullWidthSymbols)|| !(availableSpace)){
 					errorExpression = "[^";
 				}
 
@@ -92,6 +92,13 @@ public class InputChecker {
 					characterTypeList.add("全角記号");
 				}else{
 					errorExpression +="＠．，；：！＃＄％＆’＊＋―／＝？＾＿｀｛｜｝～";
+				}
+
+				if(availableSpace){
+					regularExpression +=" 　";
+					characterTypeList.add("スペース");
+				}else{
+					errorExpression +=" 　";
 				}
 
 				if(!StringUtils.isEmpty(regularExpression)){
