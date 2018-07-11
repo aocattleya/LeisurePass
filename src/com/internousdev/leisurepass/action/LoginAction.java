@@ -49,10 +49,10 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		InputChecker inputChecker = new InputChecker();
 		// ユーザーID:1～8文字, 半角英数字のみ入力可能
 		loginIdErrorMessageList = inputChecker.doCheck("ログインID", loginId, 1, 8, true, false, false, true, false, false,
-				false);
+				false, false);
 		// パスワード:1～16文字, 半角英数字のみ入力可能
 		passwordErrorMessageList = inputChecker.doCheck("パスワード", password, 1, 16, true, false, false, true, false,
-				false, false);
+				false, false, false);
 
 		// 入力できない文字が入力された時のメッセージを準備します
 		if (loginIdErrorMessageList.size() != 0 && passwordErrorMessageList.size() != 0) {
