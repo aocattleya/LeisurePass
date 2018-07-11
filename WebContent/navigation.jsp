@@ -15,21 +15,11 @@
 				<s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" />
 			</li>
 			<li>
-				<!-- <input type="text" id="date_val" name="targetDate" value="%{#session.targetDate}"/>
-				<div id="datepicker" style="font-size: 12px;"></div> -->
-
-
-				<!-- <input type="button" id="dp" name="targetDate" value="#session.targetDate" /> -->
-
-				<s:if test="#session.targetDate==''">
-					<s:textfield id="dp" name="targetDate" value="いつでも" readonly="true" />
-				</s:if>
-				<s:else>
-					<s:textfield id="dp" name="targetDate" value="%{#session.targetDate}" readonly="true" />
-				</s:else>
+				<s:textfield id="date_val" name="targetDate" value="%{#session.targetDate}" readonly="true" />
+				<div id="datepicker" style="font-size: 12px;"></div>
 			</li>
 			<li>
-				<s:submit value="検索" name="searchConditions" />
+				<s:submit value="検索" />
 			</li>
 		</ul>
 	</s:form>

@@ -36,10 +36,16 @@ public class SearchItemAction extends ActionSupport implements SessionAware {
 		if (keywords == null) {
 			keywords = "";
 		}
+		if (categoryId == null) {
+			categoryId = "1";
+		}
+		if (placeId == null) {
+			placeId = "1";
+		}
 		if (targetDate != null && targetDate.equals("いつでも")){
 			targetDate = "";
 		}
-		keywordsErrorMessageList = inputChecker.doCheck("検索ワード", keywords, 0, 16, true, true, true, true, false, true,	false ,true);
+		keywordsErrorMessageList = inputChecker.doCheck("検索ワード", keywords, 0, 16, true, true, true, true, false, true, false ,true);
 
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 
@@ -155,20 +161,6 @@ public class SearchItemAction extends ActionSupport implements SessionAware {
 
 	public void setProductInfoDtoList(List<ProductInfoDTO> productInfoDtoList) {
 		this.productInfoDtoList = productInfoDtoList;
-	}
-
-	public void setSearchKeywords(String value) {
-		categoryId = "1";
-		placeId = "1";
-	}
-
-	public void setSearchConditions(String value) {
-		if (categoryId == null) {
-			categoryId = "1";
-		}
-		if (placeId == null) {
-			placeId = "1";
-		}
 	}
 
 	public Map<String, Object> getSession() {

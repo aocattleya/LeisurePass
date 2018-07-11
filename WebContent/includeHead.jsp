@@ -9,10 +9,15 @@
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" >
 
 <script>
+
 	$(function() {
+
+
    		$("#datepicker").datepicker({
    			dateFormat: 'yy-mm-dd',
    			showButtonPanel: true,
+            showOn: "button",
+
    			// 選択可能範囲
    			minDate: '0y', //今日から
    			maxDate: '+1y',	// 1年後まで
@@ -22,12 +27,6 @@
             }
    	    });
 
-   		$("#dp").datepicker({
-   			dateFormat: 'yy-mm-dd',
-   			// 選択可能範囲
-   			minDate: '0y', //今日から
-   			maxDate: '+1y',	// 1年後まで
-   	    });
 	});
 </script>
 
