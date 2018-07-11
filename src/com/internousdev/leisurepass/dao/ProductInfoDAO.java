@@ -77,7 +77,7 @@ public class ProductInfoDAO {
 		Connection connection = dbConnector.getConnection();
 		List<ProductInfoDTO> list = new ArrayList<ProductInfoDTO>();
 
-		// 全てのフィールド／product_infoテーブルから／条件：カテゴリIDとプロダクトID 昇順で並び替える
+		// 全てのフィールド／product_infoテーブルから／条件：対象商品と同カテゴリIDで対象以外のプロダクトIDを昇順で並び替える
 		String sql = "select * from product_info where category_id=? and product_id not in(?) order by rand() limit ?,?";
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);

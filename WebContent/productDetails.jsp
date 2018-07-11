@@ -56,6 +56,19 @@
 									<th scope="row"><s:label value="商品詳細情報" /></th>
 									<td><s:property value="%{#session.productDescription}" /></td>
 								</tr>
+								<!-- 追加項目 -->
+								<tr>
+									<th scope="row"><s:label value="場所" /></th>
+									<td><s:property value="%{#session.location}" /></td>
+								</tr>
+								<tr>
+									<th scope="row"><s:label value="アクセス" /></th>
+									<td><s:property value="%{#session.access}" /></td>
+								</tr>
+								<tr>
+									<th scope="row"><s:label value="URL" /></th>
+									<td><s:property value="%{#session.url}" /></td>
+								</tr>
 							</table>
 						</div>
 					</div>

@@ -36,6 +36,10 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware{
 		session.put("releaseCompany", productDTO.getReleaseCompany());
 		session.put("releaseDate", productDTO.getReleaseDate());
 		session.put("productDescription", productDTO.getProductDescription());
+
+		session.put("location",productDTO.getLocation());
+		session.put("access", productDTO.getAccess());
+		session.put("url", productDTO.getUrl());
 		List<Integer> productCountList = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
 		session.put("productCountList", productCountList);
 		productList = productDAO.getProductInfoListByCategoryId(productDTO.getCategoryId(), productDTO.getProductId(),0,3);
