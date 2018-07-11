@@ -39,8 +39,7 @@ public class SearchItemAction extends ActionSupport implements SessionAware {
 		if (targetDate != null && targetDate.equals("いつでも")){
 			targetDate = "";
 		}
-		keywordsErrorMessageList = inputChecker.doCheck("検索ワード", keywords, 0, 16, true, true, true, true, false, true,
-				true);
+		keywordsErrorMessageList = inputChecker.doCheck("検索ワード", keywords, 0, 16, true, true, true, true, false, true,	false ,true);
 
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 

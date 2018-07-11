@@ -7,7 +7,6 @@
 		<ul>
 			<li>
 				<s:textfield name="keywords" placeholder="検索ワード" />
-				<s:submit value="フリー検索" name="searchKeywords" />
 			</li>
 			<li>
 				<s:select name="placeId" list="#session.mPlaceDtoList" listValue="placeName" listKey="placeId" />

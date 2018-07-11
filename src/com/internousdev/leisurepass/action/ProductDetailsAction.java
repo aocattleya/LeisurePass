@@ -21,6 +21,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware{
 	private Map<String, Object> session;
 	public String execute() {
 		String result = ERROR;
+		session.remove("addProductFlag");
 		ProductInfoDAO productDAO = new ProductInfoDAO();
 		ProductInfoDTO productDTO = new ProductInfoDTO();
 		productDTO = productDAO.getProductInfo(productId);
