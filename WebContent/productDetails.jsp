@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="./css/style.css">
 <jsp:include page="includeHead.jsp" />
 <title>商品詳細</title>
+
+
 </head>
 <body>
 
@@ -56,7 +58,13 @@
 									<th scope="row"><s:label value="商品詳細情報" /></th>
 									<td><s:property value="%{#session.productDescription}" /></td>
 								</tr>
+							</table>
 								<!-- 追加項目 -->
+								<br><br>
+							<table class="store-information">
+								<tr>
+									<th scope="row"><s:label value="店舗情報" /></th>
+								</tr>
 								<tr>
 									<th scope="row"><s:label value="場所" /></th>
 									<td><s:property value="%{#session.location}" /></td>
