@@ -63,11 +63,15 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		// 商品画面からカート(cart_infoテーブル)に何かしら情報が入ればSUCCESS→画面遷移
 		CartInfoDAO cartInfoDao = new CartInfoDAO();
 
-		if(cartInfoDao.existProductId("userId","tempuUserId",productId)){
+		//商品をカートに追加後、ページを更新した際に商品が再度追加されてしまうのを防ぐ
+		if(!session.containsKey("addProductFlag")){
+
+		if(cartInfoDao.existProductId("userId","tempUserId",productId)){
 			cartInfoDao.productUpDate(userId, tempUserId, productId, productCount, price);
 		}else{
 			cartInfoDao.regist(userId, tempUserId, productId, productCount, price);
 		}
+
 
 
 		if (Integer.parseInt(productCount) > 0 && Integer.parseInt(productCount) < 6) {
@@ -90,6 +94,11 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 			result = ERROR;
 		}
 
+		session.put("addProductFlag", true);
+		}else{
+			result=SUCCESS;
+		}
+
 		// リストの中身取り出し
 		List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
 		cartInfoDtoList = cartInfoDao.getCartInfoDtoList(userId);
@@ -108,6 +117,8 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(userId)));
 		session.put("totalPrice", totalPrice);
 		return result;
+
+
 	}
 
 	///////////////// getter/setter//////////////

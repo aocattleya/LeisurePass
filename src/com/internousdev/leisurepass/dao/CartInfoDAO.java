@@ -204,7 +204,7 @@ public class CartInfoDAO {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		boolean result = false;
-		String sql= "select count(*) as count from cart_info where product_id=? and  user_id=? and temp_user_id=? ";
+		String sql= "Select count(*) as count From cart_info Where user_id=? and temp_user_id=? and product_id=?";
 		try{
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, userId);
@@ -233,7 +233,8 @@ public class CartInfoDAO {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		int count = 0;
-		String sql = "UPDATE cart_info SET user_id=?, temp_user_id=?, product_id=?, product_count=(product_count+?), price=?, regist_date=now() where product_id=? and  user_id=? and temp_user_id=?";
+		String sql = "UPDATE cart_info SET user_id=?, temp_user_id=?, product_id=?, product_count=(product_count+?), price=?, regist_date=now() "
+				+ "where product_id=? and  user_id=? and temp_user_id=?";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, userId);
