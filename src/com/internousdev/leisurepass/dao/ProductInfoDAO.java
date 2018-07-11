@@ -1,11 +1,11 @@
 package com.internousdev.leisurepass.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.internousdev.leisurepass.dto.ProductInfoDTO;
@@ -394,8 +394,8 @@ public class ProductInfoDAO {
 	// 商品追加 商品idが被ったら、try-catchでcathcに入る
 	public boolean insert(int productId, String productName, String productNameKana, String productDescription,
 			int categoryId, int placeId, int price, String imageFilePath, String imageFileName, Date releaseDate,
-			String releaseCompany, String location, String access, String url, int status, Date startDate, Date endDate,
-			Date registDate, Date updateDate) {
+			String releaseCompany, String location, String access, String url, int status, String startDate,
+			String endDate, String registDate, String updateDate) {
 
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
@@ -421,9 +421,9 @@ public class ProductInfoDAO {
 			preparedStatement.setString(13, access);
 			preparedStatement.setString(14, url);
 			preparedStatement.setInt(15, status);
-			preparedStatement.setDate(16, startDate);
-			preparedStatement.setDate(17, endDate);
-			preparedStatement.setDate(18, registDate);
+			preparedStatement.setString(16, startDate);
+			preparedStatement.setString(17, endDate);
+			preparedStatement.setString(18, registDate);
 			preparedStatement.setString(19, "now()"); // updateDate
 			System.out.println(preparedStatement.toString());
 
