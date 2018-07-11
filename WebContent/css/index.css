@@ -1,0 +1,163 @@
+html {
+  height: 100%;
+  overflow: hidden;
+  margin: 0 0;
+}
+
+body {
+
+   height: 100%;
+  overflow: hidden;
+width:100%;
+  margin: 0 0;
+/*繝ｬ繧ｸ繝｣繝代せ縺ｮ蟄嶺ｽ�*/
+  font-family: 'Rubik', sans-serif;
+  background-color: #FFFAFA;
+      z-index:10;
+}
+
+::-webkit-scrollbar { display: none; }
+
+p {
+  font-size: 50px;
+  letter-spacing: 0.05em;
+}
+
+a { text-decoration: none; }
+
+#wrapper {
+  height: 400vh;
+  display: flex;
+  justify-content: center;
+
+}
+
+.scroll-overlay {
+
+  height: 100%;
+  z-index: 99;
+  position: relative;
+}
+
+#letters {
+  position: fixed;
+  text-align: center;
+  top: 280px;
+  width: 100%;
+
+}
+
+#letters div {
+  display: inline-block;
+  font-size: 70px;
+  font-weight: 900;
+/*螟ｧ譁�蟄励�ｻ蟆乗枚蟄励�ｻ蜈ｨ隗呈枚蟄励∈縺ｮ螟画鋤繧呈欠螳壹☆繧�*/
+  text-transform: none;
+  font-family: 'Rubik', sans-serif;
+  transition: color 0.1s ease-in-out;
+}
+
+#letters .o {
+  transition: none;
+}
+
+#letters .line {
+  border-bottom-width: 8px;
+  border-bottom-style: solid;
+  border-color: #ff7474;
+  width: 0.01%;
+
+  opacity: 0;
+}
+
+.links {
+  height: calc(100vh - 420px);
+  text-align: center;
+}
+
+.links .quickstart {
+  font-family: 'Inconsolata', monospace;
+  background-color: #f5f5f5;
+  color:black;
+  padding: 20px;
+  display: inline-block;
+  margin: 0 auto;
+  border-radius: 30px;
+    font-size:30px;
+}
+
+.links button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #aaa;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.links button:hover {
+  background-color: #95cc21;
+}
+
+.scroll-down {
+  width: 100%;
+  position: fixed;
+  top: 420px;
+  text-align: center;
+}
+
+.scroll-down p {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.down-arrow {
+  width: 30px;
+  height: 30px;
+
+  display: inline-block;
+  margin-top: -15px;
+  opacity: 0.3;
+
+  transform: rotateZ(45deg);
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+
+@media (max-width:660px) {
+  #letters div {
+    font-size: 38px;
+  }
+}
+
+@media (max-width:500px) {
+  #letters { top: 180px; }
+
+  #letters div { font-size: 30px; }
+  #letters .line { display: none; }
+  #letters .description { padding: 20px; }
+
+  .links { height: calc(100vh - 300px); }
+
+  .links .quickstart {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .scroll-down { top: 300px; }
+}
+
+
+#canvas{
+
+}
+
+3
