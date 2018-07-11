@@ -53,23 +53,23 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		session.put("loginId", loginId);
 
 		/*
-		 * 英語| 漢字 |ひらがな || 半角数字 || 半角記号　||かたかな||　全角記号);
+		 * 英語| 漢字 |ひらがな || 半角数字 || 半角記号　||かたかな||　全角記号　半角スペース)　;
 		 */
 
 		familyNameErrorMessageList = inputChecker.doCheck("姓", familyName, 1, 16, true, true, true, false, false, true,
-				false);
+				false,false);
 		firstNameErrorMessageList = inputChecker.doCheck("名", firstName, 1, 16, true, true, true, false, false, true,
-				false);
+				false,false);
 		familyNameKanaErrorMessageList = inputChecker.doCheck("姓ふりがな", familyNameKana, 1, 16, true, true, true, false,
-				false, true,false);
+				false, true,false,false);
 		firstNameKanaErrorMessageList = inputChecker.doCheck("名ふりがな", firstNameKana, 1, 16,true, true, true, false,
-				false, true,false);
+				false, true,false,false);
 		emailErrorMessageList = inputChecker.doCheck("メールアドレス", email, 14, 32, true, false, false, true, true, false,
-				false);
+				false,true);
 		loginIdErrorMessageList = inputChecker.doCheck("ログインID", loginId, 1, 8, true, false, false, true, false, false,
-				false);
+				false,true);
 		passwordErrorMessageList = inputChecker.doCheck("パスワード", password, 1, 16, true, false, false, true, false,
-				false, false);
+				false, false,true);
 
 
 
