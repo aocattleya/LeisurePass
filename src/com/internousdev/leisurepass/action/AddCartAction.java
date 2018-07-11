@@ -66,12 +66,11 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		//商品をカートに追加後、ページを更新した際に商品が再度追加されてしまうのを防ぐ
 		if(!session.containsKey("addProductFlag")){
 
-		if(cartInfoDao.existProductId("userId","tempUserId",productId)){
+		if(cartInfoDao.existProductId(userId, productId)){
 			cartInfoDao.productUpDate(userId, tempUserId, productId, productCount, price);
 		}else{
 			cartInfoDao.regist(userId, tempUserId, productId, productCount, price);
 		}
-
 
 
 		if (Integer.parseInt(productCount) > 0 && Integer.parseInt(productCount) < 6) {

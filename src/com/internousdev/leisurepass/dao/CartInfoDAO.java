@@ -200,16 +200,15 @@ public class CartInfoDAO {
 
 //product_idにすでに商品がはいってたらtrueにして、
 //trueならproductUpDateを使用するようにActionにて指定
-	public boolean existProductId(String userId, String tempUserId, int productId){
+	public boolean existProductId(String userId, int productId){
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		boolean result = false;
-		String sql= "Select count(*) as count From cart_info Where user_id=? and temp_user_id=? and product_id=?";
+		String sql= "Select count(*) as count From cart_info Where user_id=? and product_id=?";
 		try{
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, userId);
-			ps.setString(2, tempUserId);
-			ps.setInt(3, productId);
+			ps.setInt(2, productId);
 			ResultSet resultSet = ps.executeQuery();
 			while(resultSet.next()){
 				if(resultSet.getInt("count")>0){
@@ -225,7 +224,6 @@ public class CartInfoDAO {
 			e.printStackTrace();
 		}
 		return result;
-
 	}
 
 //	すでに商品が入ってる場合は、insertではなく、update文を使用
@@ -234,7 +232,7 @@ public class CartInfoDAO {
 		Connection connection = dbConnector.getConnection();
 		int count = 0;
 		String sql = "UPDATE cart_info SET user_id=?, temp_user_id=?, product_id=?, product_count=(product_count+?), price=?, regist_date=now() "
-				+ "where product_id=? and  user_id=? and temp_user_id=?";
+				+ "where product_id=? and  user_id=?";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, userId);
@@ -244,7 +242,6 @@ public class CartInfoDAO {
 			ps.setInt(5, price);
 			ps.setInt(6,productId);
 			ps.setString(7, userId);
-			ps.setString(8, tempUserId);
 			count = ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
