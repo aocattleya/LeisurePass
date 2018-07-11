@@ -37,7 +37,6 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		String tempUserId = null;
 		String userId = null;
 		String result = ERROR;
-		session.remove("checkListErrorMessageList");
 		// ログインしてないときにカートに商品を入れた場合、仮ＩＤを生成して
 		// ひとまず仮のユーザーのカートに商品が入るようになる
 		if (!(session.containsKey("loginId")) && !(session.containsKey("tempUserId"))) {
@@ -64,7 +63,7 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		// 商品画面からカート(cart_infoテーブル)に何かしら情報が入ればSUCCESS→画面遷移
 		CartInfoDAO cartInfoDao = new CartInfoDAO();
 
-		if(cartInfoDao.existProductId(productId)){
+		if(cartInfoDao.existProductId("userId","tempuUserId",productId)){
 			cartInfoDao.productUpDate(userId, tempUserId, productId, productCount, price);
 		}else{
 			cartInfoDao.regist(userId, tempUserId, productId, productCount, price);

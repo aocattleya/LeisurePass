@@ -200,15 +200,17 @@ public class CartInfoDAO {
 
 //product_idにすでに商品がはいってたらtrueにして、
 //trueならproductUpDateを使用するようにActionにて指定
-	public boolean existProductId(int productId){
+	public boolean existProductId(String userId, String tempUserId, int productId){
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		boolean result = false;
-		String sql= "select count(*) as count from cart_info where product_id=? ";
+		String sql= "select count(*) as count from cart_info where product_id=? and  user_id=? and temp_user_id=? ";
 		try{
-			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, productId);
-			ResultSet resultSet = preparedStatement.executeQuery();
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, userId);
+			ps.setString(2, tempUserId);
+			ps.setInt(3, productId);
+			ResultSet resultSet = ps.executeQuery();
 			while(resultSet.next()){
 				if(resultSet.getInt("count")>0){
 					result = true;
@@ -240,6 +242,8 @@ public class CartInfoDAO {
 			ps.setString(4, productCount);
 			ps.setInt(5, price);
 			ps.setInt(6,productId);
+			ps.setString(7, userId);
+			ps.setString(8, tempUserId);
 			count = ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
