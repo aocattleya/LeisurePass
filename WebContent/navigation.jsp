@@ -15,10 +15,9 @@
 				<s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" />
 			</li>
 			<li>
-				<s:textfield id="date_val" name="targetDate" value="%{#session.targetDate}" readonly="true" placeholder="日付の選択がない場合は全日程の商品を表示します" size="45"/>
+				<s:textfield id="date_val" name="targetDate" value="%{#session.targetDate}" readonly="true" placeholder="日付の選択がない場合は全日程の商品を表示します" size="40"/>
 				<div id="datepicker" style="font-size: 12px;"></div>
-
-				<button type="submit" class="reset">日付未選択</button>
+				<button type="submit" class="reset">日付を選択しないで検索</button>
 			</li>
 			<li>
 				<s:submit value="検索" />
