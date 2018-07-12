@@ -10,7 +10,7 @@
         width = window.innerWidth;
         height = window.innerHeight;
         target = {x: 0, y: height};
-        
+
 
         largeHeader = document.getElementById('header');
         largeHeader.style.height = height+'px';
@@ -27,7 +27,7 @@
             circles.push(c);
         }
         animate();
-       
+
     }
 
     // Event handling
@@ -72,11 +72,12 @@
 
         function init() {
             _this.pos.x = Math.random()*width;
-            _this.pos.y = height+Math.random()*5000
+            //bubbleの速度
+            _this.pos.y = height+Math.random()*1000
             //数値を大きくすることで、エフェクトの透過度が減少（最大1.0）
-            _this.alpha = 0.25+Math.random()*0.3;
+            _this.alpha = 0.3+Math.random()*0.3;
             //エフェクトサイズの大きさ
-            _this.scale = 1.5+Math.random()*0.3;
+            _this.scale = 1.0+Math.random()*0.3;
             _this.velocity = Math.random();
         }
 

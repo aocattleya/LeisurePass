@@ -1,11 +1,7 @@
 @charset "utf-8";
 
 
-img{
-max-width: 100%;
-height: auto;
-width /***/:auto;　
-}
+
 #wrapper{
 	position: relative;
 	width:100%;
@@ -20,8 +16,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -34,7 +30,7 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -54,7 +50,7 @@ table {
 	border-spacing: 0;
 }
 .clearfix:after {
-	content: "."; 
+	content: ".";
 	display: block;
 	clear: both;
 	height: 0;
@@ -86,3 +82,43 @@ section div p{
 	text-align: center;
 	padding: 50px 0;
 }
+
+
+img.ticket {
+	width:70px;
+	height:70px;
+	psdding-top: 1000px;
+	}
+
+.ticket_div {
+	text-align: center;
+}
+
+.c {
+	color: #ffb515;
+}
+
+.h {
+	color: #1fd1ec;
+}
+
+.r {
+	color: #8382f9;
+}
+
+.e {
+	color: #ff1b9b;
+}
+
+.g {
+	color: #ff8b1c;
+}
+
+.a {
+	color: #c05bdb;
+}
+
+.p {
+	color: #ff537c;
+}
+

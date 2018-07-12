@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
-<meta http-equiv="refresh" content="4;URL='HomeAction'" />
+<meta http-equiv="refresh" content="5;URL='HomeAction'" />
 <title>leisurepass</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,22 +36,24 @@
 
 	<div id="wrapper">
 		<div id="letters">
-			<div class="c">??</div>
+			<div class="c">☆</div>
 			<div class="h">L</div>
-			<div class="r">e</div>
+			<div class="p">e</div>
 			<div class="r">i</div>
 			<div class="e">s</div>
-			<div class="r">u</div>
+			<div class="h">u</div>
 			<div class="g">r</div>
 			<div class="r">e</div>
-			<div class="a">??</div>
+			<div class="a ticket_div">
+				<img src="./images/ticket1.png" class="ticket" />
+			</div>
 			<div class="p">p</div>
 			<div class="h">a</div>
 			<div class="e">s</div>
 			<div class="r">s</div>
-			<div class="dash">!</div>
-			<div class="j">!</div>
-			<div class="s">??</div>
+			<div class="p">!</div>
+			<div class="g">!</div>
+			<div class="a">☆</div>
 
 			<br />
 			<div class="line"></div>
@@ -60,7 +62,7 @@
 		</div>
 		<div class="scroll-overlay"></div>
 	</div>
-
+<!-- leisurepassがまわるアクション（消すと回転がなくなる -->
 	<div class="links">
 		<div class="quickstart">??OPEN SITE??</div>
 		<a href="https://github.com/christinecha/choreographer-js">

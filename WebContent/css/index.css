@@ -10,7 +10,7 @@ body {
   overflow: hidden;
 width:100%;
   margin: 0 0;
-/*繝ｬ繧ｸ繝｣繝代せ縺ｮ蟄嶺ｽ�*/
+/*郢晢ｽｬ郢ｧ�ｽｸ郢晢ｽ｣郢昜ｻ｣縺帷ｸｺ�ｽｮ陝�蠍ｺ�ｽｽ�ｿｽ*/
   font-family: 'Rubik', sans-serif;
   background-color: #FFFAFA;
       z-index:10;
@@ -51,7 +51,7 @@ a { text-decoration: none; }
   display: inline-block;
   font-size: 70px;
   font-weight: 900;
-/*螟ｧ譁�蟄励�ｻ蟆乗枚蟄励�ｻ蜈ｨ隗呈枚蟄励∈縺ｮ螟画鋤繧呈欠螳壹☆繧�*/
+/*陞滂ｽｧ隴�ｿｽ陝�蜉ｱ�ｿｽ�ｽｻ陝�荵玲椢陝�蜉ｱ�ｿｽ�ｽｻ陷茨ｽｨ髫怜争譫夊氛蜉ｱ竏育ｸｺ�ｽｮ陞溽判驪､郢ｧ蜻域ｬ�陞ｳ螢ｹ笘�郢ｧ�ｿｽ*/
   text-transform: none;
   font-family: 'Rubik', sans-serif;
   transition: color 0.1s ease-in-out;
@@ -160,4 +160,3 @@ a { text-decoration: none; }
 
 }
 
-3
