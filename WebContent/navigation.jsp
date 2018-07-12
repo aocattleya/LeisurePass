@@ -17,13 +17,19 @@
 			<li>
 				<s:textfield id="date_val" name="targetDate" value="%{#session.targetDate}" readonly="true" placeholder="日付の選択がない場合は全日程の商品を表示します" size="40"/>
 				<div id="datepicker" style="font-size: 12px;"></div>
-				<button type="submit" class="reset">日付を選択しないで検索</button>
+
 			</li>
+		</ul>
+			</s:form>
+				<button type="submit" class="reset">日付を選択しない</button>
+			<s:form action="SearchItemAction">
+		<ul>
 			<li>
 				<s:submit value="検索" />
 			</li>
 		</ul>
 	</s:form>
+
 </div>
 
 
