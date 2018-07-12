@@ -55,7 +55,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 				false, false, false);
 
 		// 入力できない文字が入力された時のメッセージを準備します
-		if (loginIdErrorMessageList.size() != 0 && passwordErrorMessageList.size() != 0) {
+		if (loginIdErrorMessageList.size() != 0 || passwordErrorMessageList.size() != 0) {
 			session.put("loginIdErrorMessageList", loginIdErrorMessageList);
 			session.put("passwordErrorMessageList", passwordErrorMessageList);
 			session.put("logined", 0);

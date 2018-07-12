@@ -128,6 +128,9 @@ public class InputChecker {
 						stringList.add(propertyName + "は" + characterType + "で入力してください。");
 					}
 				}
+				if(value.contains(" ") || value.contains("　")){
+					stringList.add(propertyName + "はスペースを使用できません。");
+				}
 
 				return stringList;
 			}
