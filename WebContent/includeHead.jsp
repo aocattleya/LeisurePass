@@ -25,7 +25,12 @@
    	        onSelect: function(dateText, inst) {
                 $("#date_val").val(dateText);
             }
+
    	    });
+   	// 入力値をリセット
+   	    $("button.reset").click(function(){
+   	        $('input[type="text"], input[type="radio"], input[type="checkbox"], select').val("").removeAttr('checked').removeAttr('selected');
+   	    })
 
 	});
 </script>

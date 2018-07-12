@@ -91,7 +91,8 @@
 
 					<div class="submit_btn_box">
 						<div id=".contents-btn-set">
-							<s:submit value="削除" class="submit_btn"
+
+							<s:submit value="チェックした商品の削除" class="submit_btn"
 								onclick="this.form.action='DeleteCartAction';" />
 						</div>
 					</div>
