@@ -8,6 +8,42 @@
 <link rel="stylesheet" href="./css/style.css">
 <jsp:include page="includeHead.jsp" />
 <title>商品購入履歴</title>
+<style type="text/css">
+.submit_btn {
+	width: 200px;
+	height: 40px;
+	font-size: 20px;
+	background-color: #ed7d22;
+	color: #ffffff;
+	border-style: none;
+	border-radius: 20px;
+}
+
+img{
+	float: left;
+}
+
+#productNameKana{
+	font-size: 12px;
+}
+
+.productName{
+	font-size: 20px;
+	border-bottom: 2px solid #ed7d22;
+}
+
+.productInfo{
+	font-size: 18px;
+}
+
+#subtotal{
+	font-size: 24px;
+}
+
+.horizontal-list-table{
+	border-bottom: 2px solid #f7f7f7;
+}
+</style>
 </head>
 <body>
 
@@ -18,37 +54,43 @@
 		<jsp:include page="navigation.jsp" />
 
 		<div id="contents">
-			<h1>商品購入履歴画面</h1>
+			<h2>購入履歴</h2>
 			<s:if test="#session.purchaseHistoryInfoDtoList.size()>0">
+				<s:iterator value="#session.purchaseHistoryInfoDtoList">
+					<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>'
+						width="326px" height="218px"/>
 				<table class="horizontal-list-table">
-					<thead>
-						<tr>
-							<th><s:label value="商品名" /></th>
-							<th><s:label value="ふりがな" /></th>
-							<th><s:label value="商品画像" /></th>
-							<th><s:label value="値段" /></th>
-							<th><s:label value="発売会社名" /></th>
-							<th><s:label value="発売年月日" /></th>
-						</tr>
-					<tbody>
-						<s:iterator value="#session.purchaseHistoryInfoDtoList">
-							<tr>
-								<td><s:property value="productName" /></td>
-								<td><s:property value="productNameKana" /></td>
-								<td><img
-									src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>'
-									width="50px" height="50px" /></td>
-								<td><s:property value="price" />円</td>
-								<td><s:property value="releaseCompany" /></td>
-								<td><s:property value="releaseDate" /></td>
-							</tr>
-						</s:iterator>
-					</tbody>
+					<tr>
+						<td><div id="productNameKana"><s:property value="productNameKana" /></div></td>
+					</tr>
+					<tr>
+						<th><div class="productName"><s:property value="productName" /></div></th>
+					</tr>
+					<tr>
+						<td><div class="productInfo">料金：<s:property value="price"/>円</div></td>
+					</tr>
+					<tr>
+						<td><div class="productInfo">枚数：<s:property value="productCount"/>枚</div></td>
+					</tr>
+					<tr>
+						<td><div class="productInfo">発売会社：<s:property value="releaseCompany"/></div></td>
+					</tr>
+					<tr>
+						<td><div class="productInfo">発売日：<s:property value="releaseDateString" /></div></td>
+					</tr>
+					<tr>
+						<th><div class="productName">合計</div></th>
+					</tr>
+					<tr>
+						<td><div id="subtotal"><s:property value="subtotal"/>円</div></td>
+					</tr>
 				</table>
+				</s:iterator>
+
 				<div class="submit_btn_box">
 					<div id=".contents-btn-set">
 						<s:form action="DeletePurchaseHistoryAction">
-							<s:submit value="削除" class="submit_btn" />
+							<s:submit value="全件購入履歴削除" class="submit_btn" />
 						</s:form>
 					</div>
 				</div>
