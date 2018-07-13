@@ -16,7 +16,7 @@
 	<jsp:include page="header.jsp" />
 	<jsp:include page="navigation.jsp" />
 	<div id="contents">
-		<h1>カート画面</h1>
+		<h1>商品カート</h1>
 
 		<s:if test="#session.checkListErrorMessageList!=null">
 			<div class="error">
@@ -32,44 +32,47 @@
 			<s:form id="form" action="SettlementConfirmAction">
 
 				<s:iterator value="#session.cartInfoDtoList">
+<div class="listdivide">
+					<div class="checkbox"><s:checkbox name="checkList" value="checked" fieldValue="%{id}" id="checkbox"/></div>
+
 				<img
 							src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>'
 							width="326px" height="218px" />
+				<div class="Side-by-side">
 					<table class="horizontal-list-table">
 
+						<tr>
+							<td class="productNameKana"><s:property value="productNameKana" /></td>
+						</tr>
+						<tr>
+							<td class="productName"><s:property value="productName" /></td>
+						</tr>
+						<tr>
+							<td class="list"><div class="fat-text">料金：</div>
+								<s:property value="price" />円</td>
+						</tr>
+						<tr>
+							<td class="list">枚数：
+								<s:property value="productCount" />枚</td>
+						</tr>
+						<tr>
+							<td class="list">発売会社：
+								<s:property value="releaseCompany" /></td>
+						</tr>
+						<tr>
+							<td class="list">発売日：
+								<s:property value="releaseDate" /></td>
+						</tr>
 
 						<tr>
-							<th class="productNameKana"><s:property value="productNameKana" /></th>
+							<td class="subtotal">小計	</td>
 						</tr>
 						<tr>
-							<th class="productName"><s:property value="productName" /></th>
-						</tr>
-						<tr>
-							<th class="list"><s:label value="料金：" />
-								<s:property value="price" />円</th>
-						</tr>
-						<tr>
-							<th class="list"><s:label value="枚数：" />
-								<s:property value="productCount" />枚</th>
-						</tr>
-						<tr>
-							<th class="list"><s:label value="発売会社：" />
-								<s:property value="releaseCompany" /></th>
-						</tr>
-						<tr>
-							<th class="list"><s:label value="発売日：" />
-								<s:property value="releaseDate" /></th>
+							<td class="syoukei"><s:property value="subtotal" />円</td>
 						</tr>
 
-						<tr>
-							<th class="subtotal"><s:label value="小計：" />	</th>
-						</tr>
-						<tr>
-							<th class="syoukei"><s:property value="subtotal" />円</th>
-						</tr>
 					</table>
-					<div class="checkbox"><s:checkbox name="checkList" value="checked" fieldValue="%{id}" id="checkbox"/></div>
-
+				</div>
 
 					<s:hidden name="productId" value="%{productId}" />
 
@@ -82,11 +85,12 @@
 					<s:hidden name="releaseDate" value="%{releaseDate}" />
 					<s:hidden name="productCount" value="%{productCount}" />
 					<s:hidden name="subtotal" value="%{subtotal}" />
+</div>
 
 				</s:iterator>
-
+				<br>
 				<h2>
-					<s:label value="カート合計金額 :　　　　　　　　　　" />
+					<s:label value="商品合計 :　　　　　　　　　　" />
 					<s:property value="#session.totalPrice" />
 					円
 				</h2>
@@ -99,8 +103,8 @@
 
 				<div class="submit_btn_box">
 					<div id=".contents-btn-set">
-						<s:submit value="チェックしたチケットを削除〆" class="submit_btn"
-							onclick="this.form.action='DeleteCartAction';" />
+						<s:submit value="〆したチケットを削除" class="submit_btn"
+							onclick="tdis.form.action='DeleteCartAction';" />
 					</div>
 				</div>
 

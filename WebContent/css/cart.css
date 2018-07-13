@@ -1,65 +1,89 @@
 @CHARSET "UTF-8";
 
 h1 {
+	text-align:center;
 	color: #333333;
 	font-size: 30px;
 	font-family: Hiragino Kaku Gothic ProN;
 }
 
-.horizontal-list-table {
-	text-align: center;
-	height: 250px;
-	border-collapse: collapse;
+.submit_btn {
+	width: 200px;
+	height: 40px;
+	font-size: 20px;
+	background-color: #ed7d22;
+	color: #ffffff;
+	border-style: none;
+	border-radius: 20px;
+}
+
+img{
 	float: left;
-	float: left;
-	font-weight:;
 }
 
-img {
-	float: left;
-	height: 100%;
+.productNameKana{
+	font-size: 12px;
 }
 
-.checkbox {
-	float: left;
-	margin: 109px 0px 0px 50px;
-}
-
-h2 {
-	clear: both;
-	text-align: center;
-	font-size: 30px;
-}
-
-.productNameKana {
-	font-weight: 100;
-	font-size: 13px;
-}
-
-.productName {
+.productName{
+	font-weight:600;
+	font-size: 20px;
 	display:inline-block;
 	border-bottom: solid 3px #ed7d22;
-	font-size: 20px;
-	padding-bottom:-10px;
 }
 
 .list{
 	font-size:18px;
 }
+
+.productInfo{
+	font-size: 18px;
+}
+
 .subtotal{
-	font-size:20px;
+	font-size: 20px;
 	border-bottom: solid 3px #ed7d22;
 	display:inline-block;
 }
+
+.horizontal-list-table{
+	text-align:center;
+}
+
+.listdivide{
+	display:inline-block;
+	border-bottom: 2px solid #f7f7f7;
+	margin-bottom:10px;
+}
+
 
 .syoukei{
 	font-size:24px;
 	font-weight:1px;
 }
 
+.checkbox {
+	float: left;
+	margin: 109px 20px 0px 0px;
+}
+
+h2 {
+	clear: both;
+	font-size: 30px;
+}
+
+.fat-text{
+	font-weight:600;
+}
+
+.Side-by-side{
+	float:left;
+}
+
+
 .submit_btn {
 	clear: both;
-	width: 200px;
+	width: 230px;
 	height: 40px;
 	margin: 5px;
 	margin-left:250px;
