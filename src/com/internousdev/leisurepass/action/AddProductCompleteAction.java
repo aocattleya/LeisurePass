@@ -1,7 +1,11 @@
 package com.internousdev.leisurepass.action;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.leisurepass.dao.ProductInfoDAO;
@@ -16,17 +20,35 @@ public class AddProductCompleteAction extends ActionSupport implements SessionAw
 
 		ProductInfoDTO dto = (ProductInfoDTO) session.get("addProductDTO");
 
+		File productImage = (File) session.get("productImage");
+		String productImageContentType = (String) session.get("productImageContentType");
+		String productImageFileName = (String) session.get("productImageFileName");
+
+		System.out.println(productImage);
+		System.out.println(productImageContentType);
+		System.out.println(productImageFileName);
+
+		dto.setImageFilePath("./images");
+		dto.setImageFileName(productImageFileName);
+
+		if (productImageFileName != null) {
+			String filePath = ServletActionContext.getServletContext().getRealPath("/").concat("images");
+			System.out.println("Image Location" + filePath);
+			File fileToCreate = new File(filePath, productImageFileName);
+
+			try {
+				FileUtils.copyFile(productImage, fileToCreate);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
 		ProductInfoDAO dao = new ProductInfoDAO();
 		dao.insert(dto.getProductId(), dto.getProductName(), dto.getProductNameKana(), dto.getProductDescription(),
 				dto.getCategoryId(), dto.getPlaceId(), dto.getPrice(), dto.getImageFilePath(), dto.getImageFileName(),
 				dto.getReleaseDate(), dto.getReleaseCompany(), dto.getLocation(), dto.getAccess(), dto.getUrl(),
 				dto.getStatus(), dto.getStartDate(), dto.getEndDate(), dto.getRegistDate(), dto.getUpdateDate());
 
-		// System.out.println(dto.getReleaseDate());
-		// System.out.println(dto.getStartDate());
-		// System.out.println(dto.getEndDate());
-		// System.out.println(dto.getRegistDate());
-		// System.out.println(dto.getUpdateDate());
 		String result = SUCCESS;
 		return result;
 	}

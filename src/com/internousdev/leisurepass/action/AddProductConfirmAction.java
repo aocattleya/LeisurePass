@@ -1,5 +1,6 @@
 package com.internousdev.leisurepass.action;
 
+import java.io.File;
 import java.util.Date;
 import java.util.Map;
 
@@ -18,7 +19,7 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 	private int categoryId;
 	private int placeId;
 	private int price;
-	private String imageFilePath;
+	// private String imageFilePath;
 	private String imageFileName;
 	private Date releaseDate;
 	private String releaseCompany;
@@ -32,8 +33,16 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 	private Date updateDate;
 	private Map<String, Object> session;
 
-	public String execute() {
+	// 画像ファイル受け渡し用
+	private File productImage;
+	private String productImageContentType;
+	private String productImageFileName;
 
+	public String execute() {
+		System.out.println(productImage);
+		System.out.println(productImageContentType);
+		System.out.println(productImageFileName);
+		System.out.println(12345);
 		ProductInfoDTO dto = new ProductInfoDTO();
 		dto.setId(id);
 		dto.setProductId(productId);
@@ -43,8 +52,6 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 		dto.setCategoryId(categoryId);
 		dto.setPlaceId(placeId);
 		dto.setPrice(price);
-		dto.setImageFilePath(imageFilePath);
-		dto.setImageFileName(imageFileName);
 		dto.setReleaseDate(releaseDate);
 		dto.setReleaseCompany(releaseCompany);
 		dto.setLocation(location);
@@ -56,15 +63,36 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 		dto.setRegistDate(registDate);
 		dto.setUpdateDate(updateDate);
 
-		System.out.println(dto.getReleaseDate());
-		System.out.println(dto.getStartDate());
-		System.out.println(dto.getEndDate());
-		System.out.println(dto.getRegistDate());
-		System.out.println(dto.getUpdateDate());
-
 		session.put("addProductDTO", dto);
+		session.put("productImage", productImage);
+		session.put("productImageContentType", productImageContentType);
+		session.put("productImageFileName", productImageFileName);
 
 		return SUCCESS;
+	}
+
+	public File getProductImage() {
+		return productImage;
+	}
+
+	public String getProductImageContentType() {
+		return productImageContentType;
+	}
+
+	public String getProductImageFileName() {
+		return productImageFileName;
+	}
+
+	public void setProductImage(File productImage) {
+		this.productImage = productImage;
+	}
+
+	public void setProductImageContentType(String productImageContentType) {
+		this.productImageContentType = productImageContentType;
+	}
+
+	public void setProductImageFileName(String productImageFileName) {
+		this.productImageFileName = productImageFileName;
 	}
 
 	public void setId(int id) {
@@ -97,10 +125,6 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 
 	public void setPrice(int price) {
 		this.price = price;
-	}
-
-	public void setImageFilePath(String imageFilePath) {
-		this.imageFilePath = imageFilePath;
 	}
 
 	public void setImageFileName(String imageFileName) {
@@ -162,6 +186,10 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+	public void productUserImage(File productImage) {
+		this.productImage = productImage;
 	}
 
 }

@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.internousdev.leisurepass.dto.PurchaseHistoryInfoDTO;
@@ -21,8 +23,8 @@ public class PurchaseHistoryInfoDAO {
 		// phiはpurchase_history_info、piはproduct_info、diはdestination_infoの略称
 		String sql = "SELECT " + "phi.id AS id, " // ID
 				+ "phi.user_id AS user_id, " // ユーザーID
-				+ "phi.product_count AS product_count, "
-				+ "pi.product_id as product_id, " // 個数
+				+ "phi.product_count AS product_count, " //個数
+				+ "pi.product_id as product_id, " // 商品ID
 				+ "pi.product_name AS product_name, " // 商品名
 				+ "pi.product_name_kana AS product_name_kana, " // 商品名かな
 				+ "pi.product_description AS product_description, " // 商品詳細
@@ -32,7 +34,7 @@ public class PurchaseHistoryInfoDAO {
 				+ "pi.image_file_path AS image_file_path, " // 画像ファイル名
 				+ "pi.release_company, " // 発売会社
 				+ "pi.release_date, " // 発売日
-				+ "phi.price AS price, " // 金額(合計?)
+				+ "phi.price AS subtotal, " // 小計（価格×個数）
 				+ "phi.regist_date AS regist_date, " // 登録日
 				+ "phi.update_date AS update_date, " // 更新日
 				+ "di.family_name AS family_name, " // 姓
@@ -54,20 +56,25 @@ public class PurchaseHistoryInfoDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				PurchaseHistoryInfoDTO purchaseHistoryInfoDto = new PurchaseHistoryInfoDTO();
+				SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
 				purchaseHistoryInfoDto.setId(resultSet.getInt("id"));
 				purchaseHistoryInfoDto.setUserId(resultSet.getString("user_id"));
+				purchaseHistoryInfoDto.setProductCount(resultSet.getInt("product_count"));
 				purchaseHistoryInfoDto.setProductId(resultSet.getInt("product_id"));
-				purchaseHistoryInfoDto.setPrice(resultSet.getInt("price"));
-				purchaseHistoryInfoDto.setRegistDate(resultSet.getDate("regist_date"));
-				purchaseHistoryInfoDto.setUpdateDate(resultSet.getDate("update_date"));
 				purchaseHistoryInfoDto.setProductName(resultSet.getString("product_name"));
 				purchaseHistoryInfoDto.setProductNameKana(resultSet.getString("product_name_kana"));
 				purchaseHistoryInfoDto.setProductDescription(resultSet.getString("product_description"));
 				purchaseHistoryInfoDto.setCategoryId(resultSet.getInt("category_id"));
+				purchaseHistoryInfoDto.setPrice(resultSet.getInt("price"));
 				purchaseHistoryInfoDto.setImageFileName(resultSet.getString("image_file_name"));
 				purchaseHistoryInfoDto.setImageFilePath(resultSet.getString("image_file_path"));
 				purchaseHistoryInfoDto.setReleaseCompany(resultSet.getString("release_company"));
-				purchaseHistoryInfoDto.setReleaseDate(resultSet.getDate("release_date"));
+				Date releaseDate = resultSet.getDate("release_date");
+				String aaa = simpleDateFormat.format(releaseDate);
+				purchaseHistoryInfoDto.setReleaseDateString(aaa);
+				purchaseHistoryInfoDto.setSubtotal(resultSet.getInt("subtotal"));
+				purchaseHistoryInfoDto.setRegistDate(resultSet.getDate("regist_date"));
+				purchaseHistoryInfoDto.setUpdateDate(resultSet.getDate("update_date"));
 				purchaseHistoryInfoDto.setFamilyName(resultSet.getString("family_name"));
 				purchaseHistoryInfoDto.setFirstName(resultSet.getString("first_name"));
 				purchaseHistoryInfoDto.setFamilyNameKana(resultSet.getString("family_name_kana"));
@@ -76,12 +83,11 @@ public class PurchaseHistoryInfoDAO {
 				purchaseHistoryInfoDto.setTelNumber(resultSet.getString("tel_number"));
 				purchaseHistoryInfoDto.setUserAddress(resultSet.getString("user_address"));
 				purchaseHistoryInfoDTOList.add(purchaseHistoryInfoDto);
-
 			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+
 		try {
 			connection.close();
 		} catch (SQLException e) {

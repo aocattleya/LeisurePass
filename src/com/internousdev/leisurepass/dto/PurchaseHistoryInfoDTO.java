@@ -31,7 +31,7 @@ public class PurchaseHistoryInfoDTO {
 	private String userAddress;
 	/* その他 */
 	private int subtotal;
-
+	private String releaseDateString;
 	public int getId() {
 		return id;
 	}
@@ -224,4 +224,14 @@ public class PurchaseHistoryInfoDTO {
 	public void setSubtotal(int subtotal) {
 		this.subtotal = subtotal;
 	}
+
+	public String getReleaseDateString() {
+		return releaseDateString;
+	}
+
+	public void setReleaseDateString(String releaseDateString) {
+		this.releaseDateString = releaseDateString;
+	}
+
+
 }
