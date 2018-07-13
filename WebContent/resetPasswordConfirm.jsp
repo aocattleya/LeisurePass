@@ -33,21 +33,23 @@ label {
 	font-weight: bold;
 }
 
-.submit_btn {
-	width: 200px;
-	height: 40px;
-	position: relative;
+.submit_btn {			/*ボタン*/
+	 width: 200px;
+	height:40px;
+	font-family: 'メイリオ', sans-serif;
+	font-size: 20px;
+	position : relative;
 	display: inline-block;
 	padding: 0.25em 0.5em;
 	text-decoration: none;
 	color: #FFF;
 	background: #ed7d22; /*色*/
 	border-radius: 20px; /*角の丸み*/
-	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0
-		rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
 	font-weight: bold;
 	border: solid 2px #d27d00;
 	position: relative; /*線色*/
+
 }
 
 #contents{

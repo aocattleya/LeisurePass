@@ -65,8 +65,10 @@ h1 {
 }
 
 .submit_btn {			/*ボタン*/
-	width: 200px;
+	 width: 200px;
 	height:40px;
+	font-family: 'メイリオ', sans-serif;
+	font-size: 20px;
 	position : relative;
 	display: inline-block;
 	padding: 0.25em 0.5em;
@@ -81,6 +83,7 @@ h1 {
 	margin-bottom: 80px;
 	margin-top: 32px;
 }
+
 
 
 
@@ -141,8 +144,8 @@ h1 {
 					</tr>
 					<tr>
 						<td>
-							<!--パスワードエラーメッセージ一覧。 空です --> <s:if
-								test="!#session.passwordErrorMessageList.isEmpty()">
+							<!--パスワードエラーメッセージ一覧。 空です -->
+							<s:if test="!#session.passwordErrorMessageList.isEmpty()">
 								<div class="error">
 									<div class="error-message">
 										<s:iterator value="#session.passwordErrorMessageList">
@@ -157,8 +160,8 @@ h1 {
 
 					<tr>
 						<td>
-							<!-- パスワードが間違っているエラーメッセージ。空です --> <s:if
-								test="!#session.passwordIncorrectErrorMessageList.isEmpty()">
+							<!-- パスワードが間違っているエラーメッセージ。空です -->
+							<s:if test="!#session.passwordIncorrectErrorMessageList.isEmpty()">
 								<div class="error">
 									<div class="error-message">
 										<s:iterator value="#session.passwordIncorrectErrorMessageList">
@@ -182,8 +185,8 @@ h1 {
 
 					<tr>
 						<td>
-							<!-- 新しいパスワードエラーメッセージ。空です --> <s:if
-								test="!#session.newPasswordErrorMessageList.isEmpty()">
+							<!-- 新しいパスワードエラーメッセージ。空です -->
+							<s:if test="!#session.newPasswordErrorMessageList.isEmpty()">
 								<div class="error">
 									<div class="error-message">
 										<s:iterator value="#session.newPasswordErrorMessageList">
@@ -211,8 +214,8 @@ h1 {
 
 					<tr>
 						<td>
-							<!-- パスワードエラーメッセージ再確認してください。空です。 --> <s:if
-								test="!#session.reConfirmPasswordErrorMessageList.isEmpty()">
+							<!-- パスワードエラーメッセージ再確認してください。空です。 -->
+							<s:if test="!#session.reConfirmPasswordErrorMessageList.isEmpty()">
 								<div class="error">
 									<div class="error-message">
 										<s:iterator value="#session.reConfirmPasswordErrorMessageList">
@@ -229,8 +232,8 @@ h1 {
 
 					<tr>
 						<td>
-							<!-- 新しいパスワードを間違ったエラーメッセージ。 空です --> <s:if
-								test="!#session.newPasswordIncorrectErrorMessageList.isEmpty()">
+							<!-- 新しいパスワードを間違ったエラーメッセージ。 空です -->
+							<s:if test="!#session.newPasswordIncorrectErrorMessageList.isEmpty()">
 								<div class="error">
 									<div class="error-message">
 										<s:iterator
