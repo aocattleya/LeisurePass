@@ -12,8 +12,8 @@
 
 <style type="text/css">
 
-td {
-
+tr{
+padding: 30px;
 }
 .submit_btn {
 	width: 200px;
@@ -49,6 +49,8 @@ td {
 
 label{
 	 border-bottom: solid 3px #ffa623;
+	 padding-left: 10px;
+	 padding-right: 10px;
 }
 
 
