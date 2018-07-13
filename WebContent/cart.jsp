@@ -48,24 +48,24 @@
 							<td class="productName"><s:property value="productName" /></td>
 						</tr>
 						<tr>
-							<td class="list"><div class="fat-text">料金：</div>
+							<td class="list"><span class="fat-text">料金：</span>
 								<s:property value="price" />円</td>
 						</tr>
 						<tr>
-							<td class="list">枚数：
+							<td class="list"><span class="fat-text">枚数：</span>
 								<s:property value="productCount" />枚</td>
 						</tr>
 						<tr>
-							<td class="list">発売会社：
+							<td class="list"><span class="fat-text">発売会社：</span>
 								<s:property value="releaseCompany" /></td>
 						</tr>
 						<tr>
-							<td class="list">発売日：
+							<td class="list"><span class="fat-text">発売日：</span>
 								<s:property value="releaseDate" /></td>
 						</tr>
 
 						<tr>
-							<td class="subtotal">小計	</td>
+							<td class="subtotal"><span class="fat-text">小計</td>
 						</tr>
 						<tr>
 							<td class="syoukei"><s:property value="subtotal" />円</td>
