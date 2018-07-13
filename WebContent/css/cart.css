@@ -1,0 +1,71 @@
+@CHARSET "UTF-8";
+
+h1 {
+	color: #333333;
+	font-size: 30px;
+	font-family: Hiragino Kaku Gothic ProN;
+}
+
+.horizontal-list-table {
+	text-align: center;
+	height: 250px;
+	border-collapse: collapse;
+	float: left;
+	float: left;
+	font-weight:;
+}
+
+img {
+	float: left;
+	height: 100%;
+}
+
+.checkbox {
+	float: left;
+	margin: 109px 0px 0px 50px;
+}
+
+h2 {
+	clear: both;
+	text-align: center;
+	font-size: 30px;
+}
+
+.productNameKana {
+	font-weight: 100;
+	font-size: 13px;
+}
+
+.productName {
+	display:inline-block;
+	border-bottom: solid 3px #ed7d22;
+	font-size: 20px;
+	padding-bottom:-10px;
+}
+
+.list{
+	font-size:18px;
+}
+.subtotal{
+	font-size:20px;
+	border-bottom: solid 3px #ed7d22;
+	display:inline-block;
+}
+
+.syoukei{
+	font-size:24px;
+	font-weight:1px;
+}
+
+.submit_btn {
+	clear: both;
+	width: 200px;
+	height: 40px;
+	margin: 5px;
+	margin-left:250px;
+	color: #ffffff;
+	background: #ed7d22;
+	border-radius: 20px;
+	border: none;
+	text-align: center;
+}
