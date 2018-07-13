@@ -8,7 +8,68 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
 <jsp:include page="includeHead.jsp" />
-<title>宛先情報入力</title>
+<style type="text/css">
+
+h1 {
+color: #333333;
+}
+th {
+color: #333333;
+}
+table {
+ width: 280px;
+}
+#contents {
+	margin: 0;
+	padding: 0;
+	line-height: 1.6;
+	letter-spacing: 1px;
+	font-family: "メイリオ", sans-serif;
+	font-size: 18px;
+	text-align: center;
+}
+
+ .vertical-list-table {
+margin: auto;
+
+}
+
+.error-message{
+color: #ed7d22;
+font-size:10px;
+}
+
+input.txt{
+height:25px;
+width: 180px;
+background-color: #f7f7f7;
+border-radius: 5px; /*角の丸み*/
+
+}
+input.txt2{
+height:25px;
+width: 370px;
+background-color: #f7f7f7;
+border-radius: 5px; /*角の丸み*/
+}
+
+
+.submit_btn {
+	width: 200px;
+	height:40px;
+	display: inline-block;
+	padding: 0.25em 0.5em;
+	text-decoration: none;
+	color: #FFF;
+	background: #ed7d22; /*色*/
+	border-radius: 20px; /*角の丸み*/
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+	font-weight: bold;
+	border: solid 2px #d27d00;
+}
+
+</style>
+<title>お届け先の登録</title>
 </head>
 <body>
 	<jsp:include page="header.jsp" />
@@ -18,136 +79,147 @@
 		<jsp:include page="navigation.jsp" />
 
 		<div id="contents">
-		<h1>宛先情報入力画面</h1>
+			<h1>お届け先の登録</h1>
+			<s:form action="CreateDestinationConfirmAction">
+				<table class="vertical-list-table">
 
-		<s:if test="!#session.familyNameErrorMessageList.isEmpty()">
-			<div class="error">
-				<div class="error-message">
-					<s:iterator value="#session.familyNameErrorMessageList">
-						<s:property />
-						<br>
-					</s:iterator>
+
+					<tr><!-- 名前入力ボックス -->
+					<th colspan="2">名前</th>
+					</tr>
+					<tr>
+						<td><s:textfield placeholder="姓を入力" name="familyName" class="txt" /></td>
+						<td><s:textfield placeholder="名を入力" name="firstName" class="txt" /></td>
+					</tr>
+					<tr>
+						<td><s:if test="!#session.familyNameErrorMessageList.isEmpty()">
+								<div class="error">
+									<div class="error-message">
+										<s:iterator value="#session.familyNameErrorMessageList">
+											<s:property />
+											<br>
+										</s:iterator>
+									</div>
+								</div>
+							</s:if></td>
+
+							<td><s:if test="!#session.firstNameErrorMessageList.isEmpty()">
+								<div class="error">
+									<div class="error-message">
+										<s:iterator value="#session.firstNameErrorMessageList">
+											<s:property />
+											<br>
+										</s:iterator>
+									</div>
+								</div>
+							</s:if></td>
+					</tr>
+
+					<tr><!-- ふりがなボックス -->
+					<th colspan="2">なまえ(ふりがな)</th>
+					</tr>
+					<tr>
+						<td><s:textfield placeholder="姓(ふりがな)を入力" name="familyNameKana" class="txt" /></td>
+						<td><s:textfield placeholder="名(ふりがな)を入力" name="firstNameKana" class="txt" /></td>
+					</tr>
+					<tr>
+						<td><s:if test="!#session.familyNameKanaErrorMessageList.isEmpty()">
+								<div class="error">
+									<div class="error-message">
+										<s:iterator value="#session.familyNameKanaErrorMessageList">
+											<s:property />
+											<br>
+										</s:iterator>
+									</div>
+								</div>
+							</s:if></td>
+
+						<td><s:if test="!#session.firstNameKanaErrorMessageList.isEmpty()">
+								<div class="error">
+									<div class="error-message">
+										<s:iterator value="#session.firstNameKanaErrorMessageList">
+											<s:property />
+											<br>
+										</s:iterator>
+									</div>
+								</div>
+							</s:if></td>
+
+					<tr><!-- 性別ボックス -->
+					<th colspan="2">性別</th>
+					</tr>
+					<tr>
+						<td colspan="2"><s:radio name="sex" list="sexList"
+								value="defaultSexValue" label="性別" placeholder="性別" /></td>
+					</tr>
+
+					<tr>
+					<th colspan="2">住所</th>
+					</tr>
+					<tr>
+						<td colspan="2"><s:textfield placeholder="住所を入力" name="userAddress" class="txt2" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><s:if test="!#session.userAddressErrorMessageList.isEmpty()">
+								<div class="error">
+									<div class="error-message">
+										<s:iterator value="#session.userAddressErrorMessageList">
+											<s:property />
+											<br>
+										</s:iterator>
+									</div>
+								</div>
+							</s:if></td>
+					</tr>
+
+
+					<tr><!-- 電話番号ボックス -->
+					<th colspan="2">電話番号</th>
+					</tr>
+					<tr>
+						<td colspan="2"><s:textfield placeholder="電話番号を入力" name="telNumber" class="txt2" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><s:if test="!#session.telNumberErrorMessageList.isEmpty()">
+								<div class="error">
+									<div class="error-message">
+										<s:iterator value="#session.telNumberErrorMessageList">
+											<s:property />
+											<br>
+										</s:iterator>
+									</div>
+								</div>
+							</s:if></td>
+					</tr>
+
+					<tr><!-- メールアドレスボックス -->
+					<th colspan="2">メールアドレス</th>
+					</tr>
+					<tr>
+						<td colspan="2"><s:textfield placeholder="メールアドレスを入力" name="email" class="txt2" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><s:if test="!#session.emailErrorMessageList.isEmpty()">
+								<div class="error">
+									<div class="error-message">
+										<s:iterator value="#session.emailErrorMessageList">
+											<s:property />
+											<br>
+										</s:iterator>
+									</div>
+								</div>
+							</s:if></td>
+					</tr>
+
+				</table><br>
+
+				<div class="submit_btn_box">
+					<div class=".contents-btn-set">
+						<s:submit value="宛先情報確認" class="submit_btn" />
+					</div>
 				</div>
-			</div>
-		</s:if>
-
-		<s:if test="!#session.firstNameErrorMessageList.isEmpty()">
-			<div class="error">
-				<div class="error-message">
-					<s:iterator value="#session.firstNameErrorMessageList">
-						<s:property />
-						<br>
-					</s:iterator>
-				</div>
-			</div>
-		</s:if>
-
-		<s:if test="!#session.familyNameKanaErrorMessageList.isEmpty()">
-			<div class="error">
-				<div class="error-message">
-					<s:iterator value="#session.familyNameKanaErrorMessageList">
-						<s:property />
-						<br>
-					</s:iterator>
-				</div>
-			</div>
-		</s:if>
-
-		<s:if test="!#session.firstNameKanaErrorMessageList.isEmpty()">
-			<div class="error">
-				<div class="error-message">
-					<s:iterator value="#session.firstNameKanaErrorMessageList">
-						<s:property />
-						<br>
-					</s:iterator>
-				</div>
-			</div>
-		</s:if>
-
-		<s:if test="!#session.emailErrorMessageList.isEmpty()">
-			<div class="error">
-				<div class="error-message">
-					<s:iterator value="#session.emailErrorMessageList">
-						<s:property />
-						<br>
-					</s:iterator>
-				</div>
-			</div>
-		</s:if>
-
-		<s:if test="!#session.telNumberErrorMessageList.isEmpty()">
-			<div class="error">
-				<div class="error-message">
-					<s:iterator value="#session.telNumberErrorMessageList">
-						<s:property />
-						<br>
-					</s:iterator>
-				</div>
-			</div>
-		</s:if>
-
-		<s:if test="!#session.userAddressErrorMessageList.isEmpty()">
-			<div class="error">
-				<div class="error-message">
-					<s:iterator value="#session.userAddressErrorMessageList">
-						<s:property />
-						<br>
-					</s:iterator>
-				</div>
-			</div>
-		</s:if>
-
-		<s:form action="CreateDestinationConfirmAction">
-		<table class="vertical-list-table">
-			<tr>
-				<th scope="row"><s:label value="姓" /></th>
-				<td><s:textfield name="familyName" class="txt" /></td>
-			</tr>
-
-			<tr>
-				<th scope="row"><s:label value="名" /></th>
-				<td><s:textfield name="firstName" class="txt" /></td>
-			</tr>
-
-			<tr>
-				<th scope="row"><s:label value="姓ふりがな" /></th>
-				<td><s:textfield name="familyNameKana" class="txt" /></td>
-			</tr>
-
-			<tr>
-				<th scope="row"><s:label value="名ふりがな" /></th>
-				<td><s:textfield name="firstNameKana" class="txt" /></td>
-			</tr>
-
-			<tr>
-				<th scope="row"><s:label value="性別" /></th>
-				<td><s:radio name="sex" list="sexList" value="defaultSexValue"
-						label="性別" placeholder="性別" /></td>
-			</tr>
-
-			<tr>
-				<th scope="row"><s:label value="住所" /></th>
-				<td><s:textfield name="userAddress" class="txt" /></td>
-			</tr>
-
-			<tr>
-				<th scope="row"><s:label value="電話番号" /></th>
-				<td><s:textfield name="telNumber" class="txt" /></td>
-			</tr>
-
-			<tr>
-				<th scope="row"><s:label value="メールアドレス" /></th>
-				<td><s:textfield name="email" class="txt" /></td>
-			</tr>
-		</table>
-
-		<div class="submit_btn_box">
-			<div class=".contents-btn-set">
-				<s:submit value="宛先情報確認" class="submit_btn" />
-			</div>
+			</s:form>
 		</div>
-		</s:form>
-	</div>
 	</div>
 
 	<jsp:include page="footer.jsp" />
