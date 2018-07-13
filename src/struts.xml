@@ -70,6 +70,11 @@
 	</action>
 
 	<action name="AddProductConfirmAction" class="com.internousdev.leisurepass.action.AddProductConfirmAction" method="execute">
+		<interceptor-ref name="fileUpload">
+			<param name="maximumSize">2097152</param>
+			<param name="allowedTypes">image/png,image/gif,image/jpeg,image/pjpeg</param>
+		</interceptor-ref>
+		<interceptor-ref name="defaultStack"></interceptor-ref>
 		<result name="success">addProductConfirm.jsp</result>
 	</action>
 
@@ -82,12 +87,19 @@
 	</action>
 
 	<action name="AddProductCompleteAction" class="com.internousdev.leisurepass.action.AddProductCompleteAction" method="execute">
+		<interceptor-ref name="fileUpload">
+			<param name="maximumSize">2097152</param>
+			<param name="allowedTypes">image/png,image/gif,image/jpeg,image/pjpeg</param>
+		</interceptor-ref>
+		<interceptor-ref name="defaultStack"></interceptor-ref>
 		<result name="success">adminProductComplete.jsp</result>
 	</action>
 
 	<action name="EditProductAction" class="com.internousdev.leisurepass.action.EditProductAction" method="execute">
 		<result name="success">editProduct.jsp</result>
 	</action>
+
+
 
 <!-- 内野  ユーザー情報入力画面へ (home.jsp→遠藤)-->
 

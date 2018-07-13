@@ -23,7 +23,7 @@
 			<!-- 商品追加 -->
 			<!-- 修正ボタンで戻ってきた場合、前回入力内容を保持した状態で表示 -->
 			<s:if test="#session.containsKey('addProductDTO')">
-				<s:form action="AddProductConfirmAction">
+				<s:form action="AddProductConfirmAction"  method="post" enctype="multipart/form-data">
 				商品ID：<s:textfield name="productId" placeholder="例：100"
 						value="%{#session.addProductDTO.productId}" />
 					<br>
@@ -56,7 +56,8 @@
 					<br>
 				価格(円)：<s:textfield name="price" value="%{#session.addProductDTO.price}" />
 					<br>
-				画像ファイル選択（ボタン）<br>
+				画像ファイル選択：<s:file name="productImage" />
+					<br>
 				発売年月：<s:textfield name="releaseDate"
 						value="%{#session.addProductDTO.releaseDate}" />
 					<br>
@@ -108,9 +109,7 @@
 					<br>
 				価格(円)：<s:textfield name="price"/>
 					<br>
-				画像ファイル選択：<%-- <s:property value="image_file_name"/><br/>
-			<img src="<s:property value="image_file_path"/>"width="100"height="100"/>
-				<s:file name="userImage" accept="image/*"/> --%>
+				画像ファイル選択：<s:file name="productImage" />
 				発売年月：<s:textfield name="releaseDate"/>
 					<br>
 				発売会社：<s:textfield name="releaseCompany" />

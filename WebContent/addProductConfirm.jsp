@@ -62,7 +62,7 @@
 			</s:form>
 ​
 			<!-- 商品追加を確定する -->
-			<s:form action="AddProductCompleteAction">
+			<s:form action="AddProductCompleteAction" method="post" enctype="multipart/form-data">
 				<s:submit value="決定" />
 			</s:form>
 			<!-- 商品管理画面に戻る -->

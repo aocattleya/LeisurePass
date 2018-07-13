@@ -1,5 +1,6 @@
 package com.internousdev.leisurepass.dto;
 
+import java.io.File;
 import java.util.Date;
 
 public class ProductInfoDTO {
@@ -25,6 +26,35 @@ public class ProductInfoDTO {
 	private Date endDate;
 	private Date registDate;
 	private Date updateDate;
+
+	// 画像ファイル受け渡し用
+	private File productImage;
+	private String productImageContentType;
+	private String productImageFileName;
+
+	public File getProductImage() {
+		return productImage;
+	}
+
+	public void setProductImage(File productImage) {
+		this.productImage = productImage;
+	}
+
+	public String getProductImageContentType() {
+		return productImageContentType;
+	}
+
+	public void setProductImageContentType(String productImageContentType) {
+		this.productImageContentType = productImageContentType;
+	}
+
+	public String getProductImageFileName() {
+		return productImageFileName;
+	}
+
+	public void setProductImageFileName(String productImageFileName) {
+		this.productImageFileName = productImageFileName;
+	}
 
 	// メソッド ゲットセット
 	public int getId() {
