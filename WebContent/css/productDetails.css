@@ -1,0 +1,78 @@
+@CHARSET "UTF-8";
+
+.recommend-box {
+	float:left;
+}
+
+.item-image-box-320{
+	width:750px;
+	height:400px;
+}
+
+.item-image-box-100 {
+	width:330px;
+	height:260px;
+	margin-right: 7px;
+
+}
+
+.left {
+	width:60%;
+	display: inline-block;
+	background-color: #ffffff;
+	border-right: 2px solid #c0c0c0;
+}
+
+.submit_btn_box{
+	display: inline-block;
+	width: 30%;
+	background-color: #ffff00;
+	position: relative;
+	bottom: 330px;
+	text-align: center;
+}
+
+.a {
+	text-align: center;
+	display: inline;
+}
+
+.submit_btn {
+	clear: both;
+	width: 200px;
+	height: 40px;
+	margin: 5px;
+	color: #ffffff;
+	background: #ed7d22;
+	border-radius: 20px;
+	border: none;
+	text-align: center;
+}
+
+.2column-container{
+	display:inline-block;
+}
+
+.bigbox {
+	width: 100%;
+	display: inline-block;
+}
+
+#contents{
+	width: 70%;
+}
+
+.productNameKana {
+	font-size: 12px;
+
+}
+
+.releaseCompany {
+	padding-top: 40px;
+	font-weight:100px;
+	color: #c0c0c0;
+}
+
+.releaseDate {
+	color: #c0c0c0;
+}
