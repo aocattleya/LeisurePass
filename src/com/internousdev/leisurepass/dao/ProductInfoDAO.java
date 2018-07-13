@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -77,7 +78,7 @@ public class ProductInfoDAO {
 		Connection connection = dbConnector.getConnection();
 		List<ProductInfoDTO> list = new ArrayList<ProductInfoDTO>();
 
-		// 全てのフィールド／product_infoテーブルから／条件：対象商品と同カテゴリIDで対象以外のプロダクトIDを昇順で並び替える
+		// 全てのフィールド／product_infoテーブルから／条件：カテゴリIDとプロダクトID 昇順で並び替える
 		String sql = "select * from product_info where category_id=? and product_id not in(?) order by rand() limit ?,?";
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -109,10 +110,10 @@ public class ProductInfoDAO {
 		boolean initializeFlag = true;
 		for (String keyword : keywordsList) {
 			if (initializeFlag) {
-				sql += " (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
+				sql += " (product_name like ‘%" + keyword + "%’ or product_name_kana like ‘%" + keyword + "%‘)";
 				initializeFlag = false;
 			} else {
-				sql += " and (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
+				sql += " and (product_name like ‘%" + keyword + "%’ or product_name_kana like ‘%" + keyword + "%‘)";
 			}
 		}
 		try {
@@ -143,12 +144,12 @@ public class ProductInfoDAO {
 	// boolean initializeFlag = true;
 	// for (String keyword : keywordsList) {
 	// if (initializeFlag) {
-	// sql += " category_id=" + categoryId + " and (product_name like '%" +
-	// keyword + "%' or product_name_kana like '%" + keyword + "%')";
+	// sql += " category_id=" + categoryId + " and (product_name like ‘%" +
+	// keyword + "%’ or product_name_kana like ‘%" + keyword + "%‘)";
 	// initializeFlag = false;
 	// } else {
-	// sql += " and (product_name like '%" + keyword + "%' or product_name_kana
-	// like '%" + keyword + "%')";
+	// sql += " and (product_name like ‘%" + keyword + "%’ or product_name_kana
+	// like ‘%" + keyword + "%‘)";
 	// }
 	// }
 	// try {
@@ -179,12 +180,12 @@ public class ProductInfoDAO {
 	// boolean initializeFlag = true;
 	// for (String keyword : keywordsList) {
 	// if (initializeFlag) {
-	// sql += " place_id=" + placeId + " and (product_name like '%" + keyword +
-	// "%' or product_name_kana like '%" + keyword + "%')";
+	// sql += " place_id=" + placeId + " and (product_name like ‘%" + keyword +
+	// "%’ or product_name_kana like ‘%" + keyword + "%‘)";
 	// initializeFlag = false;
 	// } else {
-	// sql += " and (product_name like '%" + keyword + "%' or product_name_kana
-	// like '%" + keyword + "%')";
+	// sql += " and (product_name like ‘%" + keyword + "%’ or product_name_kana
+	// like ‘%" + keyword + "%‘)";
 	// }
 	// }
 	// try {
@@ -216,12 +217,12 @@ public class ProductInfoDAO {
 	// for (String keyword : keywordsList) {
 	// if (initializeFlag) {
 	// sql += " (category_id=" + categoryId + " and place_id=" + placeId + ")
-	// and (product_name like '%" + keyword + "%' or product_name_kana like '%"
-	// + keyword + "%')";
+	// and (product_name like ‘%" + keyword + "%’ or product_name_kana like ‘%"
+	// + keyword + "%‘)";
 	// initializeFlag = false;
 	// } else {
-	// sql += " and (product_name like '%" + keyword + "%' or product_name_kana
-	// like '%" + keyword + "%')";
+	// sql += " and (product_name like ‘%" + keyword + "%’ or product_name_kana
+	// like ‘%" + keyword + "%‘)";
 	// }
 	// }
 	// try {
@@ -272,10 +273,10 @@ public class ProductInfoDAO {
 		if (targetDate != null && !targetDate.equals("")) {
 			System.out.println(targetDate);
 			if (initializeFlag) {
-				sql += " where ('" + targetDate + "' >= start_date and '" + targetDate + "' < end_date)";
+				sql += " where (‘" + targetDate + "’ >= start_date and ‘" + targetDate + "’ < end_date)";
 				initializeFlag = false;
 			} else {
-				sql += " and ('" + targetDate + "' >= start_date and '" + targetDate + "' < end_date)";
+				sql += " and (‘" + targetDate + "’ >= start_date and ‘" + targetDate + "’ < end_date)";
 			}
 		}
 
@@ -285,10 +286,10 @@ public class ProductInfoDAO {
 				continue;
 			}
 			if (initializeFlag) {
-				sql += " where (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
+				sql += " where (product_name like ‘%" + keyword + "%’ or product_name_kana like ‘%" + keyword + "%‘)";
 				initializeFlag = false;
 			} else {
-				sql += " and (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
+				sql += " and (product_name like ‘%" + keyword + "%’ or product_name_kana like ‘%" + keyword + "%’)";
 			}
 		}
 
@@ -339,14 +340,13 @@ public class ProductInfoDAO {
 	}
 
 	// ここから下、久保田の追記
-
-	// IDで検索
+	// 商品IDで検索
 	public ProductInfoDTO selectById(int id) {
 
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 
-		String sql = "SLECT id FROM product_info WHERE id=?";
+		String sql = "SELECT * FROM product_info WHERE id = ?";
 
 		ProductInfoDTO result = null;
 
@@ -358,13 +358,11 @@ public class ProductInfoDAO {
 
 			if (resultSet.next()) {
 				result = new ProductInfoDTO();
-				result.setId(resultSet.getInt("id"));
-				result.setProductId(resultSet.getInt("product_Id"));
+				result.setProductId(resultSet.getInt("product_id"));
 				result.setProductName(resultSet.getString("product_name"));
 				result.setProductNameKana(resultSet.getString("product_name_kana"));
 				result.setProductDescription(resultSet.getString("product_description"));
 				result.setCategoryId(resultSet.getInt("category_id"));
-				result.setPlaceId(resultSet.getInt("place_id"));
 				result.setPrice(resultSet.getInt("price"));
 				result.setImageFilePath(resultSet.getString("image_file_path"));
 				result.setImageFileName(resultSet.getString("image_file_name"));
@@ -374,8 +372,6 @@ public class ProductInfoDAO {
 				result.setAccess(resultSet.getString("access"));
 				result.setUrl(resultSet.getString("url"));
 				result.setStatus(resultSet.getInt("status"));
-				result.setStartDate(resultSet.getDate("start_date"));
-				result.setEndDate(resultSet.getDate("end_date"));
 				result.setRegistDate(resultSet.getDate("regist_date"));
 				result.setUpdateDate(resultSet.getDate("update_date"));
 			}
@@ -388,23 +384,29 @@ public class ProductInfoDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+
 		return result;
 	}
 
 	// 商品追加 商品idが被ったら、try-catchでcathcに入る
 	public boolean insert(int productId, String productName, String productNameKana, String productDescription,
 			int categoryId, int placeId, int price, String imageFilePath, String imageFileName, Date releaseDate,
-			String releaseCompany, String location, String access, String url, int status, String startDate,
-			String endDate, String registDate, String updateDate) {
+			String releaseCompany, String location, String access, String url, int status, Date startDate, Date endDate,
+			Date registDate, Date updateDate) {
 
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 
-		String sql = "INSERT INTO product_info(product_id,product_name,product_name_kana,product_description,category_id,place_id,price,image_file_path,image_file_name,release_date,release_company,location,access,url,status,start_date,end_date,regist_date,update_date) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+
+		String sql = "INSERT INTO product_info(product_id,product_name,product_name_kana,product_description,category_id,place_id,price,image_file_path,image_file_name,release_date,release_company,location,access,url,status,start_date,end_date,regist_date,update_date) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now(),now())";
 
 		int result = 0;
 
 		try {
+			System.out.println(releaseDate);
+			System.out.println(startDate);
+			System.out.println(endDate);
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, productId);
 			preparedStatement.setString(2, productName);
@@ -415,16 +417,20 @@ public class ProductInfoDAO {
 			preparedStatement.setInt(7, price);
 			preparedStatement.setString(8, imageFilePath);
 			preparedStatement.setString(9, imageFileName);
-			preparedStatement.setString(10, "now()"); // releaseDate
+			preparedStatement.setString(10, simpleDateFormat.format(releaseDate));
 			preparedStatement.setString(11, releaseCompany);
 			preparedStatement.setString(12, location);
 			preparedStatement.setString(13, access);
 			preparedStatement.setString(14, url);
 			preparedStatement.setInt(15, status);
-			preparedStatement.setString(16, startDate);
-			preparedStatement.setString(17, endDate);
-			preparedStatement.setString(18, registDate);
-			preparedStatement.setString(19, "now()"); // updateDate
+			preparedStatement.setString(16, simpleDateFormat.format(startDate));
+			preparedStatement.setString(17, simpleDateFormat.format(endDate));
+			// preparedStatement.setString(18, "cast(now() as date)"); //
+			// registDate
+			// preparedStatement.setString(19, "cast(now() as date)"); //
+			// updateDate
+			// System.out.println(preparedStatement.toString());
+			System.out.println(simpleDateFormat.format(startDate));
 			System.out.println(preparedStatement.toString());
 
 			result = preparedStatement.executeUpdate();
