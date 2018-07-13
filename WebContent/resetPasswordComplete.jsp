@@ -1,19 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-     <%@ taglib prefix="s" uri="/struts-tags"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/style.css">
-<meta http-equiv="refresh" content="2;URL='HomeAction'"/>
+<meta http-equiv="refresh" content="2;URL='HomeAction'" />
 <jsp:include page="includeHead.jsp" />
+<style type="text/css">
+
+#main {
+	font-family: "メイリオ", sans-serif;
+	text-align: center;
+	color: #333;
+}
+
+#contents{
+margin-top: 80px;
+text-align: center;
+width: 600px;
+}
+}
+
+
+
+h1 {
+	font-size: 30px;
+	vertical-align: middle;
+}
+
+p {
+	font-size: 18px;
+}
+</style>
 
 <title>パスワード再設定完了</title>
 </head>
 <body>
-<jsp:include page="header.jsp" />
+	<jsp:include page="header.jsp" />
 
 	<div id="main" class="cf">
 
@@ -21,10 +47,9 @@
 
 		<div id="contents">
 
-		<h1>パスワード再設定完了画面</h1>
+			<h1>パスワード再設定が完了しました。</h1>
 
-		<p>パスワード再設定が完了しました。</p>
-		<p>2秒後に自動でホームに戻ります。</p>
+			<p>2秒後に自動でホームに戻ります。</p>
 
 
 
@@ -37,4 +62,4 @@
 
 </body>
 </html>
-<!-- 中山 7/4 -->
+<!-- 中山 -->
