@@ -8,6 +8,66 @@
 <link rel="stylesheet" href="./css/style.css">
 <jsp:include page="includeHead.jsp" />
 <title>ログイン画面</title>
+<style type="text/css">
+body {
+	width: 100%;
+	font-family: 'メイリオ', sans-serif;
+	font-size: 18px;
+}
+
+.submit_btn {
+	width: 200px;
+	height: 40px;
+	font-size: 20px;
+	background-color: #ed7d22;
+	color: #ffffff;
+	border-style: none;
+	border-radius: 20px;
+}
+
+#createUser{
+	color: #ed7d22;
+	letter-spacing: 2px;
+}
+
+#resetPassword{
+	color: #aaaaaa;
+}
+
+#contents{
+	text-align: center;
+	width: 600px;
+}
+
+.vertical-list-table{
+	display: inline;
+}
+
+.txt{
+	width: 469px;
+	height: 40px;
+	font-size: 18px;
+	background-color: #f7f7f7;
+	border-style: none;
+}
+
+.txt::-webkit-input-placeholder {
+	color: #aaaaaa;
+}
+
+.txt::-moz-placeholder {
+	color: #aaaaaa;
+}
+
+.txt:-ms-input-placeholder {
+	color: #aaaaaa;
+}
+
+.box{
+	padding-left: 60px;
+	text-align: left;
+	}
+</style>
 </head>
 <body>
 
@@ -19,55 +79,72 @@
 
 		<div id="contents">
 
-			<h1>ログイン画面</h1>
 			<s:form id="form" action="LoginAction">
-			<p>ログインIDを入力してください。</p>
-				<s:if test="!#session.loginFailedMessage.isEmpty()">
-					<div class="error">
-						<div class="error-message">
-							<s:iterator value="#session.loginFailedMessage">
-							<s:property />
-							<br>
-						</s:iterator>
-						</div>
-					</div>
-				</s:if>
-				<s:if test="!#session.loginIdErrorMessageList.isEmpty()">
-					<div class="error">
-						<div class="error-message">
-							<s:iterator value="#session.loginIdErrorMessageList">
-								<s:property />
+				<table class="vertical-list-table">
+					<tr>
+						<th>ログインID</th>
+					</tr>
+					<tr>
+						<td><s:if test="#session.savedLoginId == true">
+								<s:textfield name="loginId" class="txt" placeholder="ユーザー名を入力"
+									value='%{#session.loginId}' autocomplete="off" size="30" />
 								<br>
-							</s:iterator>
-						</div>
-					</div>
-				</s:if>
-				<s:if test ="#session.savedLoginId == true">
-					<s:textfield name="loginId" class="txt"
-						placeholder="ログインID" value='%{#session.loginId}'
-						autocomplete="off"/>
-						<br>
-				</s:if>
-				<s:else>
-					<s:textfield name="loginId" class="txt"
-						placeholder="ログインID" autocomplete="off"/>
-						<br>
-				</s:else>
-
-				<p>パスワードを入力してください。</p>
-				<s:if test="!#session.passwordErrorMessageList.isEmpty()">
-					<div class="error">
-						<div class="error-message">
-							<s:iterator value="#session.passwordErrorMessageList">
-								<s:property />
+							</s:if> <s:else>
+								<s:textfield name="loginId" class="txt" placeholder="ユーザー名を入力"
+									autocomplete="off" size="30" />
 								<br>
-							</s:iterator>
-						</div>
-					</div>
-				</s:if>
-				<s:password name="password" class="txt"
-								placeholder="パスワード" autocomplete="off" />
-								<br>
+							</s:else></td>
+					</tr>
+					<tr>
+						<td><s:if test="!#session.loginFailedMessage.isEmpty()">
+								<div class="error">
+									<div class="error-message">
+										<s:iterator value="#session.loginFailedMessage">
+											<s:property />
+											<br>
+										</s:iterator>
+									</div>
+								</div>
+							</s:if></td>
+					</tr>
+					<tr>
+						<td><s:if test="!#session.loginIdErrorMessageList.isEmpty()">
+								<div class="error">
+									<div class="error-message">
+										<s:iterator value="#session.loginIdErrorMessageList">
+											<s:property />
+											<br>
+										</s:iterator>
+									</div>
+								</div>
+							</s:if></td>
+					</tr>
+					<tr>
+						<td><p></p></td>
+					</tr>
+					<tr>
+						<th>パスワード</th>
+					</tr>
+					<tr>
+						<td><s:password name="password" class="txt"
+								placeholder="パスワードを入力（8文字以上）" autocomplete="off" size="30" /><br></td>
+					</tr>
+					<tr>
+						<td><s:if test="!#session.passwordErrorMessageList.isEmpty()">
+								<div class="error">
+									<div class="error-message">
+										<s:iterator value="#session.passwordErrorMessageList">
+											<s:property />
+											<br>
+										</s:iterator>
+									</div>
+								</div>
+							</s:if></td>
+					</tr>
+					<tr>
+						<td><p></p></td>
+					</tr>
+				</table>
 
 
 				<!--
@@ -81,29 +158,20 @@
 					<s:else>
 						<s:checkbox name="savedLoginId" />
 					</s:else>
-					<s:label value="ログインID保存" />
-					<br>
+					<s:label value="ID保存" />
 				</div>
 				<div class="submit_btn_box">
-					<s:submit value="ログイン" class="submit_btn"
-						onclick="goLoginAction();" />
+					<p>
+						<s:submit value="ログイン" class="submit_btn" />
+					</p>
 				</div>
 			</s:form>
-			<br>
-			<div class="submit_btn_box">
-				<div id=".contents-btn-set">
-					<s:form action="CreateUserAction">
-						<s:submit value="新規ユーザー登録" class="submit_btn" />
-					</s:form>
-				</div>
-			</div>
-			<div class="submit_btn_box">
-				<div id=".contents-btn-set">
-					<s:form action="ResetPasswordAction">
-						<s:submit value="パスワード再設定" class="submit_btn" />
-					</s:form>
-				</div>
-			</div>
+			<p>
+				<a href='<s:url action="CreateUserAction"/>' id="createUser">新規登録</a>
+			</p>
+			<p>
+				<a href='<s:url action="ResetPasswordAction"/>' id="resetPassword">パスワードを忘れた方はこちら</a>
+			</p>
 		</div>
 	</div>
 
