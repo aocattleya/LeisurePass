@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="./css/style.css">
 <jsp:include page="includeHead.jsp" />
 <title>宛先情報完了</title>
-<meta http-equiv="refresh" content="2;URL='settlementConfirm.jsp'"/>
+<meta http-equiv="refresh" content="2;URL='SettlementConfirmAction'"/>
 </head>
 
 <body>

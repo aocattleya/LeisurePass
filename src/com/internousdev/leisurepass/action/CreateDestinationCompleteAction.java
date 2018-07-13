@@ -29,7 +29,7 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 		if(count > 0) {
 			result = SUCCESS;
 		}
-		session.put("settlementFlg", true);
+		session.put("settlementFlg",1);
 		return result;
 	}
 
