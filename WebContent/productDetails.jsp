@@ -106,9 +106,9 @@
 							<a
 								href='<s:url action="ProductDetailsAction">
 		<s:param name="productId" value="%{productId}"/>
-		</s:url>'><img
-								src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>'
-								class="item-image-box-100" /></a>
+		</s:url>'>
+		<img src='<s:property value="imageFilePath"/>/
+		<s:property value="imageFileName"/>'class="item-image-box-100" /></a>
 							<s:property value="productName" />
 							<br>
 						</div>
