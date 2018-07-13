@@ -14,6 +14,7 @@ public class DeleteProductConfirmAction extends ActionSupport implements Session
 
 	public String execute() {
 
+		// 削除ボタンを押した商品のidをsessionに格納
 		session.put("deleteId", id);
 		System.out.println(id);
 

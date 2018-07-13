@@ -39,6 +39,9 @@ public class AdminItemDAO {
 				result.setImageFileName(resultSet.getString("image_file_name"));
 				result.setReleaseDate(resultSet.getDate("release_date"));
 				result.setReleaseCompany(resultSet.getString("release_company"));
+				result.setLocation(resultSet.getString("location"));
+				result.setAccess(resultSet.getString("access"));
+				result.setUrl(resultSet.getString("url"));
 				result.setStatus(resultSet.getInt("status"));
 				result.setRegistDate(resultSet.getDate("regist_date"));
 				result.setUpdateDate(resultSet.getDate("update_date"));

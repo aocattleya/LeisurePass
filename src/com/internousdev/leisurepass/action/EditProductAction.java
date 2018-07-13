@@ -5,10 +5,11 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.leisurepass.dao.ProductInfoDAO;
 import com.internousdev.leisurepass.dto.ProductInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class AddProductConfirmAction extends ActionSupport implements SessionAware {
+public class EditProductAction extends ActionSupport implements SessionAware {
 
 	private int id;
 	private int productId;
@@ -34,7 +35,12 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 
 	public String execute() {
 
-		ProductInfoDTO dto = new ProductInfoDTO();
+		ProductInfoDAO dao = new ProductInfoDAO();
+		ProductInfoDTO dto = dao.selectById(id);
+
+		System.out.println(id);
+		System.out.println(dto);
+		// ProductInfoDTO dto = new ProductInfoDTO();
 		dto.setId(id);
 		dto.setProductId(productId);
 		dto.setProductName(productName);
@@ -62,7 +68,7 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 		System.out.println(dto.getRegistDate());
 		System.out.println(dto.getUpdateDate());
 
-		session.put("addProductDTO", dto);
+		session.put("EditProductDTO", dto);
 
 		return SUCCESS;
 	}

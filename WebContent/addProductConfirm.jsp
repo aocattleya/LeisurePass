@@ -31,11 +31,17 @@
 				<br>
 				商品詳細：<s:property value="%{#session.addProductDTO.productDescription}"/>
 				<br>
-				カテゴリ：<s:if test= "%{#session.addProductDTO.categoryId == 1}" >動物園</s:if>
-					<s:elseif test= "%{#session.addProductDTO.categoryId == 2}" >水族館</s:elseif>
-					<s:elseif test= "%{#session.addProductDTO.categoryId == 3}" >アスレチック</s:elseif>
-					<s:elseif test= "%{#session.addProductDTO.categoryId == 4}" >遊園地</s:elseif>
-					<s:elseif test= "%{#session.addProductDTO.categoryId == 5}" >美術館</s:elseif>
+				カテゴリ：<s:if test= "%{#session.addProductDTO.categoryId == 2}" >動物園</s:if>
+					<s:elseif test= "%{#session.addProductDTO.categoryId == 3}" >水族館</s:elseif>
+					<s:elseif test= "%{#session.addProductDTO.categoryId == 4}" >アスレチック</s:elseif>
+					<s:elseif test= "%{#session.addProductDTO.categoryId == 5}" >遊園地</s:elseif>
+					<s:elseif test= "%{#session.addProductDTO.categoryId == 6}" >美術館</s:elseif>
+				<br>
+				場所：<s:if test= "%{#session.addProductDTO.placeId == 2}" >動物園</s:if>
+					<s:elseif test= "%{#session.addProductDTO.placeId == 3}" >水族館</s:elseif>
+					<s:elseif test= "%{#session.addProductDTO.placeId == 4}" >アスレチック</s:elseif>
+					<s:elseif test= "%{#session.addProductDTO.placeId == 5}" >遊園地</s:elseif>
+					<s:elseif test= "%{#session.addProductDTO.placeId == 6}" >美術館</s:elseif>
 				<br>
 				価格：<s:property value="%{#session.addProductDTO.price}"/>
 				<br>
@@ -44,11 +50,15 @@
 				<br>
 				発売会社：<s:property value="%{#session.addProductDTO.releaseCompany}"/>
 				<br>
-				場所：<s:property value="%{#session.addProductDTO.location}"/>
+				所在地：<s:property value="%{#session.addProductDTO.location}"/>
 				<br>
 				アクセス：<s:property value="%{#session.addProductDTO.access}"/>
 				<br>
 				URL：<s:property value="%{#session.addProductDTO.url}"/>
+				<br>
+				発売日：<s:property value="%{#session.addProductDTO.startDate}"/>
+				<br>
+				終了日：<s:property value="%{#session.addProductDTO.endDate}"/>
 			</s:form>
 ​
 			<!-- 商品追加を確定する -->

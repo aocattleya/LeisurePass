@@ -14,9 +14,9 @@ public class DeleteProductCompleteAction extends ActionSupport implements Sessio
 
 	public String execute() {
 
-		ProductInfoDAO dao = new ProductInfoDAO();
 		System.out.println(session.get("deleteId"));
 		id = (int) session.get("deleteId");
+		ProductInfoDAO dao = new ProductInfoDAO();
 		dao.delete(id);
 
 		return SUCCESS;
