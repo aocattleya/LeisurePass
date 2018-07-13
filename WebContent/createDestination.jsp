@@ -17,7 +17,7 @@ th {
 color: #333333;
 }
 table {
- width: 280px;
+ width: 380px;
 }
 #contents {
 	margin: 0;
@@ -36,19 +36,19 @@ margin: auto;
 
 .error-message{
 color: #ed7d22;
-font-size:10px;
+font-size:12px;
 }
 
 input.txt{
-height:25px;
-width: 180px;
+height:40px;
+width: 234px;
 background-color: #f7f7f7;
 border-radius: 5px; /*角の丸み*/
 
 }
 input.txt2{
-height:25px;
-width: 370px;
+height:40px;
+width: 469px;
 background-color: #f7f7f7;
 border-radius: 5px; /*角の丸み*/
 }

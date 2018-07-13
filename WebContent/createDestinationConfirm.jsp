@@ -33,7 +33,7 @@ padding: 30px;
 	background-color: #f7f7f7;
 	margin: 2em 0;
 	padding: 2em;
-	width: 700px;
+	width: 600px;
 	border-radius: 20px;
 	margin: auto;
 }

@@ -11,6 +11,18 @@
 <jsp:include page="includeHead.jsp" />
 <title>宛先情報完了</title>
 <meta http-equiv="refresh" content="2;URL='SettlementConfirmAction'"/>
+<style type="text/css">
+#contents {
+	margin: 0;
+	padding-top: 100px;
+	line-height: 1.6;
+	letter-spacing: 1px;
+	font-family: メイリオ ", sans-serif;
+	font-size: 18px;
+	text-align: center;
+}
+</style>
+
 </head>
 
 <body>
@@ -23,8 +35,8 @@
 
 		<div id="contents">
 
-			<h1>宛先情報完了画面</h1>
-			<div class="success">宛先情報の登録が完了しました。</div>
+
+			<div class="success"><h1>宛先情報の登録が完了しました。</h1></div>
 			<p>2秒後に自動で決済確認画面に戻ります。</p>
 
 
