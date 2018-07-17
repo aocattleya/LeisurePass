@@ -9,6 +9,11 @@
 <jsp:include page="includeHead.jsp" />
 <title>商品購入履歴</title>
 <style type="text/css">
+body {
+	width: 100%;
+	font-family: 'メイリオ', sans-serif;
+	font-size: 18px;
+}
 
 h2{
 	text-align: center;
@@ -71,9 +76,21 @@ table td .productInfo{
 	height: 40px;
 	font-size: 20px;
 	background-color: #ed7d22;
-	color: #ffffff;
-	border-style: none;
+	color: #FFF;
 	border-radius: 20px;
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+	border: solid 2px #d27d00;
+}
+
+.submit_btn {
+	width: 200px;
+	height: 40px;
+	font-size: 20px;
+	background-color: #ed7d22;
+	color: #FFF;
+	border-radius: 20px;
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+	border: solid 2px #d27d00;
 }
 
 </style>

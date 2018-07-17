@@ -20,9 +20,10 @@ body {
 	height: 40px;
 	font-size: 20px;
 	background-color: #ed7d22;
-	color: #ffffff;
-	border-style: none;
+	color: #FFF;
 	border-radius: 20px;
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+	border: solid 2px #d27d00;
 }
 
 #createUser{
@@ -36,7 +37,7 @@ body {
 
 #contents{
 	text-align: center;
-	width: 600px;
+	width: 1346px;
 }
 
 .vertical-list-table{
@@ -44,11 +45,11 @@ body {
 }
 
 .txt{
-	width: 469px;
+	width: 450px;
 	height: 40px;
 	font-size: 18px;
 	background-color: #f7f7f7;
-	border-style: none;
+	border-radius: 5px;
 }
 
 .txt::-webkit-input-placeholder {
