@@ -54,10 +54,10 @@
 								<s:hidden name="id" value="%{id}" />
 								<s:submit value="削除" />
 							</s:form></td>
-						<td><s:form action="EditProductAction">
+						<%-- <td><s:form action="EditProductAction">
 								<s:hidden name="id" value="%{id}" />
 								<s:submit value="商品情報変更" />
-							</s:form></td>
+							</s:form></td> --%>
 
 					</tr>
 				</s:iterator>
