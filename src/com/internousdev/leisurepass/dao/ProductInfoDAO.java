@@ -363,6 +363,7 @@ public class ProductInfoDAO {
 				result.setProductNameKana(resultSet.getString("product_name_kana"));
 				result.setProductDescription(resultSet.getString("product_description"));
 				result.setCategoryId(resultSet.getInt("category_id"));
+				result.setPlaceId(resultSet.getInt("place_id"));
 				result.setPrice(resultSet.getInt("price"));
 				result.setImageFilePath(resultSet.getString("image_file_path"));
 				result.setImageFileName(resultSet.getString("image_file_name"));
@@ -372,8 +373,11 @@ public class ProductInfoDAO {
 				result.setAccess(resultSet.getString("access"));
 				result.setUrl(resultSet.getString("url"));
 				result.setStatus(resultSet.getInt("status"));
+				result.setStartDate(resultSet.getDate("start_date"));
+				result.setEndDate(resultSet.getDate("end_date"));
 				result.setRegistDate(resultSet.getDate("regist_date"));
 				result.setUpdateDate(resultSet.getDate("update_date"));
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -404,9 +408,6 @@ public class ProductInfoDAO {
 		int result = 0;
 
 		try {
-			System.out.println(releaseDate);
-			System.out.println(startDate);
-			System.out.println(endDate);
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, productId);
 			preparedStatement.setString(2, productName);

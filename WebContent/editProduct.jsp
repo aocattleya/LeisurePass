@@ -21,60 +21,60 @@
 			<div>
 				<h1>商品編集画面</h1>
 			</div>
-			<!-- 商品編集 -->
-
-				商品ID：<s:textfield name=“productId” placeholder=“例：100”
-						value=“%{#session.editProductDTO.productId}” />
+<!-- 商品編集 -->
+			<s:form action="AddProductConfirmAction"  method="post" enctype="multipart/form-data">
+				商品ID：<s:textfield name="productId" placeholder="例：100"
+						value="%{#session.editProductDTO.productId}" />
 					<br>
-				商品名：<s:textfield name=“productName”
-						value=“%{#session.editProductDTO.productName}” />
+				商品名：<s:textfield name="productName"
+						value="%{#session.editProductDTO.productName}" />
 					<br>
-				商品かな：<s:textfield name=“productNameKana”
-						value=“%{#session.editProductDTO.productNameKana}”  />
+				商品かな：<s:textfield name="productNameKana"
+						value="%{#session.editProductDTO.productNameKana}"  />
 					<br>
-				商品詳細：<s:textfield name=“productDescription”
-						value=“%{#session.editProductDTO.productDescription}”  />
+				商品詳細：<s:textfield name="productDescription"
+						value="%{#session.editProductDTO.productDescription}"  />
 					<br>
-				カテゴリ：<select name=“categoryId”>
-						<option value=“1" selected=“selected”>動物園</option>
-						<option value=“2">水族館</option>
-						<option value=“3”>アスレチック</option>
-						<option value=“4">遊園地</option>
-						<option value=“5”>美術館</option>
+				カテゴリ：<select name="categoryId">
+						<option value="2" selected="selected">動物園</option>
+						<option value="3">水族館</option>
+						<option value="4">アスレチック</option>
+						<option value="5">遊園地</option>
+						<option value="6">美術館</option>
 					</select>
 					<br>
-				価格(円)：<s:textfield name=“price” value=“%{#session.editProductDTO.price}” />
+				場所：<select name="placeId">
+						<option value="2" selected="selected">茨城県</option>
+						<option value="3">栃木県</option>
+						<option value="4">群馬県</option>
+						<option value="5">千葉県</option>
+						<option value="6">埼玉県</option>
+						<option value="7">東京都</option>
+						<option value="8">神奈川県</option>
+					</select>
 					<br>
-				画像ファイル選択（ボタン）<br>
-				発売年月：<s:textfield name=“releaseDate”
-						value=“%{#session.editProductDTO.releaseDate}” />
+				価格(円)：<s:textfield name="price" value="%{#session.editProductDTO.price}" />
 					<br>
-				発売会社：<s:textfield name=“releaseCompany”
-						value=“%{#session.editProductDTO.releaseCompany}” />
+				画像ファイル選択：<s:file name="productImage" />
 					<br>
-				場所：<s:textfield name=“location” value=“%{#session.editProductDTO.location}” />
+				発売年月：<s:textfield name="releaseDate"
+						value="%{#session.editProductDTO.releaseDate}" />
 					<br>
-				アクセス：<s:textfield name=“access” value=“%{#session.editProductDTO.access}” />
+				発売会社：<s:textfield name="releaseCompany"
+						value="%{#session.editProductDTO.releaseCompany}" />
 					<br>
-				URL：<s:textfield name=“url” value=“%{#session.editProductDTO.url}“/>
+				所在地：<s:textfield name="location" value="%{#session.editProductDTO.location}" />
 					<br>
-				開始年月：<s:textfield name=“startDate”/>
+				アクセス：<s:textfield name="access" value="%{#session.editProductDTO.access}" />
 					<br>
-				終了年月：<s:textfield name=“endDate”/>
+				URL：<s:textfield name="url" value="%{#session.editProductDTO.url}"/>
 					<br>
-			<!-- 修正ボタンで戻ってきた場合、前回入力内容を保持した状態で表示 -->
-
-			<!-- 新規入力 -->
-			商品ID：<s:textfield name="productId" placeholder="例：100" label="商品ID" />
-				<br>
-​			<!-- 商品削除 -->
-			<s:form action="DeleteProductConfirmAction">
-				<s:submit value="削除" />
-			</s:form>
-			<!-- 商品管理画面に戻る -->
-			<s:form action="GoAdminAction">
-				<s:submit value="戻る" />
-			</s:form>
+				開始日：<s:textfield name="startDate" value="%{#session.editProductDTO.startDate}"/>
+					<br>
+				終了日：<s:textfield name="endDate" value="%{#session.editProductDTO.endDate}"/>
+					<br>
+					<s:submit value="確認画面へ" />
+				</s:form>
 		</div>
 		<div id="footer"></div>
 	</div>

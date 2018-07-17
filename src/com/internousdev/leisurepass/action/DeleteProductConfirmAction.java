@@ -4,6 +4,8 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.leisurepass.dao.ProductInfoDAO;
+import com.internousdev.leisurepass.dto.ProductInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class DeleteProductConfirmAction extends ActionSupport implements SessionAware {
@@ -14,27 +16,21 @@ public class DeleteProductConfirmAction extends ActionSupport implements Session
 
 	public String execute() {
 
+		ProductInfoDAO dao = new ProductInfoDAO();
+		ProductInfoDTO dto = dao.selectById(id);
 		// 削除ボタンを押した商品のidをsessionに格納
-		session.put("deleteId", id);
-		System.out.println(id);
+		session.put("deleteProductDTO", dto);
 
 		return SUCCESS;
-	}
-
-	public int getId() {
-		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public Map<String, Object> getSession() {
-		return this.session;
-	}
-
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+
 }

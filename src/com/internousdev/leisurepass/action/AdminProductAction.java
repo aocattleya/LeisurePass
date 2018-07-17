@@ -21,6 +21,7 @@ public class AdminProductAction extends ActionSupport implements SessionAware {
 		ProductInfoDAO dao = new ProductInfoDAO();
 		productList = dao.getProductInfoList();
 
+		session.remove("addProductDTO");
 		return SUCCESS;
 	}
 

@@ -37,26 +37,88 @@
 						value="%{#session.addProductDTO.productDescription}"  />
 					<br>
 				カテゴリ：<select name="categoryId">
-						<option value="2" selected="selected">動物園</option>
-						<option value="3">水族館</option>
-						<option value="4">アスレチック</option>
-						<option value="5">遊園地</option>
-						<option value="6">美術館</option>
-					</select>
+						<s:if test="%{#session.addProductDTO.categoryId == 2}">
+							<option value="2" selected="selected">動物園</option>
+						</s:if>
+						<s:else>
+							<option value="2">動物園</option>
+						</s:else>
+						<s:if test="%{#session.addProductDTO.categoryId == 3}">
+							<option value="3" selected="selected">水族館</option>
+						</s:if>
+						<s:else>
+							<option value="3">水族館</option>
+						</s:else>
+						<s:if test="%{#session.addProductDTO.categoryId == 4}">
+							<option value="4" selected="selected">アスレチック</option>
+						</s:if>
+						<s:else>
+							<option value="4">アスレチック</option>
+						</s:else>
+						<s:if test="%{#session.addProductDTO.categoryId == 5}">
+							<option value="5" selected="selected">遊園地</option>
+						</s:if>
+						<s:else>
+							<option value="5">遊園地</option>
+						</s:else>
+						<s:if test="%{#session.addProductDTO.categoryId == 6}">
+							<option value="6" selected="selected">美術館</option>
+						</s:if>
+						<s:else>
+							<option value="6">美術館</option>
+						</s:else>
+
+						</select>
 					<br>
 				場所：<select name="placeId">
-						<option value="2" selected="selected">茨城県</option>
-						<option value="3">栃木県</option>
-						<option value="4">群馬県</option>
-						<option value="5">千葉県</option>
-						<option value="6">埼玉県</option>
-						<option value="7">東京都</option>
-						<option value="8">神奈川県</option>
+				<s:if test="%{#session.addProductDTO.placeId == 2}">
+							<option value="2" selected="selected">茨城県</option>
+						</s:if>
+						<s:else>
+							<option value="2">茨城県</option>
+						</s:else>
+						<s:if test="%{#session.addProductDTO.placeId == 3}">
+							<option value="3" selected="selected">栃木県</option>
+						</s:if>
+						<s:else>
+							<option value="3">栃木県</option>
+						</s:else>
+						<s:if test="%{#session.addProductDTO.placeId == 4}">
+							<option value="4" selected="selected">群馬県</option>
+						</s:if>
+						<s:else>
+							<option value="4">群馬県</option>
+						</s:else>
+						<s:if test="%{#session.addProductDTO.placeId == 5}">
+							<option value="5" selected="selected">千葉県</option>
+						</s:if>
+						<s:else>
+							<option value="5">千葉県</option>
+						</s:else>
+						<s:if test="%{#session.addProductDTO.placeId == 6}">
+							<option value="6" selected="selected">埼玉県</option>
+						</s:if>
+						<s:else>
+							<option value="6">埼玉県</option>
+						</s:else>
+						<s:if test="%{#session.addProductDTO.placeId == 7}">
+							<option value="7" selected="selected">東京都</option>
+						</s:if>
+						<s:else>
+							<option value="7">東京都</option>
+						</s:else>
+						<s:if test="%{#session.addProductDTO.placeId == 8}">
+							<option value="8" selected="selected">神奈川県</option>
+						</s:if>
+						<s:else>
+							<option value="8">神奈川県</option>
+						</s:else>
 					</select>
 					<br>
 				価格(円)：<s:textfield name="price" value="%{#session.addProductDTO.price}" />
 					<br>
-				画像ファイル選択：<s:file name="productImage" />
+				画像ファイル選択：<img id="image_path" src="<s:property value="image_file_path"/>"width="100"height="100"/>
+					<s:file name="productImage" />
 					<br>
 				発売年月：<s:textfield name="releaseDate"
 						value="%{#session.addProductDTO.releaseDate}" />
@@ -87,7 +149,7 @@
 					<br>
 				商品かな：<s:textfield name="productNameKana"/>
 					<br>
-				商品詳細：<s:textfield name="productDescription" />
+				商品詳細：<s:textarea name="productDescription" />
 					<br>
 				カテゴリ：<select name="categoryId">
 						<option value="2" selected="selected">動物園</option>
@@ -110,6 +172,7 @@
 				価格(円)：<s:textfield name="price"/>
 					<br>
 				画像ファイル選択：<s:file name="productImage" />
+					<br>
 				発売年月：<s:textfield name="releaseDate"/>
 					<br>
 				発売会社：<s:textfield name="releaseCompany" />

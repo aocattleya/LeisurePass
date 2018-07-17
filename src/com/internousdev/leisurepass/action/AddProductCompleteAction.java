@@ -49,6 +49,8 @@ public class AddProductCompleteAction extends ActionSupport implements SessionAw
 				dto.getReleaseDate(), dto.getReleaseCompany(), dto.getLocation(), dto.getAccess(), dto.getUrl(),
 				dto.getStatus(), dto.getStartDate(), dto.getEndDate(), dto.getRegistDate(), dto.getUpdateDate());
 
+		session.remove("addProductDTO");
+
 		String result = SUCCESS;
 		return result;
 	}

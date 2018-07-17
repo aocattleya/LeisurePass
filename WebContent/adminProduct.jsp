@@ -24,7 +24,7 @@
 			<table class="product-table">
 				<tr>
 					<td><s:form action="AddProductAction">
-							<s:submit class="table-button" type="button" value="追加" />
+							<s:submit value="商品追加" />
 						</s:form></td>
 				</tr>
 				<!-- 表示項目は、設計書の商品詳細画面に倣った -->
@@ -50,14 +50,15 @@
 						<td><s:property value="releaseCompany" /></td>
 						<td><s:property value="releaseDate" /></td>
 						<td><s:property value="productDescription" /></td>
-						<td><s:form action="EditProductAction">
-								<s:hidden name="id" value="%{id}" />
-								<s:submit value="編集" />
-							</s:form></td>
-							<td><s:form action="DeleteProductConfirmAction">
+						<td><s:form action="DeleteProductConfirmAction">
 								<s:hidden name="id" value="%{id}" />
 								<s:submit value="削除" />
 							</s:form></td>
+						<td><s:form action="EditProductAction">
+								<s:hidden name="id" value="%{id}" />
+								<s:submit value="商品情報変更" />
+							</s:form></td>
+
 					</tr>
 				</s:iterator>
 			</table>

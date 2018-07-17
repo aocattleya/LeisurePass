@@ -13,6 +13,10 @@ public class AddProductAction extends ActionSupport implements SessionAware {
 	public String execute() {
 		System.out.println(session.containsKey("addProductDTO"));
 		String result = SUCCESS;
+		// if (session.containsKey("addProductDTO")) {
+		// ProductInfoDTO dto = (ProductInfoDTO) session.get("addProductDTO");
+		// System.out.println(dto.getCategoryId());
+		// }
 		return result;
 	}
 
