@@ -8,7 +8,9 @@ body {
 	float:left;
 }
 
+/*mainpicture*/
 .item-image-box-320{
+	padding-left: 100px;
 	width:750px;
 	height:400px;
 }
@@ -21,7 +23,7 @@ body {
 }
 
 .left {
-	width:60%;
+	width:750px;
 	display: inline-block;
 	background-color: #ffffff;
 	border-right: 2px solid #c0c0c0;
@@ -29,10 +31,10 @@ body {
 
 .submit_btn_box{
 	display: inline-block;
-	width: 30%;
-	background-color: #ffff00;
+	width: 270px;
+	height:200px;
 	position: relative;
-	bottom: 330px;
+	bottom: 280px;
 	text-align: center;
 }
 
@@ -41,6 +43,23 @@ body {
 	display: inline;
 }
 
+.kosuu th {
+	height: 8px;
+	padding-top: 4px;
+	transform: middle;
+	background: #d9d9d9;
+	border-collapse: collapse; /* 隣り合うセルの線を結合 */
+	border-radius: 10px; /*ボタンの角の丸み*/
+}
+
+.a th {
+	float: left;
+	padding-bottom: 20px;
+}
+
+.a td {
+	padding-bottom: 20px;
+}
 
 .submit_btn {
 	width: 200px;/*ボタンの横の長さ*/
@@ -69,6 +88,7 @@ body {
 
 .productNameKana {
 	font-size: 12px;
+	padding-top: 8px;
 }
 
 .daimei{
@@ -111,13 +131,18 @@ th.local {
 	border-top: solid 2px #999999;;
 	border-bottom: solid 2px #999999;;
 	background: #d9d9d9;
+	padding: 3px;
+	width: 100px;
 }
 
 th.local1{
 	font-weight: 100;
 	border-top: solid 2px #999999;;
-	border-bottom: solid 2px #999999;;
-
+	border-bottom: solid 2px #999999;
+	width:630px;
+	text-align:left;
 }
 
-
+.productName{
+	text-align: center;
+}
