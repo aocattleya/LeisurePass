@@ -131,7 +131,7 @@
 				<tr>
 					<th scope="row">名</th>
 					<td><s:textfield name="firstName"
-							value="%{session.familyName}" lebel="名" placeholder="名"
+							value="%{session.firstName}" lebel="名" placeholder="名"
 							class="txt" /></td>
 				</tr>
 
@@ -145,7 +145,7 @@
 				<tr>
 					<th scope="row">名ふりがな</th>
 					<td><s:textfield name="firstNameKana"
-							value="%{session.familyNameKana}" lebel="名ふりがな"
+							value="%{session.firstNameKana}" lebel="名ふりがな"
 							placeholder="名ふりがな" class="txt" /></td>
 				</tr>
 
@@ -180,10 +180,6 @@
 			</div>
 		</s:form>
 	</div>
-	<div id="footer">
-		<s:include value="footer.jsp" />
-	</div>
-
 
 		</div>
 

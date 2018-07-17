@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="./css/style.css">
 
 <div id="navigation">
+	<div class="navigation-contents">
 	<s:form action="SearchItemAction">
 		<ul>
 			<li>
@@ -13,19 +14,19 @@
 				</div>
 			</li>
 			<li>
-				<div class="placeId">
+				<div class="placeId cp_sl01">
 				<s:select name="placeId" list="#session.mPlaceDtoList" listValue="placeName" listKey="placeId" />
 				</div>
 			</li>
 			<li>
-				<div class="categoryId">
+				<div class="categoryId cp_sl01">
 				<s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" />
 				</div>
 			</li>
 			<li>
 				<div class="targetDate">
 				<s:textfield id="date_val" name="targetDate" value="%{#session.targetDate}" readonly="true" />
-				<div id="datepicker" style="font-size: 12px;"></div>
+				<div id="datepicker" style="font-size: 20px;"></div>
 				</div>
 			</li>
 			<li>
@@ -33,5 +34,6 @@
 			</li>
 		</ul>
 	</s:form>
+	</div>
 </div>
 

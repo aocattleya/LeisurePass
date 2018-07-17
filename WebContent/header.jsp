@@ -1,51 +1,60 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-
+<link rel="stylesheet" href="./css/header.css">
+<link rel="stylesheet" href="./css/style.css">
 <header>
 	<div id="header_container" class="cf">
 		<div class="logo">
 			<s:form action="HomeAction">
-				<s:submit value="レジャパス" />
+				<a href="HomeAction"><img src="images/logo.jpg"></a>
 			</s:form>
 		</div>
 		<div class="header_menu">
 			<ul>
 				<li>
-					<s:form action="ProductListAction">
-						<s:submit value="商品一覧" />
-					</s:form>
+					<div class="ticket">
+						<a href="ProductListAction"><img src="images/ticket.jpg"></a>
+					</div>
 				</li>
 				<li>
-					<s:form action="CartAction">
-						<s:submit value="カート" />
-					</s:form>
+					<div class="cart">
+						<a href="CartAction"><img src="images/cart.jpg"></a>
+					</div>
 				</li>
 				<s:if test="#session.logined == 0">
 					<li>
-						<s:form action="GoLoginAction">
-							<s:submit value="ログイン" />
-						</s:form>
+						<div class="login">
+							<s:form action="GoLoginAction">
+								<input type="submit" value="ログイン" class="login">
+								<a href="GologinAction"></a>
+							</s:form>
+						</div>
 					</li>
 				</s:if>
+
 				<s:if test="#session.logined == 1">
-					<li>
-						<s:if test="#session.userInfo.status == 1">
+					<li><s:if test="#session.userInfo.status == 1">
 							<s:form action="GoAdminAction">
 								<s:submit value="管理者" />
 							</s:form>
-						</s:if>
-						<s:else>
-							<s:form action="MyPageAction">
-								<s:submit value="マイページ" />
+						</s:if> <s:else>
+							<div class="mypage">
+								<s:form action="MyPageAction">
+							マイページ
 							</s:form>
-						</s:else>
-					</li>
-					<li>
+							</div>
+						</s:else></li>
+					<li><s:property value="%{#session.logined}" /></li>
+
+
+						<<div class="logout">
 						<s:form action="LogoutAction">
-							<s:submit value="ログアウト" />
+							<input type="submit" value="ログアウト" class="logout">
+							<a href="LogoutAction"></a>
 						</s:form>
-					</li>
+					</div>
+
 				</s:if>
 			</ul>
 		</div>
