@@ -19,7 +19,6 @@
 	<div id="main" class="cf">
 		<jsp:include page="navigation.jsp" />
 		<div id="contents">
-			<h1>商品詳細</h1>
 			<s:form action="AddCartAction">
 
 
@@ -28,7 +27,6 @@
 								src='<s:property value="%{#session.imageFilePath}"/>/<s:property value="%{#session.imageFileName}"/>'
 								class="item-image-box-320" /><br>
 
-						<div class="bigbox">
 						<div class="left">
 							<table class="vertical-list-table-mini">
 								<tr>
@@ -84,19 +82,18 @@
 
 				<div class="submit_btn_box">
 					<table class="a">
-						<tr>
-							<th>購入個数</th>
-							<td><s:select name="productCount"
-									list="%{#session.productCountList}" />個</td>
+						<tr class="kosuu">
+							<th>　購入個数　　　　
+							<s:select name="productCount"
+									list="%{#session.productCountList}" />個　</th>
 						</tr>
 						<tr>
-							<th>値段</th><td><s:property
-									value="%{#session.price}" />円</td>
+							<th>　値段　　　　　　　<s:property
+									value="%{#session.price}" />円</th>
 						</tr>
 
 					</table>
 				<s:submit value="カートに追加" class="submit_btn" />
-				</div>
 				</div>
 			</s:form>
 			<!-- おススメピックアップ -->
@@ -117,7 +114,7 @@
 									class="item-image-box-100" />
 								</a>
 							</div>
-							<s:property value="productName" />
+							<div class="productName"><s:property value="productName" /></div>
 							<br>
 						</div>
 						<!-- 		</div>
