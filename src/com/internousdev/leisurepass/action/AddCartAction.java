@@ -1,7 +1,6 @@
 package com.internousdev.leisurepass.action;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +21,6 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 	private int price;
 	private String productCount;
 	private String releaseCompany;
-	private Date releaseDate;
 	private String productDescription;
 	private String categoryId;
 	private Map<String, Object> session;
@@ -185,13 +183,6 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		this.releaseCompany = releaseCompany;
 	}
 
-	public Date getReleaseDate() {
-		return releaseDate;
-	}
-
-	public void setReleaseDate(Date releaseDate) {
-		this.releaseDate = releaseDate;
-	}
 
 	public String getProductDescription() {
 		return productDescription;

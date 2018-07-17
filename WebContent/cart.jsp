@@ -32,7 +32,6 @@
 			<s:form id="form" action="SettlementConfirmAction">
 
 				<s:iterator value="#session.cartInfoDtoList">
-					<div class="listdivide">
 						<div class="checkbox">
 							<s:checkbox name="checkList" value="checked" fieldValue="%{id}"
 								id="checkbox" />
@@ -65,7 +64,7 @@
 								</tr>
 								<tr>
 									<td class="list"><span class="fat-text">発売日：</span> <s:property
-											value="releaseDate" /></td>
+											value="releaseDateString" /></td>
 								</tr>
 
 								<tr>
@@ -76,7 +75,6 @@
 								</tr>
 
 							</table>
-						</div>
 
 						<s:hidden name="productId" value="%{productId}" />
 
@@ -94,9 +92,10 @@
 				</s:iterator>
 				<br>
 				<h2>
-					<s:label value="商品合計 :　　　　　　　　　　" />
+					<s:label value="商品合計 :" /><span class="totalPrice">
 					<s:property value="#session.totalPrice" />
 					円
+					</span>
 				</h2>
 				<br>
 				<div class="submit_btn_box">
