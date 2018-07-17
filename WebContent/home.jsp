@@ -49,7 +49,7 @@ background-color: yellow;
 } */
 
 
-img {
+.slider img {
 	width: 1344px;
 	height: 500px;
 	object-fit: cover;
