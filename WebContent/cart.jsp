@@ -32,60 +32,64 @@
 			<s:form id="form" action="SettlementConfirmAction">
 
 				<s:iterator value="#session.cartInfoDtoList">
-<div class="listdivide">
-					<div class="checkbox"><s:checkbox name="checkList" value="checked" fieldValue="%{id}" id="checkbox"/></div>
+					<div class="listdivide">
+						<div class="checkbox">
+							<s:checkbox name="checkList" value="checked" fieldValue="%{id}"
+								id="checkbox" />
+						</div>
 
-				<img
+						<img
 							src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>'
 							width="326px" height="218px" />
-				<div class="Side-by-side">
-					<table class="horizontal-list-table">
+						<div class="Side-by-side">
+							<table class="horizontal-list-table">
 
-						<tr>
-							<td class="productNameKana"><s:property value="productNameKana" /></td>
-						</tr>
-						<tr>
-							<td class="productName"><s:property value="productName" /></td>
-						</tr>
-						<tr>
-							<td class="list"><span class="fat-text">料金：</span>
-								<s:property value="price" />円</td>
-						</tr>
-						<tr>
-							<td class="list"><span class="fat-text">枚数：</span>
-								<s:property value="productCount" />枚</td>
-						</tr>
-						<tr>
-							<td class="list"><span class="fat-text">発売会社：</span>
-								<s:property value="releaseCompany" /></td>
-						</tr>
-						<tr>
-							<td class="list"><span class="fat-text">発売日：</span>
-								<s:property value="releaseDate" /></td>
-						</tr>
+								<tr>
+									<td class="productNameKana"><s:property
+											value="productNameKana" /></td>
+								</tr>
+								<tr>
+									<td class="productName"><s:property value="productName" /></td>
+								</tr>
+								<tr>
+									<td class="list"><span class="fat-text">料金：</span> <s:property
+											value="price" />円</td>
+								</tr>
+								<tr>
+									<td class="list"><span class="fat-text">枚数：</span> <s:property
+											value="productCount" />枚</td>
+								</tr>
+								<tr>
+									<td class="list"><span class="fat-text">発売会社：</span> <s:property
+											value="releaseCompany" /></td>
+								</tr>
+								<tr>
+									<td class="list"><span class="fat-text">発売日：</span> <s:property
+											value="releaseDate" /></td>
+								</tr>
 
-						<tr>
-							<td class="subtotal"><span class="fat-text">小計</td>
-						</tr>
-						<tr>
-							<td class="syoukei"><s:property value="subtotal" />円</td>
-						</tr>
+								<tr>
+									<td class="subtotal">小計</td>
+								</tr>
+								<tr>
+									<td class="syoukei"><s:property value="subtotal" />円</td>
+								</tr>
 
-					</table>
-				</div>
+							</table>
+						</div>
 
-					<s:hidden name="productId" value="%{productId}" />
+						<s:hidden name="productId" value="%{productId}" />
 
-					<s:hidden name="productName" value="%{productName}" />
-					<s:hidden name="productNameKana" value="%{productNameKana}" />
-					<s:hidden name="imageFilePath" value="%{imageFilePath}" />
-					<s:hidden name="imageFileName" value="%{imageFileName}" />
-					<s:hidden name="price" value="%{price}" />
-					<s:hidden name="releaseCompany" value="%{releaseCompany}" />
-					<s:hidden name="releaseDate" value="%{releaseDate}" />
-					<s:hidden name="productCount" value="%{productCount}" />
-					<s:hidden name="subtotal" value="%{subtotal}" />
-</div>
+						<s:hidden name="productName" value="%{productName}" />
+						<s:hidden name="productNameKana" value="%{productNameKana}" />
+						<s:hidden name="imageFilePath" value="%{imageFilePath}" />
+						<s:hidden name="imageFileName" value="%{imageFileName}" />
+						<s:hidden name="price" value="%{price}" />
+						<s:hidden name="releaseCompany" value="%{releaseCompany}" />
+						<s:hidden name="releaseDate" value="%{releaseDate}" />
+						<s:hidden name="productCount" value="%{productCount}" />
+						<s:hidden name="subtotal" value="%{subtotal}" />
+					</div>
 
 				</s:iterator>
 				<br>
@@ -104,7 +108,7 @@
 				<div class="submit_btn_box">
 					<div id=".contents-btn-set">
 						<s:submit value="〆したチケットを削除" class="submit_btn"
-							onclick="tdis.form.action='DeleteCartAction';" />
+							onclick="this.form.action='DeleteCartAction';" />
 					</div>
 				</div>
 

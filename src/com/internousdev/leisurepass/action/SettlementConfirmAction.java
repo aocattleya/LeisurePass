@@ -80,7 +80,7 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 				purchaseHistoryInfoDTO.setReleaseCompany(String.valueOf(releaseCompanyList[i]));
 
 				try {
-					SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+					SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy'年'MM'月'dd'日'");
 					purchaseHistoryInfoDTO.setReleaseDate(simpleDateFormat.parse(String.valueOf(releaseDateList[i])));
 				} catch (ParseException e) {
 					e.printStackTrace();
