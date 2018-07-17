@@ -15,6 +15,12 @@ body {
 	font-size: 18px;
 }
 
+contents{
+	text-align: center;
+	float: left;
+	width: 1344px;
+}
+
 h2{
 	text-align: center;
 }

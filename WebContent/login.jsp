@@ -15,6 +15,12 @@ body {
 	font-size: 18px;
 }
 
+#contents{
+	text-align: center;
+	float: left;
+	width: 1344px;
+}
+
 .submit_btn {
 	width: 200px;
 	height: 40px;
@@ -24,7 +30,16 @@ body {
 	border-radius: 20px;
 	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
 	border: solid 2px #d27d00;
+	outline: 0;
+	cursor: pointer;
 }
+
+.submit_btn:focus{
+	outline: 0;
+	background-color: #d27d00;
+
+}
+*/
 
 #createUser{
 	color: #ed7d22;
@@ -33,11 +48,6 @@ body {
 
 #resetPassword{
 	color: #aaaaaa;
-}
-
-#contents{
-	text-align: center;
-	width: 1346px;
 }
 
 .vertical-list-table{
@@ -65,9 +75,8 @@ body {
 }
 
 .box{
-	padding-left: 60px;
-	text-align: left;
-	}
+	padding-right: 400px;
+}
 </style>
 </head>
 <body>
