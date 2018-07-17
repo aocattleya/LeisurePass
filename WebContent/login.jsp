@@ -153,12 +153,11 @@ body {
 -->
 				<div class="box">
 					<s:if test="#session.savedLoginId==true">
-						<s:checkbox name="savedLoginId" checked="checked" />
+						<label><s:checkbox name="savedLoginId" checked="checked" />ID保存</label>
 					</s:if>
 					<s:else>
-						<s:checkbox name="savedLoginId" />
+						<label><s:checkbox name="savedLoginId" />ID保存</label>
 					</s:else>
-					<s:label value="ID保存" />
 				</div>
 				<div class="submit_btn_box">
 					<p>
@@ -170,7 +169,7 @@ body {
 				<a href='<s:url action="CreateUserAction"/>' id="createUser">新規登録</a>
 			</p>
 			<p>
-				<a href='<s:url action="ResetPasswordAction"/>' id="resetPassword">パスワードを忘れた方はこちら</a>
+				<a href='<s:url action="ResetPasswordAction"/>' id="resetPassword">パスワードの再設定</a>
 			</p>
 		</div>
 	</div>
