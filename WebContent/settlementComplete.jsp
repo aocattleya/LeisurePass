@@ -34,7 +34,7 @@
 }
 </style>
 <jsp:include page="includeHead.jsp" />
-<meta http-equiv="refresh" content="3;URL='HomeAction'"/>
+<meta http-equiv="refresh" content="2;URL='HomeAction'"/>
 <title>決済完了</title>
 </head>
 <body>
@@ -47,9 +47,6 @@
 				<br>
 				<p>2秒後に自動でホームへ戻ります。</p>
 				<br>
-				<%-- <s:form action="HomeAction">
-					<s:submit value="ホームへ戻る" class="topretun" />
-				</s:form> --%>
 			</div>
 		</div>
 	</div>
