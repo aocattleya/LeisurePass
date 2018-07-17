@@ -1,5 +1,11 @@
 @CHARSET "UTF-8";
 
+body{
+	font-family:Meiryo;
+	width:1920px;
+	height:1080px;
+}
+
 h1 {
 	text-align:center;
 	color: #333333;
@@ -9,17 +15,7 @@ h1 {
 	right:100px;
 }
 
-.submit_btn {
-	width: 200px;/*ボタンの横の長さ*/
-	height:40px;/*ボタンの縦の長さ*/
-	/* display: inline-block; 多分要らないかも*/
-	font-size:20px;/*ボタン文字サイズ*/
-	color: #FFF;/*ボタン文字の色*/
-	background: #ed7d22; /*ボタンの色*/
-	border-radius: 20px; /*ボタンの角の丸み*/
-	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);/*ボタンの影（立体感）*/
-	border: solid 2px #d27d00;/*ボタンの立体感を出すため*/
-}
+
 
 img{
 	float: left;
@@ -88,14 +84,16 @@ h2 {
 }
 
 .submit_btn {
+	font-size:20px;
 	clear: both;
-	width: 230px;
+	width: 200px;
 	height: 40px;
 	margin: 5px;
 	margin-left:250px;
-	color: #ffffff;
+	color: #FFF;
 	background: #ed7d22;
 	border-radius: 20px;
-	border: none;
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+	border: solid 2px #d27d00;
 	text-align: center;
 }

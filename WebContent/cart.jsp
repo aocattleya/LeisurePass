@@ -106,7 +106,7 @@
 
 				<div class="submit_btn_box">
 					<div id=".contents-btn-set">
-						<s:submit value="〆したチケットを削除" class="submit_btn"
+						<s:submit value="〆した商品を削除" class="submit_btn"
 							onclick="this.form.action='DeleteCartAction';" />
 					</div>
 				</div>
@@ -115,8 +115,9 @@
 		</s:if>
 		<s:else>
 			<div class="info">カート情報はありません。</div>
-			<s:submit value="HOME" class="submit_btn"
-				onclick="this.form.action='HomeAction';" />
+			<s:form action="HomeAction">
+			<s:submit value="HOME" class="submit_btn" />
+			</s:form>
 		</s:else>
 
 		<s:if test="#session.overErrorMessage != null">
