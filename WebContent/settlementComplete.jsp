@@ -9,7 +9,7 @@
 <style type="text/css">
 #contents {
 	text-align: center;
-	font-family: Meiryo ", sans-serif;
+	font-family: メイリオ ", sans-serif;
 }
 
 .success {
@@ -34,6 +34,7 @@
 }
 </style>
 <jsp:include page="includeHead.jsp" />
+<meta http-equiv="refresh" content="3;URL='HomeAction'"/>
 <title>決済完了</title>
 </head>
 <body>
@@ -44,10 +45,11 @@
 			<div class="success">
 				<h1>決済が完了しました。</h1>
 				<br>
+				<p>2秒後に自動でホームへ戻ります。</p>
 				<br>
-				<s:form action="HomeAction">
+				<%-- <s:form action="HomeAction">
 					<s:submit value="ホームへ戻る" class="topretun" />
-				</s:form>
+				</s:form> --%>
 			</div>
 		</div>
 	</div>
