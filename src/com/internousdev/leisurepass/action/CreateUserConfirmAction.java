@@ -22,7 +22,9 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 	private String loginId;
 	private String password;
 	private String existLoginIdErrorMessage;
-
+	private String categoryId;
+	private String defaultSexValue = MALE;
+	
 	private List<String> loginIdErrorMessageList = new ArrayList<String>();
 	private List<String> passwordErrorMessageList = new ArrayList<String>();
 	private List<String> emailErrorMessageList = new ArrayList<String>();
@@ -30,15 +32,12 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 	private List<String> firstNameErrorMessageList = new ArrayList<String>();
 	private List<String> familyNameKanaErrorMessageList = new ArrayList<String>();
 	private List<String> firstNameKanaErrorMessageList = new ArrayList<String>();
-
-	private String categoryId;
 	private List<String> sexList = new ArrayList<String>();
 	private Map<String, Object> session;
 
 	private static final String MALE = "男性";
 	private static final String FEMALE = "女性";
-
-	private String defaultSexValue = MALE;
+	
 
 	public String execute() {
 		String result = ERROR;

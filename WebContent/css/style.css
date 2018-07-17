@@ -27,8 +27,18 @@ body, html {
 /* layout */
 #navigation {
 	float: left;
-	width: 30%;
+	background-color: #F7F7F7;
+	border-radius: 10px 10px 10px 10px;
+	height:625px;
+	width:320px;
+	margin-left:40px;
+	display: flex;
+	align-items: center;
+
+
+
 }
+
 
 #contents {
 	float: left;

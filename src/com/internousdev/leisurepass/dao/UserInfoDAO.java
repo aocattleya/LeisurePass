@@ -13,15 +13,15 @@ import com.internousdev.leisurepass.util.DBConnector;
 
 public class UserInfoDAO {
 	public int createUser(String familyName,String firstName,String familyNameKana,String firstNameKana,String sex,String email,String loginId,String password){
-		DBConnector dbConnector = new DBConnector();
-		Connection connection = dbConnector.getConnection();
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 		System.out.println(familyNameKana);
 		int count = 0;
 		String sql = "insert into user_info(user_id,password,family_name,first_name,family_name_kana,"
 				+ " first_name_kana,sex,email,status,logined,regist_date,update_date)"
 				+ " values(?,?,?,?,?,?,?,?,?,?, now(),0)";
 		try{
-			PreparedStatement preparedstatement = connection.prepareStatement(sql);
+			PreparedStatement preparedstatement = con.prepareStatement(sql);
 			preparedstatement.setString(1,loginId);
 			preparedstatement.setString(2,password);
 			preparedstatement.setString(3,familyName);
@@ -37,7 +37,7 @@ public class UserInfoDAO {
 			e.printStackTrace();
 		}
 		try{
-			connection.close();
+			con.close();
 		} catch (SQLException e){
 			e.printStackTrace();
 		}
@@ -51,12 +51,12 @@ public class UserInfoDAO {
 	 */
 
 public boolean isExistsUserInfo(String loginId,String password){
-	DBConnector dbConnector = new DBConnector();
-	Connection connection = dbConnector.getConnection();
+	DBConnector db = new DBConnector();
+	Connection con = db.getConnection();
 	boolean result = false;
 	String sql= "select count(*) as count from user_info where user_id=? and password=?";
 	try{
-		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+		PreparedStatement preparedStatement = con.prepareStatement(sql);
 		preparedStatement.setString(1, loginId);
 		preparedStatement.setString(2, password);
 		ResultSet resultSet = preparedStatement.executeQuery();
@@ -69,7 +69,7 @@ public boolean isExistsUserInfo(String loginId,String password){
 		e.printStackTrace();
 	}
 	try{
-		connection.close();
+		con.close();
 	} catch (SQLException e){
 		e.printStackTrace();
 	}

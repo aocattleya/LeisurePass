@@ -6,6 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="./css/home.css">
 		<jsp:include page="includeHead.jsp" />
 		<title>ホーム</title>
 	</head>
@@ -14,9 +15,9 @@
 		<jsp:include page="header.jsp" />
 
 		<div id="main" class="cf">
-
+			<div class="navi">
 			<jsp:include page="navigation.jsp" />
-
+			</div>
 			<div id="contents">
 				<div><a href="#">スライドショー</a></div>
 				<div><a href="#">おすすめ1</a></div>

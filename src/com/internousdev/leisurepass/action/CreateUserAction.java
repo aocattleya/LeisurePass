@@ -29,6 +29,11 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	public String execute() {
 		String result = ERROR;
 
+		/*
+		 * session.removeとは一度エラーが出た後、再度正しい値を入力した際に
+		 * 再度エラーが表示されないように一度クリアしておくため。
+		 */
+
 		session.remove("familyNameErrorMessageList");
 		session.remove("firstNameErrorMessageList");
 		session.remove("familyNameKanaErrorMessageList");
