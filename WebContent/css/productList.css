@@ -1,0 +1,62 @@
+@CHARSET "UTF-8";
+body{
+	width:1920px;
+	height:1080px;
+	font-family:Meiryo;
+}
+#contents {
+	margin: 0;
+	padding: 0;
+	line-height: 1.6;
+	letter-spacing: 1px;
+	text-align: center;
+}
+/* 商品一覧CSS */
+h1 {
+color: #ed7d22;
+font-size:22px;
+}
+
+.product-list-box{
+	margin: 0 auto;
+	padding: 0;
+	float:left;
+	text-align: center;
+	position:relative;
+
+	list-style:none;
+}
+.product-list-box li a:hover{
+	background-color:black;
+	text-decoration: none;
+
+}
+.item-image-box-200{
+	width:326px;
+	height:218px;
+}
+
+.smallMoji{
+	font-size:9px;
+}
+.largeMoji{
+	font-size:16px;
+}
+
+
+/* ページネーションCSS */
+.pager{
+	clear:left;
+	margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 30px;
+    margin-left:10px;
+    vertical-align: baseline;
+    outline: none;
+    -webkit-font-smoothing: antialiased;
+    background-color:skyblue;
+    color:#ff8040;
+}
+
+

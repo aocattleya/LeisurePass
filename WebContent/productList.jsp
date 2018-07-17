@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/productList.css">
+
 <jsp:include page="includeHead.jsp" />
 <title>商品一覧</title>
 </head>
@@ -15,7 +17,7 @@
 	<div id="main" class="cf">
 		<jsp:include page="navigation.jsp" />
 		<div id="contents">
-			<h1>商品一覧画面</h1>
+			<h1>商品一覧</h1>
 			<!-- 検索結果がない場合 -->
 			<s:if test="productInfoDtoList==null">
 				<div class="info">検索結果がありません。</div>
@@ -27,21 +29,20 @@
 				<!-- 商品一覧リスト（iteratorで回して複数件表示 -->
 				<div id="product-list">
 					<s:iterator value="#session.productInfoDtoList">
-						<div class="product-list-box">
-							<ul>
-								<li><a href='<s:url action="ProductDetailsAction">
-												<s:param name="productId" value="%{productId}"/>
-											</s:url>'>
-											<img src='<s:property value="imageFilePath"/>/
-											<s:property value="imageFileName"/>'
-											class="item-image-box-200" />
-									</a>
-									<br> <s:property
-										value="productName" /><br> <s:property
-										value="productNameKana" /><br> <s:property value="price" />円<br>
-								</li>
-							</ul>
-						</div>
+						<ul class="product-list-box">
+							<li><a href='<s:url action="ProductDetailsAction">
+											<s:param name="productId" value="%{productId}"/>
+										</s:url>'>
+										<img src='<s:property value="imageFilePath"/>/
+										<s:property value="imageFileName"/>'
+										class="item-image-box-200" />
+								</a>
+								<br>
+								<div class="smallMoji"><s:property value="productNameKana"  /></div>
+								<div class="largeMoji"><s:property value="productName"  /></div>
+								<div class="largeMoji"><s:property value="price"  />円</div><br>
+							</li>
+						</ul>
 					</s:iterator>
 				</div>
 
