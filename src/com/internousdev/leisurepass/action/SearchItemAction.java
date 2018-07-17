@@ -47,10 +47,11 @@ public class SearchItemAction extends ActionSupport implements SessionAware {
 		}
 		keywordsErrorMessageList = inputChecker.doCheck("検索ワード", keywords, 0, 16, true, true, true, true, false, true, false ,true);
 
-		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
-
-		productInfoDtoList = productInfoDAO.getProductInfoList(keywords.replaceAll("　", " ").split(" "), categoryId, placeId, targetDate);
-		result = SUCCESS;
+		if (keywordsErrorMessageList.size() <= 0) {
+			ProductInfoDAO productInfoDAO = new ProductInfoDAO();
+			productInfoDtoList = productInfoDAO.getProductInfoList(keywords.replaceAll("　", " ").split(" "), categoryId, placeId, targetDate);
+			result = SUCCESS;
+		}
 
 		Iterator<ProductInfoDTO> iterator = productInfoDtoList.iterator();
 		if (!(iterator.hasNext())) {
