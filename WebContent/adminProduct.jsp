@@ -9,7 +9,36 @@
 <link rel="stylesheet" href="./css/style.css">
 <jsp:include page="includeHead.jsp" />
 <title>商品管理画面</title>
+<style type="text/css">
+body {
+	width: 100%;
+	font-family: 'メイリオ', sans-serif;
+	font-size: 18px;
+}
+
+.submit_btn {
+	width: 200px;
+	height: 40px;
+	font-size: 20px;
+	background-color: #ed7d22; /* オレンジ */
+	color: #ffffff;
+	border-style: none;
+	border-radius: 20px;
+}
+
+.submit_btn_delete {
+	width: 110px;
+	height: 30px;
+	font-size: 13px;
+	background-color: #aaaaaa; /* オレンジ */
+	color: #ffffff;
+	border-style: none;
+	border-radius: 20px;
+}
+</style>
 </head>
+
+
 <body>
 	<jsp:include page="header.jsp" />
 
@@ -18,15 +47,13 @@
 		<jsp:include page="navigation.jsp" />
 
 		<div id="contents">
-			<div>
-				<h1>商品管理画面</h1>
-			</div>
 			<table class="product-table">
 				<tr>
 					<td><s:form action="AddProductAction">
-							<s:submit value="商品追加" />
+							<s:submit value="商品追加" class="submit_btn" />
 						</s:form></td>
 				</tr>
+				<h1>商品一覧</h1>
 				<!-- 表示項目は、設計書の商品詳細画面に倣った -->
 				<tr>
 					<th>商品ID</th>
@@ -43,16 +70,17 @@
 						<td><s:property value="productId" /></td>
 						<td><s:property value="productName" /></td>
 						<td><s:property value="productNameKana" /></td>
-						<td><img src='<s:property value="imageFilePath"/>/
+						<td><img
+							src='<s:property value="imageFilePath"/>/
 											<s:property value="imageFileName"/>'
-											class="item-image-box-200" /></td>
+							class="item-image-box-200" /></td>
 						<td><s:property value="price" /></td>
 						<td><s:property value="releaseCompany" /></td>
 						<td><s:property value="releaseDate" /></td>
 						<td><s:property value="productDescription" /></td>
 						<td><s:form action="DeleteProductConfirmAction">
 								<s:hidden name="id" value="%{id}" />
-								<s:submit value="削除" />
+								<s:submit value="削除" class="submit_btn_delete"/>
 							</s:form></td>
 						<%-- <td><s:form action="EditProductAction">
 								<s:hidden name="id" value="%{id}" />
