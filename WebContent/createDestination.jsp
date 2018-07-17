@@ -10,18 +10,17 @@
 <jsp:include page="includeHead.jsp" />
 <style type="text/css">
 
+
 h1 {
 color: #333333;
 }
 th {
 color: #333333;
 }
-table {
- width: 380px;
-}
+
 #contents {
-	margin: 0;
-	padding: 0;
+	margin: 0 auto;
+	/* padding: 0; */
 	line-height: 1.6;
 	letter-spacing: 1px;
 	font-family: "メイリオ", sans-serif;
@@ -31,7 +30,6 @@ table {
 
  .vertical-list-table {
 margin: auto;
-
 }
 
 .error-message{
@@ -39,33 +37,44 @@ color: #ed7d22;
 font-size:12px;
 }
 
+/*入力欄の中の文字色（入力すると消えるヒント）指定（webkit＝GoogleChrome、Safariのみ対応）*/
+.txt::-webkit-input-placeholder {
+	color: #aaaaaa;
+}
+.txt2::-webkit-input-placeholder {
+	color: #aaaaaa;
+}
+
 input.txt{
 height:40px;
-width: 234px;
+width: 225px;
 background-color: #f7f7f7;
 border-radius: 5px; /*角の丸み*/
+font-size: 18px;
+
 
 }
+/*入力欄CSS*/
 input.txt2{
-height:40px;
-width: 469px;
-background-color: #f7f7f7;
-border-radius: 5px; /*角の丸み*/
+height:40px;/*入力欄の縦の長さ*/
+width: 450px;/*入力欄の横の長さ*/
+background-color: #f7f7f7;/*入力欄の中の色*/
+border-radius: 5px; /*入力欄の角の丸み*/
+font-size: 18px;/*入力欄の文字サイズ*/
 }
 
 
+/*ボタンのCSS*/
 .submit_btn {
-	width: 200px;
-	height:40px;
-	display: inline-block;
-	padding: 0.25em 0.5em;
-	text-decoration: none;
-	color: #FFF;
-	background: #ed7d22; /*色*/
-	border-radius: 20px; /*角の丸み*/
-	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
-	font-weight: bold;
-	border: solid 2px #d27d00;
+	width: 200px;/*ボタンの横の長さ*/
+	height:40px;/*ボタンの縦の長さ*/
+	/* display: inline-block; 多分要らないかも*/
+	font-size:20px;/*ボタン文字サイズ*/
+	color: #FFF;/*ボタン文字の色*/
+	background: #ed7d22; /*ボタンの色*/
+	border-radius: 20px; /*ボタンの角の丸み*/
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);/*ボタンの影（立体感）*/
+	border: solid 2px #d27d00;/*ボタンの立体感を出すため*/
 }
 
 </style>
