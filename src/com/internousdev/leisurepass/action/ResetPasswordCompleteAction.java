@@ -61,4 +61,4 @@ public class ResetPasswordCompleteAction extends ActionSupport implements Sessio
 
 }
 
-/*中山　7/5*/
+

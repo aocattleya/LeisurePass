@@ -1,4 +1,5 @@
 package com.internousdev.leisurepass.action;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -9,17 +10,13 @@ import com.internousdev.leisurepass.dao.UserInfoDAO;
 import com.internousdev.leisurepass.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
-
-
-
-public class ResetPasswordConfirmAction extends ActionSupport implements SessionAware{
+public class ResetPasswordConfirmAction extends ActionSupport implements SessionAware {
 
 	private String loginId;
 	private String password;
 	private String newPassword;
 	private String reConfirmationPassword;
 	private String categoryId;
-
 
 	private List<String> loginIdErrorMessageList = new ArrayList<String>();
 	private List<String> passwordErrorMessageList = new ArrayList<String>();
@@ -28,47 +25,57 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 	private List<String> reConfirmationNewPasswordErrorMessageList = new ArrayList<String>();
 	private List<String> newPasswordIncorrectErrorMessageList = new ArrayList<String>();
 
+
 	private Map<String, Object> session;
 
-	public String execute(){
+	public String execute() {
 		String result = ERROR;
 
 		InputChecker inputChecker = new InputChecker();
 
-		loginIdErrorMessageList = inputChecker.doCheck("ログインID",loginId, 1, 8, true, false, false, true, false, false, false, false);
-		passwordErrorMessageList = inputChecker.doCheck("現在のパスワード",password, 1, 16, true, false, false, true, false, false, false, false);
-		newPasswordErrorMessageList = inputChecker.doCheck("新しいパスワード",newPassword, 1, 16, true, false, false, true, false, false, false, false);
-		reConfirmationNewPasswordErrorMessageList = inputChecker.doCheck("新しいパスワード(再確認)", reConfirmationPassword,
-				1, 16, true, false, false, true, false, false, false, false);
+		loginIdErrorMessageList = inputChecker.doCheck("ログインID", loginId, 1, 8, true, false, false, true, false, false,
+				false, false);
+		passwordErrorMessageList = inputChecker.doCheck("現在のパスワード", password, 1, 16, true, false, false, true, false,
+				false, false, false);
+		newPasswordErrorMessageList = inputChecker.doCheck("新しいパスワード", newPassword, 1, 16, true, false, false, true,
+				false, false, false, false);
+		reConfirmationNewPasswordErrorMessageList = inputChecker.doCheck("新しいパスワード(再確認)", reConfirmationPassword, 1, 16,
+				true, false, false, true, false, false, false, false);
 
 		newPasswordIncorrectErrorMessageList = inputChecker.doPasswordCheck(newPassword, reConfirmationPassword);
 
-		if(loginIdErrorMessageList.size()==0
-				&& passwordErrorMessageList.size()==0
-				&& newPasswordErrorMessageList.size()==0
-				&& reConfirmationNewPasswordErrorMessageList.size()==0
-				&& newPasswordIncorrectErrorMessageList.size()==0){
+		if (loginIdErrorMessageList.size() == 0 && passwordErrorMessageList.size() == 0
+				&& newPasswordErrorMessageList.size() == 0 && reConfirmationNewPasswordErrorMessageList.size() == 0
+				&& newPasswordIncorrectErrorMessageList.size() == 0) {
 
-			UserInfoDAO userInfoDAO = new UserInfoDAO();
-			if(userInfoDAO.isExistsUserInfo(loginId, password)){
-				String concealedPassword = userInfoDAO.concealPassword(newPassword);
-				session.put("loginId", loginId);
-				session.put("newPassword", newPassword);
-				session.put("concealedPassword", concealedPassword);
-				result = SUCCESS;
-			}else{
-				passwordIncorrectErrorMessageList.add("入力されたパスワードが異なります。");
-				session.put("passwordIncorrectErrorMessageList", passwordIncorrectErrorMessageList);
-			}
-		}else{
-				session.put("loginIdErrorMessageList", loginIdErrorMessageList);
-				session.put("passwordErrorMessageList", passwordErrorMessageList);
-				session.put("newPasswordErrorMessageList", newPasswordErrorMessageList);
-				session.put("reConfirmationNewPasswordErrorMessageList", reConfirmationNewPasswordErrorMessageList);
-				session.put("newPasswordIncorrectErrorMessageList", newPasswordIncorrectErrorMessageList);
-			}
-			return result;
+		} else {
+			session.put("loginIdErrorMessageList", loginIdErrorMessageList);
+			session.put("passwordErrorMessageList", passwordErrorMessageList);
+			session.put("newPasswordErrorMessageList", newPasswordErrorMessageList);
+			session.put("reConfirmationNewPasswordErrorMessageList", reConfirmationNewPasswordErrorMessageList);
+			session.put("newPasswordIncorrectErrorMessageList", newPasswordIncorrectErrorMessageList);
+
 		}
+
+		UserInfoDAO userInfoDAO = new UserInfoDAO();
+
+		if (userInfoDAO.isExistsUserInfo(loginId, password)) {
+			String concealedPassword = userInfoDAO.concealPassword(newPassword);
+			session.put("loginId", loginId);
+			session.put("newPassword", newPassword);
+			session.put("concealedPassword", concealedPassword);
+			result = SUCCESS;
+		}
+		 else{
+		 passwordIncorrectErrorMessageList.add("入力されたパスワードが異なります。");
+		 session.put("passwordIncorrectErrorMessageList",
+		 passwordIncorrectErrorMessageList);
+		 }
+
+
+		return result;
+	}
+
 
 
 	public String getLoginId() {
@@ -168,4 +175,3 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 	}
 
 }
-/*中山 7/4 */

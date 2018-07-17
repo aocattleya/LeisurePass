@@ -41,4 +41,4 @@ public class ResetPasswordAction extends ActionSupport implements SessionAware{
 
 }
 
-//nakayama パスワード再設定　7/4
+
