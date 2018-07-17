@@ -34,11 +34,11 @@
 								<tr>
 									<td class="productNameKana"><s:property value="%{#session.productNameKana}" /></td>
 								</tr>
-								<tr>
-									<td><s:property value="%{#session.productName}" /></td>
+								<tr><!-- 商品名 -->
+									<td class="daimei"><s:property value="%{#session.productName}" /></td>
 								</tr>
 								<tr>
-									<td><s:property value="%{#session.productDescription}" /></td>
+									<td class="naiyou"><s:property value="%{#session.productDescription}" /></td>
 								</tr>
 								<tr>
 									<td class="releaseCompany"scope="row"><s:label value="発売会社名" />
@@ -51,21 +51,20 @@
 							</table>
 							<!-- 追加項目 -->
 							<br> <br>
+
+							<p class="storeinfomation"><s:label value="店舗情報" /></p>
 							<table class="store-information">
 								<tr>
-									<th scope="row"><s:label value="店舗情報" /></th>
+									<th class="local"><s:label value="所在地" /></th>
+									<th class="local1"><s:property value="%{#session.location}" /></th>
 								</tr>
 								<tr>
-									<th scope="row"><s:label value="場所" /></th>
-									<td><s:property value="%{#session.location}" /></td>
+									<th class="local"><s:label value="アクセス" /></th>
+									<th class="local1"><s:property value="%{#session.access}" /></th>
 								</tr>
 								<tr>
-									<th scope="row"><s:label value="アクセス" /></th>
-									<td><s:property value="%{#session.access}" /></td>
-								</tr>
-								<tr>
-									<th scope="row"><s:label value="URL" /></th>
-									<td><s:property value="%{#session.url}" /></td>
+									<th class="local"><s:label value="URL" /></th>
+									<th class="local1"><s:property value="%{#session.url}" /></th>
 								</tr>
 							</table><br>
 						</div>
