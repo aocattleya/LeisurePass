@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
 <style type="text/css">
+
 #contents {
 	margin: 0;
 	padding: 0;
@@ -15,25 +16,26 @@
 	font-family: メイリオ ", sans-serif;
 	font-size: 18px;
 	text-align: center;
+	margin:0:auto;
 }
-
 .submit_btn {
-	width: 200px;
-	height:40px;
-	position : relative;
-	display: inline-block;
-	padding: 0.25em 0.5em;
-	text-decoration: none;
-	color: #FFF;
-	background: #ed7d22; /*色*/
-	border-radius: 20px; /*角の丸み*/
-	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
-	font-weight: bold;
-	border: solid 2px #d27d00;
-	position: relative; /*線色*/
+	width: 200px; /*ボタンの横の長さ*/
+	height: 40px; /*ボタンの縦の長さ*/
+	font-size: 20px; /*ボタン文字サイズ*/
+	background-color: #ed7d22; /*ボタンの色*/
+	color: #FFF; /*ボタン文字の色*/
+	border-radius: 20px; /*ボタンの角の丸み*/
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0
+		rgba(0, 0, 0, 0.05); /*ボタンの影（立体感）*/
+	border: solid 2px #d27d00; /*ボタンの立体感を出すため*/
+	outline: 0; /*変な枠線を非表示に*/
+	cursor: pointer; /*マウスを乗せたとき指マークにする*/
 }
-
-
+.submit_btn:active {
+	transform: translateY(2px); /*下に動かす*/
+	background-color: #f3a769; /*薄いオレンジ色にする*/
+	border: #ed7d22; /*枠線の色変更*/
+}
 .horizontal-list-table {
 	background-color: #f7f7f7;
 	margin: 2em 0;
@@ -41,12 +43,28 @@
 	width: 700px;
 	border-radius: 20px;
 	margin: auto;
+	position: relative;
 }
-
-label{
-	 border-bottom: solid 3px #ffa623;
+.orangeBorder {
+	border-bottom: solid 3px #ffa623;
+	display: inline-block;
+	padding: 0 15px 0 15px;
+	}
+.aiueo label {
+	line-height: 28px;
+	display: inline-block;
+	cursor:	pointer;
+	position: relative;
+	top:110px;
 }
-
+.aiueo input[type=radio]{
+	transform:scale(2,2);
+}
+.aiueo input[type="radio"]:checked {
+	content: '';
+	width: 15px;		/* マークの横幅 */
+	height: 15px;		/* マークの縦幅 */
+}
 
 </style>
 
@@ -68,8 +86,7 @@ label{
 				<s:else>
 					<div class="info">
 						<h2>
-							<br>
-							<br>宛先を選択してください
+							<br> <br>宛先を選択してください
 						</h2>
 					</div>
 					<br>
@@ -80,7 +97,7 @@ label{
 
 
 						<tr>
-							<th><s:label value="　名前　" /></th>
+							<th><div class="orangeBorder">名前</div></th>
 						</tr>
 
 						<tr>
@@ -91,7 +108,7 @@ label{
 						</tr>
 
 						<tr>
-							<th><s:label value="　ふりがな　" /></th>
+							<th><div class="orangeBorder">ふりがな</div></th>
 						</tr>
 
 						<tr>
@@ -102,7 +119,7 @@ label{
 						</tr>
 
 						<tr>
-							<th><s:label value="　住所　" /></th>
+							<th><div class="orangeBorder">住所</div></th>
 						</tr>
 						<!-- 住所 -->
 						<tr>
@@ -110,7 +127,7 @@ label{
 						</tr>
 
 						<tr>
-							<th><s:label value="　電話番号　" /></th>
+							<th><div class="orangeBorder">電話番号</div></th>
 						</tr>
 
 						<!-- 電話番号 -->
@@ -120,23 +137,27 @@ label{
 
 						<tr>
 							<!-- メール -->
-							<th><s:label value="　メール　" /></th>
+							<th><div class="orangeBorder">メール</div></th>
 						<tr>
-							<td><s:property value="email" /></td>
+							<td><s:property value="email" /><br><br></td>
 						</tr>
 
 						<!-- 1つ目をチェックしておく -->
 						<tr>
-							<td><s:if test="#st.index == 0">
-									<input type="radio" name="id" checked="checked"
-										value="<s:property value='id'/>" />
-								</s:if> <!-- それ以外はNOチェック --> <s:else>
-									<input type="radio" name="id" value="<s:property value='id'/>" />
-								</s:else></td>
+							<td>
+								<s:if test="#st.index == 0">
+									<div class="aiueo"><input type="radio" name="id" checked="checked" value="<s:property value='id'/>" /></div>
+								</s:if>
+
+								<!-- それ以外はNOチェック -->
+								<s:else>
+									<div class="aiueo"><input type="radio" name="id" value="<s:property value='id'/>" /></div>
+								</s:else>
+							</td>
 						</tr>
 
-
-					</table><br>
+					</table>
+					<br>
 
 				</s:iterator>
 				<br>
@@ -162,7 +183,10 @@ label{
 			</div>
 		</div>
 	</div>
-	<br><br><br><br>
+	<br>
+	<br>
+	<br>
+	<br>
 	<jsp:include page="footer.jsp" />
 </body>
 </html>
