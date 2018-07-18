@@ -28,31 +28,20 @@
 			//画像フェードアウト
 			mode : 'fade',
 			// 自動再生で切り替えをする時間
-			speed : 1000,
-		/* sliderWidth: 1346 */
+			speed : 1000
 		});
 	});
 </script>
 
 <style type="text/css">
 
-/* #contents{
-background-color: red;
-}
 
-.slider{
-background-color: blue;
-}
-
-.box{
-background-color: yellow;
-} */
 .slider img {
 	width: 1344px;
 	height: 500px;
 	object-fit: cover;
 	display: flex;
-	justify-content: center;
+
 }
 
 /*スライダー*/
@@ -65,7 +54,7 @@ background-color: yellow;
   width: 100%;
 } */
 
- /* 画像センターに */
+
 
 
 
