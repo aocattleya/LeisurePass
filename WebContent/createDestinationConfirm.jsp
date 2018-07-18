@@ -12,30 +12,43 @@
 
 <style type="text/css">
 
+th {
+color: #333333;
+}
+
 tr{
 padding: 30px;
 }
+/*ボタンのCSS*/
 .submit_btn {
-	width: 200px;
-	height:40px;
-	display: inline-block;
-	padding: 0.25em 0.5em;
-	text-decoration: none;
-	color: #FFF;
-	background: #ed7d22; /*色*/
-	border-radius: 20px; /*角の丸み*/
-	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
-	font-weight: bold;
-	border: solid 2px #d27d00;
+	width: 200px; /*ボタンの横の長さ*/
+	height: 40px; /*ボタンの縦の長さ*/
+	/* display: inline-block; 多分要らないかも*/
+	font-size: 20px; /*ボタン文字サイズ*/
+	background-color: #ed7d22; /*ボタンの色*/
+	color: #FFF; /*ボタン文字の色*/
+	border-radius: 20px; /*ボタンの角の丸み*/
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0
+		rgba(0, 0, 0, 0.05); /*ボタンの影（立体感）*/
+	border: solid 2px #d27d00; /*ボタンの立体感を出すため*/
+	outline: 0; /*変な枠線を非表示に*/
+	cursor: pointer; /*マウスを乗せたとき指マークにする*/
 }
 
+.submit_btn:active {
+	transform: translateY(2px); /*下に動かす*/
+	background-color: #f3a769; /*薄いオレンジ色にする*/
+	border: #ed7d22; /*枠線の色変更*/
+}
+
+/*コンテンツの中身*/
 .vertical-list-table {
-	background-color: #f7f7f7;
-	margin: 2em 0;
-	padding: 2em;
-	width: 600px;
-	border-radius: 20px;
-	margin: auto;
+	background-color: #f7f7f7;/*背景色*/
+	padding: 2em;/*文字の幅調整*/
+	width: 600px;/*背景の横幅*/
+	border-radius: 20px;/*背景の角の丸み*/
+	margin: 0 auto;/*センター中央寄せ*/
+
 }
 #contents {
 	margin: 0;
@@ -45,12 +58,18 @@ padding: 30px;
 	font-family: メイリオ ", sans-serif;
 	font-size: 18px;
 	text-align: center;
+
 }
 
 label{
 	 border-bottom: solid 3px #ffa623;
 	 padding-left: 10px;
 	 padding-right: 10px;
+}
+
+h1{
+font-size: 30px;
+color: #333333;
 }
 
 
@@ -64,7 +83,7 @@ label{
 		<jsp:include page="navigation.jsp" />
 
 		<div id="contents">
-		<h3>以下の内容で登録します。<br>よろしければ、登録ボタンを押してください。</h3>
+		<h1>以下の内容で登録します。<br>よろしければ、登録ボタンを押してください。</h1>
 
 		<s:form action="CreateDestinationCompleteAction">
 			<table class="vertical-list-table">

@@ -13,13 +13,15 @@
 <meta http-equiv="refresh" content="2;URL='SettlementConfirmAction'"/>
 <style type="text/css">
 #contents {
-	margin: 0;
-	padding-top: 100px;
-	line-height: 1.6;
-	letter-spacing: 1px;
-	font-family: メイリオ ", sans-serif;
-	font-size: 18px;
+	margin: 0 auto;
+	padding-top: 50px;/*文字の位置設定*/
+	font-family: "メイリオ ", sans-serif;
 	text-align: center;
+
+}
+h1{
+font-size: 30px;
+color: #333333;
 }
 </style>
 

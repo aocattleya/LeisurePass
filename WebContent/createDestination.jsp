@@ -13,23 +13,24 @@
 
 h1 {
 color: #333333;
+font-size: 30px;
 }
 th {
 color: #333333;
 }
-
+/*各入力画面のコンテンツ側*/
 #contents {
-	margin: 0 auto;
-	/* padding: 0; */
-	line-height: 1.6;
-	letter-spacing: 1px;
-	font-family: "メイリオ", sans-serif;
-	font-size: 18px;
-	text-align: center;
+	margin: 0 auto;/*中心にする*/
+	line-height: 1.6;/*幅の微調整*/
+	letter-spacing: 1px;/*幅の微調整*/
+	font-family: "メイリオ", sans-serif;/*フォント指定*/
+	font-size: 18px;/*文字サイズ*/
+	text-align: center;/*テキスト中心*/
+
 }
 
  .vertical-list-table {
-margin: auto;
+margin: 0 auto;
 }
 
 .error-message{
@@ -66,15 +67,24 @@ font-size: 18px;/*入力欄の文字サイズ*/
 
 /*ボタンのCSS*/
 .submit_btn {
-	width: 200px;/*ボタンの横の長さ*/
-	height:40px;/*ボタンの縦の長さ*/
+	width: 200px; /*ボタンの横の長さ*/
+	height: 40px; /*ボタンの縦の長さ*/
 	/* display: inline-block; 多分要らないかも*/
-	font-size:20px;/*ボタン文字サイズ*/
-	color: #FFF;/*ボタン文字の色*/
-	background: #ed7d22; /*ボタンの色*/
+	font-size: 20px; /*ボタン文字サイズ*/
+	background-color: #ed7d22; /*ボタンの色*/
+	color: #FFF; /*ボタン文字の色*/
 	border-radius: 20px; /*ボタンの角の丸み*/
-	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);/*ボタンの影（立体感）*/
-	border: solid 2px #d27d00;/*ボタンの立体感を出すため*/
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0
+		rgba(0, 0, 0, 0.05); /*ボタンの影（立体感）*/
+	border: solid 2px #d27d00; /*ボタンの立体感を出すため*/
+	outline: 0; /*変な枠線を非表示に*/
+	cursor: pointer; /*マウスを乗せたとき指マークにする*/
+}
+
+.submit_btn:active {
+	transform: translateY(2px); /*下に動かす*/
+	background-color: #f3a769; /*薄いオレンジ色にする*/
+	border: #ed7d22; /*枠線の色変更*/
 }
 
 </style>
