@@ -42,7 +42,7 @@
 }
 
 .vertical-list-table {
-	background-color: #f7f7f7;
+	background-color:#F7F7F7;
 	margin: 2em 0;
 	padding: 2em;
 	width: 600px;
