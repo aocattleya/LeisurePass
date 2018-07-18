@@ -24,12 +24,12 @@
 
 		$('.slider').bxSlider({
 			// 自動再生。trueで自動再生される。
-			  auto: true,
-			  //画像フェードアウト
-			  mode: 'fade',
-			  // 自動再生で切り替えをする時間
-			  speed: 1000,
-			  /* sliderWidth: 1346 */
+			auto : true,
+			//画像フェードアウト
+			mode : 'fade',
+			// 自動再生で切り替えをする時間
+			speed : 1000,
+		/* sliderWidth: 1346 */
 		});
 	});
 </script>
@@ -47,8 +47,6 @@ background-color: blue;
 .box{
 background-color: yellow;
 } */
-
-
 .slider img {
 	width: 1344px;
 	height: 500px;
@@ -66,7 +64,6 @@ background-color: yellow;
   width: 100%;
 } */
 
-
 /* .box {
 	clear: left;
 	padding-top: 10px;
@@ -74,13 +71,11 @@ background-color: yellow;
 	height: auto;
 
 } */
-
-.box p{
-font-size: 18px;
-text-align: center;
-font-weight: bold;
-font-family: 'メイリオ', sans-serif;
-
+.box p {
+	font-size: 18px;
+	text-align: center;
+	font-weight: bold;
+	font-family: 'メイリオ', sans-serif;
 }
 
 .box ul {
@@ -130,63 +125,86 @@ font-family: 'メイリオ', sans-serif;
 				<div>
 					<a
 						href='<s:url action="ProductDetailsAction">
-		<s:param name="productId" value="3"/>
+		<s:param name="productId" value="8"/>
 		</s:url>'>
-						<img src="./images/gunma_safari_park3.png">
+						<img src="./images/ueno_zoo5.jpg">
 					</a>
 				</div>
 
 				<div>
-					<img src="./images/tokyo_dome_city.jpg">
+					<a
+						href='<s:url action="ProductDetailsAction">
+		<s:param name="productId" value="35"/>
+		</s:url>'>
+						<img src="./images/tokyo_dome_city.jpg">
+					</a>
 				</div>
+
 				<div>
-					<img src="./images/digital_art_m1.jpg">
+				<a
+						href='<s:url action="ProductDetailsAction">
+		<s:param name="productId" value="44"/>
+		</s:url>'>
+					<img src="./images/digital_art_m6.jpg">
+					</a>
 				</div>
+
 				<div>
-					<img src="./images/disneyland1.jpg">
+				<a
+						href='<s:url action="ProductDetailsAction">
+		<s:param name="productId" value="12"/>
+		</s:url>'>
+					<img src="./images/kamogawa_sea_world6.jpg">
+					</a>
 				</div>
+
 				<div>
-					<img src="./images/sanrio_puroland4.jpg">
+				<a
+						href='<s:url action="ProductDetailsAction">
+		<s:param name="productId" value="30"/>
+		</s:url>'>
+					<img src="./images/parcabout5.jpg">
+					</a>
 				</div>
 			</div>
 
 			<div class="box">
 
-			<p>おすすめピックアップ</p>
+				<p>おすすめピックアップ</p>
 
-		<ul>
-			<li><a
-				href='<s:url action="ProductDetailsAction">
+				<ul>
+					<li><a
+						href='<s:url action="ProductDetailsAction">
 		<s:param name="productId" value="7"/>
 		</s:url>'>
-					<img src="./images/ichikawa_city_zoo4.jpg">
-					<div class="text">市川植物園</div>
-			</a></li>
-			<li><a
-				href='<s:url action="ProductDetailsAction">
+							<img src="./images/ichikawa_city_zoo4.jpg">
+							<div class="text">市川植物園</div>
+					</a></li>
+					<li><a
+						href='<s:url action="ProductDetailsAction">
 		<s:param name="productId" value="38"/>
 		</s:url>'>
-			<img src="./images/toshimaen2.jpg">
-					<div class="text">としまえん</div>
-			</a></li>
+							<img src="./images/toshimaen2.jpg">
+							<div class="text">としまえん</div>
+					</a></li>
 
-			<li><a
-				href='<s:url action="ProductDetailsAction">
+					<li><a
+						href='<s:url action="ProductDetailsAction">
 		<s:param name="productId" value="13"/>
 		</s:url>'>
-			<img src="./images/sunshine_aquarium5.jpg">
-					<div class="text">サンシャイン水族館</div>
-			</a></li>
+							<img src="./images/sunshine_aquarium5.jpg">
+							<div class="text">サンシャイン水族館</div>
+					</a></li>
 
-			<li><a
-				href='<s:url action="ProductDetailsAction">
+					<li><a
+						href='<s:url action="ProductDetailsAction">
 		<s:param name="productId" value="45"/>
 		</s:url>'>
-		 <img src="./images/ghibli_ｍ4.jpg">
-					<div class="text">三鷹の森ジブリ美術館</div>
-			</a></li>
-		</ul>
-	</div>
+							<img src="./images/ghibli_ｍ4.jpg">
+							<div class="text">三鷹の森ジブリ美術館</div>
+					</a></li>
+				</ul>
+			</div>
 
 		</div>
 	</div>
