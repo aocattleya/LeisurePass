@@ -34,8 +34,6 @@ public class HomeAction extends ActionSupport implements SessionAware{
 		SearchConditionLoader loader = new SearchConditionLoader();
 		loader.execute(session);
 
-		session.put("targetDate", "");
-
 		return SUCCESS;
 	}
 

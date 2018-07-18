@@ -26,6 +26,10 @@ public class SearchConditionLoader {
 			mPlaceDtoList = mPlaceDao.getMPlaceList();
 			session.put("mPlaceDtoList", mPlaceDtoList);
 		}
+
+		if(!session.containsKey("targetDate")) {
+			session.put("targetDate", "");
+		}
 	}
 
 	public List<MCategoryDTO> getmCategoryDtoList() {
