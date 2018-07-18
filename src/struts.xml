@@ -22,8 +22,8 @@
 <!-- 黄  ログアウトしてリダイレクト-->
 
 	<action name="LogoutAction" class="com.internousdev.leisurepass.action.LogoutAction" method="execute">
-		<result name="success">index.jsp</result>
-		<result name="error">index.jsp</result>
+		<result name="success">dummy.jsp</result>
+		<result name="error">dummy.jsp</result>
 	</action>
 
 
