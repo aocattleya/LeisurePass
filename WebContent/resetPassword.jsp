@@ -91,18 +91,6 @@ h1 {
 	border: #ed7d22; /*枠線の色変更*/
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 </style>
 
 <title>パスワード再設定</title>
@@ -160,7 +148,7 @@ h1 {
 					</tr>
 					<tr>
 						<td>
-							<!--パスワードエラーメッセージ一覧。 空です -->
+							<!--パスワードエラーメッセージ一覧。-->
 							<s:if test="!#session.passwordErrorMessageList.isEmpty()">
 								<div class="error">
 									<div class="error-message">
@@ -176,7 +164,7 @@ h1 {
 
 					<tr>
 						<td>
-							<!-- パスワードが間違っているエラーメッセージ。空です -->
+							<!-- パスワードが間違っているエラーメッセージ。-->
 							<s:if test="!#session.passwordIncorrectErrorMessageList.isEmpty()">
 								<div class="error">
 									<div class="error-message">
@@ -201,7 +189,7 @@ h1 {
 
 					<tr>
 						<td>
-							<!-- 新しいパスワードエラーメッセージ。空です -->
+							<!-- 新しいパスワードエラーメッセージ。 -->
 							<s:if test="!#session.newPasswordErrorMessageList.isEmpty()">
 								<div class="error">
 									<div class="error-message">
@@ -230,11 +218,11 @@ h1 {
 
 					<tr>
 						<td>
-							<!-- パスワードエラーメッセージ再確認してください。空です。 -->
-							<s:if test="!#session.reConfirmPasswordErrorMessageList.isEmpty()">
+							<!-- パスワードエラーメッセージ再確認してください。 -->
+							<s:if test="!#session.reConfirmationNewPasswordErrorMessageList.isEmpty()">
 								<div class="error">
 									<div class="error-message">
-										<s:iterator value="#session.reConfirmPasswordErrorMessageList">
+										<s:iterator value="#session.reConfirmationNewPasswordErrorMessageList">
 											<s:property />
 											<br>
 										</s:iterator>
@@ -248,12 +236,11 @@ h1 {
 
 					<tr>
 						<td>
-							<!-- 新しいパスワードを間違ったエラーメッセージ。 空です -->
+							<!-- 新しいパスワードを間違ったエラーメッセージ。-->
 							<s:if test="!#session.newPasswordIncorrectErrorMessageList.isEmpty()">
 								<div class="error">
 									<div class="error-message">
-										<s:iterator
-											value="#session.newPasswordIncorrectErrorMessageList">
+										<s:iterator value="#session.newPasswordIncorrectErrorMessageList">
 											<s:property />
 											<br>
 										</s:iterator>
@@ -284,4 +271,3 @@ h1 {
 
 
 
-<!-- 中山 7/4 -->
