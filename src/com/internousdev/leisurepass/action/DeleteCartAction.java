@@ -17,6 +17,7 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 	private Collection<String> checkList;
 	private String categoryId;
 	private String productId;
+	private String userId;
 
 	private String sex;
 	private List<String> sexList = new ArrayList<String>();
@@ -52,9 +53,8 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 			return ERROR;
 		}
 		// カート内削除文、処理内容はcartInfoDAO.delete
-		for (String id : checkList) {
-			System.out.println(id);
-			count += cartInfoDAO.delete(id);
+		for (String productId : checkList) {
+			count += cartInfoDAO.delete(session.get("userId").toString() , Integer.parseInt(productId));
 		}
 		// チェックしたもののIdが[id]に入ってない場合に出るエラー文
 		if (count <= 0) {

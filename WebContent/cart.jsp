@@ -33,7 +33,7 @@
 
 				<s:iterator value="#session.cartInfoDtoList">
 						<div class="checkbox">
-							<s:checkbox name="checkList" value="checked" fieldValue="%{id}"
+							<s:checkbox name="checkList" value="checked" fieldValue="%{productId}"
 								id="checkbox" />
 						</div>
 

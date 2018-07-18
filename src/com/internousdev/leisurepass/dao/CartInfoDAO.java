@@ -104,15 +104,16 @@ public class CartInfoDAO {
 	}
 
 	// cart.jspの削除ボタンを押した際にDeleteCartActionにて使用される機能
-	public int delete(String id) {
+	public int delete(String userId, int productId) {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		int count = 0;
-		String sql = "delete from cart_info where id=?";
+		String sql = "delete from cart_info where user_id=? and product_id=?";
 
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
-			ps.setString(1, id);
+			ps.setString(1, userId);
+			ps.setInt(2, productId);
 			//executeUpdateでpsのsqlを実行
 			count = ps.executeUpdate();
 		} catch (SQLException e) {
