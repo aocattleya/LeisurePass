@@ -26,10 +26,6 @@
             }
 
    	    });
-   	// 入力値をリセット
-   	    $("button.reset").click(function(){
-   	        $('input[type="text"]').val("").removeAttr('checked');
-   	    })
 
 	});
 </script>
