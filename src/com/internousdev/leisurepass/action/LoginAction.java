@@ -68,7 +68,6 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			session.put("mCategoryDtoList", mCategoryDtoList);
 		}
 
-
 		UserInfoDAO userInfoDao = new UserInfoDAO();
 		// 入力したID・PASSWORDが登録されているか確認します
 		if (userInfoDao.isExistsUserInfo(loginId, password)) {
@@ -98,7 +97,11 @@ public class LoginAction extends ActionSupport implements SessionAware {
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
-					result = "settlement";
+						if(session.containsKey("goSettlement")){
+							result = "settlement";
+						}else{
+							result = SUCCESS;
+						}
 				} else {
 					result = SUCCESS;
 				}
