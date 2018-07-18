@@ -51,7 +51,8 @@ background-color: yellow;
 	width: 1344px;
 	height: 500px;
 	object-fit: cover;
-	object-fit: cover;
+	display: flex;
+	justify-content: center;
 }
 
 /*スライダー*/
@@ -64,14 +65,13 @@ background-color: yellow;
   width: 100%;
 } */
 
-/* .box {
-	clear: left;
-	padding-top: 10px;
-	margin: 0 auto;
-	height: auto;
+ /* 画像センターに */
 
-} */
-.box p {
+
+
+
+
+ p {
 	font-size: 18px;
 	text-align: center;
 	font-weight: bold;
@@ -82,6 +82,9 @@ background-color: yellow;
 	list-style-type: none;
 	margin: 0 auto;
 	width: 1300px;
+	padding-left: 0;
+	display: flex;
+	justify-content: center;	/* 中央よせ */
 }
 
 .box li {
@@ -168,9 +171,9 @@ background-color: yellow;
 				</div>
 			</div>
 
-			<div class="box">
+			<p>おすすめピックアップ</p>
 
-				<p>おすすめピックアップ</p>
+			<div class="box">
 
 				<ul>
 					<li><a
