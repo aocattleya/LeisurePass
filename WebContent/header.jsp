@@ -11,14 +11,18 @@
 		<div class="header_menu">
 			<ul>
 				<li>
-					<div class="ticket">
-						<a href="ProductListAction"><img src="images/ticket.jpg"></a>
-					</div>
+					<s:if test="%{!(#session.logined == 1 && #session.userInfo.status == 1)}">
+						<div class="ticket">
+							<a href="ProductListAction"><img src="images/ticket.jpg"></a>
+						</div>
+					</s:if>
 				</li>
 				<li>
-					<div class="cart">
-						<a href="CartAction"><img src="images/cart.jpg"></a>
-					</div>
+					<s:if test="%{!(#session.logined == 1 && #session.userInfo.status == 1)}">
+						<div class="cart">
+							<a href="CartAction"><img src="images/cart.jpg"></a>
+						</div>
+					</s:if>
 				</li>
 				<s:if test="#session.logined == 0">
 					<li>
@@ -32,15 +36,17 @@
 				</s:if>
 
 				<s:if test="#session.logined == 1">
-					<li><s:if test="#session.userInfo.status == 1">
+					<li>
+						<s:if test="#session.userInfo.status == 1">
 							<s:form action="GoAdminAction">
 								<s:submit value="管理者" />
 							</s:form>
-						</s:if> <s:else>
+						</s:if>
+						<s:else>
 							<div class="mypage">
 								<s:form action="MyPageAction">
-							マイページ
-							</s:form>
+									マイページ
+								</s:form>
 							</div>
 						</s:else></li>
 					<li><s:property value="%{#session.logined}" /></li>
