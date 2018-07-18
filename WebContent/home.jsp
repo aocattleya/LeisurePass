@@ -39,9 +39,8 @@
 .slider img {
 	width: 1344px;
 	height: 500px;
-	object-fit: cover;
 	display: flex;
-
+	justify-content: center;
 }
 
 /*スライダー*/
@@ -54,7 +53,7 @@
   width: 100%;
 } */
 
-
+ /* 画像センターに */
 
 
 
@@ -93,7 +92,7 @@
 	height: 220px;
 	border-radius: 5px;
 	object-fit: cover;
-	margin: 0;
+	margin: 24px;
 }
 
 .box .text {
