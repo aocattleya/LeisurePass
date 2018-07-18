@@ -110,10 +110,10 @@ public class ProductInfoDAO {
 		boolean initializeFlag = true;
 		for (String keyword : keywordsList) {
 			if (initializeFlag) {
-				sql += " (product_name like ‘%" + keyword + "%’ or product_name_kana like ‘%" + keyword + "%‘)";
+				sql += " (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
 				initializeFlag = false;
 			} else {
-				sql += " and (product_name like ‘%" + keyword + "%’ or product_name_kana like ‘%" + keyword + "%‘)";
+				sql += " and (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
 			}
 		}
 		try {
@@ -144,12 +144,12 @@ public class ProductInfoDAO {
 	// boolean initializeFlag = true;
 	// for (String keyword : keywordsList) {
 	// if (initializeFlag) {
-	// sql += " category_id=" + categoryId + " and (product_name like ‘%" +
-	// keyword + "%’ or product_name_kana like ‘%" + keyword + "%‘)";
+	// sql += " category_id=" + categoryId + " and (product_name like '%" +
+	// keyword + "%' or product_name_kana like '%" + keyword + "%')";
 	// initializeFlag = false;
 	// } else {
-	// sql += " and (product_name like ‘%" + keyword + "%’ or product_name_kana
-	// like ‘%" + keyword + "%‘)";
+	// sql += " and (product_name like '%" + keyword + "%' or product_name_kana
+	// like '%" + keyword + "%')";
 	// }
 	// }
 	// try {
@@ -180,12 +180,12 @@ public class ProductInfoDAO {
 	// boolean initializeFlag = true;
 	// for (String keyword : keywordsList) {
 	// if (initializeFlag) {
-	// sql += " place_id=" + placeId + " and (product_name like ‘%" + keyword +
-	// "%’ or product_name_kana like ‘%" + keyword + "%‘)";
+	// sql += " place_id=" + placeId + " and (product_name like '%" + keyword +
+	// "%' or product_name_kana like '%" + keyword + "%')";
 	// initializeFlag = false;
 	// } else {
-	// sql += " and (product_name like ‘%" + keyword + "%’ or product_name_kana
-	// like ‘%" + keyword + "%‘)";
+	// sql += " and (product_name like '%" + keyword + "%' or product_name_kana
+	// like '%" + keyword + "%')";
 	// }
 	// }
 	// try {
@@ -217,12 +217,12 @@ public class ProductInfoDAO {
 	// for (String keyword : keywordsList) {
 	// if (initializeFlag) {
 	// sql += " (category_id=" + categoryId + " and place_id=" + placeId + ")
-	// and (product_name like ‘%" + keyword + "%’ or product_name_kana like ‘%"
-	// + keyword + "%‘)";
+	// and (product_name like '%" + keyword + "%' or product_name_kana like '%"
+	// + keyword + "%')";
 	// initializeFlag = false;
 	// } else {
-	// sql += " and (product_name like ‘%" + keyword + "%’ or product_name_kana
-	// like ‘%" + keyword + "%‘)";
+	// sql += " and (product_name like '%" + keyword + "%' or product_name_kana
+	// like '%" + keyword + "%')";
 	// }
 	// }
 	// try {
@@ -273,10 +273,10 @@ public class ProductInfoDAO {
 		if (targetDate != null && !targetDate.equals("")) {
 			System.out.println(targetDate);
 			if (initializeFlag) {
-				sql += " where (‘" + targetDate + "’ >= start_date and ‘" + targetDate + "’ < end_date)";
+				sql += " where ('" + targetDate + "' >= start_date and '" + targetDate + "' < end_date)";
 				initializeFlag = false;
 			} else {
-				sql += " and (‘" + targetDate + "’ >= start_date and ‘" + targetDate + "’ < end_date)";
+				sql += " and ('" + targetDate + "' >= start_date and '" + targetDate + "' < end_date)";
 			}
 		}
 
@@ -286,10 +286,10 @@ public class ProductInfoDAO {
 				continue;
 			}
 			if (initializeFlag) {
-				sql += " where (product_name like ‘%" + keyword + "%’ or product_name_kana like ‘%" + keyword + "%‘)";
+				sql += " where (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
 				initializeFlag = false;
 			} else {
-				sql += " and (product_name like ‘%" + keyword + "%’ or product_name_kana like ‘%" + keyword + "%’)";
+				sql += " and (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
 			}
 		}
 
