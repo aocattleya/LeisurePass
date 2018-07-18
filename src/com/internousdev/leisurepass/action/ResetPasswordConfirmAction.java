@@ -48,30 +48,35 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 				&& newPasswordErrorMessageList.size() == 0 && reConfirmationNewPasswordErrorMessageList.size() == 0
 				&& newPasswordIncorrectErrorMessageList.size() == 0) {
 
-		} else {
+			UserInfoDAO userInfoDAO = new UserInfoDAO();
+
+			if (userInfoDAO.isExistsUserInfo(loginId, password)) {
+				String concealedPassword = userInfoDAO.concealPassword(newPassword);
+				session.put("loginId", loginId);
+				session.put("newPassword", newPassword);
+				session.put("concealedPassword", concealedPassword);
+				result = SUCCESS;
+			}
+			 else{
+			 passwordIncorrectErrorMessageList.add("入力されたパスワードが異なります。");
+
+			 }
+
+
+		}
 			session.put("loginIdErrorMessageList", loginIdErrorMessageList);
 			session.put("passwordErrorMessageList", passwordErrorMessageList);
 			session.put("newPasswordErrorMessageList", newPasswordErrorMessageList);
 			session.put("reConfirmationNewPasswordErrorMessageList", reConfirmationNewPasswordErrorMessageList);
 			session.put("newPasswordIncorrectErrorMessageList", newPasswordIncorrectErrorMessageList);
+			session.put("passwordIncorrectErrorMessageList",passwordIncorrectErrorMessageList);
 
-		}
-
-		UserInfoDAO userInfoDAO = new UserInfoDAO();
-
-		if (userInfoDAO.isExistsUserInfo(loginId, password)) {
-			String concealedPassword = userInfoDAO.concealPassword(newPassword);
-			session.put("loginId", loginId);
-			session.put("newPassword", newPassword);
-			session.put("concealedPassword", concealedPassword);
-			result = SUCCESS;
-		}
-		 else{
-		 passwordIncorrectErrorMessageList.add("入力されたパスワードが異なります。");
-		 session.put("passwordIncorrectErrorMessageList",
-		 passwordIncorrectErrorMessageList);
-		 }
-
+			System.out.println(reConfirmationNewPasswordErrorMessageList.toString());
+			System.out.println(loginIdErrorMessageList.toString());
+			System.out.println(passwordErrorMessageList.toString());
+			System.out.println(newPasswordErrorMessageList.toString());
+			System.out.println(newPasswordIncorrectErrorMessageList.toString());
+			System.out.println(passwordIncorrectErrorMessageList.toString());
 
 		return result;
 	}
