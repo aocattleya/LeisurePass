@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="./css/style.css">
 
 <title>ユーザー情報入力</title>
-<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link rel="stylesheet" type="text/css" href="./css/createUser.css">
 </head>
 <body>
 
@@ -118,7 +118,7 @@
 
 
 		<s:form action="CreateUserConfirmAction">
-
+<div class="createUsercontents">
 			<table class="vertical-list-table">
 
 				<tr>
@@ -178,12 +178,16 @@
 					<s:submit value="登録" class="submit_btn" />
 				</div>
 			</div>
+			</div>
 		</s:form>
+
+
 	</div>
 
 		</div>
 
 	</div>
+
 
 	<jsp:include page="footer.jsp" />
 

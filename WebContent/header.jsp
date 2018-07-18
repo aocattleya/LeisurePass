@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<link rel="stylesheet" href="./css/header.css">
-<link rel="stylesheet" href="./css/style.css">
 <header>
 	<div id="header_container" class="cf">
 		<div class="logo">

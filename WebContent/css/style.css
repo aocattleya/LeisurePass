@@ -50,10 +50,16 @@ body, html {
 	background-color:red;
 }
 
-header #header_container {
 
+header {
+	width: 1920px;
+	margin-top: 10px;
+	margin-left: 40px;
 }
 
+.header-container {
+
+}
 header .logo {
 	float: left;
 }
@@ -66,6 +72,104 @@ header .header_menu li {
 	float: left;
 	list-style: none;
 	margin-left: 10px;
+}
+
+
+.logo {
+	float: left;
+	background-color: #F7F7F7;
+	width: 65%;
+	height: 66px;
+	margin-bottom: 10px;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.logo img {
+	width: 290px;
+	height: 66px;
+}
+
+.ticket {
+	float: left;
+	background-color: #F7F7F7;
+	width: 60px;
+	height: 60px;
+	margin-top: -12px;
+	text-align: center;
+	border-radius: 10px 10px 10px 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.ticket img {
+	width: 30px;
+	height: 30px;
+}
+
+.cart {
+	float: left;
+	background-color: #F7F7F7;
+	width: 60px;
+	height: 60px;
+	margin-top: -12px;
+	text-align: center;
+	height: 60px;
+	border-radius: 10px 10px 10px 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cart img {
+	width: 30px;
+	height: 30px;
+}
+
+.login {
+	float: left;
+	background-color: #ed7d22;
+	width: 100px;
+	height: 60px;
+	margin-top: -12px;
+	text-align: center;
+	color: white;
+	border-radius: 10px 10px 10px 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+.mypage {
+	float: left;
+	background-color: #ed7d22;
+	width: 100px;
+	height: 60px;
+	margin-top: -12px;
+	text-align: center;
+	color: white;
+	border-radius: 10px 10px 10px 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+.logout {
+	float: left;
+	background-color: #AAAAAA;
+	width: 100px;
+	height: 60px;
+	margin-top: -12px;
+	text-align: center;
+	color: white;
+	border-radius: 10px 10px 10px 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #navigation ul li {
