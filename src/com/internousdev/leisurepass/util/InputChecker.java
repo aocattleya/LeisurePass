@@ -23,8 +23,10 @@ public class InputChecker {
 				List<String> characterTypeList = new ArrayList<String>();
 
 				//入力欄が空かどうかを検証します
-				if(StringUtils.isEmpty(value)){
-					stringList.add(propertyName + "を入力してください。");
+				if(minLength > 0) {
+					if(StringUtils.isEmpty(value)){
+						stringList.add(propertyName + "を入力してください。");
+					}
 				}
 
 				//入力欄が最小文字数以上、最大文字数以下かどうかを検証します

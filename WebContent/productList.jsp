@@ -21,8 +21,12 @@
 			<!-- 検索結果がない場合 -->
 			<s:if test="productInfoDtoList==null">
 				<div class="info">検索結果がありません。</div>
+				<s:if test="!#session.keywordsErrorMessageList.isEmpty()">
+					<s:iterator value="#session.keywordsErrorMessageList">
+						<s:property /><br>
+					</s:iterator>
+				</s:if>
 			</s:if>
-
 
 			<!-- ある場合 -->
 			<s:else>
