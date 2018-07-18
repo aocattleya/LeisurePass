@@ -72,7 +72,7 @@ header .header_menu li {
 	margin-left: 10px;
 }
 
-.logo {
+header .logo {
 	float: left;
 	background-color: #F7F7F7;
 	width: 65%;
@@ -81,12 +81,12 @@ header .header_menu li {
 	border-radius: 10px 10px 10px 10px;
 }
 
-.logo img {
+header .logo img {
 	width: 290px;
 	height: 66px;
 }
 
-.ticket {
+header .ticket {
 	float: left;
 	background-color: #F7F7F7;
 	width: 60px;
@@ -99,12 +99,12 @@ header .header_menu li {
 	align-items: center;
 }
 
-.ticket img {
+header .ticket img {
 	width: 30px;
 	height: 30px;
 }
 
-.cart {
+header .cart {
 	float: left;
 	background-color: #F7F7F7;
 	width: 60px;
@@ -118,12 +118,12 @@ header .header_menu li {
 	align-items: center;
 }
 
-.cart img {
+header .cart img {
 	width: 30px;
 	height: 30px;
 }
 
-.login {
+header .login {
 	float: left;
 	background-color: #ed7d22;
 	width: 100px;
@@ -137,7 +137,7 @@ header .header_menu li {
 	align-items: center;
 }
 
-.mypage {
+header .mypage {
 	float: left;
 	background-color: #ed7d22;
 	width: 100px;
@@ -151,7 +151,7 @@ header .header_menu li {
 	align-items: center;
 }
 
-.logout {
+header .logout {
 	float: left;
 	background-color: #AAAAAA;
 	width: 100px;
