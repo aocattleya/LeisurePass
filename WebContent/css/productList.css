@@ -24,27 +24,37 @@ h1 img.fish{
 	width:30px;
 	height:25px;
 }
+h1 img:active{
+	color:orange;
+}
+
+
 #product-list{
-	text-align:center;
+
 }
 
 .product-list-box{
-	margin: 0 auto;
+/* 	margin:0px 30px;
 	padding: 0;
 	float:left;
 	text-align: center;
-	position:relative;
-
+*/
 	list-style:none;
+
+	text-align : center;
+	display : inline-block;
+	margin-bottom:10px;
 }
 img:hover{
-	opacity:0.5;
+	opacity:0.5;/* 薄く透過 */
 }
 .item-image-box-200{
-	width:326px;
-	height:218px;
+	width:350px;
+	height:200px;
 	border:2px solid gray;
 	background-color:#f9f9f9;
+	cursor: pointer;
+	object-fit:cover;
 
 }
 

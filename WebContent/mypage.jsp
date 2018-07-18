@@ -18,25 +18,28 @@
 	font-size: 18px;
 	text-align: center;
 }
-
-
+/*ボタンのCSS*/
 .submit_btn {
-	width: 200px;
-	height:40px;
-	position : relative;
-	display: inline-block;
-	padding: 0.25em 0.5em;
-	text-decoration: none;
-	font-size: 20px;
-	color: #ffffff;
-	background: #ed7d22; /*色*/
-	border-radius: 20px; /*角の丸み*/
-	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
-	/* font-weight: bold; */
-	border: solid 2px #d27d00;
-	position: relative; /*線色*/
+	width: 200px; /*ボタンの横の長さ*/
+	height: 40px; /*ボタンの縦の長さ*/
+	/* display: inline-block; 多分要らないかも*/
+	font-size: 20px; /*ボタン文字サイズ*/
+	background-color: #ed7d22; /*ボタンの色*/
+	color: #FFF; /*ボタン文字の色*/
+	border-radius: 20px; /*ボタンの角の丸み*/
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0
+		rgba(0, 0, 0, 0.05); /*ボタンの影（立体感）*/
+	border: solid 2px #d27d00; /*ボタンの立体感を出すため*/
+	outline: 0; /*変な枠線を非表示に*/
+	cursor: pointer; /*マウスを乗せたとき指マークにする*/
 }
 
+/*ボタンをクリックしたときのCSS*/
+.submit_btn:active {
+	transform: translateY(2px); /*下に動かす*/
+	background-color: #f3a769; /*薄いオレンジ色にする*/
+	border: #ed7d22; /*枠線の色変更*/
+}
 
 .vertical-list-table {
 	background-color: #f7f7f7;
