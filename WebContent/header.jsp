@@ -44,11 +44,10 @@
 						</s:if>
 						<s:else>
 							<div class="mypage">
-								<s:form action="MyPageAction">
-									マイページ
-								</s:form>
+								<a href="MyPageAction"><img src="images/mypage.jpg"></a>
 							</div>
-						</s:else></li>
+						</s:else>
+					</li>
 					<li><s:property value="%{#session.logined}" /></li>
 
 
