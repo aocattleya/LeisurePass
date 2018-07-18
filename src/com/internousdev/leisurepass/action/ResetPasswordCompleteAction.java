@@ -5,6 +5,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.leisurepass.dao.UserInfoDAO;
+import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ResetPasswordCompleteAction extends ActionSupport implements SessionAware {
@@ -24,6 +25,11 @@ public class ResetPasswordCompleteAction extends ActionSupport implements Sessio
 		} else {
 			result = ERROR;
 		}
+
+		// navigation情報を取得
+		SearchConditionLoader loader = new SearchConditionLoader();
+		loader.execute(session);
+
 		return result;
 	}
 

@@ -5,6 +5,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.leisurepass.dao.ProductInfoDAO;
+import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class DeleteProductCompleteAction extends ActionSupport implements SessionAware {
@@ -18,6 +19,10 @@ public class DeleteProductCompleteAction extends ActionSupport implements Sessio
 		id = (int) session.get("deleteId");
 		ProductInfoDAO dao = new ProductInfoDAO();
 		dao.delete(id);
+
+		// navigation情報を取得
+		SearchConditionLoader loader = new SearchConditionLoader();
+		loader.execute(session);
 
 		return SUCCESS;
 	}

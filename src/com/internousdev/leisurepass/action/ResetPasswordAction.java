@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -23,6 +24,11 @@ public class ResetPasswordAction extends ActionSupport implements SessionAware{
 		session.remove("newPasswordIncorrectErrorMessageList");
 
 		result = SUCCESS;
+
+		// navigation情報を取得
+		SearchConditionLoader loader = new SearchConditionLoader();
+		loader.execute(session);
+
 		return result;
 	}
 

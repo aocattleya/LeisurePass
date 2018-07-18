@@ -9,6 +9,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.leisurepass.dao.UserInfoDAO;
 import com.internousdev.leisurepass.dto.MCategoryDTO;
 import com.internousdev.leisurepass.dto.UserInfoDTO;
+import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class MyPageAction extends ActionSupport implements SessionAware {
@@ -48,6 +49,11 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 
 			result = SUCCESS;
 		}
+
+		// navigation情報を取得
+		SearchConditionLoader loader = new SearchConditionLoader();
+		loader.execute(session);
+
 		return result;
 
 	}

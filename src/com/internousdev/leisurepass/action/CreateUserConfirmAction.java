@@ -9,6 +9,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.leisurepass.dao.UserInfoDAO;
 import com.internousdev.leisurepass.util.InputChecker;
+import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateUserConfirmAction extends ActionSupport implements SessionAware {
@@ -24,7 +25,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 	private String existLoginIdErrorMessage;
 	private String categoryId;
 	private String defaultSexValue = MALE;
-	
+
 	private List<String> loginIdErrorMessageList = new ArrayList<String>();
 	private List<String> passwordErrorMessageList = new ArrayList<String>();
 	private List<String> emailErrorMessageList = new ArrayList<String>();
@@ -37,7 +38,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 
 	private static final String MALE = "男性";
 	private static final String FEMALE = "女性";
-	
+
 
 	public String execute() {
 		String result = ERROR;
@@ -102,6 +103,11 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		// 性別リストに性別の変数を入れresultで結果を返す
 		sexList.add(MALE);
 		sexList.add(FEMALE);
+
+		// navigation情報を取得
+		SearchConditionLoader loader = new SearchConditionLoader();
+		loader.execute(session);
+
 		return result;
 
 	}

@@ -11,13 +11,13 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.leisurepass.dao.CartInfoDAO;
 import com.internousdev.leisurepass.dto.CartInfoDTO;
 import com.internousdev.leisurepass.dto.MCategoryDTO;
+import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class DeleteCartAction extends ActionSupport implements SessionAware {
 	private Collection<String> checkList;
 	private String categoryId;
 	private String productId;
-	private String userId;
 
 	private String sex;
 	private List<String> sexList = new ArrayList<String>();
@@ -87,6 +87,10 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 
 			result = SUCCESS;
 		}
+
+		// navigation情報を取得
+		SearchConditionLoader loader = new SearchConditionLoader();
+		loader.execute(session);
 
 		return result;
 	}

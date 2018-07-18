@@ -6,6 +6,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.leisurepass.dao.ProductInfoDAO;
 import com.internousdev.leisurepass.dto.ProductInfoDTO;
+import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class DeleteProductConfirmAction extends ActionSupport implements SessionAware {
@@ -21,6 +22,10 @@ public class DeleteProductConfirmAction extends ActionSupport implements Session
 		// 削除ボタンを押した商品のidをsessionに格納（削除確認画面で表示するため）
 		session.put("deleteProductDTO", dto);
 		session.put("deleteId", id);
+
+		// navigation情報を取得
+		SearchConditionLoader loader = new SearchConditionLoader();
+		loader.execute(session);
 
 		return SUCCESS;
 	}

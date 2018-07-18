@@ -9,6 +9,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.leisurepass.dao.CartInfoDAO;
 import com.internousdev.leisurepass.dto.CartInfoDTO;
+import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 //import com.internousdev.leisurepass.dao.MCategoryDAO;
 //import com.internousdev.leisurepass.dto.MCategoryDTO;
@@ -50,11 +51,9 @@ public class CartAction extends ActionSupport implements SessionAware {
 
 		result = SUCCESS;
 
-//		if (!session.containsKey("mCategoryList")) {
-//			MCategoryDAO mCategoryDao = new MCategoryDAO();
-//			mCategoryDtoList = mCategoryDao.getMCategoryList();
-//			session.put("mCategoryDtoList", mCategoryDtoList);
-//		}
+		// navigation情報を取得
+		SearchConditionLoader loader = new SearchConditionLoader();
+		loader.execute(session);
 
 		return result;
 	}

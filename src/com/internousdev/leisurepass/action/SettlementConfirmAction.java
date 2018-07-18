@@ -15,6 +15,7 @@ import com.internousdev.leisurepass.dao.DestinationInfoDAO;
 import com.internousdev.leisurepass.dto.DestinationInfoDTO;
 import com.internousdev.leisurepass.dto.PurchaseHistoryInfoDTO;
 import com.internousdev.leisurepass.util.CommonUtility;
+import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SettlementConfirmAction extends ActionSupport implements SessionAware {
@@ -102,6 +103,11 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 		} else {
 			result = SUCCESS;
 		}
+
+		// navigation情報を取得
+		SearchConditionLoader loader = new SearchConditionLoader();
+		loader.execute(session);
+
 		return result;
 	}
 

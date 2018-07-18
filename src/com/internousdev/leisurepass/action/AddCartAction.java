@@ -1,7 +1,6 @@
 package com.internousdev.leisurepass.action;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +10,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.leisurepass.dao.CartInfoDAO;
 import com.internousdev.leisurepass.dto.CartInfoDTO;
 import com.internousdev.leisurepass.util.CommonUtility;
+import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class AddCartAction extends ActionSupport implements SessionAware {
@@ -114,6 +114,11 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		// 合計金額の表示
 		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(userId)));
 		session.put("totalPrice", totalPrice);
+
+		// navigation情報を取得
+		SearchConditionLoader loader = new SearchConditionLoader();
+		loader.execute(session);
+
 		return result;
 
 

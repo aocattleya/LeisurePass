@@ -8,6 +8,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.leisurepass.dao.ProductInfoDAO;
 import com.internousdev.leisurepass.dto.ProductInfoDTO;
+import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class AdminProductAction extends ActionSupport implements SessionAware {
@@ -22,6 +23,11 @@ public class AdminProductAction extends ActionSupport implements SessionAware {
 		productList = dao.getProductInfoList();
 
 		session.remove("addProductDTO");
+
+		// navigation情報を取得
+		SearchConditionLoader loader = new SearchConditionLoader();
+		loader.execute(session);
+
 		return SUCCESS;
 	}
 

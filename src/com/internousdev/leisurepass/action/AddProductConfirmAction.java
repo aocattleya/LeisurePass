@@ -13,6 +13,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.leisurepass.dto.ProductInfoDTO;
 import com.internousdev.leisurepass.util.InputChecker;
+import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class AddProductConfirmAction extends ActionSupport implements SessionAware {
@@ -182,6 +183,10 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 				e.printStackTrace();
 			}
 		}
+
+		// navigation情報を取得
+		SearchConditionLoader loader = new SearchConditionLoader();
+		loader.execute(session);
 
 		return SUCCESS;
 	}

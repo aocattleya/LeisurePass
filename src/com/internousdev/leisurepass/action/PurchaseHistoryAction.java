@@ -7,10 +7,10 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.leisurepass.dao.MCategoryDAO;
 import com.internousdev.leisurepass.dao.PurchaseHistoryInfoDAO;
 import com.internousdev.leisurepass.dto.MCategoryDTO;
 import com.internousdev.leisurepass.dto.PurchaseHistoryInfoDTO;
+import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class PurchaseHistoryAction extends ActionSupport implements SessionAware {
@@ -32,13 +32,9 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 		}
 		session.put("purchaseHistoryInfoDtoList", purchaseHistoryInfoDtoList);
 
-		// 商品カテゴリリストのセッションが作られてない場合
-		if (!session.containsKey("mCategoryList")) {
-			// 商品カテゴリリストを作成し、セッションを作ります
-			MCategoryDAO mCategoryDao = new MCategoryDAO();
-			mCategoryDtoList = mCategoryDao.getMCategoryList();
-			session.put("mCategoryDtoList", mCategoryDtoList);
-		}
+		// navigation情報を取得
+		SearchConditionLoader loader = new SearchConditionLoader();
+		loader.execute(session);
 
 		return SUCCESS;
 	}

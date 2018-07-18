@@ -11,6 +11,7 @@ import com.internousdev.leisurepass.dao.CartInfoDAO;
 import com.internousdev.leisurepass.dao.PurchaseHistoryInfoDAO;
 import com.internousdev.leisurepass.dto.CartInfoDTO;
 import com.internousdev.leisurepass.dto.PurchaseHistoryInfoDTO;
+import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SettlementCompleteAction extends ActionSupport implements SessionAware {
@@ -88,6 +89,11 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 				result = SUCCESS;
 			}
 		}
+
+		// navigation情報を取得
+		SearchConditionLoader loader = new SearchConditionLoader();
+		loader.execute(session);
+
 		return result;
 	}
 

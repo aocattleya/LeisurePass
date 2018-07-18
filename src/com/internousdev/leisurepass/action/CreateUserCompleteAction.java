@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.leisurepass.dao.UserInfoDAO;
+import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateUserCompleteAction extends ActionSupport implements SessionAware {
@@ -29,6 +30,11 @@ public class CreateUserCompleteAction extends ActionSupport implements SessionAw
 			session.put("logined", 1);
 			result = SUCCESS;
 		}
+
+		// navigation情報を取得
+		SearchConditionLoader loader = new SearchConditionLoader();
+		loader.execute(session);
+
 		return result;
 	}
 
