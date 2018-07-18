@@ -45,7 +45,7 @@
 			<div class="g">r</div>
 			<div class="r">e</div>
 			<div class="a ticket_div">
-				<img src="./images/ticket1.png" class="ticket" />
+				<img src="./images/ticket1.png" class="ticket-icon" />
 			</div>
 			<div class="p">p</div>
 			<div class="h">a</div>

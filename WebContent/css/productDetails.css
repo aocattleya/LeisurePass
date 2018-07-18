@@ -48,7 +48,7 @@ body {
 	height: 8px;
 	padding-top: 4px;
 	transform: middle;
-	background: #d9d9d9;
+	background: #f7f7f7;
 	border-collapse: collapse; /* 隣り合うセルの線を結合 */
 	border-radius: 10px; /*ボタンの角の丸み*/
 }
@@ -131,7 +131,7 @@ th.local {
 	font-weight: 100;
 	border-top: solid 2px #999999;;
 	border-bottom: solid 2px #999999;;
-	background: #d9d9d9;
+	background: #f7f7f7;
 	padding: 3px;
 	width: 100px;
 }
@@ -154,5 +154,5 @@ th.local1{
 }
 
 .box {
-	clear: left;
+
 }
