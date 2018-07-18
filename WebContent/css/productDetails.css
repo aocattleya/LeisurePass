@@ -11,7 +11,7 @@ body {
 
 /*mainpicture*/
 .item-image-box-320{
-	width:1020px;
+	width:1000px;
 	height:500px;
 
 }
@@ -20,6 +20,7 @@ body {
 	width:330px;
 	height:260px;
 	margin-right: 10px;
+	border-radius: 6px;
 }
 
 .left {
