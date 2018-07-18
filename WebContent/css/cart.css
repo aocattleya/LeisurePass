@@ -89,6 +89,11 @@ h2 {
 	border: #ed7d22; /*枠線の色変更*/
 }
 
+.Side-by-side{
+	border-bottom:2px solid #eaeaea;
+	padding-top:20px;
+}
+
 .submit_btn {
 	font-size: 20px;
 	clear: both;

@@ -36,11 +36,11 @@
 							<s:checkbox name="checkList" value="checked" fieldValue="%{productId}"
 								id="checkbox" />
 						</div>
-
+<div class="Side-by-side">
 						<img
 							src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>'
 							width="326px" height="218px" />
-						<div class="Side-by-side">
+
 							<table class="horizontal-list-table">
 
 								<tr>
