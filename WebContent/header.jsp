@@ -11,22 +11,18 @@
 		<div class="header_menu">
 			<ul>
 				<li>
-					<s:if test="%{!(#session.logined == 1 && #session.userInfo.status == 1)}">
-						<div class="ticket">
-							<a href="ProductListAction"><img src="images/ticket.jpg"></a>
-						</div>
-					</s:if>
+					<div class="ticket">
+						<a href="ProductListAction"><img src="images/ticket.jpg"></a>
+					</div>
 				</li>
 				<li>
-					<s:if test="%{!(#session.logined == 1 && #session.userInfo.status == 1)}">
-						<div class="cart">
-							<a href="CartAction"><img src="images/cart.jpg"></a>
-						</div>
-					</s:if>
+					<div class="cart">
+						<a href="CartAction"><img src="images/cart.jpg"></a>
+					</div>
 				</li>
 				<s:if test="#session.logined == 0">
 					<li>
-						<div class="login">
+						<div>
 							<s:form action="GoLoginAction">
 								<input type="submit" value="ログイン" class="login">
 								<a href="GologinAction"></a>
@@ -36,22 +32,21 @@
 				</s:if>
 
 				<s:if test="#session.logined == 1">
-					<li>
-						<s:if test="#session.userInfo.status == 1">
+					<li><s:if test="#session.userInfo.status == 1">
 							<s:form action="GoAdminAction">
 								<s:submit value="管理者" />
 							</s:form>
-						</s:if>
-						<s:else>
+						</s:if> <s:else>
 							<div class="mypage">
-								<a href="MyPageAction"><img src="images/mypage.jpg"></a>
+								<s:form action="MyPageAction">
+							マイページ
+							</s:form>
 							</div>
-						</s:else>
-					</li>
+						</s:else></li>
 					<li><s:property value="%{#session.logined}" /></li>
 
 
-						<<div class="logout">
+						<<div>
 						<s:form action="LogoutAction">
 							<input type="submit" value="ログアウト" class="logout">
 							<a href="LogoutAction"></a>
