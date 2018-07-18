@@ -37,7 +37,7 @@
 
 
 .slider img {
-	width: 1344px;
+	width: 1340px;
 	height: 500px;
 	display: flex;
 	justify-content: center;
@@ -69,7 +69,7 @@
 .box ul {
 	list-style-type: none;
 	margin: 0 auto;
-	width: 1300px;
+	width: 940px;
 	padding-left: 0;
 	display: flex;
 	justify-content: center;	/* 中央よせ */
@@ -80,7 +80,7 @@
 }
 
 .box li a {
-	padding: 16px;
+	padding: 12px;
 	color: #333;
 	font-size: 15px;
 	font-family: 'メイリオ', sans-serif;
@@ -88,10 +88,10 @@
 }
 
 .box img {
-	width: 240px;
-	height: 220px;
+	width: 190px;
+	height: 190px;
 	border-radius: 5px;
-	margin: 24px;
+	margin: 10px;
 }
 
 .box .text {
