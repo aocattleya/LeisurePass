@@ -17,16 +17,17 @@
 	<div id="main" class="cf">
 		<jsp:include page="navigation.jsp" />
 		<div id="contents">
-			<h1>商品一覧</h1>
+			<h1>
+				<img class="ele" src="images/elephant.jpg"> 商品一覧 <img
+					class="fish" src="images/fish.jpg">
+			</h1>
+
+
 			<!-- 検索結果がない場合 -->
 			<s:if test="productInfoDtoList==null">
 				<div class="info">検索結果がありません。</div>
-				<s:if test="!#session.keywordsErrorMessageList.isEmpty()">
-					<s:iterator value="#session.keywordsErrorMessageList">
-						<s:property /><br>
-					</s:iterator>
-				</s:if>
 			</s:if>
+
 
 			<!-- ある場合 -->
 			<s:else>
@@ -34,18 +35,26 @@
 				<div id="product-list">
 					<s:iterator value="#session.productInfoDtoList">
 						<ul class="product-list-box">
-							<li><a href='<s:url action="ProductDetailsAction">
+							<li><a
+								href='<s:url action="ProductDetailsAction">
 											<s:param name="productId" value="%{productId}"/>
 										</s:url>'>
-										<img src='<s:property value="imageFilePath"/>/
+									<img
+									src='<s:property value="imageFilePath"/>/
 										<s:property value="imageFileName"/>'
-										class="item-image-box-200" />
-								</a>
-								<br>
-								<div class="smallMoji"><s:property value="productNameKana"  /></div>
-								<div class="largeMoji"><s:property value="productName"  /></div>
-								<div class="largeMoji"><s:property value="price"  />円</div><br>
-							</li>
+									class="item-image-box-200" />
+							</a> <br>
+								<div class="smallMoji">
+									<s:property value="productNameKana" />
+								</div>
+								<div class="largeMoji">
+									<s:property value="productName" />
+								</div>
+								<div class="largeMoji">
+									<s:property value="price" />
+									円
+								</div>
+								<br></li>
 						</ul>
 					</s:iterator>
 				</div>
@@ -73,6 +82,7 @@
 			</s:else>
 		</div>
 	</div>
+
 
 	<jsp:include page="footer.jsp" />
 

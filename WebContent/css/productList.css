@@ -16,6 +16,17 @@ h1 {
 color: #ed7d22;
 font-size:22px;
 }
+h1 img.ele{
+	width:25px;
+	height:25px;
+}
+h1 img.fish{
+	width:30px;
+	height:25px;
+}
+#product-list{
+	text-align:center;
+}
 
 .product-list-box{
 	margin: 0 auto;
@@ -26,21 +37,24 @@ font-size:22px;
 
 	list-style:none;
 }
-.product-list-box li a:hover{
-	background-color:black;
-	text-decoration: none;
-
+img:hover{
+	opacity:0.5;
 }
 .item-image-box-200{
 	width:326px;
 	height:218px;
+	border:2px solid gray;
+	background-color:#f9f9f9;
+
 }
 
 .smallMoji{
 	font-size:9px;
+	color:#333333;
 }
 .largeMoji{
 	font-size:16px;
+	color:#333333;
 }
 
 
@@ -51,7 +65,6 @@ font-size:22px;
     padding: 0;
     border: 0;
     font-size: 30px;
-    margin-left:10px;
     vertical-align: baseline;
     outline: none;
     -webkit-font-smoothing: antialiased;
