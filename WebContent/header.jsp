@@ -43,10 +43,10 @@
 							</s:form>
 							</div>
 						</s:else></li>
-					<li><s:property value="%{#session.logined}" /></li>
 
 
-						<<div>
+
+						<div>
 						<s:form action="LogoutAction">
 							<input type="submit" value="ログアウト" class="logout">
 							<a href="LogoutAction"></a>
