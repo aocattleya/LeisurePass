@@ -71,12 +71,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 			session.put("newPasswordIncorrectErrorMessageList", newPasswordIncorrectErrorMessageList);
 			session.put("passwordIncorrectErrorMessageList",passwordIncorrectErrorMessageList);
 
-			System.out.println(reConfirmationNewPasswordErrorMessageList.toString());
-			System.out.println(loginIdErrorMessageList.toString());
-			System.out.println(passwordErrorMessageList.toString());
-			System.out.println(newPasswordErrorMessageList.toString());
-			System.out.println(newPasswordIncorrectErrorMessageList.toString());
-			System.out.println(passwordIncorrectErrorMessageList.toString());
+
 
 		return result;
 	}
