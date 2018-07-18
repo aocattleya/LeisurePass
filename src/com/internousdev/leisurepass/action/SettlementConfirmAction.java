@@ -97,6 +97,7 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 		}
 
 		if (Integer.parseInt(String.valueOf(session.get("logined"))) == 0) {
+			session.put("goSettlement", "1");
 			result = ERROR;
 		} else {
 			result = SUCCESS;
