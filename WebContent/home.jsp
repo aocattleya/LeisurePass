@@ -91,7 +91,6 @@
 	width: 240px;
 	height: 220px;
 	border-radius: 5px;
-	object-fit: cover;
 	margin: 24px;
 }
 
