@@ -19,6 +19,7 @@
 	<div id="main" class="cf">
 		<jsp:include page="navigation.jsp" />
 		<div id="contents">
+		<div id="contents-box">
 			<s:form action="AddCartAction">
 
 
@@ -124,6 +125,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 	<s:include value="footer.jsp" />
 </body>
