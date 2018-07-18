@@ -78,6 +78,10 @@ h2 {
 	left: 500px;
 }
 
+#contents-btn-set{
+	text-align:center;
+}
+
 /*ボタンをクリックしたときのCSS*/
 .submit_btn:active {
 	transform: translateY(2px); /*下に動かす*/

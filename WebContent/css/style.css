@@ -95,7 +95,8 @@ header .header_menu {
 }
 
 header .header_menu li {
-	float: left; list-style : none;
+	float: left;
+	list-style: none;
 	margin-left: 10px;
 	list-style: none;
 }
@@ -105,9 +106,9 @@ header .header_menu li {
 	background-color: #F7F7F7;
 	width: 1070px;
 	height: 70px;
-	margin-left:10px;
-	margin-bottom: 10px;
+	margin-left: 10px; margin-bottom : 10px;
 	border-radius: 10px;
+	margin-bottom: 10px;
 }
 
 .logo img {
@@ -121,7 +122,8 @@ header .header_menu li {
 	width: 70px;
 	height: 70px;
 	margin-top: -15px;
-	margin-left: -50px; text-align : center;
+	margin-left: -50px;
+	text-align: center;
 	border-radius: 10px 10px 10px 10px;
 	display: flex;
 	justify-content: center;
@@ -171,7 +173,8 @@ header .header_menu li {
 	background-color: #ed7d22;
 	width: 100px;
 	height: 70px;
-	margin-top: -15px; font-size : 20px;
+	margin-top: -15px;
+	font-size: 20px;
 	font-family: "メイリオ", sans-serif;
 	text-align: center;
 	color: white;

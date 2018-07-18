@@ -99,13 +99,13 @@
 				</h2>
 				<br>
 				<div class="submit_btn_box">
-					<div id=".contents-btn-set">
+					<div id="contents-btn-set">
 						<s:submit value="決済" class="submit_btn" />
 					</div>
 				</div>
 
 				<div class="submit_btn_box">
-					<div id=".contents-btn-set">
+					<div id="contents-btn-set">
 						<s:submit value="〆した商品を削除" class="submit_btn"
 							onclick="this.form.action='DeleteCartAction';" />
 					</div>
@@ -133,8 +133,6 @@
 			<s:iterator value="#session.errorMessage" />
 		</s:if>
 	</div>
-	<div id="footer">
 		<s:include value="footer.jsp" />
-	</div>
 </body>
 </html>
