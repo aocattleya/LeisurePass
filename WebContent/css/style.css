@@ -35,7 +35,7 @@ body, html {
 	float: left;
 	background-color: #F7F7F7;
 	border-radius: 10px 10px 10px 10px;
-	height:800px;
+	height:900px;
 	width:576px;
 	margin-left:40px;
 }
@@ -91,6 +91,7 @@ footer {
     border-right-style: none;
     border-bottom-style: none;
     border-left-style: none;
+
 
 }
 

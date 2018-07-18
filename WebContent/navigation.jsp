@@ -24,6 +24,9 @@
 				</div>
 			</li>
 			<li>
+			<h3>日にちを選ぶ</h3>
+			</li>
+			<li>
 				<div class="targetDate">
 				<s:textfield id="date_val" name="targetDate" value="%{#session.targetDate}" readonly="true" />
 				<div id="datepicker" style="font-size: 20px;"></div>
