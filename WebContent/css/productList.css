@@ -1,9 +1,9 @@
 @CHARSET "UTF-8";
-body{
-	width:1920px;
-	height:1080px;
-	font-family:Meiryo;
+
+body {
+	font-family: Meiryo;
 }
+
 #contents {
 	margin: 0;
 	padding: 0;
@@ -12,69 +12,79 @@ body{
 	text-align: center;
 }
 /* 商品一覧CSS */
+
+/* 一覧タイトル */
 h1 {
-color: #ed7d22;
-font-size:22px;
-}
-h1 img.ele{
-	width:25px;
-	height:25px;
-}
-h1 img.fish{
-	width:30px;
-	height:25px;
-}
-h1 img:active{
-	color:orange;
+	color: #ed7d22;
+	font-size: 22px;
+	text-align: center;
 }
 
-
-#product-list{
-
+h1 img.ele {
+	width: 25px;
+	height: 25px;
 }
 
-.product-list-box{
-	list-style:none;
+h1 img.fish {
+	width: 30px;
+	height: 25px;
+}
 
-	text-align : center;
-	display : inline-block;
-	margin-bottom:10px;
+h1 img:hover {
+	opacity: 0.8;
 }
-img:hover{
-	opacity:0.5;/* 薄く透過 */
+
+/* 画像 */
+.product-list-box { /* 画像全体 */
+	list-style: none;
+	text-align: center;
+	display: inline-block;
 }
-.item-image-box-200{
-	width:350px;
-	height:200px;
-	border:2px solid gray;
-	background-color:#f9f9f9;
+
+.product-list-box a{
+	 text-decoration:none;
+}
+
+.product-list-box img:hover { /* ホバーすると薄く透過 */
+	opacity: 0.5;
+	border: 5px solid orange;
+}
+
+.item-image-box-200 { /* 画像単体 */
+	width: 250px;
+	height: 180px;
+	border: 2px solid gray;
+	background-color: #f9f9f9;
 	cursor: pointer;
-	object-fit:cover;
-
+	object-fit: cover;
+	margin:0 15px;
 }
 
-.smallMoji{
-	font-size:9px;
-	color:#333333;
-}
-.largeMoji{
-	font-size:16px;
-	color:#333333;
+.product-list-box li img {
+	color: #f9f9f9;
 }
 
+/* 商品の文字 */
+.smallMoji {
+	font-size: 9px;
+	color: #333333;
+}
+
+.largeMoji {
+	font-size: 16px;
+	color: #333333;
+}
 
 /* ページネーションCSS */
-.pager{
-	clear:left;
+.pager {
+	clear: left;
 	margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 30px;
-    vertical-align: baseline;
-    outline: none;
-    -webkit-font-smoothing: antialiased;
-    background-color:skyblue;
-    color:#ff8040;
+	padding: 0;
+	border: 0;
+	font-size: 30px;
+	vertical-align: baseline;
+	outline: none;
+	-webkit-font-smoothing: antialiased;
+	background-color: skyblue;
+	color: #ff8040;
 }
-
-

@@ -34,28 +34,30 @@
 				<!-- 商品一覧リスト（iteratorで回して複数件表示 -->
 				<div id="product-list">
 					<s:iterator value="#session.productInfoDtoList">
-						<ul class="product-list-box">
-							<li><a
+
+						<div class="product-list-box">
+							<a
 								href='<s:url action="ProductDetailsAction">
 											<s:param name="productId" value="%{productId}"/>
 										</s:url>'>
-									<img
-									src='<s:property value="imageFilePath"/>/
+								<img
+								src='<s:property value="imageFilePath"/>/
 										<s:property value="imageFileName"/>'
-									class="item-image-box-200" />
+								class="item-image-box-200" />
 							</a> <br>
-								<div class="smallMoji">
-									<s:property value="productNameKana" />
-								</div>
-								<div class="largeMoji">
-									<s:property value="productName" />
-								</div>
-								<div class="largeMoji">
-									<s:property value="price" />
-									円
-								</div>
-								<br></li>
-						</ul>
+							<div class="smallMoji">
+								<s:property value="productNameKana" />
+							</div>
+							<div class="largeMoji">
+								<s:property value="productName" />
+							</div>
+							<div class="largeMoji">
+								<s:property value="price" />
+								円
+							</div><br>
+						</div>
+
+
 					</s:iterator>
 				</div>
 
