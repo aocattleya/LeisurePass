@@ -15,46 +15,49 @@ body {
 	font-size: 18px;
 }
 
-#contents{
+#contents {
 	text-align: center;
 	float: left;
 	width: 1344px;
 }
 
+/*ボタンのCSS*/
 .submit_btn {
-	width: 200px;
-	height: 40px;
-	font-size: 20px;
-	background-color: #ed7d22;
-	color: #FFF;
-	border-radius: 20px;
-	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
-	border: solid 2px #d27d00;
-	outline: 0;
-	cursor: pointer;
+	width: 200px; /*ボタンの横の長さ*/
+	height: 40px; /*ボタンの縦の長さ*/
+	/* display: inline-block; 多分要らないかも*/
+	font-size: 20px; /*ボタン文字サイズ*/
+	background-color: #ed7d22; /*ボタンの色*/
+	color: #FFF; /*ボタン文字の色*/
+	border-radius: 20px; /*ボタンの角の丸み*/
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0
+		rgba(0, 0, 0, 0.05); /*ボタンの影（立体感）*/
+	border: solid 2px #d27d00; /*ボタンの立体感を出すため*/
+	outline: 0; /*変な枠線を非表示に*/
+	cursor: pointer; /*マウスを乗せたとき指マークにする*/
 }
 
-.submit_btn:focus{
-	outline: 0;
-	background-color: #d27d00;
-
+/*ボタンをクリックしたときのCSS*/
+.submit_btn:active {
+	transform: translateY(2px); /*下に動かす*/
+	background-color: #f3a769; /*薄いオレンジ色にする*/
+	border: #ed7d22; /*枠線の色変更*/
 }
-*/
 
-#createUser{
+#createUser {
 	color: #ed7d22;
 	letter-spacing: 2px;
 }
 
-#resetPassword{
+#resetPassword {
 	color: #aaaaaa;
 }
 
-.vertical-list-table{
+.vertical-list-table {
 	display: inline;
 }
 
-.txt{
+.txt {
 	width: 450px;
 	height: 40px;
 	font-size: 18px;
@@ -74,8 +77,17 @@ body {
 	color: #aaaaaa;
 }
 
-.box{
+.box {
 	padding-right: 400px;
+}
+
+.error {
+	text-align: left;
+}
+
+.error-message {
+	color: red;
+	font-size: 14px;
 }
 </style>
 </head>
@@ -97,7 +109,7 @@ body {
 					<tr>
 						<td><s:if test="#session.savedLoginId == true">
 								<s:textfield name="loginId" class="txt" placeholder="ユーザー名を入力"
-									value='%{#session.loginId}' autocomplete="off" size="30" />
+									value='%{#session.keepLoginId}' autocomplete="off" size="30" />
 								<br>
 							</s:if> <s:else>
 								<s:textfield name="loginId" class="txt" placeholder="ユーザー名を入力"

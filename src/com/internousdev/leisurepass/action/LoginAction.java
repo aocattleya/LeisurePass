@@ -35,10 +35,10 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		 */
 		if (savedLoginId == true) {
 			session.put("savedLoginId", true);
-			session.put("loginId", loginId);
+			session.put("keepLoginId", loginId);
 		} else {
 			session.put("savedLoginId", false);
-			session.remove("loginId");
+			session.remove("keepLoginId");
 		}
 
 		session.remove("loginIdErrorMessageList");
@@ -68,21 +68,21 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			session.put("mCategoryDtoList", mCategoryDtoList);
 		}
 
-		// ログイン可否の判定を2段階に分けて実行します
+
 		UserInfoDAO userInfoDao = new UserInfoDAO();
+		// 入力したID・PASSWORDが登録されているか確認します
 		if (userInfoDao.isExistsUserInfo(loginId, password)) {
+			// 当該ユーザーをログイン状態にします
 			if (userInfoDao.login(loginId, password) > 0) {
-				//ログインユーザー情報を取得します
+				// ログインユーザー情報を取得します
 				UserInfoDTO userInfoDTO = userInfoDao.getUserInfo(loginId, password);
 				session.put("userInfo", userInfoDTO);
 				session.put("loginId", loginId);
 				int count = 0;
 				CartInfoDAO cartInfoDao = new CartInfoDAO();
-
-				/*
-				 * 未ログイン状態でカートの商品を決済しようとしたとき、 仮ログインIDを入力したログインIDに差し替えます。
-				 */
+				// 未ログイン状態でカートの商品を決済しようとしたとき、 仮ログインIDを入力したログインIDに差し替えます。
 				count = cartInfoDao.linkToLoginId(loginId, String.valueOf(session.get("tempUserId")));
+				System.out.println(count);
 				if (count > 0) {
 					DestinationInfoDAO destinationInfoDao = new DestinationInfoDAO();
 					try {
@@ -107,11 +107,11 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			session.put("logined", 1);
 
 			// 管理者用ユーザーIDとパスワードを入力した場合、管理者用のページに遷移します。
-			UserInfoDTO d = (UserInfoDTO)session.get("userInfo");
-			if(d.getStatus().equals("1")){
+			UserInfoDTO d = (UserInfoDTO) session.get("userInfo");
+			if (d.getStatus().equals("1")) {
 				result = "admin";
 			}
-		}else{
+		} else {
 			session.put("loginFailedMessage", "ログインIDまたはパスワードが異なります。");
 		}
 		return result;
