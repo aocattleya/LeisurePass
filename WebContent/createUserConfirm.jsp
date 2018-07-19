@@ -8,15 +8,12 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
 <jsp:include page="includeHead.jsp" />
+<jsp:include page="header.jsp" />
 <title>登録内容確認</title>
 </head>
 <body>
 
 
-
-
-
-	<jsp:include page="header.jsp" />
 
 	<div id="main" class="cf">
 
@@ -43,21 +40,27 @@
 							<th colspan="2">なまえ</th>
 						</tr>
 						<tr>
-							<th scope="row"><s:label value="姓ふりがな" /></th>
 							<td><s:property value="familyNameKana" /></td>
-						</tr>
-						<tr>
-							<th scope="row"><s:label value="名ふりがな" /></th>
 							<td><s:property value="firstNameKana" /></td>
 						</tr>
+
+
 						<tr>
-							<th scope="row"><s:label value="性別" /></th>
-							<td><s:property value="sex" /></td>
+							<th colspan="2">性別</th>
 						</tr>
 						<tr>
-							<th scope="row"><s:label value="メールアドレス" /></th>
-							<td><s:property value="email" /></td>
+							<td colspan="2"><s:property value="sex" /></td>
 						</tr>
+
+
+						<tr>
+							<th colspan="2">メールアドレス</th>
+						</tr>
+						<tr>
+							<td colspan="2"><s:property value="email" /></td>
+						</tr>
+
+
 						<tr>
 							<th colspan="2">ログインID</th>
 						</tr>

@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+
+tr{
+padding: 30px;
+}
+.submit_btn {
+	width: 200px;
+	height:40px;
+	display: inline-block;
+	padding: 0.25em 0.5em;
+	text-decoration: none;
+	color: #FFF;
+	background: #ed7d22; /*色*/
+	border-radius: 20px; /*角の丸み*/
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+	font-weight: bold;
+	border: solid 2px #d27d00;
+}
+
+.vertical-list-table {
+	background-color: #f7f7f7;
+	margin: 2em 0;
+	padding: 2em;
+	width: 600px;
+	border-radius: 20px;
+	margin: auto;
+}
+#contents {
+	margin: 0;
+	padding: 0;
+	line-height: 1.6;
+	letter-spacing: 1px;
+	font-family: メイリオ ", sans-serif;
+	font-size: 18px;
+	text-align: center;
+}
+
+label{
+	 border-bottom: solid 3px #ffa623;
+	 padding-left: 10px;
+	 padding-right: 10px;
+}
+
