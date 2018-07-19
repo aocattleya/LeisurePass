@@ -173,7 +173,6 @@ header .header_menu li {
 .submit_btn {
 	width: 200px; /*ボタンの横の長さ*/
 	height: 40px; /*ボタンの縦の長さ*/
-	/* display: inline-block; 多分要らないかも*/
 	font-size: 20px; /*ボタン文字サイズ*/
 	background-color: #ed7d22; /*ボタンの色*/
 	color: #FFF; /*ボタン文字の色*/
@@ -183,8 +182,18 @@ header .header_menu li {
 	border: solid 2px #d27d00; /*ボタンの立体感を出すため*/
 	outline: 0; /*変な枠線を非表示に*/
 	cursor: pointer; /*マウスを乗せたとき指マークにする*/
+	margin: 0 auto;
+}
+/*ボタンを押した時*/
+.submit_btn:active {
+	transform: translateY(2px); /*下に動かす*/
+	background-color: #f3a769; /*薄いオレンジ色にする*/
+	border: #ed7d22; /*枠線の色変更*/
+}
+
+#navigation .submit_btn{
 	margin-top: 20px;
-	margin-left: 20px;
+	margin-left: 15px;
 }
 
 /*「日にちを選ぶ」の文字装飾*/
@@ -196,29 +205,39 @@ header .header_menu li {
 }
 /*「いつでも」入力欄装飾*/
 #date_val{
-	width: 120px;
-	height:20px;
+	width: 268px;
+	height:45px;
 	font-size:15px;
 	text-align: center;
-	margin-left: 20px;
-	margin-bottom: 15px;
+	margin-left: 0px;
+	margin-bottom: 4px;
 	border-radius: 10px;
+	background: #ffffff;
+	font-size: 20px;
+	border-style: none;
 }
+/*日付指定しないボタン*/
 .date_val_button{
-	width:110px;
+	width:270px;
 	height: 25px;
-	/* background-color: red; */
-	background-color: #ed7d22; /*ボタンの色*/
-	border-radius: 20px; /*ボタンの角の丸み*/
+	background-color: #f6a828; /*ボタンの色*/
+	border-radius: 4px; /*ボタンの角の丸み*/
 	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0
 		rgba(0, 0, 0, 0.05); /*ボタンの影（立体感）*/
 	border: solid 2px #d27d00; /*ボタンの立体感を出すため*/
 	outline: 0; /*変な枠線を非表示に*/
 	cursor: pointer; /*マウスを乗せたとき指マークにする*/
 	color: #fff;
+	margin-top: 5px;
+	font-size: 13px;
+	font-weight: bold;
 }
-
-
+/*日付指定ボタンを押した時*/
+.date_val_button:active {
+	transform: translateY(2px); /*下に動かす*/
+	background-color: #f3bb82; /*薄いオレンジ色にする*/
+	border: #ed7d22; /*枠線の色変更*/
+}
 /*ナビゲーション背景装飾*/
 #navigation {
 	float: left;
@@ -243,17 +262,14 @@ header .header_menu li {
 /*フリー検索装飾*/
 .keywords input {
 	height: 50px;
-	width: 230px;
+	width: 268px;
 	font-size: 20px;
 	text-align: center;
 	border-radius: 10px;
 	font-family: "Meiryo", sans-serif;
-	margin-left: 0px;
+	margin-left: -20px;
 	border-style: none;
-	border-top-style: none;
-	border-right-style: none;
-	border-bottom-style: none;
-	border-left-style: none;
+
 }
 /*場所検索ベース装飾*/
 .placeId {
@@ -285,9 +301,9 @@ header .header_menu li {
 }
 /*場所検索のボックス幅の調整*/
 .placeId.cp_sl01 {
-	width: 230px;
+	width: 268px;
 	height: 50px;
-	margin-left: 0px;
+	margin-left: -20px;
 	position: relative;
 	border-radius: 10px;
 	background: #ffffff;
@@ -324,7 +340,7 @@ header .header_menu li {
 }
 /*カテゴリー検索の文字装飾*/
 .categoryId select {
-	margin-left: 20px;
+	margin-left: 50px;
 	font-size: 19px;
 	text-align: center;
 	width: 230px;
@@ -350,16 +366,16 @@ header .header_menu li {
 	border: none;
 	outline: none;
 	border-radius: 10px;
-	width: 230px;
+	width: 268px;
 	height: 50px;
-	margin-left: 0px;
+	margin-left: -20px;
 }
 
 /*カテゴリー検索のプルダウンマーク（▼）の装飾*/
 .categoryId.cp_sl01::before {
 	position: absolute;
 	top: 1.1em;
-	right: 0.9em;
+	right: 1em;
 	width: 0;
 	height: 0;
 	padding: 0;
@@ -369,7 +385,6 @@ header .header_menu li {
 	border-top: 10px solid #666666;
 	pointer-events: none;
 }
-
 
 .categoryId.cp_sl01 select {
 	padding: 8px 38px 8px 8px;
@@ -389,5 +404,6 @@ footer {
 	height: 35px;
 	line-height: 35px;
     margin-top: 100px;
+    border-radius: 5px;
 }
 
