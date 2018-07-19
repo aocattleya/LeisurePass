@@ -186,12 +186,36 @@ header .header_menu li {
 	margin-top: 20px;
 	margin-left: 20px;
 }
+
 /*「日にちを選ぶ」の文字装飾*/
 #navigation h3 {
 	margin-top: -25px;
 	font-size: 18px;
 	color: #333333;
 	margin-left: 65px;
+}
+/*「いつでも」入力欄装飾*/
+#date_val{
+	width: 120px;
+	height:20px;
+	font-size:15px;
+	text-align: center;
+	margin-left: 20px;
+	margin-bottom: 15px;
+	border-radius: 10px;
+}
+.date_val_button{
+	width:110px;
+	height: 25px;
+	/* background-color: red; */
+	background-color: #ed7d22; /*ボタンの色*/
+	border-radius: 20px; /*ボタンの角の丸み*/
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0
+		rgba(0, 0, 0, 0.05); /*ボタンの影（立体感）*/
+	border: solid 2px #d27d00; /*ボタンの立体感を出すため*/
+	outline: 0; /*変な枠線を非表示に*/
+	cursor: pointer; /*マウスを乗せたとき指マークにする*/
+	color: #fff;
 }
 
 
@@ -211,7 +235,6 @@ header .header_menu li {
 	max-width: 1040px;
 	margin-right: 55px;
 }
-
 
 #navigation ul li {
 	list-style: none;
@@ -364,5 +387,7 @@ footer {
 	width: 1400px;
 	background-color: #F7F7F7;
 	height: 35px;
+	line-height: 35px;
+    margin-top: 100px;
 }
 
