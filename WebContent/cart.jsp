@@ -114,10 +114,13 @@
 			</s:form>
 		</s:if>
 		<s:else>
-			<div class="info">カート情報はありません。
-			<s:form action="HomeAction">
-				<s:submit value="HOME" class="submit_btn" />
-			</s:form>
+			<div class="info">
+				カート情報はありません
+				</div>
+				<div class="info">
+				<s:form action="HomeAction">
+					<s:submit value="HOME" class="submit_btn" />
+				</s:form>
 			</div>
 		</s:else>
 

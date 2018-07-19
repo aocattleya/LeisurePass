@@ -4,13 +4,16 @@ body {
 	font-family: Meiryo;
 }
 
+
+
 h1 {
+width: 80%;
+  margin: 0 auto;
+  max-width: 500px;
 	text-align: center;
 	color: #333333;
 	font-size: 30px;
 	font-family: Hiragino Kaku Gothic ProN;
-	position: relative;
-	right: 100px;
 }
 
 img {
@@ -78,8 +81,8 @@ h2 {
 	left: 500px;
 }
 
-#contents-btn-set{
-	text-align:center;
+#contents-btn-set {
+	text-align: center;
 }
 
 /*ボタンをクリックしたときのCSS*/
@@ -89,9 +92,9 @@ h2 {
 	border: #ed7d22; /*枠線の色変更*/
 }
 
-.Side-by-side{
-	border-bottom:2px solid #eaeaea;
-	padding-top:20px;
+.Side-by-side {
+	border-bottom: 2px solid #eaeaea;
+	padding-top: 20px;
 }
 
 .submit_btn {
@@ -112,13 +115,17 @@ h2 {
 	cursor: pointer; /*マウスを乗せたとき指マークにする*/
 }
 
-.info{
-	text-align:center;
-	border-top:20px;
+.info {
+	text-align: center;
+	font-family: Hiragino Kaku Gothic ProN;
+	position: relative;
+	top: 80px;
+	right: 100px;
+	margin-top: 40px;
+	font-size:20px;
 }
 
-.footer,
-.push {
-	clear:both;
-  height: 50px;
+.footer, .push {
+	clear: both;
+	height: 50px;
 }
