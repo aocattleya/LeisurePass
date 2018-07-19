@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="./css/createUserConfirm.css">
 <jsp:include page="includeHead.jsp" />
 
-<title>登録内容確認</title>
+<title>登録確認画面</title>
 
 </head>
 <body>
@@ -26,8 +26,9 @@
 		<div id="contents">
 
 			<div id="contents">
-				<h1>登録内容画面</h1>
+				<h1>登録確認画面</h1>
 				<s:form action="CreateUserCompleteAction">
+				<div class="aaa">
 					<table class="vertical-list-table" accesskey="">
 						<tr>
 						<th colspan="2"><s:label value="名前"/></th>
@@ -78,6 +79,7 @@
 							<td colspan="2"><s:property value="password" /></td>
 						</tr>
 					</table>
+					</div>
 					<div class="submit_btn_box">
 						<div id=".cobntents_btn_set">
 							<s:submit value="登録" class="submit_btn" name="success" />

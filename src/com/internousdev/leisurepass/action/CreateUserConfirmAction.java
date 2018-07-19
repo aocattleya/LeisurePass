@@ -80,7 +80,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 				&& passwordErrorMessageList.size() == 0) {
 			result = SUCCESS;
 		} else {
-			session.put("familyNameErroressageList", familyNameErrorMessageList);
+			session.put("familyNameErrorMessageList", familyNameErrorMessageList);
 			session.put("firstNameErrorMessageList", firstNameErrorMessageList);
 			session.put("firstNameKanaErrorMessageList", firstNameKanaErrorMessageList);
 			session.put("familyNameKanaErrorMessageList", familyNameKanaErrorMessageList);

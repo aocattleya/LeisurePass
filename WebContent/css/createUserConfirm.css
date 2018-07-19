@@ -36,10 +36,9 @@ padding: 20px;
 }
 /*コンテンツの中身*/
 .vertical-list-table {
-	background-color:#F7F7F7;/*背景色*/
+
 	padding: 2em;/*文字の幅調整*/
-	width: 100px;/*背景の横幅*/
-	border-radius: 20px;/*背景の角の丸み*/
+	width: 300px;/*背景の横幅*/
 	margin: 0 auto;/*センター中央寄せ*/
 
 }
@@ -63,5 +62,14 @@ label{
 h1{
 font-size: 30px;
 color: #333333;
+}
+
+
+.aaa{
+	width: 500px;/*背景の横幅*/
+	background-color:#F7F7F7;/*背景色*/
+
+	border-radius: 20px;/*背景の角の丸み*/
+	margin: 0 auto;/*センター中央寄せ*/
 }
 
