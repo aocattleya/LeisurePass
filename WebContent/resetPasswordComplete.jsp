@@ -7,34 +7,9 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/resetPasswordComplete.css">
 <meta http-equiv="refresh" content="2;URL='HomeAction'" />
 <jsp:include page="includeHead.jsp" />
-<style type="text/css">
-
-#main {
-	font-family: "メイリオ", sans-serif;
-	text-align: center;
-	color: #333;
-}
-
-#contents{
-margin-top: 80px;
-text-align: center;
-width: 600px;
-}
-}
-
-
-
-h1 {
-	font-size: 30px;
-	vertical-align: middle;
-}
-
-p {
-	font-size: 18px;
-}
-</style>
 
 <title>パスワード再設定完了</title>
 </head>
@@ -62,4 +37,3 @@ p {
 
 </body>
 </html>
-<!-- 中山 -->
