@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.leisurepass.dao.UserInfoDAO;
+import com.internousdev.leisurepass.dto.UserInfoDTO;
 import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -24,9 +25,13 @@ public class CreateUserCompleteAction extends ActionSupport implements SessionAw
 
 	public String execute() {
 		String result = ERROR;
-		UserInfoDAO UserInfoDao = new UserInfoDAO();
-		int count = UserInfoDao.createUser(familyName,firstName,familyNameKana,firstNameKana,sex,email,loginId,password);
-		if (count > 0) {
+		UserInfoDAO userInfoDao = new UserInfoDAO();
+
+		userInfoDao.createUser(familyName,firstName,familyNameKana,firstNameKana,sex,email,loginId,password);
+
+		UserInfoDTO dto = userInfoDao.getUserInfo(loginId, password);
+		if (dto != null){
+			session.put("userInfo", dto);
 			session.put("logined", 1);
 			result = SUCCESS;
 		}
