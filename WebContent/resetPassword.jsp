@@ -172,6 +172,7 @@
 
 
 				</table>
+				<br>
 
 				<s:submit value="パスワード再設定" class="submit_btn" />
 			</s:form>
