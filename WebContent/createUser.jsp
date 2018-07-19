@@ -28,7 +28,7 @@
 				<s:if test="!#session.familyNameErrorMessageList.isEmpty()">
 					<div class="error">
 						<div class="error-message">
-							<s:iterator value="#session.familyNameKanaErrorMessageList">
+							<s:iterator value="#session.familyNameErrorMessageList">
 								<s:property />
 								<br>
 							</s:iterator>
@@ -40,7 +40,7 @@
 				<s:if test="!#session.firstNameErrorMessageList.isEmpty()">
 					<div class="error">
 						<div class="error-message">
-							<s:iterator value="#session.firstNameKanaErrorMessageList">
+							<s:iterator value="#session.firstNameErrorMessageList">
 								<s:property />
 								<br>
 							</s:iterator>
@@ -51,7 +51,7 @@
 				<s:if test="!#session.familyNameKanaErrorMessageList.isEmpty()">
 					<div class="error">
 						<div class="error-message">
-							<s:iterator value="#session.firstNameKanaErrorMessageList">
+							<s:iterator value="#session.familyNameKanaErrorMessageList">
 								<s:property />
 								<br>
 							</s:iterator>
@@ -169,7 +169,7 @@
 									<th colspan="2">パスワード</th>
 								</tr>
 								<tr>
-									<td colspan="2"><s:textfield name="password"
+									<td colspan="2"><s:password name="password"
 											value="%{session.password}" lebel="パスワード" placeholder="パスワード"
 											class="txt2" /></td>
 								</tr>

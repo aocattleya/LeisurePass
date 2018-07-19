@@ -80,9 +80,11 @@
 					</table>
 					<div class="submit_btn_box">
 						<div id=".cobntents_btn_set">
-							<s:submit value="登録" class="submit_btn" />
+							<s:submit value="登録" class="submit_btn" name="success" />
 						</div>
 					</div>
+
+
 					<!--   %{●●●}は前ページの情報をそのまま持っていきたい時に使う -->
 
 					<s:hidden name="loginId" value="%{loginId}" />
