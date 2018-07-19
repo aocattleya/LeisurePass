@@ -76,7 +76,7 @@
 		</interceptor-ref>
 		<interceptor-ref name="defaultStack"></interceptor-ref>
 		<result name="success">addProductConfirm.jsp</result>
-		<result name="error">addProductConfirm.jsp</result><!-- 正しくはaddProduct.jsp -->
+		<result name="error">addProduct.jsp</result>
 	</action>
 
 	<action name="DeleteProductConfirmAction" class="com.internousdev.leisurepass.action.DeleteProductConfirmAction" method="execute">

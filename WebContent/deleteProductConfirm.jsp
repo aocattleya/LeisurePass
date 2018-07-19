@@ -45,7 +45,8 @@
 				<br>
 				価格(円)：<s:property value="%{#session.deleteProductDTO.price}" />
 					<br>
-				画像ファイル選択：<s:file name="productImage" />
+				画像：<br>
+					<img src='<s:property value="%{session.deleteProductDTO.imageFilePath}"/>/<s:property value="%{session.deleteProductDTO.imageFileName}"/>'	width="320px" height="240px" />
 					<br>
 				発売年月：<s:property value="%{#session.deleteProductDTO.releaseDate}" />
 					<br>

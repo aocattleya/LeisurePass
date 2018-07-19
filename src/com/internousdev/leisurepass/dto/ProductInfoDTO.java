@@ -1,6 +1,7 @@
 package com.internousdev.leisurepass.dto;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ProductInfoDTO {
@@ -141,6 +142,11 @@ public class ProductInfoDTO {
 		return releaseDate;
 	}
 
+	public String getReleaseDateString() {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
+		return simpleDateFormat.format(releaseDate);
+	}
+
 	public void setReleaseDate(Date releaseDate) {
 		this.releaseDate = releaseDate;
 	}
@@ -189,12 +195,22 @@ public class ProductInfoDTO {
 		return startDate;
 	}
 
+	public String getStartDateString() {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
+		return simpleDateFormat.format(startDate);
+	}
+
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 
 	public Date getEndDate() {
 		return endDate;
+	}
+
+	public String getEndDateString() {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
+		return simpleDateFormat.format(endDate);
 	}
 
 	public void setEndDate(Date endDate) {
@@ -205,12 +221,22 @@ public class ProductInfoDTO {
 		return registDate;
 	}
 
+	public String getRegistDateString() {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
+		return simpleDateFormat.format(registDate);
+	}
+
 	public void setRegistDate(Date registDate) {
 		this.registDate = registDate;
 	}
 
 	public Date getUpdateDate() {
 		return updateDate;
+	}
+
+	public String getUpdateDateString() {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
+		return simpleDateFormat.format(updateDate);
 	}
 
 	public void setUpdateDate(Date updateDate) {

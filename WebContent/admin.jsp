@@ -11,11 +11,9 @@
 </head>
 <body>
 	<jsp:include page="header.jsp" />
-	<div id="main" class="cf">
+	<div id="main">
 
-		<jsp:include page="navigation.jsp" />
-
-		<div id="contents">
+		<div id="admin-contents">
 			<h1>管理者画面</h1>
 
 		<!-- 商品管理画面へ。 -->

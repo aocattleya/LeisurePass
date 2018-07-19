@@ -13,11 +13,9 @@
 <body>
 	<jsp:include page="header.jsp" />
 ​
-	<div id="main" class="cf">
-​
-		<jsp:include page="navigation.jsp" />
-​
-		<div id="contents">
+	<div id="main">
+​​
+		<div id="admin-contents">
 			<div>
 				<h1>商品追加完了画面</h1>
 			</div>

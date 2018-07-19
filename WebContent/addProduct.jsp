@@ -34,11 +34,9 @@ font-size: 18px;/*入力欄の文字サイズ*/
 <body>
 	<jsp:include page="header.jsp" />
 	​
-	<div id="main" class="cf">
+	<div id="main">
 		​
-		<jsp:include page="navigation.jsp" />
-		​
-		<div id="contents">
+		<div id="admin-contents">
 			<div>
 				<h1>商品追加画面</h1>
 			</div>
@@ -46,18 +44,42 @@ font-size: 18px;/*入力欄の文字サイズ*/
 			<!-- 修正ボタンで戻ってきた場合、前回入力内容を保持した状態で表示 -->
 			<s:if test="#session.containsKey('addProductDTO')">
 				<s:form action="AddProductConfirmAction"  method="post" enctype="multipart/form-data">
-				商品ID<br><s:textfield name="productId" placeholder="例：100"
-						value="%{#session.addProductDTO.productId}" class="txt2"/>
-					<br><br>
-				商品名<br><s:textfield name="productName"
-						value="%{#session.addProductDTO.productName}" class="txt2" />
-					<br><br>
-				商品かな<br><s:textfield name="productNameKana"
-						value="%{#session.addProductDTO.productNameKana}" class="txt2" />
-					<br><br>
-				商品詳細<br><s:textfield name="productDescription"
-						value="%{#session.addProductDTO.productDescription}" class="txt2" />
-					<br><br>
+				商品ID<br>
+				<s:textfield name="productId" placeholder="例：100" value="%{#session.addProductDTO.productId}" class="txt2"/>
+				<br>
+				<s:if test="!#session.productIdErrorMessageList.isEmpty()">
+					<s:iterator value="#session.productIdErrorMessageList">
+						<s:property /><br>
+					</s:iterator>
+				</s:if>
+				<br><br>
+				商品名<br>
+				<s:textfield name="productName" value="%{#session.addProductDTO.productName}" class="txt2" />
+				<br>
+				<s:if test="!#session.productNameErrorMessageList.isEmpty()">
+					<s:iterator value="#session.productNameErrorMessageList">
+						<s:property /><br>
+					</s:iterator>
+				</s:if>
+				<br><br>
+				商品かな<br>
+				<s:textfield name="productNameKana" value="%{#session.addProductDTO.productNameKana}" class="txt2" />
+				<br>
+				<s:if test="!#session.productNameKanaErrorMessageList.isEmpty()">
+					<s:iterator value="#session.productNameKanaErrorMessageList">
+						<s:property /><br>
+					</s:iterator>
+				</s:if>
+				<br><br>
+				商品詳細<br>
+				<s:textfield name="productDescription" value="%{#session.addProductDTO.productDescription}" class="txt2" />
+				<br>
+				<s:if test="!#session.productDescriptionErrorMessageList.isEmpty()">
+					<s:iterator value="#session.productDescriptionErrorMessageList">
+						<s:property /><br>
+					</s:iterator>
+				</s:if>
+				<br><br>
 				カテゴリ<br><select name="categoryId">
 						<s:if test="%{#session.addProductDTO.categoryId == 2}">
 							<option value="2" selected="selected">動物園</option>
@@ -137,28 +159,89 @@ font-size: 18px;/*入力欄の文字サイズ*/
 						</s:else>
 					</select>
 					<br><br>
-				価格(円)<br><s:textfield name="price" value="%{#session.addProductDTO.price}" class="txt2"/>
+				価格(円)<br>
+				<s:textfield name="price" value="%{#session.addProductDTO.price}" class="txt2"/>
+				<br>
+				<s:if test="!#session.priceErrorMessageList.isEmpty()">
+					<s:iterator value="#session.priceErrorMessageList">
+						<s:property /><br>
+					</s:iterator>
+				</s:if>
 					<br><br>
-				画像ファイル選択<br><img id="image_path" src="<s:property value="image_file_path"/>"width="100"height="100"/>
-					<s:file name="productImage" />
-					<br><br>
-				発売年月<br><s:textfield name="releaseDate"
-						value="%{#session.addProductDTO.releaseDate}" class="txt2"/>
-					<br><br>
-				発売会社<br><s:textfield name="releaseCompany"
-						value="%{#session.addProductDTO.releaseCompany}" class="txt2"/>
-					<br><br>
-				所在地<br><s:textfield name="location" value="%{#session.addProductDTO.location}" class="txt2"/>
-					<br><br>
-				アクセス<br><s:textfield name="access" value="%{#session.addProductDTO.access}" class="txt2"/>
-					<br><br>
-				URL<br><s:textfield name="url" value="%{#session.addProductDTO.url}" class="txt2"/>
-					<br><br>
-				開始日<br><s:textfield name="startDate" value="%{#session.addProductDTO.startDate}" class="txt2"/>
-					<br><br>
-				終了日<br><s:textfield name="endDate" value="%{#session.addProductDTO.endDate}" class="txt2"/>
-					<br><br>
-					<s:submit value="確認画面へ" />
+				画像ファイル選択<br>
+				<%-- <img id="image_path" src="<s:property value="image_file_path"/>"width="100"height="100"/> --%>
+				<s:file name="productImage" />
+				<br>
+				<s:if test="!#session.productImageErrorMessageList.isEmpty()">
+					<s:iterator value="#session.productImageErrorMessageList">
+						<s:property /><br>
+					</s:iterator>
+				</s:if>
+				<br><br>
+				発売年月<br>
+				<s:textfield name="releaseDate" value="%{#session.addProductDTO.releaseDateString}" class="txt2"/>
+				<br>
+				<s:if test="!#session.releaseDateErrorMessageList.isEmpty()">
+					<s:iterator value="#session.releaseDateErrorMessageList">
+						<s:property /><br>
+					</s:iterator>
+				</s:if>
+				<br><br>
+				発売会社<br>
+				<s:textfield name="releaseCompany" value="%{#session.addProductDTO.releaseCompany}" class="txt2"/>
+				<br>
+				<s:if test="!#session.releaseCompanyErrorMessageList.isEmpty()">
+					<s:iterator value="#session.releaseCompanyErrorMessageList">
+						<s:property /><br>
+					</s:iterator>
+				</s:if>
+				<br><br>
+				所在地<br>
+				<s:textfield name="location" value="%{#session.addProductDTO.location}" class="txt2"/>
+				<br>
+				<s:if test="!#session.locationErrorMessageList.isEmpty()">
+					<s:iterator value="#session.locationErrorMessageList">
+						<s:property /><br>
+					</s:iterator>
+				</s:if>
+				<br><br>
+				アクセス<br>
+				<s:textfield name="access" value="%{#session.addProductDTO.access}" class="txt2"/>
+				<br>
+				<s:if test="!#session.accessErrorMessageList.isEmpty()">
+					<s:iterator value="#session.accessErrorMessageList">
+						<s:property /><br>
+					</s:iterator>
+				</s:if>
+				<br><br>
+				URL<br>
+				<s:textfield name="url" value="%{#session.addProductDTO.url}" class="txt2"/>
+				<br>
+				<s:if test="!#session.urlErrorMessageList.isEmpty()">
+					<s:iterator value="#session.urlErrorMessageList">
+						<s:property /><br>
+					</s:iterator>
+				</s:if>
+				<br><br>
+				開始日<br>
+				<s:textfield name="startDate" value="%{#session.addProductDTO.startDateString}" class="txt2"/>
+				<br>
+				<s:if test="!#session.startDateErrorMessageList.isEmpty()">
+					<s:iterator value="#session.startDateErrorMessageList">
+						<s:property /><br>
+					</s:iterator>
+				</s:if>
+				<br><br>
+				終了日<br>
+				<s:textfield name="endDate" value="%{#session.addProductDTO.endDateString}" class="txt2"/>
+				<br>
+				<s:if test="!#session.endDateErrorMessageList.isEmpty()">
+					<s:iterator value="#session.endDateErrorMessageList">
+						<s:property /><br>
+					</s:iterator>
+				</s:if>
+				<br><br>
+				<s:submit value="確認画面へ" />
 				</s:form>
 			</s:if>
 

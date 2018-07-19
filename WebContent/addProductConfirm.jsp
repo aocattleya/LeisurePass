@@ -13,11 +13,9 @@
 <body>
 	<jsp:include page="header.jsp" />
 ​
-	<div id="main" class="cf">
-​
-		<jsp:include page="navigation.jsp" />
-​
-		<div id="contents">
+	<div id="main">
+
+		<div id="admin-contents">
 			<div>
 				<h1>商品追加確認画面</h1>
 			</div>
@@ -47,9 +45,10 @@
 				<br>
 				価格：<s:property value="%{#session.addProductDTO.price}"/>
 				<br>
-				画像ファイル：<img src='<s:property value="%{#session.addProductDTO.imageFilePath}"/>/<s:property value="%{#session.addProductDTO.imageFileName}"/>'/>
+				画像ファイル：<br>
+				<img width="100px" height="100px" src='<s:property value="%{#session.addProductDTO.imageFilePath}"/>/<s:property value="%{#session.addProductDTO.imageFileName}"/>'/>
 				<br>
-				発売年月：<s:property value="%{#session.addProductDTO.releaseDate}"/>
+				発売年月：<s:property value="%{#session.addProductDTO.releaseDateString}"/>
 				<br>
 				発売会社：<s:property value="%{#session.addProductDTO.releaseCompany}"/>
 				<br>
@@ -59,9 +58,9 @@
 				<br>
 				URL：<s:property value="%{#session.addProductDTO.url}"/>
 				<br>
-				発売日：<s:property value="%{#session.addProductDTO.startDate}"/>
+				発売日：<s:property value="%{#session.addProductDTO.startDateString}"/>
 				<br>
-				終了日：<s:property value="%{#session.addProductDTO.endDate}"/>
+				終了日：<s:property value="%{#session.addProductDTO.endDateString}"/>
 			</s:form>
 ​
 			<!-- 商品追加を確定する -->
