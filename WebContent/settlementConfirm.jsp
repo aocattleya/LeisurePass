@@ -83,7 +83,7 @@
 		<div id="contents">
 			<s:form id="form" action="SettlementCompleteAction">
 				<s:if test="#session.destinationInfoDtoList == null">
-					<div class="noMassage">宛先を登録してください</div>
+					<div class="noMassage">宛先を登録してください</div><br>
 				</s:if>
 				<s:else>
 					<div class="info"><h2>宛先を選択してください</h2></div><br>
@@ -152,7 +152,7 @@
 			<div class="submit_btn_box">
 				<div id=".contents-btn-set">
 					<s:form action="CreateDestinationAction">
-						<s:submit value="宛先新規追加" class="submit_btn" />
+						<s:submit value="宛先新規登録" class="submit_btn" />
 					</s:form><br>
 				</div>
 			</div>
