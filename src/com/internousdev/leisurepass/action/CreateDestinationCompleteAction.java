@@ -30,7 +30,6 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 		if(count > 0) {
 			result = SUCCESS;
 		}
-		session.put("settlementFlg",1);
 
 		// navigation情報を取得
 		SearchConditionLoader loader = new SearchConditionLoader();

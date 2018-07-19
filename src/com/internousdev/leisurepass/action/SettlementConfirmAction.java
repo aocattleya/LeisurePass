@@ -32,6 +32,7 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 	private String releaseDate;
 	private String productCount;
 	private String subtotal;
+	private String srcPage;
 	private Map<String, Object> session;
 
 	public String execute() {
@@ -52,7 +53,7 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 			}
 		}
 
-		if (!(session.containsKey("settlementFlg"))) {
+		if (srcPage != null && srcPage.equals("cart")) {
 
 			List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList = new ArrayList<PurchaseHistoryInfoDTO>();
 
@@ -93,8 +94,6 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 
 			session.put("purchaseHistoryInfoDtoList", purchaseHistoryInfoDtoList);
 
-		} else {
-			session.remove("settlementFlg");
 		}
 
 		if (Integer.parseInt(String.valueOf(session.get("logined"))) == 0) {
@@ -213,6 +212,10 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 
 	public void setSubtotal(String subtotal) {
 		this.subtotal = subtotal;
+	}
+
+	public void setSrcPage(String srcPage){
+		this.srcPage = srcPage;
 	}
 
 }
