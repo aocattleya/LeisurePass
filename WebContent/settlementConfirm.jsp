@@ -12,6 +12,7 @@
 		  padding: 0;
 	  line-height: 1.6;
    letter-spacing: 1px;
+	  padding-top: 10px;
 	  font-family: メイリオ ", sans-serif;
 		font-size: 18px;
 	   text-align: center;
@@ -145,7 +146,7 @@
 						<div id=".contents-btn-set">
 							<s:submit value="決済" class="submit_btn" />
 						</div>
-					</div>
+					</div><br>
 				</s:if>
 			</s:form>
 			<div class="submit_btn_box">
