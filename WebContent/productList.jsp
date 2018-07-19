@@ -40,15 +40,25 @@
 			<audio id="Fish" preload="auto">
 				<source src="audio/water01.mp3" type="audio/mp3">
 			</audio>
-			<h1>
-				<img onclick="ring()" class="ele" src="images/elephant.jpg">
-				商品一覧 <img onclick="ring1()" class="fish" src="images/fish.jpg">
-			</h1>
+
+			<s:if test="!(productInfoDtoList==null)">
+				<h1>
+					<img onclick="ring()" class="ele" src="images/elephant.jpg">
+					商品一覧 <img onclick="ring1()" class="fish" src="images/fish.jpg">
+				</h1>
+			</s:if>
 
 
 			<!-- 検索結果がない場合 -->
 			<s:if test="productInfoDtoList==null">
-				<div class="info">検索結果がありません。</div>
+				<h2 class="info">検索結果がありません</h2>
+				<br>
+				<br>
+
+				<s:form action="HomeAction">
+					<s:submit value="HOME" class="submit_btn" />
+				</s:form>
+
 			</s:if>
 
 
@@ -80,6 +90,7 @@
 								円
 							</div>
 							<br>
+
 						</div>
 
 
@@ -88,24 +99,32 @@
 
 				<!-- ページネーション -->
 				<div class="pager">
-					<!-- 一つ前のページへ -->
+					<!-- ------------------------------一つ前のページへ---------------------------------- -->
 					<a
 						href="<s:url action='SearchItemAction'>
 						<s:param name='pageNo' value='#session.previousPageNo' />
 						<s:param name='categoryId' value='%{categoryId}'/>
 						<s:param name='placeId' value='%{placeId}'/>
 						<s:param name='targetDate' value='%{targetDate}'/>
-						</s:url>">&lt;</a>
+						</s:url>"
+						id="Numbers" class="zengo">&lt;</a>
 
 
-					<!-- ページ番号表示 -->
+					<!-- ------------------------------ページ番号表示----------------------------------- -->
 					<s:iterator begin="1" end="#session.totalPageSize" status="pageNo"
 						id="pager_btn">
-						<!-- 現在のページ -->
+
+
+						<!-- -------------------------------現在のページ------------------------------------ -->
+
 						<s:if test="#session.currentPageNo == #pageNo.count">
-							<s:property value="%{#pageNo.count}" />
+
+							<a href="/" id="Numbers" class="disabled"> <s:property
+									value="%{#pageNo.count}" /></a>
 						</s:if>
-						<!-- リンクするページ -->
+
+						<!-- ----------------------------リンクするページ----------------------------------- -->
+
 						<s:else>
 							<a
 								href="
@@ -114,29 +133,33 @@
 									<s:param name='categoryId' value='%{categoryId}'/>
 									<s:param name='placeId' value='%{placeId}'/>
 									<s:param name='targetDate' value='%{targetDate}'/>
-								</s:url> ">
-								<s:property value="%{#pageNo.count}" />
+								</s:url> "
+								id="Numbers" class="page_num"> <s:property
+									value="%{#pageNo.count}" />
 							</a>
 						</s:else>
+
+
+
 					</s:iterator>
-					<!-- 一つ次のページへ -->
+					<!-- ----------------------------一つ次のページへ------------------------------------ -->
 					<a
 						href="<s:url action='SearchItemAction'>
 						<s:param name='pageNo' value='#session.nextPageNo' />
 						<s:param name='categoryId' value='%{categoryId}'/>
 						<s:param name='placeId' value='%{placeId}'/>
 						<s:param name='targetDate' value='%{targetDate}'/>
-						</s:url>">&gt;</a>
+						</s:url>"
+						id="Numbers" class="zengo">&gt;</a>
 
 				</div>
 			</s:else>
 
-			<a href=#top><i
-				class="fas fa-chevron-circle-up faa-bounce animated-hover page_up"></i></a>
-			<!--
-			<a href=#top><i
-				class="fas fa-chevron-circle-up fa-3x faa-bounce animated-hover"></i></a> -->
 
+			<s:if test="!(productInfoDtoList==null)">
+				<a href=#top><i
+					class="fas fa-chevron-circle-up faa-bounce animated-hover page_up"></i></a>
+			</s:if>
 		</div>
 	</div>
 
