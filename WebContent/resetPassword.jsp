@@ -23,7 +23,7 @@
 		<div id="contents">
 
 
-			<h1>パスワード再設定画面</h1>
+			<h1>パスワード再設定</h1>
 
 
 			<s:form action="ResetPasswordConfirmAction">
