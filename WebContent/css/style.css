@@ -45,15 +45,15 @@ header .logo {
 
 header .header_menu {
 	float: right;
-	width: 310px;
 	border-right: -50px;
+	display: flex !important; /* ボタン右寄せ */
+	justify-content: flex-end; /* ボタン右寄せ */
 }
 
 header .header_menu li {
 	float: left;
 	list-style: none;
 	margin-left: 10px;
-	list-style: none;
 }
 /*ヘッター背景*/
 .logo {
@@ -104,6 +104,11 @@ header .header_menu li {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.mypage img {
+	width: 45px;
+	height: 45px;
 }
 /*マイページのアイコン画像装飾*/
 .mypage img {
@@ -159,6 +164,7 @@ header .header_menu li {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-size: 16px;
 }
 
 /*ナビゲーション*/
