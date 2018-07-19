@@ -8,10 +8,13 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
 <jsp:include page="includeHead.jsp" />
-<jsp:include page="header.jsp" />
+
 <title>登録内容確認</title>
+
 </head>
 <body>
+
+	<jsp:include page="header.jsp" />
 
 
 
@@ -21,8 +24,6 @@
 
 		<div id="contents">
 
-
-			<!--  <jsp:include page="header.jsp"/> -->
 			<div id="contents">
 				<h1>登録内容画面</h1>
 				<s:form action="CreateUserCompleteAction">
