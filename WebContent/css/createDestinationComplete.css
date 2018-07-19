@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+#contents {
+	margin: 0 auto;
+	padding-top: 50px;/*文字の位置設定*/
+	font-family: "メイリオ ", sans-serif;
+	text-align: center;
+
+}
+h1{
+font-size: 30px;
+color: #333333;
+}
