@@ -51,7 +51,7 @@
 
 			<!-- 検索結果がない場合 -->
 			<s:if test="productInfoDtoList==null">
-				<h2 class="info">検索結果がありません</h2>
+				<h2 class="info">&nbsp;&nbsp;検索結果がありません。</h2>
 				<br>
 				<br>
 
@@ -154,6 +154,7 @@
 
 				</div>
 			</s:else>
+			<br>
 
 
 			<s:if test="!(productInfoDtoList==null)">
