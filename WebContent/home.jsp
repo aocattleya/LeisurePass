@@ -75,7 +75,7 @@
 						href='<s:url action="ProductDetailsAction">
 		<s:param name="productId" value="12"/>
 		</s:url>'>
-					<img src="./images/kamogawa_sea_world6.jpg">
+					<img src="./images/kamogawa_sea_world7.jpg">
 					</a>
 				</div>
 
