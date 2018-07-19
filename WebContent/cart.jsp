@@ -116,6 +116,7 @@
 
 				<div class="submit_btn_box">
 					<div id="contents-btn-set">
+					<s:hidden name="srcPage" value="cart" />
 						<s:submit value="決済" class="submit_btn" />
 					</div>
 				</div>
