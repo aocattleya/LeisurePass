@@ -54,6 +54,8 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 		}
 		// カート内削除文、処理内容はcartInfoDAO.delete
 		for (String productId : checkList) {
+			if (productId.equals("false"))
+				break;
 			count += cartInfoDAO.delete(session.get("userId").toString() , Integer.parseInt(productId));
 		}
 		// チェックしたもののIdが[id]に入ってない場合に出るエラー文

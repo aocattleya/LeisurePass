@@ -6,7 +6,8 @@ body {
 	font-size: 18px;
 }
 
-#form{
+#HomeAction{
+	text-align:center;
 }
 
 h1 {
@@ -116,16 +117,13 @@ h2 {
 	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0
 		rgba(0, 0, 0, 0.05);
 	border: solid 2px #d27d00;
-	text-align: center;
 	outline: 0; /*変な枠線を非表示に*/
 	cursor: pointer; /*マウスを乗せたとき指マークにする*/
-	position: relative;
-	right: 150px;
+
 }
 
 .info {
-
-	text-align: center;
+	text-align:center;
 	font-family: Hiragino Kaku Gothic ProN;
 	position: relative;
 	top: 80px;

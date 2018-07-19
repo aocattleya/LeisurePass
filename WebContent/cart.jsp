@@ -133,7 +133,7 @@
 			<div class="info">カート情報はありません</div>
 			<div class="info">
 				<s:form action="HomeAction">
-					<s:submit value="HOME" class="submit_btn" />
+					<s:submit value="HOME" class="submit_btn" id="HomeAction"/>
 				</s:form>
 			</div>
 		</s:else>
