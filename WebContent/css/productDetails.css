@@ -2,7 +2,6 @@
 
 body {
 	font-family: Meiryo;
-
 }
 
 .recommend-box {
@@ -33,17 +32,30 @@ body {
 
 /*mainpicture*/
 .item-image-box-320{
-	width:1000px;
+	width:780px;
 	height:500px;
+}
 
+.big-picture{
+	text-align: center;
 }
 
 .item-image-box-100 {
-	width:330px;
-	height:260px;
+	width: 250px;
+    height: 180px;
+    border-radius:10px;
 	margin-right: 10px;
-	border-radius: 6px;
+}
 
+.img{
+	position: relative;
+	left: 127px;
+}
+
+.productName{
+	position: relative;
+	left: 127px;
+	text-align: center;
 }
 
 .left {
@@ -62,6 +74,7 @@ body {
 	height:200px;
 	text-align: center;
 	float: left;
+	margin-top: 25px;
 }
 
 .a {
@@ -70,12 +83,14 @@ body {
 }
 
 .kosuu th {
-	height: 8px;
+	height: 10px;
+	width: 200px;/*ボタンの横の長さ*/
 	padding-top: 4px;
 	transform: middle;
 	background: #f7f7f7;
 	border-collapse: collapse; /* 隣り合うセルの線を結合 */
 	border-radius: 10px; /*ボタンの角の丸み*/
+	font-size: 22px;
 }
 
 .a th {
@@ -97,6 +112,10 @@ body {
 	border-radius: 20px; /*ボタンの角の丸み*/
 	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);/*ボタンの影（立体感）*/
 	border: solid 2px #d27d00;/*ボタンの立体感を出すため*/
+}
+
+span{
+	font-size: 22px;
 }
 
 .2column-container{
@@ -171,9 +190,6 @@ th.local1{
 	text-align:left;
 }
 
-.productName{
-	text-align: center;
-}
 
 #contents-box{
 	width: 1020px;

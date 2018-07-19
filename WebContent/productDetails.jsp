@@ -23,11 +23,12 @@
 				<s:form action="AddCartAction">
 
 
-
+				<div class="big-picture">
 					<img
 						src='<s:property value="%{#session.imageFilePath}"/>/<s:property value="%{#session.imageFileName}"/>'
 						class="item-image-box-320" />
 					<br>
+				</div>
 
 					<div class="left">
 						<table class="vertical-list-table-mini">
@@ -98,7 +99,7 @@
 								</th>
 							</tr>
 							<tr>
-								<th>値段 <s:property value="%{#session.price}" />円
+								<th>　価格 　　　　<span><s:property value="%{#session.price}" />円</span>
 								</th>
 							</tr>
 
