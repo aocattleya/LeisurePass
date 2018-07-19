@@ -9,6 +9,28 @@ body {
 	float:left;
 }
 
+.recommend-box img:hover{
+	opacity: 1;
+	-webkit-animation: flash 1.5s;
+	animation: flash 1.5s;
+}
+@-webkit-keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 /*mainpicture*/
 .item-image-box-320{
 	width:1000px;
@@ -121,6 +143,7 @@ body {
 	border-left:  3px solid #ed7d22;
 	padding-left: 10px;
 	font-weight: 700;
+	text-align:left;
 }
 
 table.store-information {
@@ -137,6 +160,7 @@ th.local {
 	background: #f7f7f7;
 	padding: 3px;
 	width: 100px;
+	text-align:center;
 }
 
 th.local1{
@@ -156,6 +180,9 @@ th.local1{
 	margin: 0 auto;
 }
 
-.box {
-
-}
+p {
+ 	clear:both;
+	font-size: 18px;
+	text-align: center;
+	font-weight: bold;
+	}
