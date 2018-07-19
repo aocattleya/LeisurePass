@@ -21,6 +21,7 @@ body {
 	height:260px;
 	margin-right: 10px;
 	border-radius: 6px;
+
 }
 
 .left {
@@ -30,6 +31,7 @@ body {
 	background-color: #ffffff;
 	border-right: 2px solid #c0c0c0;
 	float: left;
+	margin-bottom: 8px;
 }
 
 .submit_btn_box{
