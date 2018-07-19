@@ -111,3 +111,14 @@ h2 {
 	outline: 0; /*変な枠線を非表示に*/
 	cursor: pointer; /*マウスを乗せたとき指マークにする*/
 }
+
+.info{
+	text-align:center;
+	border-top:20px;
+}
+
+.footer,
+.push {
+	clear:both;
+  height: 50px;
+}

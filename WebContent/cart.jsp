@@ -32,49 +32,49 @@
 			<s:form id="form" action="SettlementConfirmAction">
 
 				<s:iterator value="#session.cartInfoDtoList">
-						<div class="checkbox">
-							<s:checkbox name="checkList" value="checked" fieldValue="%{productId}"
-								id="checkbox" />
-						</div>
-<div class="Side-by-side">
+					<div class="checkbox">
+						<s:checkbox name="checkList" value="checked"
+							fieldValue="%{productId}" id="checkbox" />
+					</div>
+					<div class="Side-by-side">
 						<img
 							src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>'
 							width="326px" height="218px" />
 
-							<table class="horizontal-list-table">
+						<table class="horizontal-list-table">
 
-								<tr>
-									<td class="productNameKana"><s:property
-											value="productNameKana" /></td>
-								</tr>
-								<tr>
-									<td class="productName"><s:property value="productName" /></td>
-								</tr>
-								<tr>
-									<td class="list"><span class="fat-text">料金：</span> <s:property
-											value="price" />円</td>
-								</tr>
-								<tr>
-									<td class="list"><span class="fat-text">枚数：</span> <s:property
-											value="productCount" />枚</td>
-								</tr>
-								<tr>
-									<td class="list"><span class="fat-text">発売会社：</span> <s:property
-											value="releaseCompany" /></td>
-								</tr>
-								<tr>
-									<td class="list"><span class="fat-text">発売日：</span> <s:property
-											value="releaseDateString" /></td>
-								</tr>
+							<tr>
+								<td class="productNameKana"><s:property
+										value="productNameKana" /></td>
+							</tr>
+							<tr>
+								<td class="productName"><s:property value="productName" /></td>
+							</tr>
+							<tr>
+								<td class="list"><span class="fat-text">料金：</span> <s:property
+										value="price" />円</td>
+							</tr>
+							<tr>
+								<td class="list"><span class="fat-text">枚数：</span> <s:property
+										value="productCount" />枚</td>
+							</tr>
+							<tr>
+								<td class="list"><span class="fat-text">発売会社：</span> <s:property
+										value="releaseCompany" /></td>
+							</tr>
+							<tr>
+								<td class="list"><span class="fat-text">発売日：</span> <s:property
+										value="releaseDateString" /></td>
+							</tr>
 
-								<tr>
-									<td class="subtotal">小計</td>
-								</tr>
-								<tr>
-									<td class="syoukei"><s:property value="subtotal" />円</td>
-								</tr>
+							<tr>
+								<td class="subtotal">小計</td>
+							</tr>
+							<tr>
+								<td class="syoukei"><s:property value="subtotal" />円</td>
+							</tr>
 
-							</table>
+						</table>
 
 						<s:hidden name="productId" value="%{productId}" />
 
@@ -92,9 +92,9 @@
 				</s:iterator>
 				<br>
 				<h2>
-					<s:label value="商品合計 :" /><span class="totalPrice">
-					<s:property value="#session.totalPrice" />
-					円
+					<s:label value="商品合計 :" />
+					<span class="totalPrice"> <s:property
+							value="#session.totalPrice" /> 円
 					</span>
 				</h2>
 				<br>
@@ -114,10 +114,11 @@
 			</s:form>
 		</s:if>
 		<s:else>
-			<div class="info">カート情報はありません。</div>
+			<div class="info">カート情報はありません。
 			<s:form action="HomeAction">
-			<s:submit value="HOME" class="submit_btn" />
+				<s:submit value="HOME" class="submit_btn" />
 			</s:form>
+			</div>
 		</s:else>
 
 		<s:if test="#session.overErrorMessage != null">
@@ -133,6 +134,9 @@
 			<s:iterator value="#session.errorMessage" />
 		</s:if>
 	</div>
+	<div class="push"></div>
+	<footer class="footer">
 		<s:include value="footer.jsp" />
+	</footer>
 </body>
 </html>
