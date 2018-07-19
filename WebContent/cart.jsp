@@ -45,36 +45,50 @@
 						<table class="horizontal-list-table">
 
 							<tr>
-								<td class="productNameKana"><s:property
-										value="productNameKana" /></td>
+								<td colspan="2"><div id="productNameKana">
+										<s:property value="productNameKana" />
+									</div></td>
 							</tr>
 							<tr>
-								<td class="productName"><s:property value="productName" /></td>
+								<td colspan="2"><div class="nameAndSubtotal">
+										<s:property value="productName" />
+									</div></td>
+							</tr>
+							<tr align="center">
+								<th><div class="productInfo">料金：</div></th>
+								<td><div class="productInfo">
+										<s:property value="price" />
+										円
+									</div></td>
+							</tr>
+							<tr align="center">
+								<th><div class="productInfo">枚数：</div></th>
+								<td><div class="productInfo">
+										<s:property value="productCount" />
+										枚
+									</div></td>
+							</tr>
+							<tr align="center">
+								<th><div class="productInfo">発売会社：</div></th>
+								<td><div class="productInfo">
+										<s:property value="releaseCompany" />
+									</div></td>
+							</tr>
+							<tr align="center">
+								<th><div class="productInfo">発売日：</div></th>
+								<td><div class="productInfo">
+										<s:property value="releaseDateString" />
+									</div></td>
 							</tr>
 							<tr>
-								<td class="list"><span class="fat-text">料金：</span> <s:property
-										value="price" />円</td>
+								<td colspan="2"><div class="nameAndSubtotal">合計</div></td>
 							</tr>
 							<tr>
-								<td class="list"><span class="fat-text">枚数：</span> <s:property
-										value="productCount" />枚</td>
+								<td colspan="2"><div id="subtotal">
+										<s:property value="subtotal" />
+										円
+									</div></td>
 							</tr>
-							<tr>
-								<td class="list"><span class="fat-text">発売会社：</span> <s:property
-										value="releaseCompany" /></td>
-							</tr>
-							<tr>
-								<td class="list"><span class="fat-text">発売日：</span> <s:property
-										value="releaseDateString" /></td>
-							</tr>
-
-							<tr>
-								<td class="subtotal">小計</td>
-							</tr>
-							<tr>
-								<td class="syoukei"><s:property value="subtotal" />円</td>
-							</tr>
-
 						</table>
 
 						<s:hidden name="productId" value="%{productId}" />
@@ -85,7 +99,7 @@
 						<s:hidden name="imageFileName" value="%{imageFileName}" />
 						<s:hidden name="price" value="%{price}" />
 						<s:hidden name="releaseCompany" value="%{releaseCompany}" />
-						<s:hidden name="releaseDate" value="%{releaseDate}" />
+						<s:hidden name="releaseDateString" value="%{releaseDateString}" />
 						<s:hidden name="productCount" value="%{productCount}" />
 						<s:hidden name="subtotal" value="%{subtotal}" />
 					</div>
@@ -99,6 +113,7 @@
 					</span>
 				</h2>
 				<br>
+
 				<div class="submit_btn_box">
 					<div id="contents-btn-set">
 						<s:submit value="決済" class="submit_btn" />

@@ -29,10 +29,10 @@ public class CartAction extends ActionSupport implements SessionAware {
 		// loginId か tempUserIdがあればuserIdに変換しとりあえずユーザー確認
 		if (session.containsKey("loginId")) {
 			userId = String.valueOf(session.get("loginId"));
-			session.put("userId", userId);
+			session.put(("userId").toString(), userId);
 		} else if (session.containsKey("tempUserId")) {
 			userId = String.valueOf(session.get("tempUserId"));
-			session.put("userId", userId);
+			session.put(("userId").toString(), userId);
 		}
 
 		CartInfoDAO cartInfoDao = new CartInfoDAO();

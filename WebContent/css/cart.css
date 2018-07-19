@@ -1,19 +1,40 @@
 @CHARSET "UTF-8";
 
 body {
-	font-family: Meiryo;
+	width: 100%;
+	font-family: 'メイリオ', sans-serif;
+	font-size: 18px;
 }
 
-
-
 h1 {
-width: 80%;
-  margin: 0 auto;
-  max-width: 500px;
+	width: 80%;
+	margin: 0 auto;
+	max-width: 500px;
 	text-align: center;
 	color: #333333;
 	font-size: 30px;
 	font-family: Hiragino Kaku Gothic ProN;
+}
+
+.Side-by-side {
+	border-bottom: 2px solid #f7f7f7;
+	display: inline-block;
+	padding: 20px 0 20px 0;
+	margin-left: 175px;
+}
+
+.horizontal-list-table {
+	display: inline-block;
+	text-align: center;
+	padding-left: 50px;
+}
+
+table th {
+	text-align: right;
+}
+
+table td .productInfo {
+	text-align: left;
 }
 
 img {
@@ -31,54 +52,39 @@ img {
 	border-bottom: solid 3px #ed7d22;
 }
 
-.list {
-	font-size: 18px;
+.nameAndSubtotal {
+	display: inline-block;
+	font-size: 20px;
+	border-bottom: 2px solid #ed7d22;
+	padding: 0 10px 0 10px;
+	font-weight: bold;
+}
+
+#subtotal {
+	font-size: 24px;
 }
 
 .productInfo {
 	font-size: 18px;
+	max-width:246px;
 }
 
-.subtotal {
-	font-size: 20px;
-	border-bottom: solid 3px #ed7d22;
-	display: inline-block;
-}
-
-.horizontal-list-table {
-	text-align: center;
-	padding-left: 30px;
-}
-
-.listdivide {
-	display: inline-block;
-	border-bottom: 2px solid #f7f7f7;
-	margin-bottom: 10px;
-}
-
-.syoukei {
-	font-size: 24px;
-	font-weight: 1px;
+.totalPrice {
+	position: relative;
+	left: 500px;
 }
 
 .checkbox {
-	float: left;
-	margin: 109px 20px 0px 0px;
+	width: 14px;
+	position: relative;
+	top: 150px;
+	left: 120px;
 }
 
 h2 {
 	clear: both;
 	font-size: 30px;
 	padding-left: -20px;
-}
-
-.fat-text {
-	font-weight: 600;
-}
-
-.totalPrice {
-	position: relative;
-	left: 500px;
 }
 
 #contents-btn-set {
@@ -90,11 +96,6 @@ h2 {
 	transform: translateY(2px); /*下に動かす*/
 	background-color: #f3a769; /*薄いオレンジ色にする*/
 	border: #ed7d22; /*枠線の色変更*/
-}
-
-.Side-by-side {
-	border-bottom: 2px solid #eaeaea;
-	padding-top: 20px;
 }
 
 .submit_btn {
@@ -122,7 +123,7 @@ h2 {
 	top: 80px;
 	right: 100px;
 	margin-top: 40px;
-	font-size:30px;
+	font-size: 30px;
 }
 
 .footer, .push {
