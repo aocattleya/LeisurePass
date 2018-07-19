@@ -9,6 +9,7 @@
 <jsp:include page="includeHead.jsp" />
 <title>ログイン画面</title>
 <style type="text/css">
+
 body {
 	width: 100%;
 	font-family: 'メイリオ', sans-serif;
@@ -86,7 +87,7 @@ body {
 }
 
 .error-message {
-	color: red;
+	color: #ed7d22;
 	font-size: 14px;
 }
 </style>
