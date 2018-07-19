@@ -52,7 +52,15 @@
 <jsp:include page="includeHead.jsp" />
 <title>商品追加画面</title>
 <style type="text/css">
+
+#main{
+	position:relative;
+	bottom:50px;
+}
+
+
 .title {
+mrgin-top:-500px;
 	text-align: center;
 }
 
@@ -111,10 +119,6 @@ select {
 	border-radius: 5px;
 }
 
-.textbox {
-
-}
-
 .AllBox {
 	width: 450px;
 }
@@ -133,6 +137,8 @@ select {
 	border: solid 2px #d27d00;
 	outline: 0; /*変な枠線を非表示に*/
 	cursor: pointer; /*マウスを乗せたとき指マークにする*/
+	position:relative;
+	left:120px;
 }
 
 img {
@@ -558,7 +564,7 @@ img {
 				​
 				<!-- 商品管理画面に戻る -->
 				<s:form action="GoAdminAction">
-					<s:submit value="戻る" class="back-btn" />
+					<s:submit value="戻る" class="submit_btn" />
 				</s:form>
 			</div>
 		</div>
