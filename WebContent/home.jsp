@@ -10,10 +10,8 @@
 
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-<%-- <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+<link rel="stylesheet" href="./css/home.css">
 
-</script> --%>
 <script
 	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js">
 
@@ -32,73 +30,6 @@
 		});
 	});
 </script>
-
-<style type="text/css">
-
-
-.slider img {
-	width: 1340px;
-	height: 500px;
-	display: flex;
-	justify-content: center;
-}
-
-/*スライダー*/
-/*. bx-wrapper .bx-pager.bx-default-pager  {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: #666;
-  background: rgba(150, 150, 150, 0.75);
-  width: 100%;
-} */
-
- /* 画像センターに */
-
-
-
-
-
- p {
-	font-size: 18px;
-	text-align: center;
-	font-weight: bold;
-	font-family: 'メイリオ', sans-serif;
-}
-
-.box ul {
-	list-style-type: none;
-	margin: 0 auto;
-	width: 940px;
-	padding-left: 0;
-	display: flex;
-	justify-content: center;	/* 中央よせ */
-}
-
-.box li {
-	float: left;
-}
-
-.box li a {
-	padding: 12px;
-	color: #333;
-	font-size: 15px;
-	font-family: 'メイリオ', sans-serif;
-	text-decoration: none;
-}
-
-.box img {
-	width: 190px;
-	height: 190px;
-	border-radius: 5px;
-	margin: 10px;
-}
-
-.box .text {
-	font-size: 15px;
-	text-align: center;
-}
-</style>
 
 <title>ホーム</title>
 </head>

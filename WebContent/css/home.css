@@ -1,0 +1,64 @@
+@CHARSET "UTF-8";
+
+.slider img {
+	width: 1340px;
+	height: 500px;
+	display: flex;
+	justify-content: center;
+}
+
+/*スライダー*/
+/*. bx-wrapper .bx-pager.bx-default-pager  {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #666;
+  background: rgba(150, 150, 150, 0.75);
+  width: 100%;
+} */
+
+
+
+ p {
+	font-size: 18px;
+	text-align: center;
+	font-weight: bold;
+	font-family: 'メイリオ', sans-serif;
+}
+
+.box ul {
+	list-style-type: none;
+	margin: 0 auto;
+	width: 940px;
+	padding-left: 0;
+	display: flex;
+	justify-content: center;	/* 中央よせ */
+}
+
+.box li {
+	float: left;
+}
+
+.box li a {
+	padding: 12px;
+	color: #333;
+	font-size: 15px;
+	font-family: 'メイリオ', sans-serif;
+	text-decoration: none;
+}
+
+.box img {
+	width: 210px;
+	height: 180px;
+	border-radius: 5px;
+	margin: 10px;
+}
+
+.box img:hover {
+    opacity: 0.5; 　/*0で完全に透過、1だと透過しない*/
+}
+
+.box .text {
+	font-size: 15px;
+	text-align: center;
+}
