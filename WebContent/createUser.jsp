@@ -122,7 +122,7 @@
 					<div class="createUsercontents">
 						<table class="vertical-list-table">
 
-							<tr>
+								<tr>
 								<th colspan="2">名前</th>
 								</tr>
 								<tr>

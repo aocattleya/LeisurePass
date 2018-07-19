@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/createUserComplete.css">
 <meta http-equiv="refresh" content="3;URL='HomeAction'" />
 <title>登録完了</title>
 </head>
@@ -22,13 +23,12 @@
 
 		<div id="contents">
 
-			<!--  <jsp:include page="header.jsp"/> -->
 			<div id="contents">
-				<h1>登録完了画面</h1>
-				<div class="success">ユーザー登録が完了しました。</div>
+				<h1>ユーザー登録が完了しました。</h1>
+				<div class="success">2秒後に自動でホームに戻ります。</div>
 			</div>
 			<div id="footer">
-				<s:include value="footer.jsp" />
+
 			</div>
 
 		</div>

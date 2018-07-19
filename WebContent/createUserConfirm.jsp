@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/createUserConfirm.css">
 <jsp:include page="includeHead.jsp" />
 
 <title>登録内容確認</title>
@@ -29,7 +30,7 @@
 				<s:form action="CreateUserCompleteAction">
 					<table class="vertical-list-table" accesskey="">
 						<tr>
-						<th colspan="2">名前</th>
+						<th colspan="2"><s:label value="名前"/></th>
 						</tr>
 						<tr>
 							<td><s:property value="familyName" /></td>
@@ -38,7 +39,7 @@
 
 
 						<tr>
-							<th colspan="2">なまえ</th>
+							<th colspan="2"><s:label value="なまえ"/></th>
 						</tr>
 						<tr>
 							<td><s:property value="familyNameKana" /></td>
@@ -47,7 +48,7 @@
 
 
 						<tr>
-							<th colspan="2">性別</th>
+							<th colspan="2"><s:label value="性別"/></th>
 						</tr>
 						<tr>
 							<td colspan="2"><s:property value="sex" /></td>
@@ -55,7 +56,7 @@
 
 
 						<tr>
-							<th colspan="2">メールアドレス</th>
+							<th colspan="2"><s:label value="メールアドレス"/></th>
 						</tr>
 						<tr>
 							<td colspan="2"><s:property value="email" /></td>
@@ -63,7 +64,7 @@
 
 
 						<tr>
-							<th colspan="2">ログインID</th>
+							<th colspan="2"><s:label value="ログインID"/></th>
 						</tr>
 						<tr>
 							<td colspan="2"><s:property value="loginId" /></td>
@@ -71,7 +72,7 @@
 
 
 						<tr>
-							<th colspan="2">パスワード</th>
+							<th colspan="2"><s:label value="パスワード"/></th>
 						</tr>
 						<tr>
 							<td colspan="2"><s:property value="password" /></td>
