@@ -7,6 +7,7 @@ body, html {
 	width: 1400px;
 	height: 100%;
 	margin: 0 auto;
+	font-family: "メイリオ", sans-serif;
 }
 
 /* micro clearfix */
@@ -33,138 +34,131 @@ body, html {
 header {
 	width: 1400px;
 	margin-top: 10px;
+	margin-bottom: 20px;
 }
 
-#header-container.cf {
-	clear: both;
+#header-container {
+	display: flex;
+	height: 70px;
 }
 
-header .logo {
-	float: left;
+#header-container .logo{
+	flex: 1;
+	height: 70px;
+	background-color: #f7f7f7;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+}
+/*ロゴ画像の装飾*/
+header .logo img {
+	width: auto;
+	height: 70px;
+	margin-left: 20px;
+	display: block;
 }
 
-header .header_menu {
-	float: right;
-	border-right: -50px;
-	display: flex !important; /* ボタン右寄せ */
-	justify-content: flex-end; /* ボタン右寄せ */
+#header-container ul{
+	margin: 0;
+	padding: 0;
 }
 
-header .header_menu li {
+#header-container ul li{
 	float: left;
 	list-style: none;
 	margin-left: 10px;
 }
-/*ヘッター背景*/
-.logo {
-	float: left;
-	background-color: #F7F7F7;
-	width: 1070px;
-	height: 70px;
-	margin-left: 10px; margin-bottom : 10px;
-	border-radius: 10px;
-	margin-bottom: 10px;
-}
-/*ロゴ画像の装飾*/
-.logo img {
-	width: auto;
-	height: 70px;
-	margin-left: 20px;
-}
+
 /*商品一覧のアイコン装飾*/
-.ticket {
+header .ticket {
 	float: left;
-	background-color: #F7F7F7;
+	background-color: #f7f7f7;
 	width: 70px;
 	height: 70px;
-	margin-top: -15px;
-	margin-left: -50px;
 	text-align: center;
-	border-radius: 10px 10px 10px 10px;
+	border-radius: 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	text-align: center;
 }
 /*商品一覧アイコンの画像装飾*/
-.ticket img {
+header .ticket img {
 	width: 45px;
 	height: 45px;
 }
+
 /*マイページのアイコン装飾*/
-.mypage {
+header .mypage {
 	float: left;
-	background-color: #F7F7F7;
+	background-color: #f7f7f7;
 	width: 70px;
 	height: 70px;
-	margin-top: -15px;
 	text-align: center;
-	color: white;
-	border-radius: 10px 10px 10px 10px;
+	border-radius: 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.mypage img {
+/* マイページのアイコン画像装飾 */
+header .mypage img {
 	width: 45px;
 	height: 45px;
 }
-/*マイページのアイコン画像装飾*/
-.mypage img {
-	width: 45px;
-	height: 45px;
-}
-/*カートのアイコン装飾*/
-.cart {
+/* カートのアイコン装飾 */
+header .cart {
 	float: left;
-	background-color: #F7F7F7;
+	background-color: #f7f7f7;
 	width: 70px;
 	height: 70px;
-	margin-top: -15px;
 	text-align: center;
-	border-radius: 10px 10px 10px 10px;
+	border-radius: 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-/*カートのアイコン画像装飾*/
-.cart img {
+/* カートのアイコン画像装飾 */
+header .cart img {
 	width: 45px;
 	height: 45px;
 }
-/*ログインボタン装飾*/
-.login {
+/* ログインボタン装飾 */
+header .login {
 	float: left;
 	background-color: #ed7d22;
 	width: 100px;
 	height: 70px;
-	margin-top: -15px;
 	font-size: 20px;
-	font-family: "メイリオ", sans-serif;
 	text-align: center;
-	color: white;
-	border-radius: 10px 10px 10px 10px;
+	border-radius: 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-/*ログアウトボタン装飾*/
-.logout {
+
+header .login a{
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+/* ログアウトボタン装飾 */
+header .logout {
 	float: left;
-	background-color: #AAAAAA;
+	background-color: #aaaaaa;
 	width: 100px;
 	height: 70px;
-	margin-top: -15px;
-	font-size: 20px;
-	font-family: "メイリオ", sans-serif;
+	font-size: 16px;
 	text-align: center;
-	color: white;
-	border-radius: 10px 10px 10px 10px;
+	border-radius: 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 16px;
+}
+header .logout a{
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
 }
 
 /*ナビゲーション*/
@@ -245,17 +239,6 @@ header .header_menu li {
 	border-radius: 20px;
 	width: 310px;
 	margin-left: 10px;
-}
-
-
-#form{
-	float:left;
-	background-color:white;
-	width:1300px;
-	text-align:center;
-	height:850px;
-
-
 }
 
 /*コンテンツの全体調整*/
