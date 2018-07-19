@@ -29,7 +29,7 @@
 			<li>
 				<div class="targetDate">
 				<s:textfield id="date_val" name="targetDate" value="%{#session.targetDate}" readonly="true" placeholder="いつでも" />
-				<input type=button value="日付を指定しない" onClick="this.form.targetDate.value = ''">
+				<input class="date_val_button" type=button value="日付を指定しない" onClick="this.form.targetDate.value = ''">
 				<div id="datepicker" style="font-size: 14px;"></div>
 				</div>
 			</li>
