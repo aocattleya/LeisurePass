@@ -60,6 +60,7 @@ header .logo img {
 
 #header-container ul{
 	margin: 0;
+	margin-right: 10px;
 	padding: 0;
 }
 
@@ -244,9 +245,10 @@ header .logout a{
 /*コンテンツの全体調整*/
 #contents {
 	float: right;
-	width: 70%;
-	max-width: 1040px;
-	margin-right: 55px;
+	width: 1070px;
+	/* width: 70%;
+	max-width: 1040px; */
+	margin-right: 10px;
 }
 
 #navigation ul li {
