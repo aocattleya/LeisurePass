@@ -16,8 +16,9 @@
 	<jsp:include page="header.jsp" />
 	<jsp:include page="navigation.jsp" />
 	<div id="contents">
-		<h1>商品カート</h1>
-
+		<s:if test="#session.cartInfoDtoList.size()>0">
+			<h1>商品カート</h1>
+		</s:if>
 		<s:if test="#session.checkListErrorMessageList!=null">
 			<div class="error">
 				<div class="error-message">
@@ -114,10 +115,8 @@
 			</s:form>
 		</s:if>
 		<s:else>
+			<div class="info">カート情報はありません</div>
 			<div class="info">
-				カート情報はありません
-				</div>
-				<div class="info">
 				<s:form action="HomeAction">
 					<s:submit value="HOME" class="submit_btn" />
 				</s:form>
