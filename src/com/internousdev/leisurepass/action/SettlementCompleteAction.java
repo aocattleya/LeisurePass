@@ -25,12 +25,6 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 		// デフォルト ERROR
 		String result = ERROR;
 
-		// 宛先が無い場合の機能
-		if (session.get("destinationInfoDtoList") == null) {
-			setNoDestinationMassage(" 新規登録をしてください");
-			return result;
-		}
-
 		// 警告を抑制
 		@SuppressWarnings("unchecked")
 		// 購入履歴の取得
@@ -54,7 +48,6 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 					purchaseHistoryInfoDtoList.get(i).getDestinationId(),
 					purchaseHistoryInfoDtoList.get(i).getSubtotal());
 		}
-
 		// 成功した場合1
 		if (count > 0) {
 			CartInfoDAO cartInfoDAO = new CartInfoDAO();
@@ -83,13 +76,12 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 				// オブジェクト型をintに変換
 				int totalPrice = Integer
 						.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(String.valueOf(session.get("loginId")))));
-
 				// セッションput
+
 				session.put("totalPrice", totalPrice);
 				result = SUCCESS;
 			}
 		}
-
 		// navigation情報を取得
 		SearchConditionLoader loader = new SearchConditionLoader();
 		loader.execute(session);
@@ -97,11 +89,9 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 		return result;
 	}
 
-
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -109,7 +99,6 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 	public Map<String, Object> getSession() {
 		return session;
 	}
-
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
@@ -117,7 +106,6 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 	public String getNoDestinationMassage() {
 		return noDestinationMassage;
 	}
-
 	public void setNoDestinationMassage(String noDestinationMassage) {
 		this.noDestinationMassage = noDestinationMassage;
 	}
