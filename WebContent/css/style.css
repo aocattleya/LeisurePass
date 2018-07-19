@@ -245,9 +245,10 @@ header .logout a{
 /*コンテンツの全体調整*/
 #contents {
 	float: right;
-	width: 1070px;
+	width: 1050px;
 	/* width: 70%;
 	max-width: 1040px; */
+	margin-left: 20px;
 	margin-right: 10px;
 }
 
