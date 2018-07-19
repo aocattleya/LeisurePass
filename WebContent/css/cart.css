@@ -95,6 +95,7 @@ h2 {
 
 #contents-btn-set {
 	text-align: center;
+	margin:10px;
 }
 
 /*ボタンをクリックしたときのCSS*/
@@ -110,6 +111,7 @@ h2 {
 	width: 200px;
 	height: 40px;
 	margin: 5px;
+	margin:10px;
 	margin-left: 250px;
 	color: #FFF;
 	background: #ed7d22;
