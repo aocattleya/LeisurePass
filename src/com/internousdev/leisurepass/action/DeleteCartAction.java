@@ -32,7 +32,7 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 	private String imageFileName;
 	private String price;
 	private String releaseCompany;
-	private String releaseDateString;
+	private String releaseDate;
 	private String productCount;
 	private String subtotal;
 	private Map<String, Object> session;
@@ -149,12 +149,12 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 		this.releaseCompany = releaseCompany;
 	}
 
-	public String getReleaseDateString() {
-		return releaseDateString;
+	public String getReleaseDate() {
+		return releaseDate;
 	}
 
-	public void setReleaseDate(String releaseDateString) {
-		this.releaseDateString = releaseDateString;
+	public void setReleaseDate(String releaseDate) {
+		this.releaseDate = releaseDate;
 	}
 
 	public String getProductCount() {

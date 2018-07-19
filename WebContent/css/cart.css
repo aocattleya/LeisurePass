@@ -21,7 +21,7 @@ h1 {
 
 .Side-by-side {
 	position: relative;
-	right: 250px;
+	right: 50px;
 	border-bottom: 2px solid #f7f7f7;
 	display: inline-block;
 	padding: 20px 0 20px 0;
@@ -120,10 +120,11 @@ h2 {
 	outline: 0; /*変な枠線を非表示に*/
 	cursor: pointer; /*マウスを乗せたとき指マークにする*/
 	position: relative;
-	right: 180px;
+	right: 150px;
 }
 
 .info {
+
 	text-align: center;
 	font-family: Hiragino Kaku Gothic ProN;
 	position: relative;
