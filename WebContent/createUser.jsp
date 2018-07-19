@@ -7,7 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
-
+<link rel="stylesheet" href="./css/createUser.css">
+<jsp:include page="includeHead.jsp" />
 <title>ユーザー情報入力</title>
 <link rel="stylesheet" type="text/css" href="./css/createUser.css">
 </head>
@@ -122,57 +123,56 @@
 						<table class="vertical-list-table">
 
 							<tr>
-								<th scope="row">姓</th>
-								<td><s:textfield name="familyName"
-										value="%{session.familyName}" lebel="姓" placeholder="姓"
-										class="txt" /></td>
-							</tr>
+								<th colspan="2">名前</th>
+								</tr>
+								<tr>
+									<td><s:textfield placeholder="姓" name="familyName" class="txt" value="%{session.familyName}" /> </td>
+									<td><s:textfield placeholder="名" name="firstName" class="txt" value="%{session.firstName}" /> </td>
+								</tr>
 
-							<tr>
-								<th scope="row">名</th>
-								<td><s:textfield name="firstName"
-										value="%{session.firstName}" lebel="名" placeholder="名"
-										class="txt" /></td>
-							</tr>
 
-							<tr>
-								<th scope="row">姓ふりがな</th>
-								<td><s:textfield name="familyNameKana"
-										value="%{session.familyNameKana}" lebel="姓ふりがな"
-										placeholder="姓ふりがな" class="txt" /></td>
-							</tr>
+								<tr>
+								<th colspan="2">なまえ</th>
+								</tr>
+								<tr>
+									<td><s:textfield placeholder="姓(ふりがな)を入力" name="familyNameKana" class="txt" value="%{session.familyNameKana}" /></td>
+									<td><s:textfield placeholder="名(ふりがな)を入力" name="firstNameKana" class="txt" value="%{session.firstNameKana}" /></td>
+								</tr>
 
-							<tr>
-								<th scope="row">名ふりがな</th>
-								<td><s:textfield name="firstNameKana"
-										value="%{session.firstNameKana}" lebel="名ふりがな"
-										placeholder="名ふりがな" class="txt" /></td>
-							</tr>
 
-							<tr>
-								<th scope="row">性別</th>
-								<td><s:radio list="%{#session.sexList}" name="sex"
-										value="%{#session.sex}" label="性別" placeholder="性別" /></td>
-							</tr>
+								<tr>
+								<th colspan="2">性別</th>
+								</tr>
+								<tr>
+									<td colspan="2"><s:radio list="%{#session.sexList}" name="sex" value="%{#session.sex}" label="性別" placeholder="性別" /></td>
+								</tr>
 
-							<tr>
-								<th scope="row">メールアドレス</th>
-								<td><s:textfield name="email" value="%{session.email}"
-										lebel="メールアドレス" placeholder="メールアドレス" class="txt" /></td>
-							</tr>
 
-							<tr>
-								<th scope="row">ログインID</th>
-								<td><s:textfield name="loginId" value="%{session.loginId}"
-										lebel="ログインID" placeholder="ログインID" class="txt" /></td>
-							</tr>
 
-							<tr>
-								<th scope="row">パスワード</th>
-								<td><s:textfield name="password"
-										value="%{session.password}" lebel="パスワード" placeholder="パスワード"
-										class="txt" /></td>
-							</tr>
+								<tr>
+								<th colspan="2">メールアドレス</th>
+								</tr>
+								<tr>
+									<td colspan="2"><s:textfield name="email" value="%{session.email}"
+											lebel="メールアドレス" placeholder="メールアドレス" class="txt2" /></td>
+								</tr>
+
+								<tr>
+									<th colspan="2">ログインID</th>
+								</tr>
+								<tr>
+									<td colspan="2"><s:textfield name="loginId" value="%{session.loginId}"
+											lebel="ログインID" placeholder="ログインID" class="txt2" /></td>
+								</tr>
+
+								<tr>
+									<th colspan="2">パスワード</th>
+								</tr>
+								<tr>
+									<td colspan="2"><s:textfield name="password"
+											value="%{session.password}" lebel="パスワード" placeholder="パスワード"
+											class="txt2" /></td>
+								</tr>
 						</table>
 						<div class="submit_btn_box">
 							<div class=".contents-btn-set">

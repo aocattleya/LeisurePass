@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
+<jsp:include page="includeHead.jsp" />
 <title>登録内容確認</title>
 </head>
 <body>
@@ -30,12 +31,16 @@
 				<s:form action="CreateUserCompleteAction">
 					<table class="vertical-list-table" accesskey="">
 						<tr>
-							<th scope="row"><s:label value="姓" /></th>
-							<td><s:property value="familyName" /></td>
+						<th colspan="2">名前</th>
 						</tr>
 						<tr>
-							<th scope="row"><s:label value="名" /></th>
+							<td><s:property value="familyName" /></td>
 							<td><s:property value="firstName" /></td>
+						</tr>
+
+
+						<tr>
+							<th colspan="2">なまえ</th>
 						</tr>
 						<tr>
 							<th scope="row"><s:label value="姓ふりがな" /></th>
@@ -54,12 +59,18 @@
 							<td><s:property value="email" /></td>
 						</tr>
 						<tr>
-							<th scope="row"><s:label value="ログインID" /></th>
-							<td><s:property value="loginId" /></td>
+							<th colspan="2">ログインID</th>
 						</tr>
 						<tr>
-							<th scope="row"><s:label value="パスワード" /></th>
-							<td><s:property value="password" /></td>
+							<td colspan="2"><s:property value="loginId" /></td>
+						</tr>
+
+
+						<tr>
+							<th colspan="2">パスワード</th>
+						</tr>
+						<tr>
+							<td colspan="2"><s:property value="password" /></td>
 						</tr>
 					</table>
 					<div class="submit_btn_box">
@@ -83,10 +94,6 @@
 			<s:hidden name="sex" value="1" />
 					</s:if>
 				</s:form>
-			</div>
-
-			<div id="footer">
-				<s:include value="footer.jsp" />
 			</div>
 
 

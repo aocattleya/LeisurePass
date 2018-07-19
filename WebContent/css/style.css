@@ -247,6 +247,17 @@ header .header_menu li {
 	margin-left: 10px;
 }
 
+
+#form{
+	float:left;
+	background-color:white;
+	width:1300px;
+	text-align:center;
+	height:850px;
+
+
+}
+
 /*コンテンツの全体調整*/
 #contents {
 	float: right;
