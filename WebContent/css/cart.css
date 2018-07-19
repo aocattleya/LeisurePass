@@ -6,6 +6,9 @@ body {
 	font-size: 18px;
 }
 
+#form{
+}
+
 h1 {
 	width: 80%;
 	margin: 0 auto;
@@ -17,6 +20,8 @@ h1 {
 }
 
 .Side-by-side {
+	position: relative;
+	right: 250px;
 	border-bottom: 2px solid #f7f7f7;
 	display: inline-block;
 	padding: 20px 0 20px 0;
@@ -76,15 +81,15 @@ img {
 
 .checkbox {
 	width: 14px;
+	margin-left:-50px;
 	position: relative;
 	top: 150px;
 	left: 120px;
 }
 
 h2 {
-	clear: both;
+	text-align:left;
 	font-size: 30px;
-	padding-left: -20px;
 }
 
 #contents-btn-set {
@@ -114,6 +119,8 @@ h2 {
 	text-align: center;
 	outline: 0; /*変な枠線を非表示に*/
 	cursor: pointer; /*マウスを乗せたとき指マークにする*/
+	position: relative;
+	right: 180px;
 }
 
 .info {
