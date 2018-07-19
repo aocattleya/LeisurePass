@@ -31,7 +31,7 @@ h1 img.fish {
 }
 
 h1 img:hover {
-	opacity: 0.8;
+	cursor: pointer;
 }
 
 /* 画像 */
@@ -41,8 +41,8 @@ h1 img:hover {
 	display: inline-block;
 }
 
-.product-list-box a{
-	 text-decoration:none;
+.product-list-box a {
+	text-decoration: none;
 }
 
 .product-list-box img:hover { /* ホバーすると薄く透過 */
@@ -57,7 +57,7 @@ h1 img:hover {
 	background-color: #f9f9f9;
 	cursor: pointer;
 	object-fit: cover;
-	margin:0 15px;
+	margin: 0 15px;
 }
 
 .product-list-box li img {
@@ -76,15 +76,44 @@ h1 img:hover {
 }
 
 /* ページネーションCSS */
+
 .pager {
 	clear: left;
-	margin: 0;
-	padding: 0;
-	border: 0;
 	font-size: 30px;
-	vertical-align: baseline;
-	outline: none;
-	-webkit-font-smoothing: antialiased;
 	background-color: skyblue;
+	color: black;
+	margin:0 5px;
+}
+
+.pager a {
+	text-decoration: none;
+	margin: 0 5px;
+	color:#ff8040;
+}
+
+#pager_btn{
+	clear: both;
+	text-decoration: none;
+
+	font-size: 30px;
+	width: 200px;
+	height: 40px;
+	margin: 5px;
+	margin-left: 250px;
 	color: #ff8040;
+	background: #ed7d22;
+	border-radius: 20px;
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0
+		rgba(0, 0, 0, 0.05);
+	border: solid 2px #d27d00;
+	text-align: center;
+	outline: 0; /*変な枠線を非表示に*/
+	cursor: pointer; /*マウスを乗せたとき指マークにする*/
+}
+
+
+
+.page_up{
+	font-size:3em;
+	color:#ff8040;
 }
