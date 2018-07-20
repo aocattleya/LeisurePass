@@ -98,8 +98,8 @@ var count = 0
 // 0.05秒ごとに数字を増やす
 intervalID = setInterval(function() {
   console.log(count += 5);
-  if (count > 347)
-      count = 347
+  if (count > 437)
+      count = 437
   choreographer.runAnimationsAt(count)
 }, 5);
 
