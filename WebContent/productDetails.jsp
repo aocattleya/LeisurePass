@@ -20,84 +20,90 @@
 		<jsp:include page="navigation.jsp" />
 		<div id="contents">
 			<div id="contents-box">
-
-				<div class="big-picture">
-					<img
-						src='<s:property value="%{#session.imageFilePath}"/>/<s:property value="%{#session.imageFileName}"/>'
-						class="item-image-box-back" /> <img
-						src='<s:property value="%{#session.imageFilePath}"/>/<s:property value="%{#session.imageFileName}"/>'
-						class="item-image-box-320" /> <br>
-				</div>
-				<br> <br>
-
-				<div class="left-column">
-					<table class="vertical-list-table-mini">
-						<tr>
-							<td class="productNameKana"><s:property
-									value="%{#session.productNameKana}" /></td>
-						</tr>
-						<tr>
-							<!-- 商品名 -->
-							<td class="daimei"><s:property
-									value="%{#session.productName}" /></td>
-						</tr>
-						<tr>
-							<td class="naiyou"><s:property
-									value="%{#session.productDescription}" /></td>
-						</tr>
-						<tr>
-							<td class="releaseCompany" scope="row"><s:label
-									value="発売会社名" /> <s:property
-									value="%{#session.releaseCompany}" /></td>
-						</tr>
-						<tr>
-							<td class="releaseDate" scope="row"><s:label value="発売年月日" />
-								<s:property value="%{#session.releaseDate}" /></td>
-						</tr>
-					</table>
-					<!-- 追加項目 -->
-					<br> <br>
-
-					<p class="storeinfomation">
-						<s:label value="店舗情報" />
-					</p>
-					<table class="store-information">
-						<tr>
-							<th class="local"><s:label value="所在地" /></th>
-							<th class="local1"><s:property value="%{#session.location}" /></th>
-						</tr>
-						<tr>
-							<th class="local"><s:label value="アクセス" /></th>
-							<th class="local1"><s:property value="%{#session.access}" /></th>
-						</tr>
-						<tr>
-							<th class="local"><s:label value="URL" /></th>
-							<th class="local1"><s:property value="%{#session.url}" /></th>
-						</tr>
-					</table>
+				<s:form action="AddCartAction">
+					<div class="big-picture">
+						<img
+							src='<s:property value="%{#session.imageFilePath}"/>/<s:property value="%{#session.imageFileName}"/>'
+							class="item-image-box-back" /> <img
+							src='<s:property value="%{#session.imageFilePath}"/>/<s:property value="%{#session.imageFileName}"/>'
+							class="item-image-box-320" /> <br>
+					</div>
 					<br>
-				</div>
+					<br>
 
-				<s:hidden name="productId" value="%{#session.productId}" />
-				<s:hidden name="productName" value="%{#session.productName}" />
-				<s:hidden name="productNameKana" value="%{#session.productNameKana}" />
-				<s:hidden name="imageFilePath" value="%{#session.imageFilePath}" />
-				<s:hidden name="imageFileName" value="%{#session.imageFileName}" />
-				<s:hidden name="price" value="%{#session.price}" />
-				<s:hidden name="releaseCompany" value="%{#session.releaseCompany}" />
-				<s:hidden name="releaseDate" value="%{#session.releaseDate}" />
-				<s:hidden name="productDescription"
-					value="%{#session.productDescription}" />
+					<div class="left-column">
+						<table class="vertical-list-table-mini">
+							<tr>
+								<td class="productNameKana"><s:property
+										value="%{#session.productNameKana}" /></td>
+							</tr>
+							<tr>
+								<!-- 商品名 -->
+								<td class="daimei"><s:property
+										value="%{#session.productName}" /></td>
+							</tr>
+							<tr>
+								<td class="naiyou"><s:property
+										value="%{#session.productDescription}" /></td>
+							</tr>
+							<tr>
+								<td class="releaseCompany" scope="row"><s:label
+										value="発売会社名" /> <s:property
+										value="%{#session.releaseCompany}" /></td>
+							</tr>
+							<tr>
+								<td class="releaseDate" scope="row"><s:label value="発売年月日" />
+									<s:property value="%{#session.releaseDate}" /></td>
+							</tr>
+						</table>
+						<!-- 追加項目 -->
+						<br> <br>
+
+						<p class="storeinfomation">
+							<s:label value="店舗情報" />
+						</p>
+						<table class="store-information">
+							<tr>
+								<th class="local"><s:label value="所在地" /></th>
+								<th class="local1"><s:property value="%{#session.location}" /></th>
+							</tr>
+							<tr>
+								<th class="local"><s:label value="アクセス" /></th>
+								<th class="local1"><s:property value="%{#session.access}" /></th>
+							</tr>
+							<tr>
+								<th class="local"><s:label value="URL" /></th>
+								<th class="local1"><s:property value="%{#session.url}" /></th>
+							</tr>
+						</table>
+						<br>
+					</div>
+
+					<s:hidden name="productId" value="%{#session.productId}" />
+					<s:hidden name="productName" value="%{#session.productName}" />
+					<s:hidden name="productNameKana"
+						value="%{#session.productNameKana}" />
+					<s:hidden name="imageFilePath" value="%{#session.imageFilePath}" />
+					<s:hidden name="imageFileName" value="%{#session.imageFileName}" />
+					<s:hidden name="price" value="%{#session.price}" />
+					<s:hidden name="releaseCompany" value="%{#session.releaseCompany}" />
+					<s:hidden name="releaseDate" value="%{#session.releaseDate}" />
+					<s:hidden name="productDescription"
+						value="%{#session.productDescription}" />
 
 
-				<div id="cart_in_box">
-					<s:form action="AddCartAction">
+					<div id="cart_in_box">
+
 						<ul>
 							<li>
-								<div class="byCount">
-									<s:select name="productCount"
-										list="%{#session.productCountList}" />
-								</div>枚<br>
+								<div id="number_sheet">
+									<div class="byCount">
+										<s:select name="productCount"
+											list="%{#session.productCountList}" />
+									</div>
+									<div class="MAI"></div>
+
+								</div> <br>
 							</li>
 							<li>
 								<div class="byPrice">
@@ -106,18 +112,17 @@
 									円
 								</div> <br>
 							</li>
-							<li><s:submit value="カートに追加" class="submit_btn" /></li>
+							<li><s:submit value="カートに追加" class="cart_submit_btn" /></li>
 						</ul>
-					</s:form>
-				</div>
 
+					</div>
+				</s:form>
 				<!-- おススメピックアップ -->
 				<div class="pickup_title">
-					<br> <img
-					class="kirakira" src="images/kirakira.png">おすすめピックアップ
-						<img
-					class="kirakira" src="images/kirakira.png">
-				</div><br>
+					<br> <img class="kirakira" src="images/kirakira.png">おすすめピックアップ
+					<img class="kirakira" src="images/kirakira.png">
+				</div>
+				<br>
 
 				<div class="box">
 
