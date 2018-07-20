@@ -8,6 +8,7 @@ body, html {
 	height: 100%;
 	margin: 0 auto;
 	font-family: "メイリオ", sans-serif;
+	color: #333333;
 }
 
 /* micro clearfix */
@@ -177,7 +178,7 @@ header .logout a{
 	border: solid 2px #d27d00; /*ボタンの立体感を出すため*/
 	outline: 0; /*変な枠線を非表示に*/
 	cursor: pointer; /*マウスを乗せたとき指マークにする*/
-	margin: 0 auto;
+	margin-top:10px;
 }
 /*ボタンを押した時*/
 .submit_btn:active {

@@ -78,22 +78,25 @@ h1 img:hover {
 }
 
 .product-list-box img:hover { /* ホバーすると薄く透過 */
-	opacity: 0.5;
+	opacity: 0.7;
 }
+
+.product-list-box img:active {
+	width:350px;
+	height:280px;
+}
+
 
 .item-image-box-200 { /* 画像単体 */
 	width: 250px;
 	height: 180px;
+	border-radius:10px;
 
-	background-color: #f9f9f9;
 	cursor: pointer;
 	object-fit: cover;
 	margin: 0 15px;
 }
 
-.product-list-box li img {
-	color: #f9f9f9;
-}
 
 /* 商品の文字 */
 .smallMoji {
@@ -111,6 +114,8 @@ h1 img:hover {
 .pager {
 	clear: left;
 	font-size: 30px;
+	font-weight:bold;
+
 
 }
 

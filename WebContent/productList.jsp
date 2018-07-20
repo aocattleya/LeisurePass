@@ -99,17 +99,18 @@
 
 				<!-- ページネーション -->
 				<div class="pager">
+
 					<!-- ------------------------------一つ前のページへ---------------------------------- -->
+<s:if test="!(#session.currentPageNo == 1)">
 					<a
 						href="<s:url action='SearchItemAction'>
-						<s:param name='pageNo' value='#session.previousPageNo' />
+						<s:param name='pageNo' value='#session.currentPageNo -1' />
 						<s:param name='categoryId' value='%{categoryId}'/>
 						<s:param name='placeId' value='%{placeId}'/>
 						<s:param name='targetDate' value='%{targetDate}'/>
 						</s:url>"
 						id="Numbers" class="zengo">&lt;</a>
-
-
+</s:if>
 					<!-- ------------------------------ページ番号表示----------------------------------- -->
 					<s:iterator begin="1" end="#session.totalPageSize" status="pageNo"
 						id="pager_btn">
@@ -143,15 +144,17 @@
 
 					</s:iterator>
 					<!-- ----------------------------一つ次のページへ------------------------------------ -->
-					<a
-						href="<s:url action='SearchItemAction'>
-						<s:param name='pageNo' value='#session.nextPageNo' />
+<s:if test="!(#session.currentPageNo == #session.totalPageSize)">
+
+						<a
+							href="<s:url action='SearchItemAction'>
+						<s:param name='pageNo' value='#session.currentPageNo +1' />
 						<s:param name='categoryId' value='%{categoryId}'/>
 						<s:param name='placeId' value='%{placeId}'/>
 						<s:param name='targetDate' value='%{targetDate}'/>
 						</s:url>"
-						id="Numbers" class="zengo">&gt;</a>
-
+							id="Numbers" class="zengo">&gt;</a>
+					</s:if>
 				</div>
 			</s:else>
 			<br>
