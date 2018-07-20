@@ -23,7 +23,7 @@
 				<h2>購入履歴</h2>
 				<s:iterator value="#session.purchaseHistoryInfoDtoList">
 					<div id="bigBox">
-						<img
+						<img id="productImage"
 							src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>'
 							width="326px" height="218px" />
 						<table class="horizontal-list-table">

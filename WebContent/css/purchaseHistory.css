@@ -23,8 +23,11 @@ h2 {
 	margin-left: 175px;
 }
 
-img {
+#productImage {
 	float: left;
+	border-radius: 10px;
+	position: relative;
+	top: 26px;
 }
 
 .horizontal-list-table {
