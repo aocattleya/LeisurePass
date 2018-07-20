@@ -33,11 +33,14 @@ h1 img.fish {
 h1 img:hover {
 	cursor: pointer;
 }
+h1 img:active {
+	transform: translateY(10px);
+}
 
 /* 結果なしの場合 */
 .info{
 	font-size:30px;
-	font-weight:boid;
+	font-weight:bold;
 	text-align:center;
 }
 .submit_btn {
@@ -73,17 +76,17 @@ h1 img:hover {
 
 .product-list-box a {
 	text-decoration: none;
-
-
 }
 
-.product-list-box img:hover { /* ホバーすると薄く透過 */
+.item-image-box-200:hover { /* ホバーすると薄く透過 */
 	opacity: 0.7;
 }
+.item-image-box-200:hover > .largeMoji{
+	color:red;
+}
 
-.product-list-box img:active {
-	width:350px;
-	height:280px;
+.item-image-box-200:active {
+	transform: translateY(4px);
 }
 
 
@@ -147,16 +150,22 @@ h1 img:hover {
 	color:#ff8040;
 	background:lightgray;
 }
+.pager .page_num:active {
+	transform: translateY(2px);
+}
 
 .pager .zengo{
 	color:#ff8040;
-	background:#f7f7f7;
 	border:0
 }
 .pager .zengo:hover{
 	color:#ff8040;
 	background:lightgray;
 }
+.pager .zengo:active {
+	transform: translateX(2px);
+}
+
 
 .pager .disabled{
 	color:#ffffff;

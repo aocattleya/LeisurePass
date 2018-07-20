@@ -23,14 +23,16 @@
 				<s:form action="AddCartAction">
 
 
-				<div class="big-picture">
-					<img
-						src='<s:property value="%{#session.imageFilePath}"/>/<s:property value="%{#session.imageFileName}"/>'
-						class="item-image-box-320" />
+					<div class="big-picture">
+						<img
+							src='<s:property value="%{#session.imageFilePath}"/>/<s:property value="%{#session.imageFileName}"/>'
+							class="item-image-box-back" /> <img
+							src='<s:property value="%{#session.imageFilePath}"/>/<s:property value="%{#session.imageFileName}"/>'
+							class="item-image-box-320" /> <br>
+					</div>
 					<br>
-				</div>
 
-					<div class="left">
+					<div class="left-column">
 						<table class="vertical-list-table-mini">
 							<tr>
 								<td class="productNameKana"><s:property
@@ -99,7 +101,7 @@
 								</th>
 							</tr>
 							<tr>
-								<th>　価格 　　　　<span><s:property value="%{#session.price}" />円</span>
+								<th>価格 <span><s:property value="%{#session.price}" />円</span>
 								</th>
 							</tr>
 
@@ -108,7 +110,9 @@
 					</div>
 				</s:form>
 				<!-- おススメピックアップ -->
-				<p><br><br>おすすめピックアップ</p>
+				<p>
+					<br> <br>おすすめピックアップ
+				</p>
 
 				<div class="box">
 
@@ -117,7 +121,7 @@
 							<!-- 	<div class="product-list">
 		<div class="product-list-box"> -->
 							<div class="recommend-box">
-								<div class="img">
+								<div class="pickup">
 									<a
 										href='<s:url action="ProductDetailsAction">
 		<s:param name="productId" value="%{productId}"/>
@@ -127,7 +131,7 @@
 										class="item-image-box-100" />
 									</a>
 								</div>
-								<div class="productName">
+								<div class="pickup-Name">
 									<s:property value="productName" />
 								</div>
 								<br>

@@ -51,7 +51,7 @@
 
 			<!-- 検索結果がない場合 -->
 			<s:if test="productInfoDtoList==null">
-				<h2 class="info">&nbsp;&nbsp;検索結果がありません。</h2>
+				<div class="info">&nbsp;&nbsp;検索結果がありません。</div>
 				<br>
 				<br>
 
