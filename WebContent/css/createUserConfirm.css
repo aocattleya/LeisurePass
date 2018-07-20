@@ -4,6 +4,12 @@ th {
 	color: #333333;
 }
 
+tr td{
+	color:#333333;
+	padding-left:0px;
+
+}
+
 tr {
 	padding: 30px;
 }
@@ -37,7 +43,7 @@ tr {
 .vertical-list-table {
 	background-color: #f7f7f7; /*背景色*/
 	padding: 2em; /*文字の幅調整*/
-	width: 600px; /*背景の横幅*/
+	 /*背景の横幅*/
 	border-radius: 20px; /*背景の角の丸み*/
 	margin: 0 auto; /*センター中央寄せ*/
 }
