@@ -138,7 +138,7 @@
 			<!-- 商品管理画面に戻る（入力内容は保持） -->
 			<p><a href='<s:url action="AddProductAction"/>' id="#correction">修正</a></p>
 			</div>
-
+</div>
 		<jsp:include page="footer.jsp" />
 </body>
 </html>

@@ -92,15 +92,14 @@ input.txt2 {
 	font-size: 18px; /*入力欄の文字サイズ*/
 }
 
-.productDescription{
-resize: none;
+.productDescription {
+	resize: none;
 	height: 200px; /*入力欄の縦の長さ*/
 	width: 450px; /*入力欄の横の長さ*/
 	background-color: #f7f7f7; /*入力欄の中の色*/
 	border-radius: 5px; /*入力欄の角の丸み*/
 	font-size: 18px; /*入力欄の文字サイズ*/
 }
-
 
 .errormessage {
 	color: #ed7d22;
@@ -123,6 +122,7 @@ textarea {
 	border-radius: 5px; /*入力欄の角の丸み*/
 	font-size: 18px; /*入力欄の文字サイズ*/
 }
+
 textfield {
 	resize: none;
 	height: 200px; /*入力欄の縦の長さ*/
@@ -159,6 +159,12 @@ select {
 	cursor: pointer; /*マウスを乗せたとき指マークにする*/
 	position: relative;
 	left: 120px;
+}
+
+#correction {
+	position: relative;
+	left: 200px;
+	color: #ed7d22;
 }
 
 img {
@@ -469,7 +475,8 @@ img {
 							商品詳細<br>
 						</div>
 						<s:textfield name="productDescription"
-							value="%{#session.addProductDTO.productDescription}" class="productDescription" />
+							value="%{#session.addProductDTO.productDescription}"
+							class="productDescription" />
 						<br>
 						<s:if
 							test="!#session.productDescriptionErrorMessageList.isEmpty()">
@@ -609,9 +616,8 @@ img {
 
 				​
 				<!-- 商品管理画面に戻る -->
-				<s:form action="GoAdminAction">
-					<s:submit value="戻る" class="submit_btn" />
-				</s:form>
+				<a href="http://localhost:8080/leisurepass/AdminProductAction"
+					id="correction">戻る</a>
 			</div>
 		</div>
 		<div id="footer"></div>

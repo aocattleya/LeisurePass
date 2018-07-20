@@ -140,3 +140,7 @@ h2 {
 	clear: both;
 	height: 50px;
 }
+
+.error-message{
+color:#ed7d22;
+}
