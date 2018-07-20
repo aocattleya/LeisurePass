@@ -6,91 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/login.css">
 <jsp:include page="includeHead.jsp" />
 <title>ログイン画面</title>
-<style type="text/css">
-
-body {
-	width: 100%;
-	font-family: 'メイリオ', sans-serif;
-	font-size: 18px;
-}
-
-#contents {
-	text-align: center;
-	float: left;
-	width: 1344px;
-}
-
-/*ボタンのCSS*/
-.submit_btn {
-	width: 200px; /*ボタンの横の長さ*/
-	height: 40px; /*ボタンの縦の長さ*/
-	/* display: inline-block; 多分要らないかも*/
-	font-size: 20px; /*ボタン文字サイズ*/
-	background-color: #ed7d22; /*ボタンの色*/
-	color: #FFF; /*ボタン文字の色*/
-	border-radius: 20px; /*ボタンの角の丸み*/
-	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0
-		rgba(0, 0, 0, 0.05); /*ボタンの影（立体感）*/
-	border: solid 2px #d27d00; /*ボタンの立体感を出すため*/
-	outline: 0; /*変な枠線を非表示に*/
-	cursor: pointer; /*マウスを乗せたとき指マークにする*/
-}
-
-/*ボタンをクリックしたときのCSS*/
-.submit_btn:active {
-	transform: translateY(2px); /*下に動かす*/
-	background-color: #f3a769; /*薄いオレンジ色にする*/
-	border: #ed7d22; /*枠線の色変更*/
-}
-
-#createUser {
-	color: #ed7d22;
-	letter-spacing: 2px;
-}
-
-#resetPassword {
-	color: #aaaaaa;
-}
-
-.vertical-list-table {
-	display: inline;
-}
-
-.txt {
-	width: 450px;
-	height: 40px;
-	font-size: 18px;
-	background-color: #f7f7f7;
-	border-radius: 5px;
-}
-
-.txt::-webkit-input-placeholder {
-	color: #aaaaaa;
-}
-
-.txt::-moz-placeholder {
-	color: #aaaaaa;
-}
-
-.txt:-ms-input-placeholder {
-	color: #aaaaaa;
-}
-
-.box {
-	padding-right: 400px;
-}
-
-.error {
-	text-align: left;
-}
-
-.error-message {
-	color: #ed7d22;
-	font-size: 14px;
-}
-</style>
 </head>
 <body>
 

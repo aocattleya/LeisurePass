@@ -1,0 +1,105 @@
+@CHARSET "UTF-8";
+
+body {
+	width: 100%;
+	font-family: 'メイリオ', sans-serif;
+	font-size: 18px;
+}
+
+contents {
+	text-align: center;
+	float: left;
+	width: 1344px;
+}
+
+h2 {
+	text-align: center;
+}
+
+#bigBox {
+	border-bottom: 2px solid #f7f7f7;
+	display: inline-block;
+	padding: 20px 0 20px 0;
+	margin-left: 175px;
+}
+
+img {
+	float: left;
+}
+
+.horizontal-list-table {
+	display: inline-block;
+	text-align: center;
+	padding-left: 50px;
+}
+
+table th {
+	text-align: right;
+}
+
+table td .productInfo {
+	text-align: left;
+	max-width: 246px;
+}
+
+#productNameKana {
+	font-size: 12px;
+}
+
+.nameAndSubtotal {
+	display: inline-block;
+	font-size: 20px;
+	border-bottom: 2px solid #ed7d22;
+	padding: 0 10px 0 10px;
+	font-weight: bold;
+}
+
+.productInfo {
+	font-size: 18px;
+}
+
+#subtotal {
+	font-size: 24px;
+}
+
+#contents-btn-set {
+	padding: 1px;
+	width: 100%;
+	display: inline;
+	text-align: center;
+}
+
+/*ボタンのCSS*/
+.submit_btn {
+	width: 200px; /*ボタンの横の長さ*/
+	height: 40px; /*ボタンの縦の長さ*/
+	/* display: inline-block; 多分要らないかも*/
+	font-size: 20px; /*ボタン文字サイズ*/
+	background-color: #ed7d22; /*ボタンの色*/
+	color: #FFF; /*ボタン文字の色*/
+	border-radius: 20px; /*ボタンの角の丸み*/
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0
+		rgba(0, 0, 0, 0.05); /*ボタンの影（立体感）*/
+	border: solid 2px #d27d00; /*ボタンの立体感を出すため*/
+	outline: 0; /*変な枠線を非表示に*/
+	cursor: pointer; /*マウスを乗せたとき指マークにする*/
+}
+
+/*ボタンをクリックしたときのCSS*/
+.submit_btn:active {
+	transform: translateY(2px); /*下に動かす*/
+	background-color: #f3a769; /*薄いオレンジ色にする*/
+	border: #ed7d22; /*枠線の色変更*/
+}
+
+.info {
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 50px;
+}
+
+#HomeAction {
+	text-align: center;
+	margin-top: 26px;
+}
