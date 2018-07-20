@@ -26,59 +26,61 @@
 		<div id="contents">
 
 			<div id="contents">
-				<h1>以下の内容で登録します。<br>よろしければ、登録ボタンを押してください。</h1>
+				<h1>
+					以下の内容で登録します。<br>よろしければ、登録ボタンを押してください。
+				</h1>
 				<s:form action="CreateUserCompleteAction">
-				<div class="aaa">
-					<table class="vertical-list-table" accesskey="">
-						<tr>
-						<th colspan="2"><s:label value="名前"/></th>
-						</tr>
-						<tr>
-							<td><s:property value="familyName" /></td>
-							<td><s:property value="firstName" /></td>
-						</tr>
+					<div class="aaa">
+						<table class="vertical-list-table" accesskey="">
+							<tr>
+								<th><s:label value="名前" /></th>
+							</tr>
+							<tr>
+								<td><s:property value="familyName" /> <s:property
+										value="firstName" /></td>
+							</tr>
 
 
-						<tr>
-							<th colspan="2"><s:label value="なまえ"/></th>
-						</tr>
-						<tr>
-							<td><s:property value="familyNameKana" /></td>
-							<td><s:property value="firstNameKana" /></td>
-						</tr>
+							<tr>
+								<th><s:label value="なまえ" /></th>
+							</tr>
+							<tr>
+								<td><s:property value="familyNameKana" /> <s:property
+										value="firstNameKana" /></td>
+							</tr>
 
 
-						<tr>
-							<th colspan="2"><s:label value="性別"/></th>
-						</tr>
-						<tr>
-							<td colspan="2"><s:property value="sex" /></td>
-						</tr>
+							<tr>
+								<th><s:label value="性別" /></th>
+							</tr>
+							<tr>
+								<td><s:property value="sex" /></td>
+							</tr>
 
 
-						<tr>
-							<th colspan="2"><s:label value="メールアドレス"/></th>
-						</tr>
-						<tr>
-							<td colspan="2"><s:property value="email" /></td>
-						</tr>
+							<tr>
+								<th colspan="2"><s:label value="メールアドレス" /></th>
+							</tr>
+							<tr>
+								<td colspan="2"><s:property value="email" /></td>
+							</tr>
 
 
-						<tr>
-							<th colspan="2"><s:label value="ログインID"/></th>
-						</tr>
-						<tr>
-							<td colspan="2"><s:property value="loginId" /></td>
-						</tr>
+							<tr>
+								<th colspan="2"><s:label value="ログインID" /></th>
+							</tr>
+							<tr>
+								<td colspan="2"><s:property value="loginId" /></td>
+							</tr>
 
 
-						<tr>
-							<th colspan="2"><s:label value="パスワード"/></th>
-						</tr>
-						<tr>
-							<td colspan="2"><s:property value="password" /></td>
-						</tr>
-					</table>
+							<tr>
+								<th colspan="2"><s:label value="パスワード" /></th>
+							</tr>
+							<tr>
+								<td colspan="2"><s:property value="password" /></td>
+							</tr>
+						</table>
 					</div>
 					<div class="submit_btn_box">
 						<div id=".cobntents_btn_set">
@@ -97,10 +99,10 @@
 					<s:hidden name="firstNameKana" value="%{firstNameKana}" />
 					<s:hidden name="email" value="%{email}" />
 					<s:if test='sex.equals("男性")'>
-		<s:hidden name="sex" value="0" />
+						<s:hidden name="sex" value="0" />
 					</s:if>
 					<s:if test='sex.equals("女性")'>
-			<s:hidden name="sex" value="1" />
+						<s:hidden name="sex" value="1" />
 					</s:if>
 				</s:form>
 			</div>
