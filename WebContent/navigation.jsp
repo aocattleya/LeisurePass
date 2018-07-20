@@ -15,7 +15,7 @@
 			</li>
 			<li>
 				<div class="placeId cp_sl01">
-				<s:select name="placeId" list="#session.mPlaceDtoList" listValue="placeName" listKey="placeId" />
+				<s:select name="placeId" list="#session.mPlaceDtoList" listValue="placeName" listKey="placeId" class="pullDown"/>
 				</div>
 			</li>
 			<li>

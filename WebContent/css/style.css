@@ -198,6 +198,12 @@ header .logout {
 	border: #ed7d22; /*枠線の色変更*/
 }
 
+.pullDown{
+	position:relative;
+	left:15px;
+width: 170px;
+	z-index: 2;}
+
 #navigation .submit_btn{
 	margin-top: 20px;
 	margin-left: 15px;
