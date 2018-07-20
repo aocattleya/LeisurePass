@@ -68,7 +68,9 @@ body {
 }
 
 .box {
-	padding-right: 400px;
+	padding-right: 350px;
+	transform: scale(1.1);
+
 }
 
 .error {
