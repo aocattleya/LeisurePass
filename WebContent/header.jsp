@@ -17,18 +17,21 @@ setTimeout(sessionTimeout, 1800000);
 			<s:if test="#session.logined == 0">
 
 				<li>
-					<div class="ticket">
-						<a href="ProductListAction"><img src="images/ticket.jpg"></a>
+					<div class="ticket menu-button">
+						<img src="images/ticket.jpg">
+						<a href="ProductListAction"></a>
 					</div>
 				</li>
 				<li>
-					<div class="cart">
-						<a href="CartAction"><img src="images/cart.jpg"></a>
+					<div class="cart menu-button">
+						<img src="images/cart.jpg">
+						<a href="CartAction"></a>
 					</div>
 				</li>
 				<li>
-					<div class="login">
-						<a href="GoLoginAction">ログイン</a>
+					<div class="login menu-button">
+						<p>ログイン<p>
+						<a href="GoLoginAction"></a>
 					</div>
 				</li>
 			</s:if>
@@ -38,18 +41,21 @@ setTimeout(sessionTimeout, 1800000);
 				<!-- 一般ユーザー向け -->
 				<s:if test="#session.userInfo.status == 0">
 					<li>
-						<div class="ticket">
-							<a href="ProductListAction"><img src="images/ticket.jpg"></a>
+						<div class="ticket menu-button">
+							<img src="images/ticket.jpg">
+							<a href="ProductListAction"></a>
 						</div>
 					</li>
 					<li>
-						<div class="cart">
-							<a href="CartAction"><img src="images/cart.jpg"></a>
+						<div class="cart menu-button">
+							<img src="images/cart.jpg">
+							<a href="CartAction"></a>
 						</div>
 					</li>
 					<li>
-						<div class="mypage">
-							<a href="MyPageAction"><img src="images/mypage.jpg"></a>
+						<div class="mypage menu-button">
+							<img src="images/mypage.jpg">
+							<a href="MyPageAction"></a>
 						</div>
 					</li>
 				</s:if>
@@ -57,16 +63,18 @@ setTimeout(sessionTimeout, 1800000);
 				<!-- 管理者向け -->
 				<s:else>
 					<li>
-						<div class="logout">
-							<a href="AdminProductAction">管理者</a>
+						<div class="login menu-button">
+							<p>管理者</p>
+							<a href="AdminProductAction"></a>
 						</div>
 					</li>
 				</s:else>
 
-				<!-- ログイン状態　共通 -->
+				<!-- ログイン状態 共通 -->
 				<li>
-					<div class="logout">
-						<a href="LogoutAction">ログアウト</a>
+					<div class="logout menu-button">
+						<p>ログアウト</p>
+						<a href="LogoutAction"></a>
 					</div>
 				</li>
 			</s:if>
