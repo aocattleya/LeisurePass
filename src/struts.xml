@@ -253,6 +253,12 @@
 		<result name="error">purchaseHistory.jsp</result>
 	</action>
 
+<!-- 山本  セッションタイムアウト時エラー画面へ -->
+
+	<action name="TimeoutAction" class="com.internousdev.leisurepass.action.TimeoutAction" method="execute">
+		<result name="success">timeout.jsp</result>
+	</action>
+
 
 
 	</package>

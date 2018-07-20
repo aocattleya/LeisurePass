@@ -10,14 +10,20 @@ import com.opensymphony.xwork2.ActionSupport;
 public class LogoutAction extends ActionSupport implements SessionAware {
 
 	private String categoryId;
+	private boolean savedLoginId;
 	private Map<String, Object> session;
 
 	public String execute() {
 		String result = ERROR;
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
+		if(session.containsKey("loginId")){
 		String loginId = String.valueOf(session.get("loginId"));
 		// ログイン保持
-		boolean savedLoginId = Boolean.valueOf(String.valueOf(session.get("savedLoginId")));
+		if(session.containsKey("savedLoginId")){
+			savedLoginId = Boolean.valueOf(String.valueOf(session.get("savedLoginId")));
+		}else{
+			savedLoginId = false;
+		}
 		int count = userInfoDAO.logout(loginId);
 			if (count > 0) {
 				session.clear();
@@ -29,6 +35,12 @@ public class LogoutAction extends ActionSupport implements SessionAware {
 					session.put("savedLoginId", savedLoginId);
 					result = SUCCESS;
 				}
+		}
+		}else{
+			session.clear();
+			boolean savedLoginId = false;
+			session.put("savedLoginId", savedLoginId);
+			return SUCCESS;
 		}
 		return result;
 	}

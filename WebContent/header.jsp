@@ -2,6 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <header>
+<script type="text/javascript">
+var sessionTimeout = function(){
+	location.href = "TimeoutAction";
+}
+setTimeout(sessionTimeout, 1800000);
+</script>
 	<div id="header-container" class="cf">
 		<div class="logo">
 			<a href="HomeAction"><img src="images/logo.jpg"></a>
