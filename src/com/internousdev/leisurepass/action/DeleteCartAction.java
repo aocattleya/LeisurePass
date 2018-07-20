@@ -18,14 +18,12 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 	private Collection<String> checkList;
 	private String categoryId;
 	private String productId;
-
 	private String sex;
 	private List<String> sexList = new ArrayList<String>();
 	private static final String MALE = "男性";
 	private static final String FEMALE = "女性";
 	private String defaultSexValue = MALE;
 	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
-
 	private String productName;
 	private String productNameKana;
 	private String imageFilePath;
@@ -37,14 +35,13 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 	private String subtotal;
 	private Map<String, Object> session;
 
-
 	public String execute() {
 		System.out.println(session.toString());
 
 		String result = ERROR;
 		int count = 0;
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
-		List<String>checkListErrorMessageList=new ArrayList<String>();
+		List<String> checkListErrorMessageList = new ArrayList<String>();
 
 		session.remove("checkListErrorMessageList");
 
@@ -56,14 +53,14 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 		}
 		// カート内削除文、処理内容はcartInfoDAO.delete
 		for (String productId : checkList) {
-			if (productId.equals("false")){
+			if (productId.equals("false")) {
 				break;
 			}
 
 			String loginId = "";
 			if (session.containsKey("loginId")) {
 				loginId = session.get("userId").toString();
-			}else{
+			} else {
 				loginId = session.get("tempUserId").toString();
 			}
 
@@ -91,12 +88,11 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 			}
 			session.put("cartInfoDtoList", cartInfoDtoList);
 
-			 int totalPrice =
-			 Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
-			 session.put("totalPrice", totalPrice);
+			int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
+			session.put("totalPrice", totalPrice);
 
-			 sexList.add(MALE);
-			 sexList.add(FEMALE);
+			sexList.add(MALE);
+			sexList.add(FEMALE);
 
 			result = SUCCESS;
 		}
@@ -108,7 +104,7 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 		return result;
 	}
 
-///////////////// getter/setter//////////////
+	///////////////// getter/setter//////////////
 	public Map<String, Object> getSession() {
 		return session;
 	}
@@ -128,7 +124,6 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-
 
 	public String getImageFilePath() {
 		return imageFilePath;

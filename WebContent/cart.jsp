@@ -116,7 +116,7 @@
 
 				<div class="submit_btn_box">
 					<div id="contents-btn-set">
-					<s:hidden name="srcPage" value="cart" />
+						<s:hidden name="srcPage" value="cart" />
 						<s:submit value="決済" class="submit_btn" />
 					</div>
 				</div>
@@ -131,13 +131,13 @@
 			</s:form>
 		</s:if>
 		<s:else>
-		<div class="infoBox">
-			<div class="info">カート情報はありません</div>
-			<div class="info">
-				<s:form action="HomeAction">
-					<s:submit value="HOME" class="submit_btn" id="HomeAction"/>
-				</s:form>
-			</div>
+			<div class="infoBox">
+				<div class="info">カート情報はありません</div>
+				<div class="info">
+					<s:form action="HomeAction">
+						<s:submit value="HOME" class="submit_btn" id="HomeAction" />
+					</s:form>
+				</div>
 			</div>
 		</s:else>
 

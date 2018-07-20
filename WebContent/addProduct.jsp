@@ -92,6 +92,16 @@ input.txt2 {
 	font-size: 18px; /*入力欄の文字サイズ*/
 }
 
+.productDescription{
+resize: none;
+	height: 200px; /*入力欄の縦の長さ*/
+	width: 450px; /*入力欄の横の長さ*/
+	background-color: #f7f7f7; /*入力欄の中の色*/
+	border-radius: 5px; /*入力欄の角の丸み*/
+	font-size: 18px; /*入力欄の文字サイズ*/
+}
+
+
 .errormessage {
 	color: #ed7d22;
 }
@@ -106,6 +116,14 @@ input.txt3 {
 }
 
 textarea {
+	resize: none;
+	height: 200px; /*入力欄の縦の長さ*/
+	width: 450px; /*入力欄の横の長さ*/
+	background-color: #f7f7f7; /*入力欄の中の色*/
+	border-radius: 5px; /*入力欄の角の丸み*/
+	font-size: 18px; /*入力欄の文字サイズ*/
+}
+textfield {
 	resize: none;
 	height: 200px; /*入力欄の縦の長さ*/
 	width: 450px; /*入力欄の横の長さ*/
@@ -189,12 +207,12 @@ img {
 							value="%{#session.addProductDTO.productName}" class="txt2" />
 						<br>
 						<s:if test="!#session.productNameErrorMessageList.isEmpty()">
-						<div class="errormessage">
+							<div class="errormessage">
 								<s:iterator value="#session.productNameErrorMessageList">
 									<s:property />
 									<br>
 								</s:iterator>
-								</div>
+							</div>
 						</s:if>
 						<br>
 						<br>
@@ -210,7 +228,7 @@ img {
 									<s:property />
 									<br>
 								</s:iterator>
-								</div>
+							</div>
 						</s:if>
 						<br>
 						<br>
@@ -313,7 +331,7 @@ img {
 									<s:property />
 									<br>
 								</s:iterator>
-								</div>
+							</div>
 						</s:if>
 						<br>
 						<br>
@@ -331,7 +349,7 @@ img {
 									<s:property />
 									<br>
 								</s:iterator>
-								</div>
+							</div>
 						</s:if>
 						<br>
 						<br>
@@ -347,7 +365,7 @@ img {
 									<s:property />
 									<br>
 								</s:iterator>
-								</div>
+							</div>
 						</s:if>
 						<br>
 						<br>
@@ -363,7 +381,7 @@ img {
 									<s:property />
 									<br>
 								</s:iterator>
-								</div>
+							</div>
 						</s:if>
 						<br>
 						<br>
@@ -379,7 +397,7 @@ img {
 									<s:property />
 									<br>
 								</s:iterator>
-								</div>
+							</div>
 						</s:if>
 						<br>
 						<br>
@@ -395,7 +413,7 @@ img {
 									<s:property />
 									<br>
 								</s:iterator>
-								</div>
+							</div>
 						</s:if>
 						<br>
 						<br>
@@ -411,7 +429,7 @@ img {
 									<s:property />
 									<br>
 								</s:iterator>
-								</div>
+							</div>
 						</s:if>
 						<br>
 						<br>
@@ -427,7 +445,7 @@ img {
 									<s:property />
 									<br>
 								</s:iterator>
-								</div>
+							</div>
 						</s:if>
 						<br>
 						<br>
@@ -451,7 +469,7 @@ img {
 							商品詳細<br>
 						</div>
 						<s:textfield name="productDescription"
-							value="%{#session.addProductDTO.productDescription}" class="txt2" />
+							value="%{#session.addProductDTO.productDescription}" class="productDescription" />
 						<br>
 						<s:if
 							test="!#session.productDescriptionErrorMessageList.isEmpty()">

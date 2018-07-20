@@ -6,8 +6,8 @@ body {
 	font-size: 18px;
 }
 
-#HomeAction{
-	text-align:center;
+#HomeAction {
+	text-align: center;
 }
 
 h1 {
@@ -72,7 +72,7 @@ img {
 
 .productInfo {
 	font-size: 18px;
-	max-width:246px;
+	max-width: 246px;
 }
 
 .totalPrice {
@@ -82,20 +82,20 @@ img {
 
 .checkbox {
 	width: 14px;
-	margin-left:-50px;
+	margin-left: -50px;
 	position: relative;
 	top: 150px;
 	left: 120px;
 }
 
 h2 {
-	text-align:left;
+	text-align: left;
 	font-size: 30px;
 }
 
 #contents-btn-set {
 	text-align: center;
-	margin:10px;
+	margin: 10px;
 }
 
 /*ボタンをクリックしたときのCSS*/
@@ -111,7 +111,7 @@ h2 {
 	width: 200px;
 	height: 40px;
 	margin: 5px;
-	margin:10px;
+	margin: 10px;
 	color: #FFF;
 	background: #ed7d22;
 	border-radius: 20px;
@@ -120,17 +120,15 @@ h2 {
 	border: solid 2px #d27d00;
 	outline: 0; /*変な枠線を非表示に*/
 	cursor: pointer; /*マウスを乗せたとき指マークにする*/
-
 }
 
-.infoBox{
-	width:70%;
-	float:right;
+.infoBox {
+	width: 70%;
+	float: right;
 }
-
 
 .info {
-	text-align:center;
+	text-align: center;
 	font-family: Hiragino Kaku Gothic ProN;
 	position: relative;
 	right: 100px;
