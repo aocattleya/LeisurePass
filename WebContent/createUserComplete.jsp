@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/createUserComplete.css">
 <meta http-equiv="refresh" content="3;URL='HomeAction'" />
+<jsp:include page="includeHead.jsp" />
 <title>登録完了</title>
 </head>
 <body>

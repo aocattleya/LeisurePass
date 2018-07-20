@@ -26,7 +26,7 @@
 		<div id="contents">
 
 			<div id="contents">
-				<h1>登録確認画面</h1>
+				<h1>以下の内容で登録します。<br>よろしければ、登録ボタンを押してください。</h1>
 				<s:form action="CreateUserCompleteAction">
 				<div class="aaa">
 					<table class="vertical-list-table" accesskey="">

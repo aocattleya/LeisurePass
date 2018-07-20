@@ -1,14 +1,12 @@
-CHARSET "UTF-8";
+@CHARSET "UTF-8";
 
 th {
-color: #333333;
+	color: #333333;
 }
 
-tr{
-padding: 20px;
+tr {
+	padding: 30px;
 }
-
-
 /*ボタンのCSS*/
 .submit_btn {
 	width: 200px; /*ボタンの横の長さ*/
@@ -25,23 +23,25 @@ padding: 20px;
 	cursor: pointer; /*マウスを乗せたとき指マークにする*/
 }
 
+.submit_btn_box {
+	padding-top: 50px;
+}
+
 .submit_btn:active {
 	transform: translateY(2px); /*下に動かす*/
 	background-color: #f3a769; /*薄いオレンジ色にする*/
 	border: #ed7d22; /*枠線の色変更*/
 }
 
-.submit_btn_box{
-	padding-top:50px;
-}
 /*コンテンツの中身*/
 .vertical-list-table {
-
-	padding: 2em;/*文字の幅調整*/
-	width: 300px;/*背景の横幅*/
-	margin: 0 auto;/*センター中央寄せ*/
-
+	background-color: #f7f7f7; /*背景色*/
+	padding: 2em; /*文字の幅調整*/
+	width: 600px; /*背景の横幅*/
+	border-radius: 20px; /*背景の角の丸み*/
+	margin: 0 auto; /*センター中央寄せ*/
 }
+
 #contents {
 	margin: 0;
 	padding: 0;
@@ -50,26 +50,23 @@ padding: 20px;
 	font-family: メイリオ ", sans-serif;
 	font-size: 18px;
 	text-align: center;
-
 }
 
-label{
-	 border-bottom: solid 3px #ffa623;
-	 padding-left: 10px;
-	 padding-right: 10px;
+label {
+	border-bottom: solid 3px #ffa623;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
-h1{
-font-size: 30px;
-color: #333333;
+h1 {
+	font-size: 20px;
+	color: #333333;
+	margin-bottom: 50px;
 }
 
-
-.aaa{
-	width: 600px;/*背景の横幅*/
-	background-color:#F7F7F7;/*背景色*/
-
-	border-radius: 20px;/*背景の角の丸み*/
-	margin: 0 auto;/*センター中央寄せ*/
+.aaa {
+	width: 600px; /*背景の横幅*/
+	background-color: #F7F7F7; /*背景色*/ border-radius : 20px; /*背景の角の丸み*/
+	margin: 0 auto;
+	border-radius: 20px; /*センター中央寄せ*/
 }
-

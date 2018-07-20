@@ -63,6 +63,20 @@
 	color: #aaaaaa;
 }
 
+.txt2::-webkit-input-placeholder {
+	color: #aaaaaa;
+}
+
+.txt2::-moz-placeholder {
+	color: #aaaaaa;
+}
+
+.txt2:-ms-input-placeholder {
+	color: #aaaaaa;
+}
+
+
+
 input.txt {
 	height: 40px;
 	width: 225px;
@@ -88,7 +102,6 @@ input.txt2 {
 	font-size: 18px;
 	background-color: #f7f7f7;
 	border-radius: 5px;
-	text-align: center;
 	width: 400px;
 }
 
@@ -97,6 +110,7 @@ input.txt2 {
 }
 
 h1 {
+	font-size:30px;
 	color: #333333;
 }
 
