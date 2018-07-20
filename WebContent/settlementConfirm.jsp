@@ -106,7 +106,7 @@
 			<div class="submit_btn_box">
 				<div id=".contents-btn-set">
 					<s:form action="CreateDestinationAction">
-						<s:submit value="登録" class="submit_btn" />
+						<s:submit value="宛先新規登録" class="submit_btn" />
 					</s:form>
 					<br>
 				</div>
