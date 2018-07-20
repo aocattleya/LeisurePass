@@ -21,9 +21,7 @@
 					<br>
 				</s:if>
 				<s:else>
-					<div class="info">
-						<h2>宛先を選択してください</h2>
-					</div><br>
+					<div class="info">宛先を選択してください</div><br>
 				</s:else>
 				<s:iterator value="#session.destinationInfoDtoList" status="st">
 					<table class="horizontal-list-table">
@@ -108,7 +106,7 @@
 			<div class="submit_btn_box">
 				<div id=".contents-btn-set">
 					<s:form action="CreateDestinationAction">
-						<s:submit value="宛先新規登録" class="submit_btn" />
+						<s:submit value="登録" class="submit_btn" />
 					</s:form>
 					<br>
 				</div>
