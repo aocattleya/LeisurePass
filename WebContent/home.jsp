@@ -26,7 +26,7 @@
 			//画像フェードアウト
 			mode : 'fade',
 			// 自動再生で切り替えをする時間
-			speed : 1000
+			speed : 2000
 		});
 	});
 </script>
@@ -45,8 +45,8 @@
 			<div class="slider">
 				<div>
 					<a
-						href='<s:url action="ProductDetailsAction">
-		<s:param name="productId" value="8"/>
+						href='<s:url action="SearchItemAction">
+		<s:param name="categoryId" value="2"/>
 		</s:url>'>
 						<img src="./images/ueno_zoo5.jpg">
 					</a>
@@ -54,8 +54,8 @@
 
 				<div>
 					<a
-						href='<s:url action="ProductDetailsAction">
-		<s:param name="productId" value="35"/>
+						href='<s:url action="SearchItemAction">
+		<s:param name="categoryId" value="5"/>
 		</s:url>'>
 						<img src="./images/tokyo_dome_city.jpg">
 					</a>
@@ -63,8 +63,8 @@
 
 				<div>
 				<a
-						href='<s:url action="ProductDetailsAction">
-		<s:param name="productId" value="44"/>
+						href='<s:url action="SearchItemAction">
+		<s:param name="categoryId" value="6"/>
 		</s:url>'>
 					<img src="./images/digital_art_m6.jpg">
 					</a>
@@ -72,8 +72,8 @@
 
 				<div>
 				<a
-						href='<s:url action="ProductDetailsAction">
-		<s:param name="productId" value="12"/>
+						href='<s:url action="SearchItemAction">
+		<s:param name="categoryId" value="3"/>
 		</s:url>'>
 					<img src="./images/kamogawa_sea_world7.jpg">
 					</a>
@@ -81,8 +81,8 @@
 
 				<div>
 				<a
-						href='<s:url action="ProductDetailsAction">
-		<s:param name="productId" value="30"/>
+						href='<s:url action="SearchItemAction">
+		<s:param name="categoryId" value="4"/>
 		</s:url>'>
 					<img src="./images/parcabout5.jpg">
 					</a>
@@ -92,6 +92,19 @@
 			<p>おすすめピックアップ</p>
 
 			<div class="box">
+				<%-- <ul>
+					<s:iterator value="recommendProducts">
+						<li>
+							<a href='<s:url action="ProductDetailsAction"><s:param name="productId" value="%{productId}"/></s:url>'>
+								<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' />
+								<div class="text">
+									<s:property value="productName" />
+								</div>
+							</a>
+
+						</li>
+					</s:iterator>
+				</ul> --%>
 
 				<ul>
 					<li><a
