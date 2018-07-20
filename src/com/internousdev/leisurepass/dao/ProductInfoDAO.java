@@ -357,27 +357,7 @@ public class ProductInfoDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 
 			if (resultSet.next()) {
-				result = new ProductInfoDTO();
-				result.setProductId(resultSet.getInt("product_id"));
-				result.setProductName(resultSet.getString("product_name"));
-				result.setProductNameKana(resultSet.getString("product_name_kana"));
-				result.setProductDescription(resultSet.getString("product_description"));
-				result.setCategoryId(resultSet.getInt("category_id"));
-				result.setPlaceId(resultSet.getInt("place_id"));
-				result.setPrice(resultSet.getInt("price"));
-				result.setImageFilePath(resultSet.getString("image_file_path"));
-				result.setImageFileName(resultSet.getString("image_file_name"));
-				result.setReleaseDate(resultSet.getDate("release_date"));
-				result.setReleaseCompany(resultSet.getString("release_company"));
-				result.setLocation(resultSet.getString("location"));
-				result.setAccess(resultSet.getString("access"));
-				result.setUrl(resultSet.getString("url"));
-				result.setStatus(resultSet.getInt("status"));
-				result.setStartDate(resultSet.getDate("start_date"));
-				result.setEndDate(resultSet.getDate("end_date"));
-				result.setRegistDate(resultSet.getDate("regist_date"));
-				result.setUpdateDate(resultSet.getDate("update_date"));
-
+				result = toDto(resultSet);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

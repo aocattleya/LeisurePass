@@ -4,7 +4,8 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.leisurepass.dao.ProductInfoDAO;
+import com.internousdev.leisurepass.dao.AdminItemDAO;
+import com.internousdev.leisurepass.dto.ProductInfoDTO;
 import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -15,10 +16,16 @@ public class DeleteProductCompleteAction extends ActionSupport implements Sessio
 
 	public String execute() {
 
-		System.out.println(session.get("deleteId"));
-		id = (int) session.get("deleteId");
-		ProductInfoDAO dao = new ProductInfoDAO();
-		dao.delete(id);
+		//System.out.println(session.get("deleteProductDTO"));
+		ProductInfoDTO dto = (ProductInfoDTO) session.get("deleteProductDTO");
+
+		if (dto != null){
+			AdminItemDAO dao = new AdminItemDAO();
+			System.out.println(dto.getId());
+			System.out.println(dto.getProductId());
+			dao.deleteProduct(dto.getId());
+			dao.deleteCart(dto.getProductId());
+		}
 
 		// navigation情報を取得
 		SearchConditionLoader loader = new SearchConditionLoader();

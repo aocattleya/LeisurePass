@@ -29,6 +29,7 @@ public class AdminItemDAO {
 
 			if (resultSet.next()) {
 				result = new ProductInfoDTO();
+				result.setId(resultSet.getInt("id"));
 				result.setProductId(resultSet.getInt("product_id"));
 				result.setProductName(resultSet.getString("product_name"));
 				result.setProductNameKana(resultSet.getString("product_name_kana"));
@@ -147,7 +148,7 @@ public class AdminItemDAO {
 	}
 
 	// 商品削除
-	public int delete(int id) {
+	public int deleteProduct(int id) {
 
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
@@ -160,7 +161,9 @@ public class AdminItemDAO {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, id);
 
+			System.out.println(preparedStatement.toString());
 			result = preparedStatement.executeUpdate();
+			System.out.println(result + "削除");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -173,5 +176,27 @@ public class AdminItemDAO {
 		}
 
 		return result;
+	}
+
+	public int deleteCart(int productId) {
+		DBConnector dbConnector = new DBConnector();
+		Connection connection = dbConnector.getConnection();
+		int count = 0;
+		String sql = "delete from cart_info where product_id=?";
+
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, productId);
+			//executeUpdateでpsのsqlを実行
+			count = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return count;
 	}
 }
