@@ -52,15 +52,13 @@
 <jsp:include page="includeHead.jsp" />
 <title>商品追加画面</title>
 <style type="text/css">
-
-#main{
-	position:relative;
-	bottom:50px;
+#main {
+	position: relative;
+	bottom: 50px;
 }
 
-
 .title {
-mrgin-top:-500px;
+	mrgin-top: -500px;
 	text-align: center;
 }
 
@@ -92,6 +90,10 @@ input.txt2 {
 	background-color: #f7f7f7; /*入力欄の中の色*/
 	border-radius: 5px; /*入力欄の角の丸み*/
 	font-size: 18px; /*入力欄の文字サイズ*/
+}
+
+.errormessage {
+	color: #ed7d22;
 }
 
 input.txt3 {
@@ -137,8 +139,8 @@ select {
 	border: solid 2px #d27d00;
 	outline: 0; /*変な枠線を非表示に*/
 	cursor: pointer; /*マウスを乗せたとき指マークにする*/
-	position:relative;
-	left:120px;
+	position: relative;
+	left: 120px;
 }
 
 img {
@@ -171,10 +173,12 @@ img {
 							value="%{#session.addProductDTO.productId}" class="txt2" />
 						<br>
 						<s:if test="!#session.productIdErrorMessageList.isEmpty()">
-							<s:iterator value="#session.productIdErrorMessageList">
-								<s:property />
-								<br>
-							</s:iterator>
+							<div class="errormessage">
+								<s:iterator value="#session.productIdErrorMessageList">
+									<s:property />
+									<br>
+								</s:iterator>
+							</div>
 						</s:if>
 						<br>
 						<br>
@@ -185,10 +189,12 @@ img {
 							value="%{#session.addProductDTO.productName}" class="txt2" />
 						<br>
 						<s:if test="!#session.productNameErrorMessageList.isEmpty()">
-							<s:iterator value="#session.productNameErrorMessageList">
-								<s:property />
-								<br>
-							</s:iterator>
+						<div class="errormessage">
+								<s:iterator value="#session.productNameErrorMessageList">
+									<s:property />
+									<br>
+								</s:iterator>
+								</div>
 						</s:if>
 						<br>
 						<br>
@@ -199,10 +205,12 @@ img {
 							value="%{#session.addProductDTO.productNameKana}" class="txt2" />
 						<br>
 						<s:if test="!#session.productNameKanaErrorMessageList.isEmpty()">
-							<s:iterator value="#session.productNameKanaErrorMessageList">
-								<s:property />
-								<br>
-							</s:iterator>
+							<div class="errormessage">
+								<s:iterator value="#session.productNameKanaErrorMessageList">
+									<s:property />
+									<br>
+								</s:iterator>
+								</div>
 						</s:if>
 						<br>
 						<br>
@@ -300,10 +308,12 @@ img {
 							class="txt2" />
 						<br>
 						<s:if test="!#session.priceErrorMessageList.isEmpty()">
-							<s:iterator value="#session.priceErrorMessageList">
-								<s:property />
-								<br>
-							</s:iterator>
+							<div class="errormessage">
+								<s:iterator value="#session.priceErrorMessageList">
+									<s:property />
+									<br>
+								</s:iterator>
+								</div>
 						</s:if>
 						<br>
 						<br>
@@ -316,10 +326,12 @@ img {
 						</div>
 						<br>
 						<s:if test="!#session.productImageErrorMessageList.isEmpty()">
-							<s:iterator value="#session.productImageErrorMessageList">
-								<s:property />
-								<br>
-							</s:iterator>
+							<div class="errormessage">
+								<s:iterator value="#session.productImageErrorMessageList">
+									<s:property />
+									<br>
+								</s:iterator>
+								</div>
 						</s:if>
 						<br>
 						<br>
@@ -330,10 +342,12 @@ img {
 							value="%{#session.addProductDTO.releaseDateString}" class="txt2" />
 						<br>
 						<s:if test="!#session.releaseDateErrorMessageList.isEmpty()">
-							<s:iterator value="#session.releaseDateErrorMessageList">
-								<s:property />
-								<br>
-							</s:iterator>
+							<div class="errormessage">
+								<s:iterator value="#session.releaseDateErrorMessageList">
+									<s:property />
+									<br>
+								</s:iterator>
+								</div>
 						</s:if>
 						<br>
 						<br>
@@ -344,10 +358,12 @@ img {
 							value="%{#session.addProductDTO.releaseCompany}" class="txt2" />
 						<br>
 						<s:if test="!#session.releaseCompanyErrorMessageList.isEmpty()">
-							<s:iterator value="#session.releaseCompanyErrorMessageList">
-								<s:property />
-								<br>
-							</s:iterator>
+							<div class="errormessage">
+								<s:iterator value="#session.releaseCompanyErrorMessageList">
+									<s:property />
+									<br>
+								</s:iterator>
+								</div>
 						</s:if>
 						<br>
 						<br>
@@ -358,10 +374,12 @@ img {
 							value="%{#session.addProductDTO.location}" class="txt2" />
 						<br>
 						<s:if test="!#session.locationErrorMessageList.isEmpty()">
-							<s:iterator value="#session.locationErrorMessageList">
-								<s:property />
-								<br>
-							</s:iterator>
+							<div class="errormessage">
+								<s:iterator value="#session.locationErrorMessageList">
+									<s:property />
+									<br>
+								</s:iterator>
+								</div>
 						</s:if>
 						<br>
 						<br>
@@ -372,10 +390,12 @@ img {
 							value="%{#session.addProductDTO.access}" class="txt2" />
 						<br>
 						<s:if test="!#session.accessErrorMessageList.isEmpty()">
-							<s:iterator value="#session.accessErrorMessageList">
-								<s:property />
-								<br>
-							</s:iterator>
+							<div class="errormessage">
+								<s:iterator value="#session.accessErrorMessageList">
+									<s:property />
+									<br>
+								</s:iterator>
+								</div>
 						</s:if>
 						<br>
 						<br>
@@ -386,10 +406,12 @@ img {
 							class="txt2" />
 						<br>
 						<s:if test="!#session.urlErrorMessageList.isEmpty()">
-							<s:iterator value="#session.urlErrorMessageList">
-								<s:property />
-								<br>
-							</s:iterator>
+							<div class="errormessage">
+								<s:iterator value="#session.urlErrorMessageList">
+									<s:property />
+									<br>
+								</s:iterator>
+								</div>
 						</s:if>
 						<br>
 						<br>
@@ -400,10 +422,12 @@ img {
 							value="%{#session.addProductDTO.startDateString}" class="txt2" />
 						<br>
 						<s:if test="!#session.startDateErrorMessageList.isEmpty()">
-							<s:iterator value="#session.startDateErrorMessageList">
-								<s:property />
-								<br>
-							</s:iterator>
+							<div class="errormessage">
+								<s:iterator value="#session.startDateErrorMessageList">
+									<s:property />
+									<br>
+								</s:iterator>
+								</div>
 						</s:if>
 						<br>
 						<br>
@@ -414,10 +438,12 @@ img {
 							value="%{#session.addProductDTO.endDateString}" class="txt2" />
 						<br>
 						<s:if test="!#session.endDateErrorMessageList.isEmpty()">
-							<s:iterator value="#session.endDateErrorMessageList">
-								<s:property />
-								<br>
-							</s:iterator>
+							<div class="errormessage">
+								<s:iterator value="#session.endDateErrorMessageList">
+									<s:property />
+									<br>
+								</s:iterator>
+							</div>
 						</s:if>
 						<br>
 						<br>
@@ -429,14 +455,16 @@ img {
 						<br>
 						<s:if
 							test="!#session.productDescriptionErrorMessageList.isEmpty()">
-							<s:iterator value="#session.productDescriptionErrorMessageList">
-								<s:property />
-								<br>
-							</s:iterator>
+							<div class="errormessage">
+								<s:iterator value="#session.productDescriptionErrorMessageList">
+									<s:property />
+									<br>
+								</s:iterator>
+							</div>
 						</s:if>
 						<br>
 						<br>
-						<s:submit value="確認画面へ" />
+						<s:submit value="確認画面へ" class="submit_btn" />
 
 					</s:form>
 				</s:if>
