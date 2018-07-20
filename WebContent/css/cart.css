@@ -12,12 +12,13 @@ body {
 
 h1 {
 	width: 80%;
-	margin: 0 auto;
+	margin-top: 0; margin : 0 auto;
 	max-width: 500px;
 	text-align: center;
 	color: #333333;
 	font-size: 30px;
 	font-family: Hiragino Kaku Gothic ProN;
+	margin: 0 auto;
 }
 
 .Side-by-side {
@@ -44,6 +45,7 @@ table td .productInfo {
 }
 
 img {
+	border-radius: 10px;
 	float: left;
 }
 
@@ -77,11 +79,13 @@ img {
 
 .totalPrice {
 	position: relative;
-	left: 500px;
+	left: 300px;
 }
 
 .checkbox {
-	width: 14px;
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+	width: 50px;
 	margin-left: -50px;
 	position: relative;
 	top: 150px;
@@ -91,6 +95,10 @@ img {
 h2 {
 	text-align: left;
 	font-size: 30px;
+}
+
+h2 label {
+	padding-left: 200px;
 }
 
 #contents-btn-set {
@@ -128,11 +136,13 @@ h2 {
 }
 
 .info {
+	font-weight:bold;
 	text-align: center;
 	font-family: Hiragino Kaku Gothic ProN;
 	position: relative;
 	right: 100px;
-	margin-top: 40px;
+	margin-top: 0px;
+	margin-bottom: 40px;
 	font-size: 30px;
 }
 
@@ -141,6 +151,6 @@ h2 {
 	height: 50px;
 }
 
-.error-message{
-color:#ed7d22;
+.error-message {
+	color: #ed7d22;
 }

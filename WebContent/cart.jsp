@@ -123,7 +123,7 @@
 
 				<div class="submit_btn_box">
 					<div id="contents-btn-set">
-						<s:submit value="〆した商品を削除" class="submit_btn"
+						<s:submit value="選択した商品を削除" class="submit_btn"
 							onclick="this.form.action='DeleteCartAction';" />
 					</div>
 				</div>
