@@ -13,19 +13,19 @@
 <body>
 	<jsp:include page="header.jsp" />
 	​
-	<div id="main">
-		​
-		<div id="admin-contents">
-			<div>
-				<h1>商品管理完了画面</h1>
-			</div>
 
-		<!-- 商品管理画面に戻る -->
+		<div id="contents">​
+			<div class="info"><h1>商品が追加されました。</h1></div>
+			<br>
+			<br>
+
+			<!-- 商品管理画面に戻る -->
 			<s:form action="AdminProductAction">
-				<s:submit value="戻る" />
+				<s:submit value="戻る" class="submit_btn" />
 			</s:form>
 		</div>
-		<div id="footer"></div>
-	</div>
+
+	<div id="footer"></div>
+
 </body>
 </html>
