@@ -3,15 +3,10 @@
 h1{
 font-size: 30px;
 color: #333333;
+text-align: center;
 }
 
-#contents {
-	margin: 0;
-	padding: 0;
-	line-height: 1.6;
-	letter-spacing: 1px;
-	font-family: メイリオ ", sans-serif;
-	font-size: 18px;
+p{
 	text-align: center;
 }
 
@@ -30,6 +25,10 @@ color: #333333;
 
 tr{
 padding: 30px;
+}
+
+td{
+text-align: center;
 }
 
 label {
@@ -58,9 +57,21 @@ label {
 
 }
 
+.center{
+	text-align: center;
+	display: inline-block;
+}
+
+
 /*ボタンをクリックしたときのCSS*/
 .submit_btn:active {
 	transform: translateY(2px); /*下に動かす*/
 	background-color: #f3a769; /*薄いオレンジ色にする*/
 	border: #ed7d22; /*枠線の色変更*/
+}
+
+#correction {
+    color: #ed7d22;
+    letter-spacing: 2px;
+    text-align: center;
 }

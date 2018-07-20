@@ -16,7 +16,7 @@
 ​
 	<div id="main" class="cf">
 
-		<div id="admin-contents" id="contents">
+		<div id="admin-contents">
 			<div>
 				<h1>以下の内容で登録します。</h1>
 			</div>
@@ -94,31 +94,31 @@
 					<td><s:property value="%{#session.addProductDTO.location}"/></td>
 				</tr>
 				<tr>
-					<th>アクセス</th>
+					<th><s:label value="アクセス" /></th>
 				</tr>
 				<tr>
 					<td><s:property value="%{#session.addProductDTO.access}"/></td>
 				</tr>
 				<tr>
-					<th>URL</th>
+					<th><s:label value="URL" /></th>
 				</tr>
 				<tr>
 					<td><s:property value="%{#session.addProductDTO.url}"/></td>
 				</tr>
 				<tr>
-					<th>発売日</th>
+					<th><s:label value="発売日" /></th>
 				</tr>
 				<tr>
 					<td><s:property value="%{#session.addProductDTO.startDateString}"/></td>
 				</tr>
 				<tr>
-					<th>終了日</th>
+					<th><s:label value="終了日" /></th>
 				</tr>
 				<tr>
 					<td><s:property value="%{#session.addProductDTO.endDateString}"/></td>
 				</tr>
 				<tr>
-					<th>商品詳細</th>
+					<th><s:label value="商品詳細" /></th>
 				</tr>
 				<tr>
 					<td><s:property value="%{#session.addProductDTO.productDescription}"/></td>
@@ -127,20 +127,18 @@
 			</s:form>
 		</div>
 ​
+
 		<!-- 商品追加を確定する -->
-		<div class="submit_btn_box">
-			<div id=".contents-btn-set">
-				<s:form action="AddProductCompleteAction" method="post" enctype="multipart/form-data">
-					<s:submit value="決定" />
-				</s:form>
+			<div class="submit_btn_box">
+				<div id=".contents-btn-set">
+					<s:form action="AddProductCompleteAction" method="post" enctype="multipart/form-data">
+						<p><s:submit value="決定" class="submit_btn"/></p>
+					</s:form>
+				</div>
+			<!-- 商品管理画面に戻る（入力内容は保持） -->
+			<p><a href='<s:url action="AddProductAction"/>' id="#correction">修正</a></p>
 			</div>
-		</div>
-		<!-- 商品管理画面に戻る（入力内容は保持） -->
-		<s:form action="AddProductAction">
-			<s:submit value="修正" />
-		</s:form>
-	</div>
+
 		<jsp:include page="footer.jsp" />
-	</div>
 </body>
 </html>
