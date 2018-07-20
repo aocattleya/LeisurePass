@@ -8,8 +8,7 @@ body {
 
 #contents {
 	text-align: center;
-	float: left;
-	width: 1344px;
+	margin-top: 105px;
 }
 
 /*ボタンのCSS*/
