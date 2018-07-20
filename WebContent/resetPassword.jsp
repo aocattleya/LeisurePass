@@ -34,7 +34,7 @@
 						<th scope="row"><s:label value="ログインID" /></th>
 					</tr>
 					<tr>
-						<td><s:textfield name="loginId" placeholder="ログインID"
+						<td><s:textfield name="loginId" placeholder="ログインIDを入力"
 								class="txt" /></td>
 					</tr>
 					<tr>
@@ -61,7 +61,7 @@
 						<th scope="row"><s:label value="現在のパスワード" /></th>
 					</tr>
 					<tr>
-						<td><s:password name="password" placeholder="現在のパスワード"
+						<td><s:password name="password" placeholder="現在のパスワードを入力"
 								class="txt" /></td>
 					</tr>
 					<tr>
@@ -101,7 +101,7 @@
 						<th scope="row"><s:label value="新しいパスワード" /></th>
 					</tr>
 					<tr>
-						<td><s:password name="newPassword" placeholder="新しいパスワード"
+						<td><s:password name="newPassword" placeholder="新しいパスワードを入力"
 								class="txt" /></td>
 					</tr>
 
@@ -130,7 +130,7 @@
 					</tr>
 					<tr>
 						<td><s:password name="reConfirmationPassword"
-								placeholder="新しいパスワード(再確認用)" class="txt" /></td>
+								placeholder="新しいパスワード(再確認用)を入力" class="txt" /></td>
 
 					</tr>
 
@@ -174,7 +174,7 @@
 				</table>
 				<br>
 
-				<s:submit value="パスワード再設定" class="submit_btn" />
+				<s:submit value="確認" class="submit_btn" />
 			</s:form>
 		</div>
 
