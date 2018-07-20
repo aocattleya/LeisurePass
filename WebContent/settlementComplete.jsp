@@ -16,7 +16,7 @@
 	<div id="main" class="cf">
 		<jsp:include page="navigation.jsp" />
 		<div id="contents">
-			<div class="success"><h1>　決済が完了しました。</h1></div>
+			<div class="success">決済が完了しました。</div>
 			<p>2秒後に自動でホームへ戻ります。</p>
 		</div>
 	</div>
