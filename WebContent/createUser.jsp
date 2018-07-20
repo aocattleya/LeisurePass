@@ -32,18 +32,6 @@
 
 
 
-				<s:if test="#session.containsKey('existLoginIdErrorMessage')">
-					<div class="error">
-						<div class="error-message">
-							<s:property value="#session.existLoginIdErrorMessage" />
-							<br>
-						</div>
-					</div>
-				</s:if>
-
-
-
-
 
 
 				<s:form action="CreateUserConfirmAction">
@@ -163,8 +151,8 @@
 							</tr>
 							<tr>
 								<td colspan="2"><s:textfield name="email"
-										value="%{session.email}" lebel="メールアドレス" placeholder="メールアドレスを入力"
-										class="txt2" /></td>
+										value="%{session.email}" lebel="メールアドレス"
+										placeholder="メールアドレスを入力" class="txt2" /></td>
 
 							</tr>
 							<tr>
@@ -196,8 +184,8 @@
 							</tr>
 							<tr>
 								<td colspan="2"><s:textfield name="loginId"
-										value="%{session.loginId}" lebel="ログインID" placeholder="ログインIDを入力"
-										class="txt2" /></td>
+										value="%{session.loginId}" lebel="ログインID"
+										placeholder="ログインIDを入力" class="txt2" /></td>
 							</tr>
 							<tr>
 
@@ -212,6 +200,20 @@
 											</div>
 										</div>
 									</s:if></td>
+								</tr>
+								<tr>
+
+								<td colspan="2"><s:if test="#session.containsKey('existLoginIdErrorMessage')">
+									<div class="error">
+										<div class="error-message">
+											<s:property value="#session.existLoginIdErrorMessage" />
+											<br>
+										</div>
+									</div>
+								</s:if></td>
+
+
+
 							</tr>
 
 
@@ -227,22 +229,23 @@
 							</tr>
 							<tr>
 								<td colspan="2"><s:password name="password"
-										value="%{session.password}" lebel="パスワード" placeholder="パスワードを入力"
-										class="txt2" /></td>
+										value="%{session.password}" lebel="パスワード"
+										placeholder="パスワードを入力" class="txt2" /></td>
 							</tr>
 							<tr>
 
 
-								<td colspan="2"><s:if test="!#session.passwordErrorMessageList.isEmpty()">
-									<div class="error">
-										<div class="error-message">
-											<s:iterator value="#session.passwordErrorMessageList">
-												<s:property />
-												<br>
-											</s:iterator>
+								<td colspan="2"><s:if
+										test="!#session.passwordErrorMessageList.isEmpty()">
+										<div class="error">
+											<div class="error-message">
+												<s:iterator value="#session.passwordErrorMessageList">
+													<s:property />
+													<br>
+												</s:iterator>
+											</div>
 										</div>
-									</div>
-								</s:if></td>
+									</s:if></td>
 							</tr>
 
 

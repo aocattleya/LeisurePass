@@ -112,6 +112,7 @@ input.txt2 {
 h1 {
 	font-size:30px;
 	color: #333333;
+	margin-top:0;
 }
 
 th {
