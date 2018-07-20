@@ -207,7 +207,7 @@ header .logout a{
 	text-align: center;
 	margin-left: 0px;
 	margin-bottom: 4px;
-	border-radius: 10px;
+	border-radius: 4px;
 	background: #ffffff;
 	font-size: 20px;
 	border-style: none;
@@ -263,7 +263,7 @@ header .logout a{
 	width: 268px;
 	font-size: 20px;
 	text-align: center;
-	border-radius: 10px;
+	border-radius: 4px;
 	font-family: "Meiryo", sans-serif;
 	margin-left: -20px;
 	border-style: none;
@@ -303,7 +303,7 @@ header .logout a{
 	height: 50px;
 	margin-left: -20px;
 	position: relative;
-	border-radius: 10px;
+	border-radius: 4px;
 	background: #ffffff;
 }
 /*場所検索のプルダウンマーク（▼）の装飾*/
@@ -363,7 +363,7 @@ header .logout a{
 	background: #ffffff;
 	border: none;
 	outline: none;
-	border-radius: 10px;
+	border-radius: 4px;
 	width: 268px;
 	height: 50px;
 	margin-left: -20px;
