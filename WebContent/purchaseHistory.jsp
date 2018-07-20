@@ -48,6 +48,7 @@ table th {
 
 table td .productInfo {
 	text-align: left;
+	max-width: 246px;
 }
 
 #productNameKana {
