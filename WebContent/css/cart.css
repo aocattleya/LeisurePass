@@ -112,7 +112,6 @@ h2 {
 	height: 40px;
 	margin: 5px;
 	margin:10px;
-	margin-left: 250px;
 	color: #FFF;
 	background: #ed7d22;
 	border-radius: 20px;
@@ -124,11 +123,16 @@ h2 {
 
 }
 
+.infoBox{
+	width:70%;
+	float:right;
+}
+
+
 .info {
 	text-align:center;
 	font-family: Hiragino Kaku Gothic ProN;
 	position: relative;
-	top: 80px;
 	right: 100px;
 	margin-top: 40px;
 	font-size: 30px;

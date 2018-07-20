@@ -73,7 +73,7 @@
         function init() {
             _this.pos.x = Math.random()*width;
             //bubbleの速度
-            _this.pos.y = height+Math.random()*1000
+            _this.pos.y = height+Math.random()*300;
             //数値を大きくすることで、エフェクトの透過度が減少（最大1.0）
             _this.alpha = 0.3+Math.random()*0.3;
             //エフェクトサイズの大きさ
