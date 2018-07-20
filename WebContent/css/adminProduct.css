@@ -1,0 +1,49 @@
+@CHARSET "UTF-8";
+
+.center{
+	text-align: center;
+	padding: 2	5px;
+}
+
+body {
+	width: 100%;
+	font-family: 'メイリオ', sans-serif;
+	font-size: 18px;
+}
+
+h1 {
+	color: #ed7d22;
+	font-size: 22px;
+	text-align: center;
+}
+
+h1 img.ele {
+	width: 25px;
+	height: 25px;
+}
+
+h1 img.fish {
+	width: 30px;
+	height: 25px;
+}
+
+.admin-list-box {
+	text-align: center;
+	display: inline-block;
+	width: 33%;
+}
+
+/* .admin-image-size{
+	width: 250px;
+	height: 180px;
+} */
+
+.submit_btn_delete {
+	width: 110px;
+	height: 30px;
+	font-size: 13px;
+	background-color: #aaaaaa; /* 灰色 */
+	color: #ffffff;
+	border-style: none;
+	border-radius: 20px;
+}

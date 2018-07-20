@@ -12,11 +12,10 @@
 <body>
 	<jsp:include page="header.jsp" />
 ​
-	<div id="main" class="cf">
+	<div id="main">
 ​
-		<jsp:include page="navigation.jsp" />
 ​
-		<div id="contents">
+		<div id="admin-contents">
 			<div>
 				<h1>商品削除確認画面</h1>
 			</div>

@@ -21,7 +21,7 @@
 			</div>
 
 		<!-- 商品管理画面に戻る -->
-			<s:form action="GoAdminAction">
+			<s:form action="AdminProductAction">
 				<s:submit value="戻る" />
 			</s:form>
 		</div>
