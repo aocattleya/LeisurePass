@@ -109,11 +109,11 @@ body {
 					</tr>
 					<tr>
 						<td><s:if test="#session.savedLoginId == true">
-								<s:textfield name="loginId" class="txt" placeholder="ユーザー名を入力"
+								<s:textfield name="loginId" class="txt" placeholder="ログインIDを入力"
 									value='%{#session.keepLoginId}' autocomplete="off" size="30" />
 								<br>
 							</s:if> <s:else>
-								<s:textfield name="loginId" class="txt" placeholder="ユーザー名を入力"
+								<s:textfield name="loginId" class="txt" placeholder="ログインIDを入力"
 									autocomplete="off" size="30" />
 								<br>
 							</s:else></td>
