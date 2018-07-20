@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/adminProductComplete.css">
 <jsp:include page="includeHead.jsp" />
 <title>商品管理完了画面</title>
 </head>
@@ -14,8 +15,8 @@
 	<jsp:include page="header.jsp" />
 	​
 
-		<div id="contents">​
-			<div class="info"><h1>商品が追加されました。</h1></div>
+		<div id="contents01">​
+			<div class="info">商品が追加されました。</div>
 			<br>
 			<br>
 

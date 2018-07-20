@@ -5,17 +5,17 @@ body {
 }
 
 
-#contents {
-	margin: 0;
-	padding: 0;
-/* 	line-height: 1.6; */
-	text-align:center;
+#contents01 {
+
+	/* width: 70%;
+	max-width: 1040px; */
+
+	text-align: center;
 
 }
 
 .info{
-	font-size:30px;
-	font-weight:bold;
+	font-size:22px;
 	text-align:center;
 }
 
@@ -25,7 +25,6 @@ body {
 	width: 200px;
 	height: 40px;
 	margin: 5px;
-	margin-left: 250px;
 	color: #FFF;
 	background: #ed7d22;
 	border-radius: 20px;
