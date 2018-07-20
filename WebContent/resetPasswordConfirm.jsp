@@ -25,11 +25,13 @@
 			<h1>以下の内容で変更します。</h1>
 			<div class=table>
 				<s:form action="ResetPasswordCompleteAction">
+
+
 					<tr>
 						<th><s:label value="ログインID" /></th>
 					</tr>
 					<br>
-		<s:property value="#session.loginId" />
+					<s:property value="#session.loginId" />
 					<br>
 					<br>
 					<tr>
@@ -37,14 +39,13 @@
 					</tr>
 					<br>
 					<s:property value="#session.concealedPassword" />
-					<br>
-					<br>
-
-					<s:submit value="再設定" class="submit_btn" />
-
-				</s:form>
-
 			</div>
+
+			<s:submit value="再設定" class="submit_btn" />
+
+			</s:form>
+
+
 
 		</div>
 	</div>
