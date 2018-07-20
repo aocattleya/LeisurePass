@@ -200,17 +200,18 @@
 											</div>
 										</div>
 									</s:if></td>
-								</tr>
-								<tr>
+							</tr>
+							<tr>
 
-								<td colspan="2"><s:if test="#session.containsKey('existLoginIdErrorMessage')">
-									<div class="error">
-										<div class="error-message">
-											<s:property value="#session.existLoginIdErrorMessage" />
-											<br>
+								<td colspan="2"><s:if
+										test="#session.containsKey('existLoginIdErrorMessage')">
+										<div class="error">
+											<div class="error-message">
+												<s:property value="#session.existLoginIdErrorMessage" />
+												<br>
+											</div>
 										</div>
-									</div>
-								</s:if></td>
+									</s:if></td>
 
 
 
