@@ -5,7 +5,6 @@
 		  padding: 0;
 	  line-height: 1.6;
    letter-spacing: 1px;
-	  padding-top: 10px;
 	  font-family: メイリオ ", sans-serif;
 		font-size: 18px;
 	   text-align: center;
@@ -15,9 +14,14 @@
 .noMassage {
 		font-size: 30px;
 	  font-weight: bold;
-	   margin-top: 80px;
 	margin-bottom: 10px;
 	 padding-left: 35px;
+}
+
+.info{
+	   margin-top:0;
+		font-size: 30px;
+	  font-weight: bold;
 }
 
 .submit_btn {
