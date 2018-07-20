@@ -23,7 +23,7 @@
 		<div id="contents">
 
 			<div id="contents">
-				<h1>ユーザー情報入力画面</h1>
+				<h1>新規登録</h1>
 
 
 
@@ -54,9 +54,9 @@
 								<th colspan="2">名前</th>
 							</tr>
 							<tr>
-								<td><s:textfield placeholder="姓" name="familyName"
+								<td><s:textfield placeholder="姓を入力" name="familyName"
 										class="txt" value="%{session.familyName}" /></td>
-								<td><s:textfield placeholder="名" name="firstName"
+								<td><s:textfield placeholder="名を入力" name="firstName"
 										class="txt" value="%{session.firstName}" /></td>
 							</tr>
 							<tr>
@@ -163,7 +163,7 @@
 							</tr>
 							<tr>
 								<td colspan="2"><s:textfield name="email"
-										value="%{session.email}" lebel="メールアドレス" placeholder="メールアドレス"
+										value="%{session.email}" lebel="メールアドレス" placeholder="メールアドレスを入力"
 										class="txt2" /></td>
 
 							</tr>
@@ -196,7 +196,7 @@
 							</tr>
 							<tr>
 								<td colspan="2"><s:textfield name="loginId"
-										value="%{session.loginId}" lebel="ログインID" placeholder="ログインID"
+										value="%{session.loginId}" lebel="ログインID" placeholder="ログインIDを入力"
 										class="txt2" /></td>
 							</tr>
 							<tr>
@@ -227,7 +227,7 @@
 							</tr>
 							<tr>
 								<td colspan="2"><s:password name="password"
-										value="%{session.password}" lebel="パスワード" placeholder="パスワード"
+										value="%{session.password}" lebel="パスワード" placeholder="パスワードを入力"
 										class="txt2" /></td>
 							</tr>
 							<tr>
@@ -249,7 +249,7 @@
 						</table>
 						<div class="submit_btn_box">
 							<div class=".contents-btn-set">
-								<s:submit value="登録" class="submit_btn" />
+								<s:submit value="内容確認" class="submit_btn" />
 							</div>
 						</div>
 					</div>
