@@ -96,11 +96,14 @@
 
 						<ul>
 							<li>
+	<div class="byCount">
+									<s:select name="productCount" list="%{#session.productCountList}" class="pulldown">
+									<span class="mai">枚数</span></s:select>
 
-								<div class="byCount">
+							<%-- 	<div class="byCount">
 									<s:select name="productCount"
 										list="%{#session.productCountList}" />
-									<span class="mai">枚</span>
+									<span class="mai">枚</span> --%>
 								</div> <br>
 							</li>
 							<li>
@@ -115,36 +118,37 @@
 					</div>
 				</s:form>
 				<!-- おススメピックアップ -->
-				<div class="pickup_title">
-					<br> おすすめピックアップ
-				</div>
-				<br>
 
-				<div class="box">
+				<div id=pickUp>
+					<div class="pickup_title">
+						<br> おすすめピックアップ
+					</div>
+					<br>
 
-					<div class="product-details-recomｍend-box">
-						<s:iterator value="#session.productInfoDtoList">
-							<!-- 	<div class="product-list">
+					<div class="box">
+						<div class="product-details-recomｍend-box">
+							<s:iterator value="#session.productInfoDtoList">
+								<!-- 	<div class="product-list">
 		<div class="product-list-box"> -->
-							<div class="recommend-box">
-								<div class="pickup">
-									<a
-										href='<s:url action="ProductDetailsAction">
+								<div class="recommend-box">
+									<div class="pickup">
+										<a
+											href='<s:url action="ProductDetailsAction">
 		<s:param name="productId" value="%{productId}"/>
 		</s:url>'>
-										<img
-										src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>'
-										class="item-image-box-100" />
-									</a>
+											<img
+											src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>'
+											class="item-image-box-100" />
+										</a>
+									</div>
+									<div class="pickup-Name">
+										<s:property value="productName" />
+									</div>
+									<br>
 								</div>
-								<div class="pickup-Name">
-									<s:property value="productName" />
-								</div>
-								<br>
-							</div>
-						</s:iterator>
+							</s:iterator>
+						</div>
 					</div>
-
 				</div>
 
 			</div>
