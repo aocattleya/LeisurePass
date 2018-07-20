@@ -53,7 +53,7 @@
 							</tr>
 							<tr>
 								<td class="releaseDate" scope="row"><s:label value="発売年月日" />
-									<s:property value="%{#session.releaseDate}" /></td>
+									<s:property value="%{#session.releaseDateString}" /></td>
 							</tr>
 						</table>
 						<!-- 追加項目 -->
@@ -87,7 +87,7 @@
 					<s:hidden name="imageFileName" value="%{#session.imageFileName}" />
 					<s:hidden name="price" value="%{#session.price}" />
 					<s:hidden name="releaseCompany" value="%{#session.releaseCompany}" />
-					<s:hidden name="releaseDate" value="%{#session.releaseDate}" />
+					<s:hidden name="releaseDate" value="%{#session.releaseDateString}" />
 					<s:hidden name="productDescription"
 						value="%{#session.productDescription}" />
 
@@ -96,20 +96,17 @@
 
 						<ul>
 							<li>
-								<div id="number_sheet">
-									<div class="byCount">
-										<s:select name="productCount"
-											list="%{#session.productCountList}" />
-									</div>
-									<div class="MAI"></div>
 
+								<div class="byCount">
+									<s:select name="productCount"
+										list="%{#session.productCountList}" />
+									<span class="mai">枚</span>
 								</div> <br>
 							</li>
 							<li>
 								<div class="byPrice">
-									価格&nbsp;
-									<s:property value="%{#session.price}" />
-									円
+									価格&nbsp;&nbsp;&nbsp; <span><s:property
+											value="%{#session.price}" /> 円</span>
 								</div> <br>
 							</li>
 							<li><s:submit value="カートに追加" class="cart_submit_btn" /></li>
@@ -119,8 +116,7 @@
 				</s:form>
 				<!-- おススメピックアップ -->
 				<div class="pickup_title">
-					<br> <img class="kirakira" src="images/kirakira.png">おすすめピックアップ
-					<img class="kirakira" src="images/kirakira.png">
+					<br> おすすめピックアップ
 				</div>
 				<br>
 
@@ -148,7 +144,9 @@
 							</div>
 						</s:iterator>
 					</div>
+
 				</div>
+
 			</div>
 		</div>
 	</div>

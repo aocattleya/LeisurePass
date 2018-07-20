@@ -36,6 +36,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware{
 
 		session.put("releaseCompany", productDTO.getReleaseCompany());
 		session.put("releaseDate", productDTO.getReleaseDate());
+		session.put("releaseDateString", productDTO.getReleaseDateString());
 		session.put("productDescription", productDTO.getProductDescription());
 
 		session.put("location",productDTO.getLocation());
