@@ -51,12 +51,10 @@
 
 			<!-- 検索結果がない場合 -->
 			<s:if test="productInfoDtoList==null">
-				<div class="info">&nbsp;&nbsp;検索結果がありません。</div>
-				<br>
-				<br>
+				<div class="info">検索結果がありません。</div>
 
 				<s:form action="HomeAction">
-					<s:submit value="HOME" class="submit_btn" />
+					<s:submit value="HOME" class="submit_btn" id="HomeAction" />
 				</s:form>
 
 			</s:if>
@@ -101,16 +99,21 @@
 				<div class="pager">
 
 					<!-- ------------------------------一つ前のページへ---------------------------------- -->
-<s:if test="!(#session.currentPageNo == 1)">
-					<a
-						href="<s:url action='SearchItemAction'>
+					<s:if test="!(#session.currentPageNo == 1)">
+						<a
+							href="<s:url action='SearchItemAction'>
 						<s:param name='pageNo' value='#session.currentPageNo -1' />
 						<s:param name='categoryId' value='%{categoryId}'/>
 						<s:param name='placeId' value='%{placeId}'/>
 						<s:param name='targetDate' value='%{targetDate}'/>
 						</s:url>"
-						id="Numbers" class="zengo">&lt;</a>
-</s:if>
+							id="Numbers" class="zengo">&lt;</a>
+					</s:if>
+					<s:else>
+						<span class="no-zengo">&lt;</span>
+					</s:else>
+
+
 					<!-- ------------------------------ページ番号表示----------------------------------- -->
 					<s:iterator begin="1" end="#session.totalPageSize" status="pageNo"
 						id="pager_btn">
@@ -144,7 +147,7 @@
 
 					</s:iterator>
 					<!-- ----------------------------一つ次のページへ------------------------------------ -->
-<s:if test="!(#session.currentPageNo == #session.totalPageSize)">
+					<s:if test="!(#session.currentPageNo == #session.totalPageSize)">
 
 						<a
 							href="<s:url action='SearchItemAction'>
