@@ -16,7 +16,7 @@
 	​
 
 		<div id="contents01">​
-			<div class="info">商品が追加されました。</div>
+			<div class="info">商品管理が完了しました。</div>
 			<br>
 			<br>
 
