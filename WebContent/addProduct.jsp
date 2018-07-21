@@ -499,19 +499,19 @@ img {
 						<s:form action="AddProductConfirmAction" method="post"
 							enctype="multipart/form-data">
 							<div class="text-title">
-								商品ID<br>
+								<b>商品ID</b><br>
 							</div>
 							<s:textfield name="productId" placeholder="例：100" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								商品名<br>
+								<b>商品名</b><br>
 							</div>
 							<s:textfield name="productName" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								商品かな<br>
+								<b>商品かな</b><br>
 							</div>
 							<s:textfield name="productNameKana" placeholder="ひらがなで入力してね"
 								class="txt3" />
@@ -519,7 +519,7 @@ img {
 							<br>
 
 							<div class="text-title">
-								カテゴリ<br>
+								<b>カテゴリ</b><br>
 							</div>
 							<select name="categoryId" class="txt">
 								<option value="2" selected="selected">動物園</option>
@@ -531,7 +531,7 @@ img {
 							<br>
 							<br>
 							<div class="text-title">
-								場所<br>
+								<b>場所</b><br>
 							</div>
 							<select name="placeId" class="txt">
 								<option value="2" selected="selected">茨城県</option>
@@ -545,13 +545,13 @@ img {
 							<br>
 							<br>
 							<div class="text-title">
-								価格(円)<br>
+								<b>価格(円)</b><br>
 							</div>
 							<s:textfield name="price" placeholder="半角数字で入力" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								画像ファイル選択<br>
+								<b>画像ファイル選択</b><br>
 							</div>
 							<div class="preview">
 								<s:file name="productImage" />
@@ -559,52 +559,52 @@ img {
 							<br>
 							<br>
 							<div class="text-title">
-								発売年月<br>
+								<b>発売年月</b><br>
 							</div>
 							<s:textfield name="releaseDate"
 								placeholder="yyyy-MM-dd もしくは yyyy年MM月dd日" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								発売会社<br>
+								<b>発売会社</b><br>
 							</div>
 							<s:textfield name="releaseCompany" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								所在地<br>
+								<b>所在地</b><br>
 							</div>
 							<s:textfield name="location" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								アクセス<br>
+								<b>アクセス</b><br>
 							</div>
 							<s:textfield name="access" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								URL<br>
+								<b>URL</b><br>
 							</div>
 							<s:textfield name="url" placeholder="半角英数字で入力して" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								開始日<br>
+								<b>開始日</b><br>
 							</div>
 							<s:textfield name="startDate"
 								placeholder="yyyy-MM-dd もしくは yyyy年MM月dd日" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								終了日<br>
+								<b>終了日</b><br>
 							</div>
 							<s:textfield name="endDate"
 								placeholder="yyyy-MM-dd もしくは yyyy年MM月dd日" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								商品詳細<br>
+								<b>商品詳細</b><br>
 							</div>
 							<s:textarea name="productDescription" class="txt3" />
 							<br>
