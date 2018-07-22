@@ -193,7 +193,7 @@ img {
 						<div class="text-title">
 							商品ID<br>
 						</div>
-						<s:textfield name="productId" placeholder="例：100"
+						<s:textfield name="productId" placeholder="半角数字で入力"
 							value="%{#session.addProductDTO.productId}" class="txt2" />
 						<br>
 						<s:if test="!#session.productIdErrorMessageList.isEmpty()">
@@ -501,7 +501,7 @@ img {
 							<div class="text-title">
 								<b>商品ID</b><br>
 							</div>
-							<s:textfield name="productId" placeholder="例：100" class="txt3" />
+							<s:textfield name="productId" placeholder="半角数字で入力" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">

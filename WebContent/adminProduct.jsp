@@ -33,7 +33,7 @@
 						<br>
 						<s:property value="productName" />
 						<br>
-						¥<s:property value="price" />
+						<s:property value="price" /><span>円</span>
 						<br>
 						<%-- <td>カテゴリ：	<s:property value="categoryId" /></td> --%>
 						<s:form action="DeleteProductConfirmAction">
