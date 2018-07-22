@@ -44,7 +44,7 @@
 			<s:if test="!(productInfoDtoList==null)">
 				<h1>
 					<img onclick="ring()" class="ele" src="images/elephant.jpg">
-					商品一覧 <img onclick="ring1()" class="fish" src="images/fish.jpg">
+					&nbsp;商品一覧&nbsp; <img onclick="ring1()" class="fish" src="images/fish.jpg">
 				</h1>
 			</s:if>
 
@@ -66,7 +66,7 @@
 				<div id="product-list">
 					<s:iterator value="#session.productInfoDtoList">
 
-
+<!-- 商品単体 -->
 						<div class="product-list-box">
 							<a
 								href='<s:url action="ProductDetailsAction">
@@ -93,7 +93,7 @@
 
 
 					</s:iterator>
-				</div>
+				</div><br>
 
 				<!-- ページネーション -->
 				<div class="pager">
@@ -110,7 +110,9 @@
 							id="Numbers" class="zengo">&lt;</a>
 					</s:if>
 					<s:else>
-						<span class="no-zengo">&lt;</span>
+						<a
+							href="<s:url>
+						</s:url>" class="no-zengo">&lt;</a>
 					</s:else>
 
 
@@ -158,6 +160,11 @@
 						</s:url>"
 							id="Numbers" class="zengo">&gt;</a>
 					</s:if>
+					<s:else>
+						<a
+							href="<s:url>
+						</s:url>" class="no-zengo">&gt;</a>
+					</s:else>
 				</div>
 			</s:else>
 			<br>

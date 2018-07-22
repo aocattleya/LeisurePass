@@ -11,6 +11,7 @@ body {
 	letter-spacing: 1px;
 	text-align: center;
 }
+
 /* 商品一覧CSS */
 
 /* 一覧タイトル */
@@ -74,7 +75,13 @@ h1 img:active {
 
 
 /* 一覧リスト */
-.product-list-box { /* 画像全体 */
+#product-list{
+	text-align:left;
+	margin-left:40px;
+}
+
+
+.product-list-box { /* 商品1set */
 	list-style: none;
 	text-align: center;
 	display: inline-block;
@@ -87,17 +94,14 @@ h1 img:active {
 .item-image-box-200:hover { /* ホバーすると薄く透過 */
 	opacity: 0.7;
 }
-.item-image-box-200:hover > .largeMoji{
-	color:red;
-}
 
 .item-image-box-200:active {
-	transform: translateY(4px);
+	transform: translateY(1px);
 }
 
 
 .item-image-box-200 { /* 画像単体 */
-	width: 250px;
+	width: 280px;
 	height: 180px;
 	border-radius:10px;
 
@@ -132,15 +136,11 @@ h1 img:active {
 	text-decoration: none;
 	text-align:center;
 	display:inline-block;
-/* 	margin: 0 5px; */
 	width:50px;
 	height:50px;
 	line-height:50px;
 
 	border-radius:50%;
-
-/* 	vertical-align:middle;
-	overflow:hidden; */
 }
 
 #Numbers:hover{
@@ -154,6 +154,7 @@ h1 img:active {
 .pager .page_num {
 	color:#ff8040;
 	background:#f7f7f7;
+	padding:1px;
 }
 
 /*
@@ -167,21 +168,31 @@ h1 img:active {
  */
 .pager .zengo{
 	color:#ff8040;
-	border:0
+	border:0;
 }
 
 .pager .no-zengo{
-	color
+	text-decoration: none;
+	text-align:center;
+	display:inline-block;
+	width:50px;
+	height:50px;
+	line-height:50px;
+	border-radius:50%;
+
+	color:white;
+	border:0;
+	pointer-events: none;
 }
 
-.pager .zengo:hover{
+/* .pager .zengo:hover{
 	color:#ff8040;
 	background:lightgray;
 }
 .pager .zengo:active {
 	transform: translateX(2px);
 }
-
+ */
 
 .pager .disabled{
 	color:#ffffff;

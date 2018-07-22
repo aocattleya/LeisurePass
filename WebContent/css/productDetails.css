@@ -29,7 +29,7 @@ body {
 	height:495px;
 	border-radius:5px;
 	z-index:1;
-	filter:blur(2.8px);/* ぼかしフィルター(pxで指定) */
+	filter:blur(3px);/* ぼかしフィルター(pxで指定) */
 }
 
 .item-image-box-320{/* メイン画像 */
@@ -104,7 +104,7 @@ th.local {
 	border-top: solid 2px #999999;;
 	border-bottom: solid 2px #999999;;
 	background: #f7f7f7;
-	padding: 3px;
+	padding: 7px;
 	width: 100px;
 	text-align:center;
 }
@@ -115,6 +115,7 @@ th.local1{
 	border-bottom: solid 2px #999999;
 	width:530px;
 	text-align:left;
+	padding-left:5px;
 }
 
 
@@ -141,10 +142,10 @@ th.local1{
 
 /*枚数選択ボックスの調整*/
 .byCount {
-	width: 200px;
+	width: 220px;
 	height: 50px;
 	margin-left: -30px;
-	border-radius: 10px;
+	border-radius: 4px;
 	background: #ffffff;
 
 	position: absolute;
@@ -169,37 +170,31 @@ th.local1{
 	-webkit-appearance: none;
 	appearance: none;
 
-	padding: 7.5px 38px 8px 20px;
+	padding: 7.5px 38px 8px 30px;	/* 数字の位置(上右下左) */
 }
 .byCount select::-ms-expand {
 	display: none;
 }
 
 
-/* .byCount .mai{
-	position:absolute;
-	top:0.4em;
-	right: 2.5em;
-}
- */
-/*////////////修正箇所////////////*/
-.pulldown{
-	width: 130px;
+
+.pulldown{	/* プルダウン範囲 */
+	width: 150px;
 	z-index: 2;
 }
 
 
-.mai{
-	position:absolute;
-	top:0.4em;
-z-index: 1;
+.mai {	/* 文字“枚数”の設定 */
+	position: absolute;
+	top: 13px;
+	z-index: 1;
+	font-size:18px;
 }
-
 
 /*枚数選択プルダウンマーク（▼）の装飾*/
 .byCount::before {
 	position: absolute;
-	top:0.8em;
+	top:0.85em;
 	right: 0.9em;
 	width: 0;
 	height: 0;
@@ -213,19 +208,6 @@ z-index: 1;
 
 
 
-/* 枚数選択ベース装飾
-.byCount .productCount {
-	overflow: hidden;
-	margin: 2em auto;
-	text-align: center;
-	font-size: 30px;
-	margin-top: 20px;
-	border: none;
-	outline: none;
-} */
-
-
-
 /* 価格エリア */
 .byPrice{
 	clear:both;
@@ -235,13 +217,13 @@ z-index: 1;
 
 	position:absolute;
 	top:120px;
-	left:40px;
+	left:21px;
 }
 
-.byPrice span{
+.byPrice span{	/* ○○円の装飾 */
 	font-size:22px;
 	font-weight:bold;
-	margin-right:50px;
+	margin-left:30px;
 
 }
 
@@ -262,7 +244,7 @@ z-index: 1;
 
 	position:absolute;
 	top:200px;
-	left:25px;
+	left:20px;
 
 }
 /*ボタンをクリックしたときのCSS*/
@@ -275,14 +257,11 @@ z-index: 1;
 
 
 /* おすすめピックアップ */
-
 #pickUp{
-
  	clear:both;
 	width:1020px;
 	height:300px;
-	background:#f7f7f7;
-
+/* 	background:#f7f7f7; */
 	border-radius:10px;
 }
 
@@ -292,15 +271,13 @@ z-index: 1;
 	font-size: 18px;
 	text-align: center;
 	font-weight: bold;
-
 }
 
 
 
 .recommend-box {
 	float:left;
-	margin-left:10px;
-
+	margin-left:7px;
 }
 
 .recommend-box img:hover{
@@ -308,15 +285,17 @@ z-index: 1;
 	cursor: pointer;
 }
 .item-image-box-100 {
-	width: 250px;
+	width: 280px;
     height: 180px;
     border-radius:10px;
-	margin:0 40px;
-
+	margin:0 25px;
+}
+.item-image-box-100:active {
+	transform: translateY(1px);
 }
 
 .pickup-Name{
-
-	margin:0 40px;
+	font-weight:bold;
+	margin:0 25px;
 	text-align:center;
 }
