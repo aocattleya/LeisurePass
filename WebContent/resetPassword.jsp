@@ -126,7 +126,7 @@
 
 
 					<tr>
-						<th scope="row"><s:label value="(再確認用)" /></th>
+						<th scope="row"><s:label value="再確認用" /></th>
 					</tr>
 					<tr>
 						<td><s:password name="reConfirmationPassword"
