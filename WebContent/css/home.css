@@ -54,6 +54,7 @@
 	height: 170px;
 	border-radius: 5px;
 	margin: 10px;
+	border:solid 0.8px #f7f7f7;
 }
 
 .box img:hover {
