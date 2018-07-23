@@ -96,12 +96,12 @@ public class InputChecker {
 					errorExpression +="＠．，；：！＃＄％＆’＊＋―／＝？＾＿｀｛｜｝～";
 				}
 
-//				if(availableSpace){
-//					regularExpression +=" 　";
-//					characterTypeList.add("スペース");
-//				}else{
-//					errorExpression +=" 　";
-//				}
+				if(availableSpace){
+					regularExpression +=" 　";
+					//characterTypeList.add("スペース");
+				}else{
+					errorExpression +=" 　";
+				}
 
 				if(!StringUtils.isEmpty(regularExpression)){
 					regularExpression +="]+";
@@ -126,7 +126,7 @@ public class InputChecker {
 						stringList.add(propertyName + "は" + characterType + "で入力してください。");
 					}
 				}else{
-					if(value.matches(regularExpression)||(!value.matches(errorExpression)&&!value.equals(""))){
+					if(value.matches(regularExpression) || (!value.matches(errorExpression) && !value.equals(""))){
 						stringList.add(propertyName + "は" + characterType + "で入力してください。");
 					}
 				}
