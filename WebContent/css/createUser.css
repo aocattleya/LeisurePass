@@ -30,7 +30,6 @@
 
 #contents {
 	margin: 0 auto; /*コンテンツの中央*/
-	width: 200px;
 	text-align: center; /*文字中央*/
 	letter-spacing: 1px; /*幅の微調整*/
 	font-family: "メイリオ", sans-serif; /*フォント指定*/
