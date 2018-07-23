@@ -68,7 +68,7 @@
 					</tr>
 					<tr>
 						<td><s:password name="password" class="txt"
-								placeholder="パスワードを入力（8文字以上）" autocomplete="off" size="30" /><br></td>
+								placeholder="パスワードを入力" autocomplete="off" size="30" /><br></td>
 					</tr>
 					<tr>
 						<td><s:if test="!#session.passwordErrorMessageList.isEmpty()">
