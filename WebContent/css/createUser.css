@@ -81,7 +81,7 @@ input.txt {
 	height: 40px;
 	width: 225px;
 	background-color: #f7f7f7;
-	border-radius: 10px; /*角の丸み*/
+	border-radius: 5px; /*角の丸み*/
 	font-size: 18px;
 }
 /*入力欄CSS*/
@@ -89,7 +89,7 @@ input.txt2 {
 	height: 40px; /*入力欄の縦の長さ*/
 	width: 450px; /*入力欄の横の長さ*/
 	background-color: #f7f7f7; /*入力欄の中の色*/
-	border-radius: 10px; /*入力欄の角の丸み*/
+	border-radius: 5px; /*入力欄の角の丸み*/
 	font-size: 18px; /*入力欄の文字サイズ*/
 }
 
