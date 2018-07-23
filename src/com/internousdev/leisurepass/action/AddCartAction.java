@@ -25,7 +25,6 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 	private String productDescription;
 	private String categoryId;
 	private Map<String, Object> session;
-	String result = ERROR;
 
 
 	public String execute() {
@@ -36,7 +35,7 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		CommonUtility commonUtility = new CommonUtility();
 		String tempUserId = null;
 		String userId = null;
-
+		String result = ERROR;
 		session.remove("checkListErrorMessageList");
 		// ログインしてないときにカートに商品を入れた場合、仮ＩＤを生成して
 		// ひとまず仮のユーザーのカートに商品が入るようになる
@@ -61,6 +60,17 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 			tempUserId = String.valueOf(session.get("tempUserId"));
 		}
 
+		// 商品画面からカート(cart_infoテーブル)に何かしら情報が入ればSUCCESS→画面遷移
+		CartInfoDAO cartInfoDao = new CartInfoDAO();
+
+		//商品をカートに追加後、ページを更新した際に商品が再度追加されてしまうのを防ぐ
+		if(!session.containsKey("addProductFlag")){
+
+		if(cartInfoDao.existProductId(userId, productId)){
+			cartInfoDao.productUpDate(userId, tempUserId, productId, productCount, price);
+		}else{
+			cartInfoDao.regist(userId, tempUserId, productId, productCount, price);
+		}
 
 
 		if (Integer.parseInt(productCount) > 0 && Integer.parseInt(productCount) < 6) {
@@ -83,26 +93,11 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 			result = ERROR;
 		}
 
-
-		if(result == SUCCESS){
-		// 商品画面からカート(cart_infoテーブル)に何かしら情報が入ればSUCCESS→画面遷移
-				CartInfoDAO cartInfoDao = new CartInfoDAO();
-
-				//商品をカートに追加後、ページを更新した際に商品が再度追加されてしまうのを防ぐ
-				if(!session.containsKey("addProductFlag")){
-
-				if(cartInfoDao.existProductId(userId, productId)){
-					cartInfoDao.productUpDate(userId, tempUserId, productId, productCount, price);
-				}else{
-					cartInfoDao.regist(userId, tempUserId, productId, productCount, price);
-				}}
-
-
 		session.put("addProductFlag", true);
 		}else{
 			result=SUCCESS;
 		}
-		CartInfoDAO cartInfoDao = new CartInfoDAO();
+
 		// リストの中身取り出し
 		List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
 		cartInfoDtoList = cartInfoDao.getCartInfoDtoList(userId);
