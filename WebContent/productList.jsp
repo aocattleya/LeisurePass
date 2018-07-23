@@ -108,6 +108,7 @@
 						<a
 							href="<s:url action='SearchItemAction'>
 						<s:param name='pageNo' value='#session.currentPageNo -1' />
+						<s:param name='keywords' value='%{keywords}'/>
 						<s:param name='categoryId' value='%{categoryId}'/>
 						<s:param name='placeId' value='%{placeId}'/>
 						<s:param name='targetDate' value='%{targetDate}'/>
@@ -141,6 +142,7 @@
 								href="
 								<s:url action='SearchItemAction'>
 									<s:param name='pageNo' value='%{#pageNo.count}'/>
+									<s:param name='keywords' value='%{keywords}'/>
 									<s:param name='categoryId' value='%{categoryId}'/>
 									<s:param name='placeId' value='%{placeId}'/>
 									<s:param name='targetDate' value='%{targetDate}'/>
@@ -159,6 +161,7 @@
 						<a
 							href="<s:url action='SearchItemAction'>
 						<s:param name='pageNo' value='#session.currentPageNo +1' />
+						<s:param name='keywords' value='%{keywords}'/>
 						<s:param name='categoryId' value='%{categoryId}'/>
 						<s:param name='placeId' value='%{placeId}'/>
 						<s:param name='targetDate' value='%{targetDate}'/>
