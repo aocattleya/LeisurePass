@@ -145,7 +145,7 @@ h1 img:active {
 }
 
 #Numbers:hover{
-	color:#ff8040;
+	color:#ed7d22;
 	background:lightgray;
 }
 #Numbers:active {
@@ -153,7 +153,7 @@ h1 img:active {
 }
 
 .pager .page_num {
-	color:#ff8040;
+	color:#ed7d22;
 	background:#f7f7f7;
 	padding:1px;
 }
@@ -168,7 +168,7 @@ h1 img:active {
 }
  */
 .pager .zengo{
-	color:#ff8040;
+	color:#ed7d22;
 	border:0;
 }
 
@@ -205,5 +205,5 @@ h1 img:active {
 
 .page_up{
 	font-size:3em;
-	color:#ff8040;
+	color:#ed7d22;
 }
