@@ -104,6 +104,7 @@ h1 img:active {
 	width: 280px;
 	height: 180px;
 	border-radius:10px;
+	border:1px solid #f7f7f7;
 
 	cursor: pointer;
 	object-fit: cover;

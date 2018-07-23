@@ -29,7 +29,7 @@ body {
 	height:495px;
 	border-radius:5px;
 	z-index:1;
-	filter:blur(3px);/* ぼかしフィルター(pxで指定) */
+	filter:brightness(0.5) blur(2.5px);/* ぼかしフィルター(pxで指定) */
 }
 
 .item-image-box-320{/* メイン画像 */
@@ -52,7 +52,7 @@ body {
 	width:750px;
 	display: inline-block;
 	background-color: #ffffff;
-	border-right: 2px solid #c0c0c0;
+	/* border-right: 2px solid #c0c0c0; */
 	float: left;
 	margin-bottom: 8px;
 }
@@ -220,10 +220,10 @@ th.local1{
 	left:21px;
 }
 
-.byPrice span{	/* ○○円の装飾 */
+.byPrice span.yen{	/* ○○円の装飾 */
 	font-size:22px;
 	font-weight:bold;
-	margin-left:30px;
+	margin-left:40px;
 
 }
 
@@ -287,6 +287,7 @@ th.local1{
 .item-image-box-100 {
 	width: 280px;
     height: 180px;
+    border:0.8px solid #f7f7f7;
     border-radius:10px;
 	margin:0 25px;
 }

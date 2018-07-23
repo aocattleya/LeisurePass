@@ -108,8 +108,8 @@
 							</li>
 							<li>
 								<div class="byPrice">
-									価格&nbsp;&nbsp;&nbsp; <span><s:property
-											value="%{#session.price}" /> 円</span>
+									価格 <span class="yen"><s:property
+											value="%{#session.price}" /> 円</span><span class="s-mai">&nbsp;/枚</span>
 								</div> <br>
 							</li>
 							<li><s:submit value="カートに追加" class="cart_submit_btn" /></li>
