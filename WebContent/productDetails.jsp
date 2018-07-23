@@ -137,7 +137,7 @@
 				</s:form>
 				<!-- おススメピックアップ -->
 
-				<div id=pickUp>
+				<div id="pickUp">
 					<div class="pickup_title">
 						<br> おすすめピックアップ
 					</div>
