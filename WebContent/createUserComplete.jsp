@@ -26,7 +26,7 @@
 
 			<div id="contents">
 				<h1>ユーザー登録が完了しました。</h1>
-				<div class="success">2秒後に自動でホームに戻ります。</div>
+				<div class="success"><p>2秒後に自動でホームに戻ります。</p></div>
 			</div>
 			<div id="footer">
 
