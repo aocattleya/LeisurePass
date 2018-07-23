@@ -21,9 +21,9 @@
 		<jsp:include page="navigation.jsp" />
 		<div id="contents">
 			<h1>マイページ</h1>
+
+
 			<s:form action="PurchaseHistoryAction">
-
-
 				<table class="vertical-list-table">
 
 					<tr>
@@ -65,6 +65,7 @@
 				</div>
 
 			</s:form>
+
 		</div>
 
 	</div>
