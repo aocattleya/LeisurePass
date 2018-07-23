@@ -140,19 +140,6 @@
 				</div>
 			</div>
 		</s:else>
-
-		<s:if test="#session.overErrorMessage != null">
-			<s:iterator value="#session.overErrorMessage" />
-		</s:if>
-		<s:if test="#session.shortageErrorMessage != null">
-			<s:iterator value="#session.shortageErrorMessage" />
-		</s:if>
-		<s:if test="#session.noCountErrorMessage != null">
-			<s:iterator value="#session.noCountErrorMessage" />
-		</s:if>
-		<s:if test="#session.errorMessage != null">
-			<s:iterator value="#session.errorMessage" />
-		</s:if>
 	</div>
 	<div class="push"></div>
 	<footer class="footer">
@@ -160,3 +147,4 @@
 	</footer>
 </body>
 </html>
+
