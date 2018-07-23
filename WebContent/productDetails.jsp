@@ -20,6 +20,24 @@
 		<jsp:include page="navigation.jsp" />
 		<div id="contents">
 			<div id="contents-box">
+
+				<s:if test="%{#session.containsKey('overErrorMessage')}">
+					<s:property value="%{#session.overErrorMessage}" />
+				</s:if>
+				<s:if test="%{#session.containsKey('shortageErrorMessage')}">
+					<s:iterator value="%{#session.shortageErrorMessage}" />
+					<s:property />
+				</s:if>
+				<s:if test="%{#session.containsKey('noCountErrorMessage')}">
+					<s:iterator value="%{#session.noCountErrorMessage}" />
+					<s:property />
+				</s:if>
+				<s:if test="%{#session.containsKey('errorMessage')}">
+					<s:iterator value="%{#session.errorMessage}" />
+					<s:property />
+				</s:if>
+
+
 				<s:form action="AddCartAction">
 					<div class="big-picture">
 						<img
