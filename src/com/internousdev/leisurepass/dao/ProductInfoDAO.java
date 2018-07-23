@@ -280,18 +280,39 @@ public class ProductInfoDAO {
 			}
 		}
 
-		for (String keyword : keywordsList) {
+		for (int i = 0; i < keywordsList.length; i++){
+			String keyword = keywordsList[i];
 			if (keyword.equals("")) {
-				System.out.println("continue");
 				continue;
 			}
-			if (initializeFlag) {
-				sql += " where (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
-				initializeFlag = false;
-			} else {
-				sql += " and (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
+
+			if (i == 0){
+				if (initializeFlag) {
+					sql += " where";
+					initializeFlag = false;
+				}else{
+					sql += " and";
+				}
+
+				sql += " ((product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
+			} else if(i == keywordsList.length - 1){
+				sql += " or (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%'))";
+			}else {
+				sql += " or (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
 			}
 		}
+//		for (String keyword : keywordsList) {
+//			if (keyword.equals("")) {
+//				System.out.println("continue");
+//				continue;
+//			}
+//			if (initializeFlag) {
+//				sql += " where (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
+//				initializeFlag = false;
+//			} else {
+//				sql += " and (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
+//			}
+//		}
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
