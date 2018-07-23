@@ -21,19 +21,15 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> session;
 
 	public String execute() {
-		String result = ERROR;
-
-
-		System.out.println(categoryId);
-		System.out.println(keywords);
+	/*	String result = ERROR;*/
 
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 		UserInfoDTO userInfoDTO = new UserInfoDTO();
 
 		userInfoDTO = userInfoDAO.getUserInfo(String.valueOf(session.get("loginId")));
-
+System.out.println(1111);
 		// userInfoDTOに値があれば、セッションへ名前・性別・メールアドレスを保存する
-		if (userInfoDTO != null) {
+		if(userInfoDTO != null) {
 			session.put("familyName", userInfoDTO.getFamilyName());
 			session.put("firstName", userInfoDTO.getFirstName());
 			session.put("familyNameKana", userInfoDTO.getFamilyNameKana());
@@ -45,16 +41,23 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 			userInfoDTOList=userDAO.getUserInfo(loginId);
 */
 
-			System.out.println(session.get("familyName"));
-
-			result = SUCCESS;
 		}
+
+/*ログイン情報がなければマイページに入れないようにする*/
+
+		//sessionにloginIdがなければERRORを返す
+			if(!session.containsKey("loginId")){
+				return ERROR;
+			}
+
+
+
 
 		// navigation情報を取得
 		SearchConditionLoader loader = new SearchConditionLoader();
 		loader.execute(session);
 
-		return result;
+		return SUCCESS;
 
 	}
 
