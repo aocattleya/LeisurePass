@@ -170,8 +170,7 @@
 
 	<action name="AddCartAction" class="com.internousdev.leisurepass.action.AddCartAction" method="execute">
 		<result name="success">cart.jsp</result>
-		<result name="error">home.jsp</result>
-		<result name="input">cart.jsp</result>
+		<result name="error">productDetails.jsp</result>
 	</action>
 
 
