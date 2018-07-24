@@ -58,15 +58,15 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		session.remove("familyNameKanaErrorMessageList");
 		session.remove("firstNameKanaErrorMessageList");
 		session.remove("emailErrorMessageList");
-		session.remove("userIdErrorMessageList");
+		session.remove("loginIdErrorMessageList");
 		session.remove("passwordErrorMessageList");
 		session.remove("existLoginIdErrorMessage");
 
 		// ErrorMessageが１つもないか確認。なければresultをSUCCESSにする
 
-
 		/*
-		 * 英語| 漢字 |ひらがな || 半角数字 || 半角記号 ||かたかな|| 全角記号 半角スペース) ;
+		 *
+ 		 * 英語| 漢字 |ひらがな || 半角数字 || 半角記号 ||かたかな|| 全角記号 半角スペース) ;
 		 */
 
 		familyNameErrorMessageList = inputChecker.doCheck("姓", familyName, 1, 16, true, true, true, false, false, false,
@@ -84,7 +84,6 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		passwordErrorMessageList = inputChecker.doCheck("パスワード", password, 1, 16, true, false, false, true, false,
 				false, false, false);
 
-		//ErrorMessageが１つもないか確認。なければresultをSUCCESSにする
 
 		if (familyNameErrorMessageList.size() == 0 && firstNameErrorMessageList.size() == 0
 				&& familyNameKanaErrorMessageList.size() == 0 && firstNameKanaErrorMessageList.size() == 0

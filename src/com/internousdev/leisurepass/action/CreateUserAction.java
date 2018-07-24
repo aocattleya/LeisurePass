@@ -40,7 +40,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 		session.remove("familyNameKanaErrorMessageList");
 		session.remove("firstNameKanaErrorMessageList");
 		session.remove("emailErrorMessageList");
-		session.remove("userIdErrorMessageList");
+		session.remove("loginIdErrorMessageList");
 		session.remove("passwordErrorMessageList");
 		session.remove("existLoginIdErrorMessage");
 
@@ -98,7 +98,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 		}
 
 		public String getfirstNameKana(){
-			return familyNameKana;
+			return firstNameKana;
 		}
 
 		public void setFirstNameKana(String firstNameKana){
