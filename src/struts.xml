@@ -209,6 +209,7 @@
 	<action name="CreateDestinationAction" class="com.internousdev.leisurepass.action.CreateDestinationAction" method="execute">
 		<result name="success">createDestination.jsp</result>
 		<result name="error">home.jsp</result>
+		<result name="admin">admin.jsp</result>
 	</action>
 
 

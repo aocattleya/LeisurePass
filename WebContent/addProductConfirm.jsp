@@ -136,7 +136,27 @@
 					</s:form>
 				</div>
 			<!-- 商品管理画面に戻る（入力内容は保持） -->
-			<p><a href='<s:url action="AddProductAction"/>' id="#correction">修正</a></p>
+			<%-- <p><a href='<s:url action="AddProductAction"/>' id="#correction">修正</a></p> --%>
+			<s:form action="AddProductAction" method="post" enctype="multipart/form-data">
+				<s:hidden name="productId" value="%{productId}" />
+				<s:hidden name="productName" value="%{productName}" />
+				<s:hidden name="productNameKana" value="%{productNameKana}" />
+				<s:hidden name="categoryId" value="%{categoryId}" />
+				<s:hidden name="placeId" value="%{placeId}" />
+				<s:hidden name="price" value="%{price}" />
+				<s:hidden name="productDescription" value="%{productDescription}" />
+				<%-- <s:hidden name="endDateString" value="%{}" /> --%>
+				<s:hidden name="releaseDate" value="%{releaseDate}" />
+				<s:hidden name="releaseCompany" value="%{releaseCompany}" />
+				<s:hidden name="location" value="%{location}" />
+				<s:hidden name="access" value="%{access}" />
+				<s:hidden name="url" value="%{url}" />
+				<s:hidden name="startDate" value="%{startDate}" />
+				<s:hidden name="endDate" value="%{endDate}" />
+				<s:hidden name="productDescription" value="%{productDescription}" />
+				<s:submit value="修正" class="submit_btn"/>
+			</s:form>
+
 			</div>
 </div>
 		<jsp:include page="footer.jsp" />

@@ -98,6 +98,9 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 
 		if (Integer.parseInt(String.valueOf(session.get("logined"))) == 0) {
 			session.put("goSettlement", "1");
+				session.remove("loginIdErrorMessageList");
+				session.remove("passwordErrorMessageList");
+				session.remove("loginFailedMessage");
 			result = ERROR;
 		} else {
 			result = SUCCESS;
