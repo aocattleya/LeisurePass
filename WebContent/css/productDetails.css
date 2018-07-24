@@ -25,7 +25,7 @@ body {
 	width:100%;
 }
 .item-image-box-back{/* 背景画像 */
-	width:100%;
+	width:95%;
 	height:495px;
 	border-radius:5px;
 	z-index:1;
