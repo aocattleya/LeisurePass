@@ -1,11 +1,6 @@
 @CHARSET "UTF-8";
 
-.admin-contents-list {
-
-}
-
 h1 {
-	padding-left: 2em;
 	font-family: "メイリオ", sans-serif;
 	font-size: 30px;
 	text-align: center;
@@ -16,13 +11,12 @@ h1 {
 	border-bottom: solid 3px #ed7d22;
 	display: inline-block;
 	font-weight: 600;
-	font-size: 20px;
+	font-size: 18px;
 	margin-top: 10px;
 }
 
 .infoBox {
-	position:relative;
-	left:400px;
+	margin: auto;
 	background-color: #f7f7f7; /*背景色*/
 	padding: 2em; /*文字の幅調整*/
 	width: 600px; /*背景の横幅*/
@@ -30,15 +24,13 @@ h1 {
 	text-align: center;
 }
 
-#admin-contents {
+/* #admin-contents {
 	margin-bottom: 80px;
 	width: 1400px;
 	text-align: center;
-}
+} */
 
 .submit_btn {
-	position:relative;
-	left:30px;
 	width: 200px; /*ボタンの横の長さ*/
 	height: 40px; /*ボタンの縦の長さ*/
 	/* display: inline-block; 多分要らないかも*/
@@ -51,6 +43,7 @@ h1 {
 	border: solid 2px #d27d00; /*ボタンの立体感を出すため*/
 	outline: 0; /*変な枠線を非表示に*/
 	cursor: pointer; /*マウスを乗せたとき指マークにする*/
+
 }
 
 /*ボタンをクリックしたときのCSS*/
@@ -58,4 +51,13 @@ h1 {
 	transform: translateY(2px); /*下に動かす*/
 	background-color: #f3a769; /*薄いオレンジ色にする*/
 	border: #ed7d22; /*枠線の色変更*/
+}
+
+.center{
+	text-align: center;
+}
+
+a{
+	font-size: 18px;
+    color: #ed7d22;
 }
