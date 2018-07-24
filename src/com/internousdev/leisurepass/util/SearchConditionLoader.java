@@ -32,6 +32,21 @@ public class SearchConditionLoader {
 		}
 	}
 
+	public void executeAdmin(Map<String, Object> session) {
+		if(!session.containsKey("mAdminPlaceList")) {
+			MCategoryDAO mCategoryDao = new MCategoryDAO();
+			mCategoryDtoList = mCategoryDao.getAdminMCategoryList();
+			session.put("mAdminCategoryDtoList", mCategoryDtoList);
+		}
+
+		if(!session.containsKey("mAdminPlaceList")) {
+			MPlaceDAO mPlaceDao = new MPlaceDAO();
+			mPlaceDtoList = mPlaceDao.getAdminMPlaceList();
+			session.put("mAdminPlaceDtoList", mPlaceDtoList);
+		}
+	}
+
+
 	public List<MCategoryDTO> getmCategoryDtoList() {
 		return mCategoryDtoList;
 	}

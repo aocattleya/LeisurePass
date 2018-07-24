@@ -53,4 +53,46 @@ public class MCategoryDAO {
 
 		return list;
 	}
+
+	public List<MCategoryDTO> getAdminMCategoryList(){
+
+		DBConnector dbConnector = new DBConnector();
+		Connection connection = dbConnector.getConnection();
+
+		List<MCategoryDTO> list = new ArrayList<MCategoryDTO>();
+
+		String sql = "SELECT * FROM m_category WHERE id NOT IN (1)";
+
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			while(resultSet.next()) {
+				MCategoryDTO dto = new MCategoryDTO();
+				dto.setId(resultSet.getInt("id"));
+				dto.setCategoryId(resultSet.getInt("category_id"));
+				dto.setCategoryName(resultSet.getString("category_name"));
+				dto.setCategoryDescription(resultSet.getString("category_description"));
+				dto.setInsertDate(resultSet.getDate("insert_date"));
+				dto.setUpdateDate(resultSet.getDate("update_date"));
+				list.add(dto);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		if (list.size() == 0) {
+			list = null;
+		}
+
+		return list;
+	}
 }
