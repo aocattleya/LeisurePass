@@ -21,8 +21,6 @@ h1 {
 	display: inline-block;
 	padding: 20px 0 20px 0;
 	margin-left: 175px;
-	border-radius: 10px;
-	float: left;
 }
 
 .horizontal-list-table {
@@ -38,6 +36,7 @@ table th {
 table td .productInfo {
 	text-align: left;
 }
+
 
 .productNameKana {
 	font-size: 12px;
@@ -78,7 +77,7 @@ table td .productInfo {
 	width: 50px;
 	margin-left: -50px;
 	position: relative;
-	top: 150px;
+	top: 170px;
 	left: 120px;
 }
 
