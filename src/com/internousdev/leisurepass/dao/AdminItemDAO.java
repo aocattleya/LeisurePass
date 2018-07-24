@@ -35,6 +35,7 @@ public class AdminItemDAO {
 				result.setProductNameKana(resultSet.getString("product_name_kana"));
 				result.setProductDescription(resultSet.getString("product_description"));
 				result.setCategoryId(resultSet.getInt("category_id"));
+				result.setPlaceId(resultSet.getInt("place_id"));
 				result.setPrice(resultSet.getInt("price"));
 				result.setImageFilePath(resultSet.getString("image_file_path"));
 				result.setImageFileName(resultSet.getString("image_file_name"));
@@ -46,6 +47,8 @@ public class AdminItemDAO {
 				result.setStatus(resultSet.getInt("status"));
 				result.setRegistDate(resultSet.getDate("regist_date"));
 				result.setUpdateDate(resultSet.getDate("update_date"));
+				result.setStartDate(resultSet.getDate("start_date"));
+				result.setEndDate(resultSet.getDate("end_date"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -187,7 +190,7 @@ public class AdminItemDAO {
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setInt(1, productId);
-			//executeUpdateでpsのsqlを実行
+			// executeUpdateでpsのsqlを実行
 			count = ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
