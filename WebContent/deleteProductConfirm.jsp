@@ -35,7 +35,7 @@
 		<div class="info-title">画像</div><br>
 			<img src='<s:property value="%{session.deleteProductDTO.imageFilePath}"/>/<s:property value="%{session.deleteProductDTO.imageFileName}"/>'	width="320px" height="240px" />
 			<br>
-		<div class="info-title">発売年月</div><br><s:property value="%{#session.deleteProductDTO.releaseDate}" />
+		<div class="info-title">発売年月</div><br><s:property value="%{#session.deleteProductDTO.releaseDateString}" />
 			<br>
 		<div class="info-title">発売会社</div><br><s:property value="%{#session.deleteProductDTO.releaseCompany}" />
 			<br>
@@ -45,7 +45,7 @@
 			<br>
 		<div class="info-title">URL</div><br><s:property value="%{#session.deleteProductDTO.url}"/>
 			<br>
-		<div class="info-title">開始日</div><br><s:property value="%{#session.deleteProductDTO.startDate}"/>
+		<div class="info-title">開始日</div><br><s:property value="%{#session.deleteProductDTO.startDateString}"/>
 			<br>
 		<div class="info-title">終了日</div><br><s:property value="%{#session.deleteProductDTO.endDateString}"/>
 			<br>
