@@ -116,6 +116,15 @@ select {
 }
 
 img {
-	max-width: 225px;
+	width: 225px;
 	max-height: 225px;
+}
+
+header img{
+	width: auto;
+	height: 70px;
+	margin-left: 20px;
+	display: block;
+	z-index:1;
+
 }
