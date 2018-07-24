@@ -13,7 +13,7 @@ setTimeout(sessionTimeout, 1800000);
 			<a href="HomeAction"><img src="images/logo.jpg"></a>
 		</div>
 		<div class="logoP-clear">
-			<img src="logo/08_p.jpg">
+			<a href="HomeAction"><img src="logo/08_p.jpg"></a>
 		</div>
 		<div class="logoP">
 			<a href="HomeAction"><img src="logo/08_p.jpg"></a>
@@ -28,7 +28,6 @@ setTimeout(sessionTimeout, 1800000);
 					<div class="ticket menu-button">
 						<img src="images/ticket.jpg">
 						<a href="ProductListAction"></a>
-
 					</div>
 					<div class="messageList">一覧</div>
 				</li>
