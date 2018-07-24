@@ -28,13 +28,14 @@ public class DeleteProductConfirmAction extends ActionSupport implements Session
 		// navigation情報を取得
 		SearchConditionLoader loader = new SearchConditionLoader();
 		loader.execute(session);
+		loader.executeAdmin(session);
 
 		// カテゴリIDが一致しているものを探す
 		MCategoryDTO category = null;
-		List<MCategoryDTO> categoryList = (List<MCategoryDTO>)session.get("mAdminCategoryDtoList");
-		for(int i = 0; i < categoryList.size(); i++){
+		List<MCategoryDTO> categoryList = (List<MCategoryDTO>) session.get("mAdminCategoryDtoList");
+		for (int i = 0; i < categoryList.size(); i++) {
 			MCategoryDTO m = categoryList.get(i);
-			if (dto.getCategoryId() == m.getCategoryId()){
+			if (dto.getCategoryId() == m.getCategoryId()) {
 				category = m;
 				break;
 			}
@@ -43,10 +44,10 @@ public class DeleteProductConfirmAction extends ActionSupport implements Session
 
 		// 場所IDが一致しているものを探す
 		MPlaceDTO place = null;
-		List<MPlaceDTO> placeList = (List<MPlaceDTO>)session.get("mAdminPlaceDtoList");
-		for(int i = 0; i < placeList.size(); i++){
+		List<MPlaceDTO> placeList = (List<MPlaceDTO>) session.get("mAdminPlaceDtoList");
+		for (int i = 0; i < placeList.size(); i++) {
 			MPlaceDTO m = placeList.get(i);
-			if (dto.getPlaceId() == m.getPlaceId()){
+			if (dto.getPlaceId() == m.getPlaceId()) {
 				place = m;
 				break;
 			}
