@@ -294,7 +294,11 @@ public class ProductInfoDAO {
 					sql += " and";
 				}
 
-				sql += " ((product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
+				if (keywordsList.length == 1){
+					sql += " (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
+				}else{
+					sql += " ((product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
+				}
 			} else if(i == keywordsList.length - 1){
 				sql += " or (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%'))";
 			}else {

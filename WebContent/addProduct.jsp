@@ -123,88 +123,13 @@
 						<div class="text-title">
 							カテゴリ<br>
 						</div>
-						<select name="categoryId">
-							<s:if test="%{#session.addProductDTO.categoryId == 2}">
-								<option value="2" selected="selected">動物園</option>
-							</s:if>
-							<s:else>
-								<option value="2">動物園</option>
-							</s:else>
-							<s:if test="%{#session.addProductDTO.categoryId == 3}">
-								<option value="3" selected="selected">水族館</option>
-							</s:if>
-							<s:else>
-								<option value="3">水族館</option>
-							</s:else>
-							<s:if test="%{#session.addProductDTO.categoryId == 4}">
-								<option value="4" selected="selected">アスレチック</option>
-							</s:if>
-							<s:else>
-								<option value="4">アスレチック</option>
-							</s:else>
-							<s:if test="%{#session.addProductDTO.categoryId == 5}">
-								<option value="5" selected="selected">遊園地</option>
-							</s:if>
-							<s:else>
-								<option value="5">遊園地</option>
-							</s:else>
-							<s:if test="%{#session.addProductDTO.categoryId == 6}">
-								<option value="6" selected="selected">美術館</option>
-							</s:if>
-							<s:else>
-								<option value="6">美術館</option>
-							</s:else>
-
-						</select>
+						<s:select name="categoryId" list="#session.mAdminCategoryDtoList" listValue="categoryName" listKey="categoryId" />
 						<br>
 						<br>
 						<div class="text-title">
 							場所<br>
 						</div>
-						<select name="placeId">
-							<s:if test="%{#session.addProductDTO.placeId == 2}">
-								<option value="2" selected="selected">茨城県</option>
-							</s:if>
-							<s:else>
-								<option value="2">茨城県</option>
-							</s:else>
-							<s:if test="%{#session.addProductDTO.placeId == 3}">
-								<option value="3" selected="selected">栃木県</option>
-							</s:if>
-							<s:else>
-								<option value="3">栃木県</option>
-							</s:else>
-							<s:if test="%{#session.addProductDTO.placeId == 4}">
-								<option value="4" selected="selected">群馬県</option>
-							</s:if>
-							<s:else>
-								<option value="4">群馬県</option>
-							</s:else>
-							<s:if test="%{#session.addProductDTO.placeId == 5}">
-								<option value="5" selected="selected">千葉県</option>
-							</s:if>
-							<s:else>
-								<option value="5">千葉県</option>
-							</s:else>
-							<s:if test="%{#session.addProductDTO.placeId == 6}">
-								<option value="6" selected="selected">埼玉県</option>
-							</s:if>
-							<s:else>
-								<option value="6">埼玉県</option>
-							</s:else>
-							<s:if test="%{#session.addProductDTO.placeId == 7}">
-								<option value="7" selected="selected">東京都</option>
-							</s:if>
-							<s:else>
-								<option value="7">東京都</option>
-							</s:else>
-							<s:if test="%{#session.addProductDTO.placeId == 8}">
-								<option value="8" selected="selected">神奈川県</option>
-							</s:if>
-							<s:else>
-								<option value="8">神奈川県</option>
-							</s:else>
-						</select>
+						<s:select name="placeId" list="#session.mAdminPlaceDtoList" listValue="placeName" listKey="placeId" />
 						<br>
 						<br>
 						<div class="text-title">
@@ -403,27 +328,13 @@
 							<div class="text-title">
 								<b>カテゴリ</b><br>
 							</div>
-							<select name="categoryId" class="txt">
-								<option value="2" selected="selected">動物園</option>
-								<option value="3">水族館</option>
-								<option value="4">アスレチック</option>
-								<option value="5">遊園地</option>
-								<option value="6">美術館</option>
-							</select>
+							<s:select name="categoryId" list="#session.mAdminCategoryDtoList" listValue="categoryName" listKey="categoryId" />
 							<br>
 							<br>
 							<div class="text-title">
 								<b>場所</b><br>
 							</div>
-							<select name="placeId" class="txt">
-								<option value="2" selected="selected">茨城県</option>
-								<option value="3">栃木県</option>
-								<option value="4">群馬県</option>
-								<option value="5">千葉県</option>
-								<option value="6">埼玉県</option>
-								<option value="7">東京都</option>
-								<option value="8">神奈川県</option>
-							</select>
+							<s:select name="placeId" list="#session.mAdminPlaceDtoList" listValue="placeName" listKey="placeId" />
 							<br>
 							<br>
 							<div class="text-title">

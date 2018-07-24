@@ -22,6 +22,7 @@ public class AddProductAction extends ActionSupport implements SessionAware {
 		// navigation情報を取得
 		SearchConditionLoader loader = new SearchConditionLoader();
 		loader.execute(session);
+		loader.executeAdmin(session);
 
 		return result;
 	}

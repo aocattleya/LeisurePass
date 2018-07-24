@@ -20,8 +20,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport implements SessionAware {
 	private boolean savedLoginId;
-	private String loginId;
-	private String password;
+	private String loginId = null;
+	private String password = null;
 	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
 	private List<String> loginIdErrorMessageList = new ArrayList<String>();
 	private List<String> passwordErrorMessageList = new ArrayList<String>();
@@ -29,7 +29,12 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 	public String execute() {
 		String result = ERROR;
-
+		// navigation情報を取得
+		SearchConditionLoader loader = new SearchConditionLoader();
+		loader.execute(session);
+		System.out.println(loginId);
+		System.out.println(password);
+		if(!(loginId == null && password == null)){
 		/*
 		 * ログインID保持にチェックが入っているか判定します true→ログイン保持する false→ログイン保持しない
 		 */
@@ -113,10 +118,17 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			}
 		}
 
-		// navigation情報を取得
-		SearchConditionLoader loader = new SearchConditionLoader();
-		loader.execute(session);
 
+		}else{
+			System.out.println("別ページからのアクセス");
+			result = SUCCESS;
+			if(session.containsKey("userInfo")){
+				UserInfoDTO d = (UserInfoDTO) session.get("userInfo");
+				if(d.getStatus().equals("1")){
+					result = "admin";
+				}
+			}
+		}
 		return result;
 	}
 
