@@ -15,6 +15,7 @@ import org.apache.commons.lang3.time.DateUtils;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.leisurepass.dao.AddProductDAO;
 import com.internousdev.leisurepass.dto.ProductInfoDTO;
 import com.internousdev.leisurepass.util.InputChecker;
 import com.internousdev.leisurepass.util.SearchConditionLoader;
@@ -176,6 +177,26 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 			session.put("productImageErrorMessageList", productImageErrorMessageList);
 			// return ERROR;
 		}
+
+		AddProductDAO addProductDAO=new AddProductDAO();
+
+		if (productIdErrorMessageList.isEmpty()) {
+			if (addProductDAO.productIdDuplication(Integer.parseInt(productId))) {
+				productIdErrorMessageList.add("すでに同IDの商品があります。別のIDをお試しください");
+				session.put("productIdErrorMessageList", productIdErrorMessageList);
+			}
+		}
+
+		if (addProductDAO.productnameDuplication(productName)) {
+			productNameErrorMessageList.add("すでに同名の商品があります。別の名前をお試しください");
+			session.put("productNameErrorMessageList", productNameErrorMessageList);
+		}
+
+		if (addProductDAO.productnamekanaDuplication(productNameKana)) {
+			productNameKanaErrorMessageList.add("すでに同ふりがなの商品があります。別のふりがなをお試しください");
+			session.put("productNameKanaErrorMessageList", productNameKanaErrorMessageList);
+		}
+
 
 		// navigation情報を取得
 		SearchConditionLoader loader = new SearchConditionLoader();
