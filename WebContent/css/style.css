@@ -205,7 +205,7 @@ header .cart img {
 header .ticket:hover, .cart:hover,.mypage:hover{
 	width: 70px;
 	height: 50px;
-	border:0.1px solid #d4d4d4;
+/* 	border:0.1px solid #d4d4d4; */
 }
 
 /* hover時の空白(別個位置調整) */
@@ -224,8 +224,8 @@ header .ticket:hover, .cart:hover,.mypage:hover{
 /* hover時のテキスト装飾(位置調整) */
 header .messageList,.messageCart,.messageMypage{
 	background-color: #ed7d22;
-	width: 70px;
-	height: 70px;
+	width: 69px;
+	height: 69px;
 	text-align: center;
 	border-radius: 10px;
 	justify-content: center;
@@ -233,7 +233,7 @@ header .messageList,.messageCart,.messageMypage{
 	color:#ffffff;
 	position:absolute;
 	top:0px;
-	left:10px;
+	left:11px;
 	z-index:2;
 	line-height:120px;
 /* 	cursor: pointer; */
@@ -241,12 +241,12 @@ header .messageList,.messageCart,.messageMypage{
 header .messageCart{
 	position:absolute;
 	top:0;
-	left:90px;
+	left:91px;
 }
 header .messageMypage{
 	position:absolute;
 	top:0;
-	left:170px;
+	left:171px;
 	font-size:13px;
 	font-weight:bold;
 }
