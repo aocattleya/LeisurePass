@@ -12,6 +12,14 @@ setTimeout(sessionTimeout, 1800000);
 		<div class="logo">
 			<a href="HomeAction"><img src="images/logo.jpg"></a>
 		</div>
+		<div class="logoP-clear">
+			<a href="HomeAction"><img src="logo/08_p.jpg"></a>
+		</div>
+		<div class="logoP">
+			<a href="HomeAction"><img src="logo/08_p.jpg"></a>
+		</div>
+
+
 		<ul class="header-menu">
 			<!-- ログアウト状態 -->
 			<s:if test="#session.logined == 0">
@@ -21,12 +29,14 @@ setTimeout(sessionTimeout, 1800000);
 						<img src="images/ticket.jpg">
 						<a href="ProductListAction"></a>
 					</div>
+					<div class="messageList">一覧</div>
 				</li>
 				<li>
 					<div class="cart menu-button">
 						<img src="images/cart.jpg">
 						<a href="CartAction"></a>
 					</div>
+					<div class="messageCart">カート</div>
 				</li>
 				<li>
 					<div class="login menu-button">
@@ -45,18 +55,21 @@ setTimeout(sessionTimeout, 1800000);
 							<img src="images/ticket.jpg">
 							<a href="ProductListAction"></a>
 						</div>
+						<div class="messageList">一覧</div>
 					</li>
 					<li>
 						<div class="cart menu-button">
 							<img src="images/cart.jpg">
 							<a href="CartAction"></a>
 						</div>
+						<div class="messageCart">カート</div>
 					</li>
 					<li>
 						<div class="mypage menu-button">
 							<img src="images/mypage.jpg">
 							<a href="MyPageAction"></a>
 						</div>
+						<div class="messageMypage">マイページ</div>
 					</li>
 				</s:if>
 

@@ -23,7 +23,7 @@
 		<div id="contents">
 
 			<div id="contents">
-				<h1>新規登録</h1>
+				<h1>ユーザー情報入力</h1>
 
 
 

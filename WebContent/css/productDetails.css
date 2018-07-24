@@ -29,7 +29,7 @@ body {
 	height:495px;
 	border-radius:5px;
 	z-index:1;
-	filter:blur(2.8px);/* ぼかしフィルター(pxで指定) */
+	filter:brightness(0.5) blur(2.5px);/* ぼかしフィルター(pxで指定) */
 }
 
 .item-image-box-320{/* メイン画像 */
@@ -52,7 +52,7 @@ body {
 	width:750px;
 	display: inline-block;
 	background-color: #ffffff;
-	border-right: 2px solid #c0c0c0;
+	/* border-right: 2px solid #c0c0c0; */
 	float: left;
 	margin-bottom: 8px;
 }
@@ -104,7 +104,7 @@ th.local {
 	border-top: solid 2px #999999;;
 	border-bottom: solid 2px #999999;;
 	background: #f7f7f7;
-	padding: 3px;
+	padding: 7px;
 	width: 100px;
 	text-align:center;
 }
@@ -115,6 +115,7 @@ th.local1{
 	border-bottom: solid 2px #999999;
 	width:530px;
 	text-align:left;
+	padding-left:5px;
 }
 
 
@@ -141,10 +142,10 @@ th.local1{
 
 /*枚数選択ボックスの調整*/
 .byCount {
-	width: 200px;
+	width: 220px;
 	height: 50px;
 	margin-left: -30px;
-	border-radius: 10px;
+	border-radius: 4px;
 	background: #ffffff;
 
 	position: absolute;
@@ -157,8 +158,9 @@ th.local1{
 /*枚数選択の文字装飾*/
 .byCount select {
 	margin-left: 60px;
-	font-size: 22px;
+	font-size: 25px;
 	font-family: "Meiryo", sans-serif;
+	color:#333333;
 	cursor: pointer;
 	text-overflow: ellipsis;
 	border: none;
@@ -168,24 +170,32 @@ th.local1{
 	-webkit-appearance: none;
 	appearance: none;
 
-	padding: 10px 38px 8px 25px;
+	padding: 7.5px 38px 8px 30px;	/* 数字の位置(上右下左) */
 }
 .byCount select::-ms-expand {
 	display: none;
 }
 
 
-.byCount .mai{
-	position:absolute;
-	top:0.4em;
-	right: 1.5em;
+
+.pulldown{	/* プルダウン範囲 */
+	width: 150px;
+	z-index: 2;
+}
+
+
+.mai {	/* 文字“枚数”の設定 */
+	position: absolute;
+	top: 13px;
+	z-index: 1;
+	font-size:18px;
 }
 
 /*枚数選択プルダウンマーク（▼）の装飾*/
 .byCount::before {
 	position: absolute;
-	top:0.8em;
-	right: 0.2em;
+	top:0.85em;
+	right: 0.9em;
 	width: 0;
 	height: 0;
 	padding: 0;
@@ -198,19 +208,6 @@ th.local1{
 
 
 
-/* 枚数選択ベース装飾
-.byCount .productCount {
-	overflow: hidden;
-	margin: 2em auto;
-	text-align: center;
-	font-size: 30px;
-	margin-top: 20px;
-	border: none;
-	outline: none;
-} */
-
-
-
 /* 価格エリア */
 .byPrice{
 	clear:both;
@@ -220,12 +217,13 @@ th.local1{
 
 	position:absolute;
 	top:120px;
-	left:40px;
+	left:21px;
 }
 
-.byPrice span{
+.byPrice span.yen{	/* ○○円の装飾 */
 	font-size:22px;
 	font-weight:bold;
+	margin-left:40px;
 
 }
 
@@ -241,30 +239,45 @@ th.local1{
 	border-radius: 20px; /*ボタンの角の丸み*/
 	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);/*ボタンの影（立体感）*/
 	border: solid 2px #d27d00;/*ボタンの立体感を出すため*/
+	outline: 0; /*変な枠線を非表示に*/
+	cursor: pointer; /*マウスを乗せたとき指マークにする*/
 
 	position:absolute;
 	top:200px;
-	left:25px;
+	left:20px;
 
+}
+/*ボタンをクリックしたときのCSS*/
+.cart_submit_btn:active {
+	transform: translateY(2px); /*下に動かす*/
+	background-color: #f3a769; /*薄いオレンジ色にする*/
+	border: #ed7d22; /*枠線の色変更*/
 }
 
 
 
 /* おすすめピックアップ */
-.pickup_title {
+#pickUp{
  	clear:both;
+	width:1020px;
+	height:300px;
+/* 	background:#f7f7f7; */
+	border-radius:10px;
+}
+
+
+
+.pickup_title {
 	font-size: 18px;
 	text-align: center;
 	font-weight: bold;
-
 }
 
 
 
 .recommend-box {
 	float:left;
-	margin-left:10px;
-
+	margin-left:7px;
 }
 
 .recommend-box img:hover{
@@ -272,18 +285,18 @@ th.local1{
 	cursor: pointer;
 }
 .item-image-box-100 {
-	width: 250px;
+	width: 280px;
     height: 180px;
+    border:0.8px solid #f7f7f7;
     border-radius:10px;
-	margin:0 40px;
-
-/* 	display:inline-block;
-	text-align:center; */
-
+	margin:0 25px;
+}
+.item-image-box-100:active {
+	transform: translateY(1px);
 }
 
 .pickup-Name{
-
-	margin:0 40px;
+	font-weight:bold;
+	margin:0 25px;
 	text-align:center;
 }

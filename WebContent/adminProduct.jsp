@@ -29,11 +29,11 @@
 				</h1>
 				<s:iterator value="%{productList}">
 				<div class="admin-list-box">
-						<img width="250px" height="180px" src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' />
+						<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' class="image_box"/>
 						<br>
 						<s:property value="productName" />
 						<br>
-						¥<s:property value="price" />
+						<s:property value="price" /><span>円</span>
 						<br>
 						<%-- <td>カテゴリ：	<s:property value="categoryId" /></td> --%>
 						<s:form action="DeleteProductConfirmAction">

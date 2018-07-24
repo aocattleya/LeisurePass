@@ -15,8 +15,9 @@ body {
 }
 
 .info{
-	font-size:22px;
+	font-size:30px;
 	text-align:center;
+	font-weight:bold;
 }
 
 .submit_btn {

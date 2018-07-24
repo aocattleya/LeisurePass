@@ -15,14 +15,21 @@ import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ProductDetailsAction extends ActionSupport implements SessionAware{
+
 	private int productId;
 	private List<MCategoryDTO> mCategoryList = new ArrayList<MCategoryDTO>();
 	private List<ProductInfoDTO> productList = new ArrayList<ProductInfoDTO>();
 	private String categoryId;
 	private Map<String, Object> session;
 	public String execute() {
+		session.remove("overErrorMessage");
+		session.remove("noCountErrorMessage");
+		session.remove("shortageErrorMessage");
+		session.remove("errorMessage");
 		String result = ERROR;
+
 		session.remove("addProductFlag");
+		session.remove("checkListErrorMessageList");
 		ProductInfoDAO productDAO = new ProductInfoDAO();
 		ProductInfoDTO productDTO = new ProductInfoDTO();
 		productDTO = productDAO.getProductInfo(productId);

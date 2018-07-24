@@ -43,51 +43,128 @@
 
 		<div id="contents">
 			<div class="slider">
-				<div>
+				<!-- 動物園 -->
+				<div class="slide_img">
 					<a
 						href='<s:url action="SearchItemAction">
 		<s:param name="categoryId" value="2"/>
 		</s:url>'>
 						<img src="./images/ueno_zoo5.jpg">
 					</a>
+					<a
+						href='<s:url action="SearchItemAction">
+		<s:param name="categoryId" value="2"/>
+		</s:url>'>
+						<span class="Category_none">&nbsp;</span> <span
+						class="Category_name">動物園</span>
+					</a>
+					<a
+						href='<s:url action="SearchItemAction">
+		<s:param name="categoryId" value="2"/>
+		</s:url>'>
+						<img class="cover" src="./images/ueno_zoo5.jpg">
+					</a>
+
 				</div>
 
-				<div>
+
+<!-- .slide_imgのaタグ内訳
+→ a1=元スライド、a2=カテゴリ名の帯、a3=hoverしたら消える画像 -->
+
+				<!-- 遊園地 -->
+				<div class="slide_img">
 					<a
 						href='<s:url action="SearchItemAction">
 		<s:param name="categoryId" value="5"/>
 		</s:url>'>
 						<img src="./images/tokyo_dome_city.jpg">
 					</a>
+					<a
+						href='<s:url action="SearchItemAction">
+		<s:param name="categoryId" value="5"/>
+		</s:url>'>
+						<span class="Category_none">&nbsp;</span> <span
+						class="Category_name">遊園地</span>
+					</a>
+					<a
+						href='<s:url action="SearchItemAction">
+		<s:param name="categoryId" value="5"/>
+		</s:url>'>
+						<img class="cover" src="./images/tokyo_dome_city.jpg">
+					</a>
 				</div>
 
-				<div>
-				<a
+
+				<!-- 美術館 -->
+				<div class="slide_img">
+					<a
 						href='<s:url action="SearchItemAction">
 		<s:param name="categoryId" value="6"/>
 		</s:url>'>
-					<img src="./images/digital_art_m6.jpg">
+						<img src="./images/digital_art_m6.jpg">
+					</a> <a
+						href='<s:url action="SearchItemAction">
+		<s:param name="categoryId" value="6"/>
+		</s:url>'>
+						<span class="Category_none">&nbsp;</span> <span
+						class="Category_name">美術館</span>
+					</a> <a
+						href='<s:url action="SearchItemAction">
+		<s:param name="categoryId" value="6"/>
+		</s:url>'>
+						<img class="cover" src="./images/digital_art_m6.jpg">
 					</a>
 				</div>
 
-				<div>
-				<a
+
+				<!-- 水族館 -->
+				<div class="slide_img">
+					<a
 						href='<s:url action="SearchItemAction">
 		<s:param name="categoryId" value="3"/>
 		</s:url>'>
-					<img src="./images/kamogawa_sea_world7.jpg">
+						<img src="./images/kamogawa_sea_world7.jpg">
+					</a>
+					<a
+						href='<s:url action="SearchItemAction">
+		<s:param name="categoryId" value="3"/>
+		</s:url>'>
+						<span class="Category_none">&nbsp;</span> <span
+						class="Category_name">水族館</span>
+					</a>
+					<a
+						href='<s:url action="SearchItemAction">
+		<s:param name="categoryId" value="3"/>
+		</s:url>'>
+						<img class="cover" src="./images/kamogawa_sea_world7.jpg">
 					</a>
 				</div>
 
-				<div>
-				<a
+
+				<!-- アスレチック -->
+				<div class="slide_img">
+					<a
 						href='<s:url action="SearchItemAction">
 		<s:param name="categoryId" value="4"/>
 		</s:url>'>
-					<img src="./images/parcabout5.jpg">
+						<img src="./images/parcabout5.jpg">
+					</a>
+					<a
+						href='<s:url action="SearchItemAction">
+		<s:param name="categoryId" value="4"/>
+		</s:url>'>
+						<span class="Category_none">&nbsp;</span> <span
+						class="Category_nameAS">アスレチック</span>
+					</a>
+					<a
+						href='<s:url action="SearchItemAction">
+		<s:param name="categoryId" value="4"/>
+		</s:url>'>
+						<img class="cover" src="./images/parcabout5.jpg">
 					</a>
 				</div>
 			</div>
+
 
 			<p>おすすめピックアップ</p>
 
@@ -111,31 +188,29 @@
 						href='<s:url action="ProductDetailsAction">
 		<s:param name="productId" value="7"/>
 		</s:url>'>
-							<img src="./images/ichikawa_city_zoo4.jpg">
-							<div class="text">市川植物園</div>
+							<img src="./images/ichikawa_city_zoo4.jpg"> <span
+							class="text">市川植物園</span>
 					</a></li>
 					<li><a
 						href='<s:url action="ProductDetailsAction">
 		<s:param name="productId" value="38"/>
 		</s:url>'>
-							<img src="./images/toshimaen2.jpg">
-							<div class="text">としまえん</div>
+							<img src="./images/toshimaen2.jpg"> <span class="text">としまえん</span>
 					</a></li>
 
 					<li><a
 						href='<s:url action="ProductDetailsAction">
 		<s:param name="productId" value="13"/>
 		</s:url>'>
-							<img src="./images/sunshine_aquarium5.jpg">
-							<div class="text">サンシャイン水族館</div>
+							<img src="./images/sunshine_aquarium5.jpg"> <span
+							class="text">サンシャイン水族館</span>
 					</a></li>
 
 					<li><a
 						href='<s:url action="ProductDetailsAction">
 		<s:param name="productId" value="45"/>
 		</s:url>'>
-							<img src="./images/ghibli_ｍ4.jpg">
-							<div class="text">三鷹の森ジブリ美術館</div>
+							<img src="./images/ghibli_ｍ4.jpg"> <span class="text">三鷹の森ジブリ美術館</span>
 					</a></li>
 				</ul>
 			</div>

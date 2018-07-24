@@ -2,10 +2,74 @@
 
 .slider img {
 	width: 1340px;
-	height: 340px;
+	height: 350px;
 	display: flex;
 	justify-content: center;
+	z-index:2;
 }
+
+.slide_img{
+	position:relative;
+}
+.slide_img img.cover{
+	position:absolute;
+	top:0;
+	left:0;
+
+	width: 1340px;
+	height: 350px;
+	display: flex;
+	justify-content: center;
+	cursor: pointer;
+
+	z-index:10;
+}
+.slide_img img.cover:hover{
+	z-index:1;
+}
+
+
+
+/* スライドのカテゴリ名表示 */
+.slide_img .Category_name{
+	line-height:40px;
+	text-align:center;
+	font-size:20px;
+	color:white;
+	position:absolute;
+	bottom:0;
+	left:46.2%;
+	z-index:5;
+	display:block;
+	letter-spacing:0.5em;
+}
+.slide_img .Category_nameAS{
+	line-height:40px;
+	text-align:center;
+	font-size:20px;
+	color:white;
+	position:absolute;
+	bottom:0;
+	left:42.5%;
+	z-index:5;
+	display:block;
+	letter-spacing:0.5em;
+}
+/* スライドのカテゴリ名背景 */
+.slide_img .Category_none{
+	background-color:#333333;
+	opacity:0.6;
+	width:1050px;
+	height:40px;
+	position:absolute;
+	bottom:0;
+	z-index:4;
+	display:block;
+}
+
+/* ************ */
+
+
 
 /*スライダー*/
 /*. bx-wrapper .bx-pager.bx-default-pager  {
@@ -30,11 +94,12 @@
 
 .box ul {
 	list-style-type: none;
-	margin: 0 auto;
+	margin: 0 30px 0 40px;
 	width: 940px;
 	padding-left: 0;
 	display: flex;
 	justify-content: center;	/* 中央よせ */
+	align-items: center;
 }
 
 .box li {
@@ -53,7 +118,8 @@
 	width: 230px;
 	height: 170px;
 	border-radius: 5px;
-	margin: 10px;
+	margin: 15px;
+	border:solid 0.8px #f7f7f7;
 }
 
 .box img:hover {
@@ -61,7 +127,10 @@
 }
 
 .box .text {
-	font-size: 15px;
+	font-size: 16px;
 	text-align: center;
+	margin-top:-10px;
+	margin-left:20px;
+	display:block;
 	font-weight: bold;
 }

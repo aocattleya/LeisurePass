@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/addProduct.css">
+
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
@@ -51,127 +53,7 @@
 </script>
 <jsp:include page="includeHead.jsp" />
 <title>商品追加画面</title>
-<style type="text/css">
-#main {
-	position: relative;
-	bottom: 50px;
-}
 
-.title {
-	mrgin-top: -500px;
-	text-align: center;
-}
-
-#admin-contents {
-	width: 453px;
-	height: 50px;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	position: absolute;
-	margin: auto;
-}
-
-body {
-	width: 100%;
-	font-family: 'メイリオ', sans-serif;
-	font-size: 18px;
-	color: #333333; /* 黒 */
-}
-
-.text-title {
-	text-align: center;
-}
-
-input.txt2 {
-	height: 40px; /*入力欄の縦の長さ*/
-	width: 450px; /*入力欄の横の長さ*/
-	background-color: #f7f7f7; /*入力欄の中の色*/
-	border-radius: 5px; /*入力欄の角の丸み*/
-	font-size: 18px; /*入力欄の文字サイズ*/
-}
-
-.productDescription {
-	resize: none;
-	height: 200px; /*入力欄の縦の長さ*/
-	width: 450px; /*入力欄の横の長さ*/
-	background-color: #f7f7f7; /*入力欄の中の色*/
-	border-radius: 5px; /*入力欄の角の丸み*/
-	font-size: 18px; /*入力欄の文字サイズ*/
-}
-
-.errormessage {
-	color: #ed7d22;
-}
-
-input.txt3 {
-	height: 40px; /*入力欄の縦の長さ*/
-	width: 450px; /*入力欄の横の長さ*/
-	background-color: #f7f7f7; /*入力欄の中の色*/
-	border-radius: 5px; /*入力欄の角の丸み*/
-	font-size: 18px;
-	height: 40px; /*入力欄の文字サイズ*/
-}
-
-textarea {
-	resize: none;
-	height: 200px; /*入力欄の縦の長さ*/
-	width: 450px; /*入力欄の横の長さ*/
-	background-color: #f7f7f7; /*入力欄の中の色*/
-	border-radius: 5px; /*入力欄の角の丸み*/
-	font-size: 18px; /*入力欄の文字サイズ*/
-}
-
-textfield {
-	resize: none;
-	height: 200px; /*入力欄の縦の長さ*/
-	width: 450px; /*入力欄の横の長さ*/
-	background-color: #f7f7f7; /*入力欄の中の色*/
-	border-radius: 5px; /*入力欄の角の丸み*/
-	font-size: 18px; /*入力欄の文字サイズ*/
-}
-
-select {
-	width: 225px;
-	height: 40px;
-	background-color: #f7f7f7;
-	border-radius: 5px;
-}
-
-.AllBox {
-	width: 450px;
-}
-
-.submit_btn {
-	font-size: 20px;
-	clear: both;
-	width: 200px;
-	height: 40px;
-	margin: 5px;
-	color: #FFF;
-	background: #ed7d22;
-	border-radius: 20px;
-	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0
-		rgba(0, 0, 0, 0.05);
-	border: solid 2px #d27d00;
-	outline: 0; /*変な枠線を非表示に*/
-	cursor: pointer; /*マウスを乗せたとき指マークにする*/
-	position: relative;
-	left: 120px;
-}
-
-#correction {
-	position: relative;
-	left: 200px;
-	color: #ed7d22;
-}
-
-img {
-	max-width: 225px;
-	max-height: 225px;
-}
-</style>
 </head>
 <body>
 	<jsp:include page="header.jsp" />
@@ -193,7 +75,7 @@ img {
 						<div class="text-title">
 							商品ID<br>
 						</div>
-						<s:textfield name="productId" placeholder="例：100"
+						<s:textfield name="productId" placeholder="半角数字で入力"
 							value="%{#session.addProductDTO.productId}" class="txt2" />
 						<br>
 						<s:if test="!#session.productIdErrorMessageList.isEmpty()">
@@ -499,19 +381,19 @@ img {
 						<s:form action="AddProductConfirmAction" method="post"
 							enctype="multipart/form-data">
 							<div class="text-title">
-								商品ID<br>
+								<b>商品ID</b><br>
 							</div>
-							<s:textfield name="productId" placeholder="例：100" class="txt3" />
+							<s:textfield name="productId" placeholder="半角数字で入力" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								商品名<br>
+								<b>商品名</b><br>
 							</div>
 							<s:textfield name="productName" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								商品かな<br>
+								<b>商品かな</b><br>
 							</div>
 							<s:textfield name="productNameKana" placeholder="ひらがなで入力してね"
 								class="txt3" />
@@ -519,7 +401,7 @@ img {
 							<br>
 
 							<div class="text-title">
-								カテゴリ<br>
+								<b>カテゴリ</b><br>
 							</div>
 							<select name="categoryId" class="txt">
 								<option value="2" selected="selected">動物園</option>
@@ -531,7 +413,7 @@ img {
 							<br>
 							<br>
 							<div class="text-title">
-								場所<br>
+								<b>場所</b><br>
 							</div>
 							<select name="placeId" class="txt">
 								<option value="2" selected="selected">茨城県</option>
@@ -545,13 +427,13 @@ img {
 							<br>
 							<br>
 							<div class="text-title">
-								価格(円)<br>
+								<b>価格(円)</b><br>
 							</div>
 							<s:textfield name="price" placeholder="半角数字で入力" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								画像ファイル選択<br>
+								<b>画像ファイル選択</b><br>
 							</div>
 							<div class="preview">
 								<s:file name="productImage" />
@@ -559,54 +441,54 @@ img {
 							<br>
 							<br>
 							<div class="text-title">
-								発売年月<br>
+								<b>発売年月</b><br>
 							</div>
 							<s:textfield name="releaseDate"
 								placeholder="yyyy-MM-dd もしくは yyyy年MM月dd日" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								発売会社<br>
+								<b>発売会社</b><br>
 							</div>
 							<s:textfield name="releaseCompany" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								所在地<br>
+								<b>所在地</b><br>
 							</div>
 							<s:textfield name="location" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								アクセス<br>
+								<b>アクセス</b><br>
 							</div>
 							<s:textfield name="access" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								URL<br>
+								<b>URL</b><br>
 							</div>
 							<s:textfield name="url" placeholder="半角英数字で入力して" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								開始日<br>
+								<b>開始日</b><br>
 							</div>
 							<s:textfield name="startDate"
 								placeholder="yyyy-MM-dd もしくは yyyy年MM月dd日" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								終了日<br>
+								<b>終了日</b><br>
 							</div>
 							<s:textfield name="endDate"
 								placeholder="yyyy-MM-dd もしくは yyyy年MM月dd日" class="txt3" />
 							<br>
 							<br>
 							<div class="text-title">
-								商品詳細<br>
+								<b>商品詳細</b><br>
 							</div>
-							<s:textarea name="productDescription" class="txt3" />
+							<s:textfield name="productDescription" class="txt3" />
 							<br>
 							<br>
 							<s:submit value="確認画面へ" class="submit_btn" />

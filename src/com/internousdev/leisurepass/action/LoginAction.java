@@ -108,7 +108,9 @@ public class LoginAction extends ActionSupport implements SessionAware {
 				result = "admin";
 			}
 		} else {
-			session.put("loginFailedMessage", "ログインIDまたはパスワードが異なります。");
+			if(loginId.length() >=1 && password.length() >=1){
+				session.put("loginFailedMessage", "ログインIDまたはパスワードが異なります。");
+			}
 		}
 
 		// navigation情報を取得

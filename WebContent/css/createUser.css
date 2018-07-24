@@ -3,7 +3,6 @@
 .vertical-list-table {
 	border-radius: 20px; /*背景の角の丸み*/
 	margin: 0 auto; /*センター中央寄せ*/
-	font-family: 'メイリオ', sans-serif;
 	font-size: 18px;
 }
 
@@ -31,7 +30,6 @@
 
 #contents {
 	margin: 0 auto; /*コンテンツの中央*/
-	width: 200px;
 	text-align: center; /*文字中央*/
 	letter-spacing: 1px; /*幅の微調整*/
 	font-family: "メイリオ", sans-serif; /*フォント指定*/
@@ -75,13 +73,11 @@
 	color: #aaaaaa;
 }
 
-
-
 input.txt {
 	height: 40px;
 	width: 225px;
 	background-color: #f7f7f7;
-	border-radius: 10px; /*角の丸み*/
+	border-radius: 5px; /*角の丸み*/
 	font-size: 18px;
 }
 /*入力欄CSS*/
@@ -89,7 +85,7 @@ input.txt2 {
 	height: 40px; /*入力欄の縦の長さ*/
 	width: 450px; /*入力欄の横の長さ*/
 	background-color: #f7f7f7; /*入力欄の中の色*/
-	border-radius: 10px; /*入力欄の角の丸み*/
+	border-radius: 5px; /*入力欄の角の丸み*/
 	font-size: 18px; /*入力欄の文字サイズ*/
 }
 
@@ -110,9 +106,9 @@ input.txt2 {
 }
 
 h1 {
-	font-size:30px;
+	font-size: 30px;
 	color: #333333;
-	margin-top:0;
+	margin-top: 0;
 }
 
 th {

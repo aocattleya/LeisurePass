@@ -20,6 +20,24 @@
 		<jsp:include page="navigation.jsp" />
 		<div id="contents">
 			<div id="contents-box">
+
+				<s:if test="%{#session.containsKey('overErrorMessage')}">
+					<s:property value="%{#session.overErrorMessage}" />
+				</s:if>
+				<s:if test="%{#session.containsKey('shortageErrorMessage')}">
+					<s:iterator value="%{#session.shortageErrorMessage}" />
+					<s:property />
+				</s:if>
+				<s:if test="%{#session.containsKey('noCountErrorMessage')}">
+					<s:iterator value="%{#session.noCountErrorMessage}" />
+					<s:property />
+				</s:if>
+				<s:if test="%{#session.containsKey('errorMessage')}">
+					<s:iterator value="%{#session.errorMessage}" />
+					<s:property />
+				</s:if>
+
+
 				<s:form action="AddCartAction">
 					<div class="big-picture">
 						<img
@@ -55,6 +73,7 @@
 								<td class="releaseDate" scope="row"><s:label value="発売年月日" />
 									<s:property value="%{#session.releaseDateString}" /></td>
 							</tr>
+
 						</table>
 						<!-- 追加項目 -->
 						<br> <br>
@@ -96,17 +115,19 @@
 
 						<ul>
 							<li>
-
 								<div class="byCount">
 									<s:select name="productCount"
-										list="%{#session.productCountList}" />
-									<span class="mai">枚</span>
+										list="%{#session.productCountList}" class="pulldown">
+										<span class="mai">枚数</span>
+									</s:select>
+
+
 								</div> <br>
 							</li>
 							<li>
 								<div class="byPrice">
-									価格&nbsp;&nbsp;&nbsp; <span><s:property
-											value="%{#session.price}" /> 円</span>
+									価格 <span class="yen"><s:property
+											value="%{#session.price}" /> 円</span><span class="s-mai">&nbsp;/枚</span>
 								</div> <br>
 							</li>
 							<li><s:submit value="カートに追加" class="cart_submit_btn" /></li>
@@ -115,36 +136,31 @@
 					</div>
 				</s:form>
 				<!-- おススメピックアップ -->
-				<div class="pickup_title">
-					<br> おすすめピックアップ
-				</div>
-				<br>
 
-				<div class="box">
+				<div id="pickUp">
+					<div class="pickup_title">
+						<br> おすすめピックアップ
+					</div>
+					<br>
 
-					<div class="product-details-recomｍend-box">
-						<s:iterator value="#session.productInfoDtoList">
-							<!-- 	<div class="product-list">
-		<div class="product-list-box"> -->
-							<div class="recommend-box">
-								<div class="pickup">
-									<a
-										href='<s:url action="ProductDetailsAction">
+					<s:iterator value="#session.productInfoDtoList">
+
+						<div class="recommend-box">
+							<div class="pickup">
+								<a
+									href='<s:url action="ProductDetailsAction">
 		<s:param name="productId" value="%{productId}"/>
 		</s:url>'>
-										<img
-										src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>'
-										class="item-image-box-100" />
-									</a>
-								</div>
-								<div class="pickup-Name">
-									<s:property value="productName" />
-								</div>
-								<br>
+									<img
+									src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>'
+									class="item-image-box-100" />
+								</a>
 							</div>
-						</s:iterator>
-					</div>
-
+							<div class="pickup-Name">
+								<s:property value="productName" />
+							</div>
+						</div>
+					</s:iterator>
 				</div>
 
 			</div>

@@ -47,3 +47,9 @@ h1 img.fish {
 	border-style: none;
 	border-radius: 20px;
 }
+
+.image_box{
+	width: 250px;
+	height:180px;
+	border-radius: 10px;
+}

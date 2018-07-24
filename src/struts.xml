@@ -96,9 +96,7 @@
 		<result name="success">adminProductComplete.jsp</result>
 	</action>
 
-	<action name="EditProductAction" class="com.internousdev.leisurepass.action.EditProductAction" method="execute">
-		<result name="success">editProduct.jsp</result>
-	</action>
+
 
 
 
