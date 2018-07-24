@@ -166,7 +166,7 @@
 			</div>
 
 
-			<p>おすすめピックアップ</p>
+			<p class=box-text>おすすめピックアップ</p>
 
 			<div class="box">
 				<%-- <ul>
