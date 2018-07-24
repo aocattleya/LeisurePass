@@ -19,11 +19,10 @@
 
 <meta name="description"
 	content="A simple library to take care of complex CSS animations." />
-<meta property="og:image" content="./assets/screenshot.png" />
 <canvas id="animation"></canvas>
 </head>
 
-<body background="admission-2974645_1280.jpg" bgproperties="fixed">
+<body>
 
 	<header>
 		<div id="header" class="header">

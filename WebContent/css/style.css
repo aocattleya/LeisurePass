@@ -52,10 +52,26 @@ header {
 	margin-left: 10px;
 	margin-bottom: 10px;
 	border-radius: 10px;
-
 }
+#header-container .logo_none{
+	flex: 1;
+	height: 70px;
+	background-color: #f7f7f7;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+}
+
+
 /*ロゴ画像の装飾*/
 header .logo img {
+	width: auto;
+	height: 70px;
+	margin-left: 20px;
+	display: block;
+	z-index:1;
+}
+header .logo_none img {
 	width: auto;
 	height: 70px;
 	margin-left: 20px;
