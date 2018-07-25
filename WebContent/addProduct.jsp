@@ -300,7 +300,7 @@
 				</s:form>
 								​
 				<!-- 商品管理画面に戻る -->
-				<a href="http://localhost:8080/leisurepass/AdminProductAction"
+				<a href="AdminProductAction"
 					id="correction">戻る</a>
 			</div>
 		</div>
