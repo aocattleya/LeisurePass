@@ -6,11 +6,11 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>エラー画面</title>
-		<s:if test="%{#session.userInfo.status == 0}">
-			<meta http-equiv="refresh" content="3; URL='HomeAction'"/>
+		<s:if test="%{#session.userInfo.status == 1}">
+			<meta http-equiv="refresh" content="3; URL='GoAdminAction'"/>
 		</s:if>
 		<s:else>
-			<meta http-equiv="refresh" content="3; URL='GoAdminAction'"/>
+			<meta http-equiv="refresh" content="3; URL='HomeAction'"/>
 		</s:else>
 	</head>
 	<body>
