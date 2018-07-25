@@ -26,9 +26,10 @@ public class AdminProductAction extends ActionSupport implements SessionAware {
 		session.remove("addProductDTO");
 
 		/*	sessionに管理者ステータス１が入っていなければERROR*/
-		if(!(session.containsKey("status=1"))){
+		if(!((String)session.get("status")).equals("1")){
 			return ERROR;
 		}
+
 
 		// navigation情報を取得
 		SearchConditionLoader loader = new SearchConditionLoader();

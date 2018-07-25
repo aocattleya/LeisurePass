@@ -14,7 +14,7 @@ public class GoAdminAction extends ActionSupport implements SessionAware{
 
 
 	/*	sessionに管理者ステータス１が入っていなければERROR*/
-		if(!(session.containsKey("status=1"))){
+		if(!((String)session.get("status")).equals("1")){
 			return ERROR;
 		}
 
