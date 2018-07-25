@@ -6,6 +6,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.leisurepass.dao.AdminItemDAO;
 import com.internousdev.leisurepass.dto.ProductInfoDTO;
+import com.internousdev.leisurepass.util.CommonUtility;
 import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -14,7 +15,8 @@ public class DeleteProductCompleteAction extends ActionSupport implements Sessio
 	private int id;
 	public Map<String, Object> session;
 
-	public String execute() {
+	public String execute() throws Exception{
+		CommonUtility.checkLoginAdmin(session);
 
 		//System.out.println(session.get("deleteProductDTO"));
 		ProductInfoDTO dto = (ProductInfoDTO) session.get("deleteProductDTO");

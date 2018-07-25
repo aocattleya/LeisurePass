@@ -8,6 +8,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.leisurepass.dao.ProductInfoDAO;
 import com.internousdev.leisurepass.dto.ProductInfoDTO;
+import com.internousdev.leisurepass.util.CommonUtility;
 import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -17,7 +18,8 @@ public class AdminProductAction extends ActionSupport implements SessionAware {
 
 	private List<ProductInfoDTO> productList = new ArrayList<ProductInfoDTO>();
 
-	public String execute() {
+	public String execute() throws Exception{
+		CommonUtility.checkLoginAdmin(session);
 		/* result= ERROR; */
 
 		ProductInfoDAO dao = new ProductInfoDAO();
@@ -25,17 +27,6 @@ public class AdminProductAction extends ActionSupport implements SessionAware {
 
 		session.remove("addProductDTO");
 
-		/* sessionにstatusが入っているか確認。 */
-		if (session.containsKey("status")) {
-
-			/*ステータスが管理者でなければERROR*/
-			if (!((String) session.get("status")).equals("1")) {
-				return ERROR;
-			}
-			/*statusがなくてもERROR*/
-		} else {
-			return ERROR;
-		}
 
 		// navigation情報を取得
 		SearchConditionLoader loader = new SearchConditionLoader();

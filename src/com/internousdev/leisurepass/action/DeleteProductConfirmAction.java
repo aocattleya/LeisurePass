@@ -9,6 +9,7 @@ import com.internousdev.leisurepass.dao.AdminItemDAO;
 import com.internousdev.leisurepass.dto.MCategoryDTO;
 import com.internousdev.leisurepass.dto.MPlaceDTO;
 import com.internousdev.leisurepass.dto.ProductInfoDTO;
+import com.internousdev.leisurepass.util.CommonUtility;
 import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -18,7 +19,8 @@ public class DeleteProductConfirmAction extends ActionSupport implements Session
 
 	public Map<String, Object> session;
 
-	public String execute() {
+	public String execute() throws Exception{
+		CommonUtility.checkLoginAdmin(session);
 
 		// 削除ボタンを押した商品のidをsessionに格納（削除確認画面で表示するため）
 		AdminItemDAO dao = new AdminItemDAO();

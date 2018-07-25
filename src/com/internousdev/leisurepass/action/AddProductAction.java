@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.leisurepass.util.CommonUtility;
 import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -29,7 +30,9 @@ public class AddProductAction extends ActionSupport implements SessionAware {
 
 	private Map<String, Object> session;
 
-	public String execute() {
+	public String execute() throws Exception{
+		CommonUtility.checkLoginAdmin(session);
+
 		System.out.println(session.containsKey("addProductDTO"));
 		String result = SUCCESS;
 		// if (session.containsKey("addProductDTO")) {

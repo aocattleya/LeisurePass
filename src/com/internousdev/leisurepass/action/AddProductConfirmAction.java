@@ -17,6 +17,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.leisurepass.dao.AddProductDAO;
 import com.internousdev.leisurepass.dto.ProductInfoDTO;
+import com.internousdev.leisurepass.util.CommonUtility;
 import com.internousdev.leisurepass.util.InputChecker;
 import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
@@ -62,7 +63,8 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 	private List<String> endDateErrorMessageList = new ArrayList<String>();
 	private List<String> productImageErrorMessageList = new ArrayList<String>();
 
-	public String execute() {
+	public String execute() throws Exception{
+		CommonUtility.checkLoginAdmin(session);
 
 		String result = ERROR;
 
