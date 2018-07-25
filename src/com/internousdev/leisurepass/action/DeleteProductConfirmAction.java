@@ -34,6 +34,7 @@ public class DeleteProductConfirmAction extends ActionSupport implements Session
 
 		// カテゴリIDが一致しているものを探す
 		MCategoryDTO category = null;
+		@SuppressWarnings("unchecked")
 		List<MCategoryDTO> categoryList = (List<MCategoryDTO>) session.get("mAdminCategoryDtoList");
 		for (int i = 0; i < categoryList.size(); i++) {
 			MCategoryDTO m = categoryList.get(i);
@@ -46,6 +47,7 @@ public class DeleteProductConfirmAction extends ActionSupport implements Session
 
 		// 場所IDが一致しているものを探す
 		MPlaceDTO place = null;
+		@SuppressWarnings("unchecked")
 		List<MPlaceDTO> placeList = (List<MPlaceDTO>) session.get("mAdminPlaceDtoList");
 		for (int i = 0; i < placeList.size(); i++) {
 			MPlaceDTO m = placeList.get(i);
