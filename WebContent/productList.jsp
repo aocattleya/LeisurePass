@@ -14,14 +14,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css"
 	type="text/css" media="all" />
-<script type="text/javascript">
-	function ring() {
-		document.getElementById("Elephant").play();
-	}
-	function ring1() {
-		document.getElementById("Fish").play();
-	}
-</script>
+
 <jsp:include page="includeHead.jsp" />
 <title>商品一覧</title>
 
@@ -43,8 +36,8 @@
 
 			<s:if test="!(productInfoDtoList==null)">
 				<h1>
-					<img onclick="ring()" class="ele" src="images/elephant.jpg">
-					&nbsp;商品一覧&nbsp; <img onclick="ring1()" class="fish" src="images/fish.jpg">
+					<img class="ele" src="images/elephant.jpg">
+					&nbsp;商品一覧&nbsp; <img class="fish" src="images/fish.jpg">
 				</h1>
 			</s:if>
 
