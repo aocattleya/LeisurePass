@@ -59,12 +59,15 @@
 <!-- 久保田  管理者IDで管理者画面へ -->
 	<action name="GoAdminAction" class="com.internousdev.leisurepass.action.GoAdminAction" method="execute">
 		<result name="success">admin.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 <!-- 久保田　管理者もろもろ -->
 	<action name="AdminProductAction" class="com.internousdev.leisurepass.action.AdminProductAction" method="execute">
 		<result name="success">adminProduct.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
+
 
 	<action name="AddProductAction" class="com.internousdev.leisurepass.action.AddProductAction" method="execute">
 		<result name="success">addProduct.jsp</result>

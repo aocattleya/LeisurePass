@@ -10,16 +10,28 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GoAdminAction extends ActionSupport implements SessionAware{
 	private Map<String, Object> session;
 	public String execute() {
-		String result = SUCCESS;
+		/*String result = ERROR;*/
+
+
+	/*	sessionに管理者ステータス１が入っていなければERROR*/
+		if(!(session.containsKey("status=1"))){
+			return ERROR;
+		}
+
 
 		// navigation情報を取得
 		SearchConditionLoader loader = new SearchConditionLoader();
 		loader.execute(session);
 
-		return result;
+		return SUCCESS;
 	}
 
 	public void setSession(Map<String, Object> session){
 		this.session=session;
 	}
+
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
 }
