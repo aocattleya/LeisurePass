@@ -68,35 +68,38 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		//商品をカートに追加後、ページを更新した際に商品が再度追加されてしまうのを防ぐ
 		if(!session.containsKey("addProductFlag")){
 
-		if(cartInfoDao.existProductId(userId, productId)){
-			cartInfoDao.productUpDate(userId, tempUserId, productId, productCount, price);
-		}else{
-			cartInfoDao.regist(userId, tempUserId, productId, productCount, price);
-		}
+
 
 
 		if (Integer.parseInt(productCount) > 0 && Integer.parseInt(productCount) < 6) {
 			result = SUCCESS;
-		} else if (Integer.parseInt(productCount) > 6) {
+		} else if (Integer.parseInt(productCount) >= 6) {
 			overErrorMessage="在庫を超える数値が投入されたため、カートに商品が投入されませんでした";
 			session.put("overErrorMessage",overErrorMessage);
 			System.out.println(session.get("overErrorMessage"));
 			result = ERROR;
 		} else if (Integer.parseInt(productCount) == 0) {
 			noCountErrorMessage="投入数が0のため、カートに商品が投入されませんでした";
-			session.put("noCountErrorMessage", "noCountErrorMessage");
+			session.put("noCountErrorMessage", noCountErrorMessage);
 			result = ERROR;
-		} else if (Integer.parseInt(productCount) < -1) {
+		} else if (Integer.parseInt(productCount) < 0) {
 			shortageErrorMessage="投入数が不足しているため、カートに商品が投入されませんでした";
 			session.put("shortageErrorMessage",shortageErrorMessage);
 			result = ERROR;
 		} else {
 			errorMessage="カート投入数が不正です";
-			session.put("errorMessage","errorMessage");
+			session.put("errorMessage",errorMessage);
 			result = ERROR;
 		}
 
 		session.put("addProductFlag", true);
+
+		if(cartInfoDao.existProductId(userId, productId)){
+			cartInfoDao.productUpDate(userId, tempUserId, productId, productCount, price);
+		}else if(result == SUCCESS){
+			cartInfoDao.regist(userId, tempUserId, productId, productCount, price);
+		}
+
 		}else{
 			result=SUCCESS;
 		}
