@@ -16,7 +16,7 @@ public class InputChecker {
 	 * 結果はList形式で渡されることに気を付けてください。
 	 *
 	 */
-	public List<String> doCheck(String propertyName,String value,int minLength,int maxLength,boolean availableAlphabeticCharacters,boolean availableKanji,boolean availableHiragana,boolean availableHalfWidthDigit,boolean availableHalfWidthSymbols,boolean availableKatakana,boolean availableFullWidthSymbols, boolean availableSpace){
+	public List<String> doCheck(String propertyName,String value,int minLength,int maxLength,boolean availableAlphabeticCharacters,boolean availableKanji,boolean availableHiragana,boolean availableHalfWidthDigit,boolean availableHalfWidthSymbols,boolean availableKatakana,boolean availableFullWidthSymbols, boolean availableSpace, boolean availableFullWidthAlphanumericCharacters){
 
 		//検証した結果を入れるList
 				List<String> stringList = new ArrayList<String>();
@@ -101,6 +101,13 @@ public class InputChecker {
 					//characterTypeList.add("スペース");
 				}else{
 					errorExpression +=" 　";
+				}
+
+				if(availableFullWidthAlphanumericCharacters){
+					regularExpression +="０-９ ａ-ｚ Ａ-Ｚ";
+					characterTypeList.add("全角英数字");
+				}else{
+					errorExpression +="０-９ ａ-ｚ Ａ-Ｚ";
 				}
 
 				if(!StringUtils.isEmpty(regularExpression)){
