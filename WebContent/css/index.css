@@ -18,15 +18,21 @@ body {
 ::-webkit-scrollbar {
 	display: none;
 }
+/*
+#letters img{
+	width:auto;
+	height:120px;
+}
+ */
 
-p {
+/* p {
 	font-size: 50px;
 	letter-spacing: 0.05em;
 }
 
 a {
 	text-decoration: none;
-}
+} */
 
 #wrapper {
 	height: 400vh;
