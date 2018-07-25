@@ -181,7 +181,7 @@ family_name_kana varchar(32) not null comment "姓かな",
 first_name_kana varchar(32) not null comment "名かな",
 email varchar(32) not null comment "メールアドレス",
 tel_number varchar(13) not null comment "電話番号",
-user_address varchar(50) not null comment "住所",
+user_address varchar(50) unique not null comment "住所",
 regist_date datetime not null comment "登録日",
 update_date datetime not null comment "更新日"
 )
