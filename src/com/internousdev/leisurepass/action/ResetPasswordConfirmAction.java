@@ -25,7 +25,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 	private List<String> newPasswordErrorMessageList = new ArrayList<String>();
 	private List<String> reConfirmationNewPasswordErrorMessageList = new ArrayList<String>();
 	private List<String> newPasswordIncorrectErrorMessageList = new ArrayList<String>();
-
+	private String reConfirmationNewPasswordErrorMessage;
 
 	private Map<String, Object> session;
 
@@ -57,29 +57,32 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 				session.put("newPassword", newPassword);
 				session.put("concealedPassword", concealedPassword);
 				result = SUCCESS;
-			}
-			 else{
-			 passwordIncorrectErrorMessageList.add("入力されたパスワードが異なります。");
+			} else {
+				passwordIncorrectErrorMessageList.add("入力されたパスワードが異なります。");
 
-			 }
+			}
 
 
 		}
-			session.put("loginIdErrorMessageList", loginIdErrorMessageList);
-			session.put("passwordErrorMessageList", passwordErrorMessageList);
-			session.put("newPasswordErrorMessageList", newPasswordErrorMessageList);
-			session.put("reConfirmationNewPasswordErrorMessageList", reConfirmationNewPasswordErrorMessageList);
-			session.put("newPasswordIncorrectErrorMessageList", newPasswordIncorrectErrorMessageList);
-			session.put("passwordIncorrectErrorMessageList",passwordIncorrectErrorMessageList);
+		if (!reConfirmationNewPasswordErrorMessageList.isEmpty()) {
+			reConfirmationNewPasswordErrorMessage = "再確認パスワードは半角英数字で入力してください。";
+			System.out.println(session.get(reConfirmationNewPasswordErrorMessage));
+		}
+		session.put("loginIdErrorMessageList", loginIdErrorMessageList);
+		session.put("passwordErrorMessageList", passwordErrorMessageList);
+		session.put("newPasswordErrorMessageList", newPasswordErrorMessageList);
+		session.put("reConfirmationNewPasswordErrorMessage", reConfirmationNewPasswordErrorMessage);
+		session.put("newPasswordIncorrectErrorMessageList", newPasswordIncorrectErrorMessageList);
+		session.put("passwordIncorrectErrorMessageList", passwordIncorrectErrorMessageList);
 
-			// navigation情報を取得
-			SearchConditionLoader loader = new SearchConditionLoader();
-			loader.execute(session);
+
+
+		// navigation情報を取得
+		SearchConditionLoader loader = new SearchConditionLoader();
+		loader.execute(session);
 
 		return result;
 	}
-
-
 
 	public String getLoginId() {
 		return loginId;

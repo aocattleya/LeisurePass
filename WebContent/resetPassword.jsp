@@ -66,8 +66,8 @@
 					</tr>
 					<tr>
 						<td>
-							<!--パスワードエラーメッセージ一覧。-->
-							<s:if test="!#session.passwordErrorMessageList.isEmpty()">
+							<!--パスワードエラーメッセージ一覧。--> <s:if
+								test="!#session.passwordErrorMessageList.isEmpty()">
 								<div class="error">
 									<div class="error-message">
 										<s:iterator value="#session.passwordErrorMessageList">
@@ -82,8 +82,8 @@
 
 					<tr>
 						<td>
-							<!-- パスワードが間違っているエラーメッセージ。-->
-							<s:if test="!#session.passwordIncorrectErrorMessageList.isEmpty()">
+							<!-- パスワードが間違っているエラーメッセージ。--> <s:if
+								test="!#session.passwordIncorrectErrorMessageList.isEmpty()">
 								<div class="error">
 									<div class="error-message">
 										<s:iterator value="#session.passwordIncorrectErrorMessageList">
@@ -107,8 +107,8 @@
 
 					<tr>
 						<td>
-							<!-- 新しいパスワードエラーメッセージ。 -->
-							<s:if test="!#session.newPasswordErrorMessageList.isEmpty()">
+							<!-- 新しいパスワードエラーメッセージ。 --> <s:if
+								test="!#session.newPasswordErrorMessageList.isEmpty()">
 								<div class="error">
 									<div class="error-message">
 										<s:iterator value="#session.newPasswordErrorMessageList">
@@ -136,14 +136,12 @@
 
 					<tr>
 						<td>
-							<!-- パスワードエラーメッセージ再確認してください。 -->
-							<s:if test="!#session.reConfirmationNewPasswordErrorMessageList.isEmpty()">
+							<!-- パスワードエラーメッセージ再確認してください。 --> <s:if
+								test="%{#session.containsKey('reConfirmationNewPasswordErrorMessage')}">
 								<div class="error">
 									<div class="error-message">
-										<s:iterator value="#session.reConfirmationNewPasswordErrorMessageList">
-											<s:property />
-											<br>
-										</s:iterator>
+										<s:property
+											value="%{#session.reConfirmationNewPasswordErrorMessage}" />
 									</div>
 								</div>
 							</s:if>
@@ -154,11 +152,12 @@
 
 					<tr>
 						<td>
-							<!-- 新しいパスワードを間違ったエラーメッセージ。-->
-							<s:if test="!#session.newPasswordIncorrectErrorMessageList.isEmpty()">
+							<!-- 新しいパスワードを間違ったエラーメッセージ。--> <s:if
+								test="!#session.newPasswordIncorrectErrorMessageList.isEmpty()">
 								<div class="error">
 									<div class="error-message">
-										<s:iterator value="#session.newPasswordIncorrectErrorMessageList">
+										<s:iterator
+											value="#session.newPasswordIncorrectErrorMessageList">
 											<s:property />
 											<br>
 										</s:iterator>
