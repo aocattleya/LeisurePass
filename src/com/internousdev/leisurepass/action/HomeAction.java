@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.leisurepass.dto.UserInfoDTO;
 import com.internousdev.leisurepass.util.CommonUtility;
 import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
@@ -18,7 +19,7 @@ public class HomeAction extends ActionSupport implements SessionAware{
 	private Map<String, Object> session;
 
 	public String execute() {
-
+		String result = SUCCESS;
 
 		if (!(session.containsKey("loginId")) && !(session.containsKey("tempUserId"))) {
 			// ログインしていない場合は一時的にユーザーIDをランダムで設定
@@ -31,10 +32,18 @@ public class HomeAction extends ActionSupport implements SessionAware{
 			session.put("logined", 0);
 		}
 
+		// 管理者でログイン中はadmin.jspに遷移するようにします
+		if(session.containsKey("userInfo")){
+			UserInfoDTO d = (UserInfoDTO) session.get("userInfo");
+			if (d.getStatus().equals("1")) {
+				result = "admin";
+			}
+		}
+
 		SearchConditionLoader loader = new SearchConditionLoader();
 		loader.execute(session);
 
-		return SUCCESS;
+		return result;
 	}
 
 	public String getCategoryId() {

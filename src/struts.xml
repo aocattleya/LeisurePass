@@ -15,6 +15,7 @@
 
 	<action name="HomeAction" class="com.internousdev.leisurepass.action.HomeAction" method="execute">
 		<result name="success">home.jsp</result>
+		<result name="admin">admin.jsp</result>
 	</action>
 
 
@@ -241,6 +242,8 @@
 
 	<action name="PurchaseHistoryAction" class="com.internousdev.leisurepass.action.PurchaseHistoryAction" method="execute">
 		<result name="success">purchaseHistory.jsp</result>
+		<result name="error">home.jsp</result>
+		<result name="admin">admin.jsp</result>
 	</action>
 
 
