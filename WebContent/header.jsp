@@ -12,7 +12,7 @@
 
 		<s:if
 			test="(#session.userInfo.status == 1)">
-			<div class="logo_none">
+			<div class="logo">
 				<img src="images/logo.jpg">
 			</div>
 		</s:if>
