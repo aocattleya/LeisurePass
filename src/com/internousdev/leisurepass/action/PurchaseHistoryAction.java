@@ -10,6 +10,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.leisurepass.dao.PurchaseHistoryInfoDAO;
 import com.internousdev.leisurepass.dto.MCategoryDTO;
 import com.internousdev.leisurepass.dto.PurchaseHistoryInfoDTO;
+import com.internousdev.leisurepass.dto.UserInfoDTO;
 import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -18,6 +19,18 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 	private Map<String, Object> session;
 
 	public String execute() {
+		String result = ERROR;
+
+		if ((int) session.get("logined") == 0) {
+			return result;
+		}
+
+		UserInfoDTO d = (UserInfoDTO) session.get("userInfo");
+		if ((d.getStatus().equals("1"))) {
+			result = "admin";
+			return result;
+		}
+
 		PurchaseHistoryInfoDAO purchaseHistoryInfoDao = new PurchaseHistoryInfoDAO();
 		List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList = new ArrayList<PurchaseHistoryInfoDTO>();
 		// 購入履歴のリストを取得(nullだった場合例外を返します)
