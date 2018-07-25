@@ -153,7 +153,6 @@
 				<s:hidden name="url" value="%{url}" />
 				<s:hidden name="startDate" value="%{startDate}" />
 				<s:hidden name="endDate" value="%{endDate}" />
-				<s:hidden name="productDescription" value="%{productDescription}" />
 				<s:submit value="修正" class="submit_btn"/>
 			</s:form>
 

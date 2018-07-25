@@ -234,6 +234,8 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 		System.out.println(productImageFileName);
 		System.out.println(12345);
 
+		System.out.println(productDescription);
+
 		return result;
 	}
 
