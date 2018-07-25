@@ -54,7 +54,7 @@ public boolean isExistsUserInfo(String loginId,String password){
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
 	boolean result = false;
-	String sql= "select count(*) as count from user_info where user_id=? and password=?";
+	String sql= "select count(*) as count from user_info where user_id= binary ? and password= binary ?";
 	try{
 		PreparedStatement preparedStatement = con.prepareStatement(sql);
 		preparedStatement.setString(1, loginId);
@@ -92,7 +92,7 @@ public boolean existLoginId(String loginId) {
 	boolean result = false;
 
 
-	String sql = "SELECT * FROM user_info WHERE user_id = ?";
+	String sql = "SELECT * FROM user_info WHERE user_id =?";
 
 	try {
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -125,7 +125,7 @@ public UserInfoDTO getUserInfo(String loginId,String password){
 	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
 	UserInfoDTO userInfoDTO = new UserInfoDTO();
-	String sql= "select * from user_info where user_id=? and password=?";
+	String sql= "select * from user_info where user_id= binary ? and password= binary ?";
 	try{
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setString(1, loginId);
@@ -169,7 +169,7 @@ public UserInfoDTO getUserInfo(String loginId) {
 	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
 	UserInfoDTO userInfoDTO = new UserInfoDTO();
-	String sql = "select * from user_info where user_id=?";
+	String sql = "select * from user_info where user_id= binary ?";
 	try {
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setString(1, loginId);
@@ -205,7 +205,7 @@ public UserInfoDTO getUserInfo(String loginId) {
 public int resetPassword(String loginId,String password){
 	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
-	String sql= "update user_info set password=? where user_Id=?";
+	String sql= "update user_info set password=? where user_Id= binary ?";
 	int result= 0;
 	try{
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -235,7 +235,7 @@ public int resetPassword(String loginId,String password){
 public int login(String loginId,String password){
 	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
-	String sql= "update user_info set logined=1 where user_Id=? and password =?";
+	String sql= "update user_info set logined=1 where user_Id= binary ? and password = binary ?";
 	int result= 0;
 	try{
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -268,7 +268,7 @@ public int login(String loginId,String password){
 public int logout(String loginId){
 	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
-	String sql= "update user_info set logined=0 where user_Id=?";
+	String sql= "update user_info set logined=0 where user_Id= binary ?";
 	int result= 0;
 	try{
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);

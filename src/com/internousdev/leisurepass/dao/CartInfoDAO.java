@@ -39,7 +39,7 @@ public class CartInfoDAO {
 				+ " FROM cart_info as ci"
 				+ " LEFT JOIN product_info as pi"
 				+ " ON ci.product_id = pi.product_id"
-				+ " WHERE ci.user_id = ?"
+				+ " WHERE ci.user_id = binary ?"
 				+ " group by product_id";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
@@ -83,7 +83,7 @@ public class CartInfoDAO {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 
-		String sql = "select sum(product_count * price) as total_price from cart_info where user_id=? group by user_id";
+		String sql = "select sum(product_count * price) as total_price from cart_info where user_id= binary ? group by user_id";
 
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
@@ -108,7 +108,7 @@ public class CartInfoDAO {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		int count = 0;
-		String sql = "delete from cart_info where user_id=? and product_id=?";
+		String sql = "delete from cart_info where user_id= binary ? and product_id=?";
 
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
@@ -158,7 +158,7 @@ public class CartInfoDAO {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		int count = 0;
-		String sql = "delete from cart_info where user_id=?";
+		String sql = "delete from cart_info where user_id= binary ?";
 
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
@@ -205,7 +205,7 @@ public class CartInfoDAO {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		boolean result = false;
-		String sql= "Select count(*) as count From cart_info Where user_id=? and product_id=?";
+		String sql= "Select count(*) as count From cart_info Where user_id= binary ? and product_id=?";
 		try{
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, userId);
@@ -233,7 +233,7 @@ public class CartInfoDAO {
 		Connection connection = dbConnector.getConnection();
 		int count = 0;
 		String sql = "UPDATE cart_info SET user_id=?, temp_user_id=?, product_id=?, product_count=(product_count+?), price=?, regist_date=now() "
-				+ "where product_id=? and  user_id=?";
+				+ "where product_id=? and  user_id= binary ?";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, userId);

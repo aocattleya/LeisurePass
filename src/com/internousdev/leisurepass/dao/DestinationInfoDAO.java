@@ -46,7 +46,7 @@ public class DestinationInfoDAO {
 		Connection connection = dbConnector.getConnection();
 		List<DestinationInfoDTO> destinationInfoDtoList = new ArrayList<DestinationInfoDTO>();
 
-		String sql = "SELECT id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email FROM destination_info WHERE user_id = ?";
+		String sql = "SELECT id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email FROM destination_info WHERE user_id = binary ?";
 
 		try {
 			connection = dbConnector.getConnection();
