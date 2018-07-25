@@ -18,18 +18,24 @@ public class AdminProductAction extends ActionSupport implements SessionAware {
 	private List<ProductInfoDTO> productList = new ArrayList<ProductInfoDTO>();
 
 	public String execute() {
-/*		result= ERROR;*/
+		/* result= ERROR; */
 
 		ProductInfoDAO dao = new ProductInfoDAO();
 		productList = dao.getProductInfoList();
 
 		session.remove("addProductDTO");
 
-		/*	sessionに管理者ステータス１が入っていなければERROR*/
-		if(!((String)session.get("status")).equals("1")){
+		/* sessionにstatusが入っているか確認。 */
+		if (session.containsKey("status")) {
+
+			/*ステータスが管理者でなければERROR*/
+			if (!((String) session.get("status")).equals("1")) {
+				return ERROR;
+			}
+			/*statusがなくてもERROR*/
+		} else {
 			return ERROR;
 		}
-
 
 		// navigation情報を取得
 		SearchConditionLoader loader = new SearchConditionLoader();
