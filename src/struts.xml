@@ -34,6 +34,7 @@
   	<action name="SearchItemAction" class="com.internousdev.leisurepass.action.SearchItemAction" method="execute">
 		<result name="success">productList.jsp</result>
 		<result name="error">productList.jsp</result>
+		<result name="admin">admin.jsp</result>
 	</action>
 
 

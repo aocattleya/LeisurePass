@@ -12,6 +12,7 @@ import com.internousdev.leisurepass.dto.MCategoryDTO;
 import com.internousdev.leisurepass.dto.MPlaceDTO;
 import com.internousdev.leisurepass.dto.PaginationDTO;
 import com.internousdev.leisurepass.dto.ProductInfoDTO;
+import com.internousdev.leisurepass.dto.UserInfoDTO;
 import com.internousdev.leisurepass.util.InputChecker;
 import com.internousdev.leisurepass.util.Pagination;
 import com.internousdev.leisurepass.util.SearchConditionLoader;
@@ -32,6 +33,14 @@ public class SearchItemAction extends ActionSupport implements SessionAware {
 	public String execute() {
 		String result = ERROR;
 
+		if (session.containsKey("userInfo")) {
+			UserInfoDTO d = (UserInfoDTO) session.get("userInfo");
+			if (d.getStatus().equals("1")) {
+				result = "admin";
+				return result;
+			}
+		}
+
 		InputChecker inputChecker = new InputChecker();
 		if (keywords == null) {
 			keywords = "";
@@ -42,14 +51,16 @@ public class SearchItemAction extends ActionSupport implements SessionAware {
 		if (placeId == null) {
 			placeId = "1";
 		}
-		if (targetDate != null && targetDate.equals("いつでも")){
+		if (targetDate != null && targetDate.equals("いつでも")) {
 			targetDate = "";
 		}
-		keywordsErrorMessageList = inputChecker.doCheck("検索ワード", keywords, 0, 16, true, true, true, true, false, false, false ,true, true);
+		keywordsErrorMessageList = inputChecker.doCheck("検索ワード", keywords, 0, 16, true, true, true, true, false, false,
+				false, true, true);
 
-		if (keywordsErrorMessageList.isEmpty()){
+		if (keywordsErrorMessageList.isEmpty()) {
 			ProductInfoDAO productInfoDAO = new ProductInfoDAO();
-			productInfoDtoList = productInfoDAO.getProductInfoList(keywords.replaceAll("　", " ").split(" "), categoryId, placeId, targetDate);
+			productInfoDtoList = productInfoDAO.getProductInfoList(keywords.replaceAll("　", " ").split(" "), categoryId,
+					placeId, targetDate);
 			result = SUCCESS;
 		}
 
