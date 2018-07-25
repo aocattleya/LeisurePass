@@ -69,34 +69,46 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 		// フォーム入力制限のチェック
 		InputChecker inputChecker = new InputChecker();
 		// 商品ID:1～11文字, 半角数字のみ入力可能
-		productIdErrorMessageList = inputChecker.doCheck("商品ID", productId, 1, 11, true, false, false, true, false, false, false, false);
+		productIdErrorMessageList = inputChecker.doCheck("商品ID", productId, 1, 11, true, false, false, true, false,
+				false, false, false);
 		// 商品名:1～100文字, 全角の日本語のみ入力可能
-		productNameErrorMessageList = inputChecker.doCheck("商品名", productName, 1, 100, true, true, true, false, false, true, false, false);
+		productNameErrorMessageList = inputChecker.doCheck("商品名", productName, 1, 100, true, true, true, false, false,
+				true, false, false);
 		// 商品名かな:1～100文字, ひらがなのみ入力可能
-		productNameKanaErrorMessageList = inputChecker.doCheck("商品名かな", productNameKana, 1, 100, false, false, true, false, false, false, false, false);
+		productNameKanaErrorMessageList = inputChecker.doCheck("商品名かな", productNameKana, 1, 100, false, false, true,
+				false, false, false, false, false);
 		// 商品詳細:1～500文字, スペース以外入力可能
-		productDescriptionErrorMessageList = inputChecker.doCheck("商品詳細", productDescription, 1, 500, true, true, true, true, true, true, true, false);
+		productDescriptionErrorMessageList = inputChecker.doCheck("商品詳細", productDescription, 1, 500, true, true, true,
+				true, true, true, true, false);
 		// 価格:1～11文字, 半角英数字のみ入力可能
-		priceErrorMessageList = inputChecker.doCheck("価格", price, 1, 11, false, false, false, true, false, false, false, false);
+		priceErrorMessageList = inputChecker.doCheck("価格", price, 1, 11, false, false, false, true, false, false, false,
+				false);
 		// // 発売年月:1～16文字, 半角英数字と記号でyyyy-mm-ddの形式のみ入力可能
-		//releaseDateErrorMessageList = inputChecker.doCheck("発売年月", releaseDate, 10, 10, false, false, false, true, true, false, false, false);
+		// releaseDateErrorMessageList = inputChecker.doCheck("発売年月",
+		// releaseDate, 10, 10, false, false, false, true, true, false, false,
+		// false);
 		releaseDateErrorMessageList = checkDate("発売年月", releaseDate);
 		// 発売会社:1～100文字, 全角の日本語のみ入力可能
-		releaseCompanyErrorMessageList = inputChecker.doCheck("発売会社", releaseCompany, 1, 100, true, true, true, false, false, true, false, false);
+		releaseCompanyErrorMessageList = inputChecker.doCheck("発売会社", releaseCompany, 1, 100, true, true, true, false,
+				false, true, false, false);
 		// 所在地:1～255文字, 全角の日本語と記号、半角英数字のみ入力可能
-		locationErrorMessageList = inputChecker.doCheck("所在地", location, 1, 255, false, true, true, true, true, true, true, false);
+		locationErrorMessageList = inputChecker.doCheck("所在地", location, 1, 255, false, true, true, true, true, true,
+				true, false);
 		// アクセス:1～255文字, 全角の日本語と記号、半角英数字のみ入力可能
-		accessErrorMessageList = inputChecker.doCheck("アクセス", access, 1, 255, false, true, true, true, true, true, true, false);
+		accessErrorMessageList = inputChecker.doCheck("アクセス", access, 1, 255, false, true, true, true, true, true, true,
+				false);
 		// url:1～255文字, 半角英数字と記号のみ入力可能
-		urlErrorMessageList = inputChecker.doCheck("URL", url, 1, 255, true, false, false, true, true, false, false, false);
+		urlErrorMessageList = inputChecker.doCheck("URL", url, 1, 255, true, false, false, true, true, false, false,
+				false);
 		// 開始日:1～16文字, 半角英数字と記号でyyyy-mm-ddの形式のみ入力可能
-		//startDateErrorMessageList = checkDate("開始日", startDate);
+		// startDateErrorMessageList = checkDate("開始日", startDate);
 		startDateErrorMessageList = checkDate("開始日", startDate);
 		// // 終了日:1～16文字, 半角英数字と記号でyyyy-mm-ddの形式のみ入力可能
-		//endDateErrorMessageList = inputChecker.doCheck("終了日", endDate, 10, 10, false, false, false, true, true, false, false, false);
+		// endDateErrorMessageList = inputChecker.doCheck("終了日", endDate, 10,
+		// 10, false, false, false, true, true, false, false, false);
 		endDateErrorMessageList = checkDate("終了日", endDate);
 
-		if (productImage == null){
+		if (productImage == null) {
 			productImageErrorMessageList.add("画像ファイルを選択してください");
 		}
 
@@ -116,7 +128,7 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 		dto.setLocation(location);
 		dto.setAccess(access);
 		dto.setUrl(url);
-		//dto.setStatus(status);
+		// dto.setStatus(status);
 		dto.setStartDate(parseDate(startDate));
 		dto.setEndDate(parseDate(endDate));
 
@@ -159,7 +171,7 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 				}
 			}
 
-		}else{
+		} else {
 
 			System.out.println(productIdErrorMessageList.toString());
 			session.put("productIdErrorMessageList", productIdErrorMessageList);
@@ -178,8 +190,21 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 			// return ERROR;
 		}
 
-		AddProductDAO addProductDAO=new AddProductDAO();
+		AddProductDAO addProductDAO = new AddProductDAO();
 
+		if (priceErrorMessageList.isEmpty()) {
+			if (Integer.parseInt(price) >= 20000) {
+				priceErrorMessageList.add("金額は20000未満に設定してください");
+				session.put("priceErrorMessageList", priceErrorMessageList);
+				System.out.println(session.get("priceErrorMessageList"));
+			}
+
+			if (Integer.parseInt(price) <= 0) {
+				priceErrorMessageList.add("金額は1以上に設定してください");
+				session.put("priceErrorMessageList", priceErrorMessageList);
+				System.out.println(session.get("priceErrorMessageList"));
+			}
+		}
 		if (productIdErrorMessageList.isEmpty()) {
 			if (addProductDAO.productIdDuplication(Integer.parseInt(productId))) {
 				productIdErrorMessageList.add("すでに同IDの商品があります。別のIDをお試しください");
@@ -197,7 +222,6 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 			session.put("productNameKanaErrorMessageList", productNameKanaErrorMessageList);
 		}
 
-
 		// navigation情報を取得
 		SearchConditionLoader loader = new SearchConditionLoader();
 		loader.execute(session);
@@ -207,7 +231,6 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 		System.out.println(productImageContentType);
 		System.out.println(productImageFileName);
 		System.out.println(12345);
-
 
 		return result;
 	}
@@ -244,15 +267,9 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 		this.productNameKana = productNameKana;
 	}
 
-
-
-
 	public String getProductDescription() {
 		return productDescription;
 	}
-
-
-
 
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
@@ -378,18 +395,16 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 		this.productImageFileName = productImageFileName;
 	}
 
-
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
-
-	private int parseInt(String value){
+	private int parseInt(String value) {
 		int result = 0;
-		try{
+		try {
 			result = Integer.parseInt(value);
-		}catch (NumberFormatException e){
+		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
 		return result;
@@ -397,32 +412,32 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 
 	private Date parseDate(String value) {
 		Date result = null;
-		try{
+		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		    result = sdf.parse(value);
-		    return result;
-		}catch (ParseException e){
+			result = sdf.parse(value);
+			return result;
+		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		try{
+		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
-		    result = sdf.parse(value);
-		    return result;
-		}catch (ParseException e){
+			result = sdf.parse(value);
+			return result;
+		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
 
-	private List<String> checkDate(String propertyName, String value){
+	private List<String> checkDate(String propertyName, String value) {
 		List<String> errorList = new ArrayList<String>();
 
-		if(StringUtils.isEmpty(value)){
+		if (StringUtils.isEmpty(value)) {
 			errorList.add(propertyName + "を入力してください。");
-		}else{
-			try{
-				DateUtils.parseDateStrictly(value, new String[] {"yyyy-MM-dd", "yyyy年MM月dd日"});
-			}catch (ParseException e){
+		} else {
+			try {
+				DateUtils.parseDateStrictly(value, new String[] { "yyyy-MM-dd", "yyyy年MM月dd日" });
+			} catch (ParseException e) {
 				e.printStackTrace();
 				errorList.add("yyyy-MM-dd か yyyy年MM月dd日 で入力してください");
 			}
