@@ -64,6 +64,21 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 	private List<String> productImageErrorMessageList = new ArrayList<String>();
 
 	public String execute() throws Exception{
+		session.remove("productIdErrorMessageList");
+		session.remove("productNameErrorMessageList");
+		session.remove("productNameKanaErrorMessageList");
+		session.remove("productDescriptionErrorMessageList");
+		session.remove("priceErrorMessageList");
+		session.remove("releaseDateErrorMessageList");
+		session.remove("releaseCompanyErrorMessageList");
+		session.remove("locationErrorMessageList");
+		session.remove("accessErrorMessageList");
+		session.remove("urlErrorMessageList");
+		session.remove("startDateErrorMessageList");
+		session.remove("endDateErrorMessageList");
+		session.remove("productImageErrorMessageList");
+
+
 		CommonUtility.checkLoginAdmin(session);
 
 		String result = ERROR;
@@ -83,7 +98,7 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 		productDescriptionErrorMessageList = inputChecker.doCheck("商品詳細", productDescription, 1, 500, true, true, true,
 				true, true, true, true, false, true);
 		// 価格:1～11文字, 半角英数字のみ入力可能
-		priceErrorMessageList = inputChecker.doCheck("価格", price, 1, 11, false, false, false, true, false, false, false,
+		priceErrorMessageList = inputChecker.doCheck("価格", price, 1, 5, false, false, false, true, false, false, false,
 				false, false);
 		// // 発売年月:1～16文字, 半角英数字と記号でyyyy-mm-ddの形式のみ入力可能
 		// releaseDateErrorMessageList = inputChecker.doCheck("発売年月",

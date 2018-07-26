@@ -228,7 +228,7 @@
 
 	<action name="CreateDestinationCompleteAction" class="com.internousdev.leisurepass.action.CreateDestinationCompleteAction" method="execute">
 		<result name="success">createDestinationComplete.jsp</result>
-		<result name="error">settlementConfirm.jsp</result>
+		<result name="error">home.jsp</result>
 	</action>
 
 

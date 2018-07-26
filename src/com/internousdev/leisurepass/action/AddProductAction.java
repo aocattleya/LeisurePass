@@ -31,6 +31,21 @@ public class AddProductAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> session;
 
 	public String execute() throws Exception{
+
+
+		session.remove("productIdErrorMessageList");
+		session.remove("productNameErrorMessageList");
+		session.remove("productNameKanaErrorMessageList");
+		session.remove("productDescriptionErrorMessageList");
+		session.remove("priceErrorMessageList");
+		session.remove("releaseDateErrorMessageList");
+		session.remove("releaseCompanyErrorMessageList");
+		session.remove("locationErrorMessageList");
+		session.remove("accessErrorMessageList");
+		session.remove("urlErrorMessageList");
+		session.remove("startDateErrorMessageList");
+		session.remove("endDateErrorMessageList");
+		session.remove("productImageErrorMessageList");
 		CommonUtility.checkLoginAdmin(session);
 
 		System.out.println(session.containsKey("addProductDTO"));
