@@ -46,6 +46,13 @@ h1 img.fish {
 	color: #ffffff;
 	border-style: none;
 	border-radius: 20px;
+	outline: 0; /* 変な枠線を非表示に */
+	cursor: pointer;
+}
+
+.submit_btn_delete:active {
+    transform: translateY(2px);
+    background-color: #dddddd; /* 薄い灰色 */
 }
 
 .image_box{
