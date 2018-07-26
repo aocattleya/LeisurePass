@@ -10,8 +10,7 @@
 	</script>
 	<div id="header-container" class="cf">
 
-		<s:if
-			test="(#session.userInfo.status == 1)">
+		<s:if test="(#session.userInfo.status == 1)">
 			<div class="logo">
 				<img src="images/logo.jpg">
 			</div>
@@ -29,73 +28,75 @@
 		</s:else>
 
 
-		<ul class="header-menu">
+		<div class="header-menu">
+
 			<!-- ログアウト状態 -->
 			<s:if test="#session.logined == 0">
 
-				<li>
-					<div class="ticket menu-button">
-						<img src="images/ticket.jpg"> <a href="ProductListAction"></a>
+				<div class="ticket menu-button">
+					<div class="icon">
+						<a href="ProductListAction"><img src="images/ticket.jpg"></a>
 					</div>
-					<div class="messageList">一覧</div>
-				</li>
-				<li>
-					<div class="cart menu-button">
-						<img src="images/cart.jpg"> <a href="CartAction"></a>
+					<div class="message">一覧</div>
+				</div>
+
+				<div class="cart menu-button">
+					<div class="icon">
+						<a href="CartAction"><img src="images/cart.jpg"></a>
 					</div>
-					<div class="messageCart">カート</div>
-				</li>
-				<li>
-					<div class="login menu-button">
-						<p>ログイン
-						<p>
-							<a href="GoLoginAction"></a>
-					</div>
-				</li>
+					<div class="message">カート</div>
+				</div>
+
+				<div class="login menu-button">
+					<a href="GoLoginAction"><span>ログイン</span> </a>
+				</div>
+
 			</s:if>
+
+
+
 
 			<!-- ログイン状態-->
 			<s:if test="#session.logined == 1">
 				<!-- 一般ユーザー向け -->
 				<s:if test="#session.userInfo.status == 0">
-					<li>
-						<div class="ticket menu-button">
-							<img src="images/ticket.jpg"> <a href="ProductListAction"></a>
+					<div class="ticket menu-button">
+						<div class="icon">
+							<a href="ProductListAction"><img src="images/ticket.jpg"></a>
 						</div>
-						<div class="messageList">一覧</div>
-					</li>
-					<li>
-						<div class="cart menu-button">
-							<img src="images/cart.jpg"> <a href="CartAction"></a>
+						<div class="message">一覧</div>
+					</div>
+
+					<div class="cart menu-button">
+						<div class="icon">
+							<a href="CartAction"><img src="images/cart.jpg"></a>
 						</div>
-						<div class="messageCart">カート</div>
-					</li>
-					<li>
-						<div class="mypage menu-button">
-							<img src="images/mypage.jpg"> <a href="MyPageAction"></a>
+						<div class="message">カート</div>
+					</div>
+
+					<div class="mypage menu-button">
+						<div class="icon">
+							<a href="MyPageAction"><img src="images/mypage.jpg"></a>
 						</div>
-						<div class="messageMypage">マイページ</div>
-					</li>
+						<div class="message">マイページ</div>
+					</div>
+
 				</s:if>
 
 				<!-- 管理者向け -->
 				<s:else>
-					<li>
-						<div class="login menu-button">
-							<p>管理者</p>
-							<a href="AdminProductAction"></a>
-						</div>
-					</li>
+					<div class="login menu-button">
+						<a href="AdminProductAction"><span>管理者</span> </a>
+					</div>
+
 				</s:else>
 
 				<!-- ログイン状態 共通 -->
-				<li>
-					<div class="logout menu-button">
-						<p>ログアウト</p>
-						<a href="LogoutAction"></a>
-					</div>
-				</li>
+				<div class="logout menu-button">
+					<a href="LogoutAction"><span>ログアウト</span> </a>
+				</div>
+
 			</s:if>
-		</ul>
+		</div>
 	</div>
 </header>
