@@ -6,7 +6,8 @@
 
 h1 {
 	width: 80%;
-	margin-top: 0; margin : 0 auto;
+	margin-top: 0;
+	margin: 0 auto;
 	max-width: 500px;
 	text-align: center;
 	color: #333333;
@@ -21,6 +22,7 @@ h1 {
 	display: inline-block;
 	padding: 20px 0 20px 0;
 	margin-left: 175px;
+	min-width: 730px;
 }
 
 .horizontal-list-table {
@@ -36,7 +38,6 @@ table th {
 table td .productInfo {
 	text-align: left;
 }
-
 
 .productNameKana {
 	font-size: 12px;
@@ -95,14 +96,13 @@ h2 label {
 	margin: 10px;
 }
 
-
 .infoBox {
 	width: 70%;
 	float: right;
 }
 
 .info {
-	font-weight:bold;
+	font-weight: bold;
 	text-align: center;
 	font-family: Hiragino Kaku Gothic ProN;
 	position: relative;

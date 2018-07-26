@@ -14,6 +14,7 @@
 </head>
 <body>
 	<jsp:include page="header.jsp" />
+	<div id="main" class="cf">
 	<jsp:include page="navigation.jsp" />
 	<div id="contents">
 		<s:if test="#session.cartInfoDtoList.size()>0">
@@ -141,7 +142,7 @@
 			</div>
 		</s:else>
 	</div>
-	<div class="push"></div>
+</div>
 	<footer class="footer">
 		<s:include value="footer.jsp" />
 	</footer>
