@@ -125,10 +125,7 @@
 				</tr>
 				</table>
 			</s:form>
-		</div>
-​
-
-		<!-- 商品追加を確定する -->
+			<!-- 商品追加を確定する -->
 			<div class="submit_btn_box">
 				<div id=".contents-btn-set">
 					<s:form action="AddProductCompleteAction" method="post" enctype="multipart/form-data">
@@ -153,10 +150,14 @@
 				<s:hidden name="url" value="%{url}" />
 				<s:hidden name="startDate" value="%{startDate}" />
 				<s:hidden name="endDate" value="%{endDate}" />
-				<s:submit value="修正" class="submit_btn"/>
+				<p><s:submit value="修正" class="submit_btn"/></p>
 			</s:form>
 
 			</div>
+		</div>
+​
+
+
 </div>
 		<jsp:include page="footer.jsp" />
 </body>

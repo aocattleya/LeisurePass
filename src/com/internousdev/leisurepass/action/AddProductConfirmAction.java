@@ -88,14 +88,14 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 		// 商品ID:1～9文字, 半角数字のみ入力可能
 		productIdErrorMessageList = inputChecker.doCheck("商品ID", productId, 1, 9, true, false, false, true, false,
 				false, false, false, false);
-		// 商品名:1～100文字, 全角の日本語のみ入力可能
-		productNameErrorMessageList = inputChecker.doCheck("商品名", productName, 1, 100, true, true, true, false, false,
+		// 商品名:1～20文字, 全角の日本語のみ入力可能
+		productNameErrorMessageList = inputChecker.doCheck("商品名", productName, 1, 20, true, true, true, false, false,
 				true, false, false, false);
 		// 商品名かな:1～100文字, ひらがなのみ入力可能
-		productNameKanaErrorMessageList = inputChecker.doCheck("商品名かな", productNameKana, 1, 100, false, false, true,
+		productNameKanaErrorMessageList = inputChecker.doCheck("商品名かな", productNameKana, 1, 20, false, false, true,
 				false, false, false, false, false, false);
 		// 商品詳細:1～500文字, スペース以外入力可能
-		productDescriptionErrorMessageList = inputChecker.doCheck("商品詳細", productDescription, 1, 500, true, true, true,
+		productDescriptionErrorMessageList = inputChecker.doCheck("商品詳細", productDescription, 1, 200, true, true, true,
 				true, true, true, true, false, true);
 		// 価格:1～5文字, 半角英数字のみ入力可能
 		priceErrorMessageList = inputChecker.doCheck("価格", price, 1, 5, false, false, false, true, false, false, false,
@@ -106,16 +106,16 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 		// false);
 		releaseDateErrorMessageList = checkDate("発売年月", releaseDate);
 		// 発売会社:1～100文字, 全角の日本語のみ入力可能
-		releaseCompanyErrorMessageList = inputChecker.doCheck("発売会社", releaseCompany, 1, 100, true, true, true, false,
+		releaseCompanyErrorMessageList = inputChecker.doCheck("発売会社", releaseCompany, 1, 20, true, true, true, false,
 				false, true, false, false, false);
 		// 所在地:1～255文字, 全角の日本語と記号、半角英数字、全角英数字のみ入力可能
-		locationErrorMessageList = inputChecker.doCheck("所在地", location, 1, 255, false, true, true, true, true, true,
+		locationErrorMessageList = inputChecker.doCheck("所在地", location, 1, 20, false, true, true, true, true, true,
 				true, false, true);
 		// アクセス:1～255文字, 全角の日本語と記号、半角英数字、全角英数字のみ入力可能
-		accessErrorMessageList = inputChecker.doCheck("アクセス", access, 1, 255, false, true, true, true, true, true, true,
+		accessErrorMessageList = inputChecker.doCheck("アクセス", access, 1, 20, false, true, true, true, true, true, true,
 				false, true);
 		// url:1～255文字, 半角英数字と記号のみ入力可能
-		urlErrorMessageList = inputChecker.doCheck("URL", url, 1, 255, true, false, false, true, true, false, false,
+		urlErrorMessageList = inputChecker.doCheck("URL", url, 1, 100, true, false, false, true, true, false, false,
 				false, false);
 		// 開始日:1～16文字, 半角英数字と記号でyyyy-mm-ddの形式のみ入力可能
 		// startDateErrorMessageList = checkDate("開始日", startDate);
@@ -213,35 +213,40 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 			if (Integer.parseInt(productId) >= 1000000000) {
 				productIdErrorMessageList.add("IDは9桁以下に設定してください");
 				session.put("productIdErrorMessageList", productIdErrorMessageList);
+				result = ERROR;
 
 			}
 
 			if (Integer.parseInt(productId) <= 0) {
 				productIdErrorMessageList.add("IDは1以上に設定してください");
 				session.put("productIdErrorMessageList", productIdErrorMessageList);
+				result = ERROR;
 			}
-			result = ERROR;
+
 		}
 		if (priceErrorMessageList.isEmpty()) {
 			if (Integer.parseInt(price) >= 20000) {
 				priceErrorMessageList.add("金額は20000未満に設定してください");
 				session.put("priceErrorMessageList", priceErrorMessageList);
 				System.out.println(session.get("priceErrorMessageList"));
+				result = ERROR;
 			}
 
 			if (Integer.parseInt(price) <= 0) {
 				priceErrorMessageList.add("金額は1以上に設定してください");
 				session.put("priceErrorMessageList", priceErrorMessageList);
 				System.out.println(session.get("priceErrorMessageList"));
+				result = ERROR;
 			}
-			result = ERROR;
+
 		}
 		if (productIdErrorMessageList.isEmpty()) {
 			if (addProductDAO.productIdDuplication(Integer.parseInt(productId))) {
 				productIdErrorMessageList.add("すでに同IDの商品があります。別のIDをお試しください");
 				session.put("productIdErrorMessageList", productIdErrorMessageList);
+				result = ERROR;
 			}
-			result = ERROR;
+
 		}
 
 		if (addProductDAO.productnameDuplication(productName)) {

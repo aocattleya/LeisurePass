@@ -14,6 +14,7 @@
 	<jsp:include page="header.jsp" />
 ​
 <div id="main">
+<div class="BIGBOX">
 	<h1>商品削除確認画面</h1>
 	<div class="infoBox">
 		<div class="info-title">商品ID</div><br><s:property value="%{#session.deleteProductDTO.productId}" />
@@ -51,6 +52,7 @@
 			<br>
 		</div>
 	</div>
+	</div>
 	<div class="center">
 		<!-- 商品削除を確定する -->
 		<s:form action="DeleteProductCompleteAction">
@@ -60,5 +62,6 @@
 	<!-- 商品管理画面に戻る -->
 		<a href="http://localhost:8080/leisurepass/AdminProductAction">戻る</a>
 	</div>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
