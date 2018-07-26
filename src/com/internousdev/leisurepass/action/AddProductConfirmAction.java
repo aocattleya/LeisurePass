@@ -224,7 +224,7 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 			}
 
 		}
-		if (priceErrorMessageList.isEmpty()) {
+		if (!(price.isEmpty())) {
 			if (Integer.parseInt(price) >= 20000) {
 				priceErrorMessageList.add("金額は20000未満に設定してください");
 				session.put("priceErrorMessageList", priceErrorMessageList);
