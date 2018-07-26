@@ -27,10 +27,12 @@
 					</tr>
 					<tr>
 						<td><s:if test="#session.savedLoginId == true">
+								<s:password name="dummypass" style="visibility: hidden; width: 0px;"/>
 								<s:textfield name="loginId" class="txt" placeholder="ログインIDを入力"
 									value='%{#session.keepLoginId}' autocomplete="off" size="30" />
 								<br>
 							</s:if> <s:else>
+								<s:password name="dummypass" style="visibility: hidden; width: 0px;"/>
 								<s:textfield name="loginId" class="txt" placeholder="ログインIDを入力"
 									autocomplete="off" size="30" />
 								<br>
