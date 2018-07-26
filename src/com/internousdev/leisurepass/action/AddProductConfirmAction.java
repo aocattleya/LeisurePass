@@ -213,12 +213,14 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 			if (Integer.parseInt(productId) >= 1000000000) {
 				productIdErrorMessageList.add("IDは9桁以下に設定してください");
 				session.put("productIdErrorMessageList", productIdErrorMessageList);
+
 			}
 
 			if (Integer.parseInt(productId) <= 0) {
 				productIdErrorMessageList.add("IDは1以上に設定してください");
 				session.put("productIdErrorMessageList", productIdErrorMessageList);
 			}
+			result = ERROR;
 		}
 		if (priceErrorMessageList.isEmpty()) {
 			if (Integer.parseInt(price) >= 20000) {
@@ -232,22 +234,26 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 				session.put("priceErrorMessageList", priceErrorMessageList);
 				System.out.println(session.get("priceErrorMessageList"));
 			}
+			result = ERROR;
 		}
 		if (productIdErrorMessageList.isEmpty()) {
 			if (addProductDAO.productIdDuplication(Integer.parseInt(productId))) {
 				productIdErrorMessageList.add("すでに同IDの商品があります。別のIDをお試しください");
 				session.put("productIdErrorMessageList", productIdErrorMessageList);
 			}
+			result = ERROR;
 		}
 
 		if (addProductDAO.productnameDuplication(productName)) {
 			productNameErrorMessageList.add("すでに同名の商品があります。別の名前をお試しください");
 			session.put("productNameErrorMessageList", productNameErrorMessageList);
+			result = ERROR;
 		}
 
 		if (addProductDAO.productnamekanaDuplication(productNameKana)) {
 			productNameKanaErrorMessageList.add("すでに同ふりがなの商品があります。別のふりがなをお試しください");
 			session.put("productNameKanaErrorMessageList", productNameKanaErrorMessageList);
+			result = ERROR;
 		}
 
 		// navigation情報を取得
