@@ -104,8 +104,8 @@
 						<s:hidden name="productCount" value="%{productCount}" />
 						<s:hidden name="subtotal" value="%{subtotal}" />
 					</div>
-
 				</s:iterator>
+
 				<br>
 				<h2>
 					<s:label value="商品合計 :" />
