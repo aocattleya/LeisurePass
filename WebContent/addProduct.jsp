@@ -152,7 +152,7 @@
 					</div>
 					<div class="preview">
 						<%-- <img id="image_path" src="<s:property value="image_file_path"/>"width="100"height="100"/> --%>
-						<s:file name="productImage" />
+						<s:file name="productImage" accept="image/jpeg"/>
 					</div>
 					<br>
 					<s:if test="!#session.productImageErrorMessageList.isEmpty()">
