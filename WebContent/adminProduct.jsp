@@ -35,18 +35,11 @@
 						<br>
 						<s:property value="price" /><span>円</span>
 						<br>
-						<%-- <td>カテゴリ：	<s:property value="categoryId" /></td> --%>
 						<s:form action="DeleteProductConfirmAction">
 							<s:hidden name="id" value="%{id}" />
 							<s:submit value="削除" class="submit_btn_delete" />
 						</s:form>
 						<br><br>
-						<%--
-							<s:form action="EditProductAction">
-								<s:hidden name="id" value="%{id}" />
-								<s:submit value="商品情報変更" />
-							</s:form>
-						 --%>
 				</div>
 				</s:iterator>
 

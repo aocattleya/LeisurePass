@@ -16,6 +16,8 @@ import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.leisurepass.dao.AddProductDAO;
+import com.internousdev.leisurepass.dto.MCategoryDTO;
+import com.internousdev.leisurepass.dto.MPlaceDTO;
 import com.internousdev.leisurepass.dto.ProductInfoDTO;
 import com.internousdev.leisurepass.util.CommonUtility;
 import com.internousdev.leisurepass.util.InputChecker;
@@ -63,7 +65,7 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 	private List<String> endDateErrorMessageList = new ArrayList<String>();
 	private List<String> productImageErrorMessageList = new ArrayList<String>();
 
-	public String execute() throws Exception{
+	public String execute() throws Exception {
 		session.remove("productIdErrorMessageList");
 		session.remove("productNameErrorMessageList");
 		session.remove("productNameKanaErrorMessageList");
@@ -77,7 +79,6 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 		session.remove("startDateErrorMessageList");
 		session.remove("endDateErrorMessageList");
 		session.remove("productImageErrorMessageList");
-
 
 		CommonUtility.checkLoginAdmin(session);
 
@@ -129,7 +130,7 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 			productImageErrorMessageList.add("画像ファイルを選択してください");
 		}
 
-		if (!productImageContentType.equals("image/jpeg")){
+		if (!productImageContentType.equals("image/jpeg")) {
 			productImageErrorMessageList.add("jpegを選択してください");
 		}
 
@@ -268,6 +269,33 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 		// navigation情報を取得
 		SearchConditionLoader loader = new SearchConditionLoader();
 		loader.execute(session);
+		loader.executeAdmin(session);
+
+		// カテゴリIDが一致しているものを探す
+		MCategoryDTO category = null;
+		@SuppressWarnings("unchecked")
+		List<MCategoryDTO> categoryList = (List<MCategoryDTO>) session.get("mAdminCategoryDtoList");
+		for (int i = 0; i < categoryList.size(); i++) {
+			MCategoryDTO m = categoryList.get(i);
+			if (dto.getCategoryId() == m.getCategoryId()) {
+				category = m;
+				break;
+			}
+		}
+		session.put("addProductDTOCategory", category.getCategoryName());
+
+		// 場所IDが一致しているものを探す
+		MPlaceDTO place = null;
+		@SuppressWarnings("unchecked")
+		List<MPlaceDTO> placeList = (List<MPlaceDTO>) session.get("mAdminPlaceDtoList");
+		for (int i = 0; i < placeList.size(); i++) {
+			MPlaceDTO m = placeList.get(i);
+			if (dto.getPlaceId() == m.getPlaceId()) {
+				place = m;
+				break;
+			}
+		}
+		session.put("addProductDTOPlace", place.getPlaceName());
 
 		// フォーム入力内容をsessionに格納（修正用）
 		System.out.println(productImage);

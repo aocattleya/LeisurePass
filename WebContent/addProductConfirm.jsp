@@ -45,29 +45,19 @@
 					<th><s:label value="カテゴリ" /></th>
 				</tr>
 				<tr>
-					<td><s:if test= "%{#session.addProductDTO.categoryId == 2}" >動物園</s:if>
-					<s:elseif test= "%{#session.addProductDTO.categoryId == 3}" >水族館</s:elseif>
-					<s:elseif test= "%{#session.addProductDTO.categoryId == 4}" >アスレチック</s:elseif>
-					<s:elseif test= "%{#session.addProductDTO.categoryId == 5}" >遊園地</s:elseif>
-					<s:elseif test= "%{#session.addProductDTO.categoryId == 6}" >美術館</s:elseif></td>
+					<td><s:property value="%{#session.addProductDTOCategory}" /></td>
 				</tr>
 				<tr>
 					<th><s:label value="場所" /></th>
 				</tr>
 				<tr>
-					<td><s:if test= "%{#session.addProductDTO.placeId == 2}" >茨城県</s:if>
-					<s:elseif test= "%{#session.addProductDTO.placeId == 3}" >栃木県</s:elseif>
-					<s:elseif test= "%{#session.addProductDTO.placeId == 4}" >群馬県</s:elseif>
-					<s:elseif test= "%{#session.addProductDTO.placeId == 5}" >千葉県</s:elseif>
-					<s:elseif test= "%{#session.addProductDTO.placeId == 6}" >埼玉県</s:elseif>
-					<s:elseif test= "%{#session.addProductDTO.placeId == 7}" >東京都</s:elseif>
-					<s:elseif test= "%{#session.addProductDTO.placeId == 8}" >神奈川県</s:elseif></td>
+					<td><s:property value="%{#session.addProductDTOPlace}" /></td>
 				</tr>
 				<tr>
-					<th><s:label value="価格（円）" /></th>
+					<th><s:label value="価格" /></th>
 				</tr>
 				<tr>
-					<td><s:property value="%{#session.addProductDTO.price}"/></td>
+					<td><s:property value="%{#session.addProductDTO.price}"/>円</td>
 				</tr>
 				<tr>
 					<th><s:label value="画像" /></th>
