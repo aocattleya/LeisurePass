@@ -50,8 +50,12 @@ System.out.println(1111);
 				return ERROR;
 			}
 
-
-
+		// 管理者の場合"admin"を返す
+			UserInfoDTO d = (UserInfoDTO) session.get("userInfo");
+			if ((d.getStatus().equals("1"))) {
+				String result = "admin";
+				return result;
+			}
 
 		// navigation情報を取得
 		SearchConditionLoader loader = new SearchConditionLoader();
