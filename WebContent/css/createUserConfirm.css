@@ -68,10 +68,9 @@ h1 {
 	margin-top: 0;
 }
 
-.aaa {
+.frame {
 	width: 600px; /*背景の横幅*/
 	background-color: #F7F7F7; /*背景色*/
 	border-radius: 20px; /*背景の角の丸み*/
-	margin: 0 auto;
-	border-radius: 20px; /*センター中央寄せ*/
+	margin: 0 auto;	/*センター中央寄せ*/
 }

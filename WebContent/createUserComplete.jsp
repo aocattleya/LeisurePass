@@ -14,8 +14,6 @@
 </head>
 <body>
 
-
-
 	<jsp:include page="header.jsp" />
 
 	<div id="main" class="cf">
@@ -24,31 +22,14 @@
 
 		<div id="contents">
 
-			<div id="contents">
-				<h1>ユーザー登録が完了しました。</h1>
-				<div class="success"><p>2秒後に自動でホームに戻ります。</p></div>
-			</div>
-			<div id="footer">
-
-			</div>
+			<h1>ユーザー登録が完了しました。</h1>
+			<div class="success"><p>2秒後に自動でホームに戻ります。</p></div>
 
 		</div>
 
 	</div>
 
 	<jsp:include page="footer.jsp" />
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

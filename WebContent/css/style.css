@@ -4,7 +4,9 @@
 body, html {
 	margin: 0;
 	padding: 0;
-	width: 1400px;
+	/* width: 1400px; */
+	max-width: 1400px;
+	min-width: 1000px;
 	height: 100%;
 	margin: 0 auto;
 	font-family: "メイリオ", sans-serif;
@@ -27,13 +29,8 @@ body, html {
 
 /* layout */
 
-#main {
-	width: 100%;
-	margin: 0 auto;
-}
-
 header {
-	width: 1400px;
+	width: 100%;
 	margin-top: 10px;
 	margin-bottom: 20px;
 }
@@ -358,6 +355,15 @@ width: 170px;
 	background-color: #f3bb82; /*薄いオレンジ色にする*/
 	border: #ed7d22; /*枠線の色変更*/
 }
+
+
+
+#main {
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+}
+
 /*ナビゲーション背景装飾*/
 #navigation {
 	float: left;
@@ -369,12 +375,14 @@ width: 170px;
 
 /*コンテンツの全体調整*/
 #contents {
-	float: right;
-	width: 1050px;
-	/* width: 70%;
-	max-width: 1040px; */
+	float: left;
+	/* width: 1050px; */
+	/* width: 70%; */
+	max-width: 1010px;
+	min-width: 610px;
 	margin-left: 20px;
 	margin-right: 10px;
+	flex: 1;
 }
 
 #navigation ul li {
@@ -521,11 +529,12 @@ width: 170px;
 
 footer {
 	text-align: center;
-	width: 1400px;
 	background-color: #F7F7F7;
 	height: 35px;
 	line-height: 35px;
     margin-top: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
     border-radius: 4px;
 }
 

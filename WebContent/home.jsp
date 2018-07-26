@@ -184,43 +184,37 @@
 				</ul> --%>
 
 				<ul>
-					<li><a
-						href='<s:url action="ProductDetailsAction">
-		<s:param name="productId" value="7"/>
-		</s:url>'>
-							<img src="./images/ichikawa_city_zoo4.jpg"> <span
-							class="text">市川植物園</span>
-					</a></li>
-					<li><a
-						href='<s:url action="ProductDetailsAction">
-		<s:param name="productId" value="38"/>
-		</s:url>'>
-							<img src="./images/toshimaen2.jpg"> <span class="text">としまえん</span>
-					</a></li>
+					<li>
+						<a href='<s:url action="ProductDetailsAction"><s:param name="productId" value="7"/></s:url>'>
+							<span class="image"><img src="./images/ichikawa_city_zoo4.jpg"></span>
+							<span class="text">市川植物園</span>
+						</a>
+					</li>
+					<li>
+						<a href='<s:url action="ProductDetailsAction"><s:param name="productId" value="38"/></s:url>'>
+							<span class="image"><img src="./images/toshimaen2.jpg"></span>
+							<span class="text">としまえん</span>
+						</a>
+					</li>
 
-					<li><a
-						href='<s:url action="ProductDetailsAction">
-		<s:param name="productId" value="13"/>
-		</s:url>'>
-							<img src="./images/sunshine_aquarium5.jpg"> <span
-							class="text">サンシャイン水族館</span>
-					</a></li>
+					<li>
+						<a href='<s:url action="ProductDetailsAction"><s:param name="productId" value="13"/></s:url>'>
+							<span class="image"><img src="./images/sunshine_aquarium5.jpg"></span>
+							<span class="text">サンシャイン水族館</span>
+						</a>
+					</li>
 
-					<li><a
-						href='<s:url action="ProductDetailsAction">
-		<s:param name="productId" value="45"/>
-		</s:url>'>
-							<img src="./images/ghibli_ｍ4.jpg"> <span class="text">三鷹の森ジブリ美術館</span>
-					</a></li>
+					<li>
+						<a href='<s:url action="ProductDetailsAction"><s:param name="productId" value="45"/></s:url>'>
+							<span class="image"><img src="./images/ghibli_ｍ4.jpg"></span>
+							<span class="text">三鷹の森ジブリ美術館</span>
+						</a>
+					</li>
 				</ul>
 			</div>
 
 		</div>
 	</div>
-
-
-
-
 
 
 	<jsp:include page="footer.jsp" />
