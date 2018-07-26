@@ -85,8 +85,8 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 
 		// フォーム入力制限のチェック
 		InputChecker inputChecker = new InputChecker();
-		// 商品ID:1～11文字, 半角数字のみ入力可能
-		productIdErrorMessageList = inputChecker.doCheck("商品ID", productId, 1, 11, true, false, false, true, false,
+		// 商品ID:1～9文字, 半角数字のみ入力可能
+		productIdErrorMessageList = inputChecker.doCheck("商品ID", productId, 1, 9, true, false, false, true, false,
 				false, false, false, false);
 		// 商品名:1～100文字, 全角の日本語のみ入力可能
 		productNameErrorMessageList = inputChecker.doCheck("商品名", productName, 1, 100, true, true, true, false, false,
@@ -97,7 +97,7 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 		// 商品詳細:1～500文字, スペース以外入力可能
 		productDescriptionErrorMessageList = inputChecker.doCheck("商品詳細", productDescription, 1, 500, true, true, true,
 				true, true, true, true, false, true);
-		// 価格:1～11文字, 半角英数字のみ入力可能
+		// 価格:1～5文字, 半角英数字のみ入力可能
 		priceErrorMessageList = inputChecker.doCheck("価格", price, 1, 5, false, false, false, true, false, false, false,
 				false, false);
 		// // 発売年月:1～16文字, 半角英数字と記号でyyyy-mm-ddの形式のみ入力可能
@@ -209,6 +209,17 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 
 		AddProductDAO addProductDAO = new AddProductDAO();
 
+		if (productIdErrorMessageList.isEmpty()) {
+			if (Integer.parseInt(productId) >= 1000000000) {
+				productIdErrorMessageList.add("IDは9桁以下に設定してください");
+				session.put("productIdErrorMessageList", productIdErrorMessageList);
+			}
+
+			if (Integer.parseInt(productId) <= 0) {
+				productIdErrorMessageList.add("IDは1以上に設定してください");
+				session.put("productIdErrorMessageList", productIdErrorMessageList);
+			}
+		}
 		if (priceErrorMessageList.isEmpty()) {
 			if (Integer.parseInt(price) >= 20000) {
 				priceErrorMessageList.add("金額は20000未満に設定してください");
