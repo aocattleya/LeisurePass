@@ -57,65 +57,66 @@ header .logo img {
 	height: 70px;
 	margin-left: 20px;
 	display: block;
+	z-index:3;
+}
+
+
+/* ***P*** */
+
+.logoP-clear img {
+	width: auto;
+	height: 60px;
+	display: block;
+	position:absolute;
+	top:3.3px;
+	left:186.5px;
 	z-index:1;
+	filter:brightness(0);
 }
 
-
-/* P */
-#header-container .logoP-clear{
-	height: 60px;
-}
-header .logoP-clear img {
+.logoP img {
 	width: auto;
 	height: 60px;
 	display: block;
 	position:absolute;
 	top:3.3px;
 	left:186.5px;
-	z-index:50;
-
-/*   filter: grayscale(100%); */
-     filter:brightness(0);
-}
-
-#header-container .logoP{
-	height: 60px;
-}
-header .logoP img {
-	width: auto;
-	height: 60px;
-	display: block;
-	position:absolute;
-	top:3.3px;
-	left:186.5px;
-	z-index:99;
-
+	z-index:5;
 	/* transition-property: transform; */
-
 }
-header .logoP img:hover{
+
+.logoP img:hover{
 	transition-duration: 3s;
 	transform:translateY(700px) rotate(90deg);
 }
-/* *** */
+.logoP img:hover + .logoP-clear img{
+	z-index:10;
+}
 
-
-#header-container ul{
+/* ヘッダーメニュー */
+.header-menu{
 	margin: 0;
 	margin-right: 10px;
 	padding: 0;
+	position:relative;
 }
 
-#header-container ul li{
-	float: left;
-	list-style: none;
-	margin-left: 10px;
-}
-
+/* ヘッダーアイコン装飾 */
 header .menu-button {
 	width: 70px;
 	height: 70px;
 	position: relative;
+
+	float: left;
+	margin-left: 10px;
+
+	background-color: #ed7d22;
+	width: 70px;
+	height: 70px;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 header .menu-button a {
@@ -124,131 +125,49 @@ header .menu-button a {
     left: 0;
     width: 100%;
     height: 100%;
+
+	text-decoration: none;
     /* text-indent:-999px; */
 }
 
-header .menu-button p{
+/* アイコン画像装飾 */
+header .icon img {
+	width: 50px;
+	height: 50px;
+	padding:10px;
+	background-color:#f7f7f7;
+}
+
+/* ホバー時のテキスト装飾 */
+.menu-button .message{
+	color:#fff;
+	margin-top:50px;
+	text-align:center;
+	display:none;
+}
+.mypage .message{
+	font-size:13px;
+}
+
+
+/* アイコンのhoverアクション */
+.menu-button:hover > .message{
+	display:block;
+}
+.menu-button:hover > .icon img{
+	width:50px;
+	height:50px;
+	padding:0 10px;
+
+}
+
+/* ログ共通装飾 */
+header .menu-button span{
 	color: white;
 	font-weight: bold;
 	text-decoration: none;
+	line-height:70px;
 }
-
-
-/* ヘッダーメニュー */
-.header-menu{
-	position:relative;
-}
-/*商品一覧のアイコン装飾*/
-header .ticket {
-	float: left;
-	background-color: #f7f7f7;
-	width: 70px;
-	height: 70px;
-	text-align: center;
-	border-radius: 10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	z-index:20;
-
-}
-/*商品一覧アイコンの画像装飾*/
-header .ticket img {
-	width: 45px;
-	height: 45px;
-}
-
-
-/*マイページのアイコン装飾*/
-header .mypage {
-	float: left;
-	background-color: #f7f7f7;
-	width: 70px;
-	height: 70px;
-	text-align: center;
-	border-radius: 10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	z-index:20;
-}
-
-/* マイページのアイコン画像装飾 */
-header .mypage img {
-	width: 45px;
-	height: 45px;
-}
-
-/* カートのアイコン装飾 */
-header .cart {
-	float: left;
-	background-color: #f7f7f7;
-	width: 70px;
-	height: 70px;
-	text-align: center;
-	border-radius: 10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	z-index:20;
-}
-/* カートのアイコン画像装飾 */
-header .cart img {
-	width: 45px;
-	height: 45px;
-}
-
-/* アイコンのhoverアクション */
-header .ticket:hover, .cart:hover,.mypage:hover{
-	width: 70px;
-	height: 50px;
-/* 	border:0.1px solid #d4d4d4; */
-}
-
-/* hover時の空白(別個位置調整) */
-/* header #iconBox{
-	float: left;
-	background-color:blue;
-	width: 70px;
-	height: 70px;
-	text-align: center;
-	border-radius: 10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
- */
-/* hover時のテキスト装飾(位置調整) */
-header .messageList,.messageCart,.messageMypage{
-	background-color: #ed7d22;
-	width: 69px;
-	height: 69px;
-	text-align: center;
-	border-radius: 10px;
-	justify-content: center;
-	align-items: center;
-	color:#ffffff;
-	position:absolute;
-	top:0px;
-	left:11px;
-	z-index:2;
-	line-height:120px;
-/* 	cursor: pointer; */
-}
-header .messageCart{
-	position:absolute;
-	top:0;
-	left:91px;
-}
-header .messageMypage{
-	position:absolute;
-	top:0;
-	left:171px;
-	font-size:13px;
-	font-weight:bold;
-}
-
-
 
 /* ログインボタン装飾 */
 header .login {
@@ -277,6 +196,12 @@ header .logout {
 	justify-content: center;
 	align-items: center;
 }
+
+
+
+
+
+
 
 /*ナビゲーション*/
 
