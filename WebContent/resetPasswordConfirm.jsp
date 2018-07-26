@@ -23,25 +23,20 @@
 
 		<div id="contents">
 			<h1>以下の内容で変更します。</h1>
-			<div class=table>
-				<s:form action="ResetPasswordCompleteAction">
+			<s:form action="ResetPasswordCompleteAction">
+				<div class="table">
 
 
-					<tr>
-						<th><s:label value="ログインID" /></th>
-					</tr>
-					<br>
-					<s:property value="#session.loginId" />
-					<br>
-					<br>
-					<tr>
-						<th><s:label value="パスワード" /></th>
-					</tr>
-					<br>
-					<s:property value="#session.concealedPassword" />
-			</div>
 
-			<s:submit value="再設定" class="submit_btn" />
+					<ul>
+						<li><s:label value="ログインID" /></li>
+						<li><s:property value="#session.loginId" /></li>
+						<li><s:label value="パスワード" /></li>
+						<li><s:property value="#session.concealedPassword" /></li>
+					</ul>
+				</div>
+
+				<s:submit value="再設定" class="submit_btn" />
 
 			</s:form>
 
