@@ -10,6 +10,7 @@ import com.internousdev.leisurepass.dao.ProductInfoDAO;
 import com.internousdev.leisurepass.dto.MCategoryDTO;
 import com.internousdev.leisurepass.dto.PaginationDTO;
 import com.internousdev.leisurepass.dto.ProductInfoDTO;
+import com.internousdev.leisurepass.util.CommonUtility;
 import com.internousdev.leisurepass.util.Pagination;
 import com.internousdev.leisurepass.util.SearchConditionLoader;
 import com.opensymphony.xwork2.ActionSupport;
@@ -27,7 +28,8 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 	private List<ProductInfoDTO> productList = new ArrayList<ProductInfoDTO>();
 
 	private Map<String, Object> session;
-	public String execute() {
+	public String execute() throws Exception{
+		CommonUtility.checkLoginGuest(session);
 		String result = ERROR;
 
 		ProductInfoDAO productDAO = new ProductInfoDAO();
