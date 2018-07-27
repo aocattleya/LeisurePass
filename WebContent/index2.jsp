@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="css/common.css">
 
 
-<meta http-equiv="refresh" content="2.5 ;URL='HomeAction'" />
+<meta http-equiv="refresh" content=" ;URL='HomeAction'" />
 <link rel="stylesheet" type="text/css"
 	href="https://fonts.googleapis.com/css?family=Inconsolata|Playfair+Display|Rubik">
 
@@ -35,7 +35,7 @@ html {
 body {
 overflow: hidden;
 	height: 100%;
-	width: 1920px;
+	/* width: 1920px; */
 	margin: 0 0;
 	background-color: #FFFAFA;
 	z-index: 10;
@@ -131,15 +131,16 @@ overflow: hidden;
 
 
    .anime{
-   text-align: center;
+   	text-align: center;
+   	margin: 0 auto;
 	position:absolute;
-	top:350px;
-	left:280px;
+	top:300px;
+	left:300px;
    }
    .description {
    position:absolute;
-	top:530px;
-	left:570px;
+	top:500px;
+	left:590px;
 
 		font-size:30px;
 		letter-spacing:5px;
