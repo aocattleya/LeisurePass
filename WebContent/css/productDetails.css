@@ -4,57 +4,72 @@ body {
 	font-family: "Meiryo", sans-serif;
 }
 
-#contents{
-	width: 70%;
-}
-
-
-#contents-box{
+/* #contents-box{
 	width: 1020px;
 	margin: 0 auto;
 }
 
 
-
-
-
+ */
 
 /* メイン画像エリア */
-.big-picture{
-	position:relative;
-	width:100%;
-}
-.item-image-box-back{/* 背景画像 */
-	width:95%;
-	height:495px;
-	border-radius:5px;
-	z-index:1;
-	filter:brightness(0.5) blur(2.5px);/* ぼかしフィルター(pxで指定) */
+.big-picture {
+	position: relative;
+	margin-bottom:450px;
 }
 
-.item-image-box-320{/* メイン画像 */
-	position:absolute;
-	top:-3px;
-	left:110px;
-	border-radius:10px;
-	box-shadow:3px 3px 5px rgba(196,202,210,0.5);/* 横/縦/影の長さ/色(R,G,B,透明度) */
-
-	width:780px;
-	height:500px;
-	z-index:10;
+.item-image-box-back { /* 背景画像 */
+	position: absolute;
+	top: 0;
+	width: 95%;
+	max-width: 1010px;
+	margin-left: 2.5%;
+	height: 450px;
+	display: flex;
+	justify-content: center;
+	object-fit: cover;
+	border-radius: 5px;
+	filter: brightness(0.5) blur(2.5px); /* ぼかしフィルター(pxで指定) */
+	z-index: 1;
 }
 
-
+.item-image-box-320 { /* メイン画像 */
+	position: absolute;
+	top: -3px;
+	margin-left: 10%;
+	position: absolute;
+	top: 0;
+	width: 80%;
+	max-width: 1000px;
+	height: 450px;
+	display: flex;
+	justify-content: center;
+	object-fit: cover;
+	border-radius: 10px;
+	box-shadow: 3px 3px 5px rgba(196, 202, 210, 0.5);
+	/* 横/縦/影の長さ/色(R,G,B,透明度) */
+	z-index: 10;
+}
 
 /* 商品情報エリア */
-.left-column {	/* カラム全体 */
-	text-align: left;
-	width:750px;
-	display: inline-block;
-	background-color: #ffffff;
-	/* border-right: 2px solid #c0c0c0; */
+.details_area { /* 商品情報全体 */
+	width: 100%;
 	float: left;
-	margin-bottom: 8px;
+	height:500px;
+}
+
+
+.details_box{
+	width:65%;
+	margin-left:-10px;
+	float:left;
+	height:300px;
+}
+
+
+
+.details_box ul li{
+	list-style:none;
 }
 
 
@@ -63,18 +78,19 @@ body {
 	padding-top: 8px;
 }
 
-.daimei{
+.daimei {
 	font-size: 22px;
 	font-weight: bold;
 }
 
-.naiyou{
+.naiyou {
 	font-size: 16px;
+	width: 100%;
 }
 
 .releaseCompany {
 	padding-top: 40px;
-	font-weight:100;
+	font-weight: 100;
 	font-size: 16px;
 	color: #999999;
 }
@@ -84,83 +100,44 @@ body {
 	font-size: 16px;
 }
 
-.storeinfomation{
-	font-size: 18px;
-	border-left:  3px solid #ed7d22;
-	padding-left: 10px;
-	font-weight: 700;
-	text-align:left;
-}
-
-table.store-information {
-	border: 2px solid #999999;
-	border-collapse: collapse; /* 隣り合うセルの線を結合 */
-}
-
-
-
-th.local {
-	font-weight: 100;
-	border-top: solid 2px #999999;;
-	border-bottom: solid 2px #999999;;
-	background: #f7f7f7;
-	padding: 7px;
-	width: 100px;
-	text-align:center;
-}
-
-th.local1{
-	font-weight: 100;
-	border-top: solid 2px #999999;;
-	border-bottom: solid 2px #999999;
-	width:530px;
-	text-align:left;
-	padding-left:5px;
-}
-
-
-
-/* カートボタンエリア */
 
 /*カートイン背景装飾*/
+
 #cart_in_box {
-	float: left;
+	float: right;
+	position:relative;
+	top:0;
 	background-color: #f7f7f7;
 	border-radius: 20px;
-	width: 255px;
-	height:300px;
-	margin-top:8px;
-	margin-left:10px;
 
-	position:relative;
+	width:25%;
+	height:300px;
 }
+
+
 #cart_in_box ul li {
 	list-style: none;
 }
 
-
-
 /*枚数選択ボックスの調整*/
 .byCount {
-	width: 220px;
+	width: 85%;
 	height: 50px;
 	margin-left: -30px;
 	border-radius: 4px;
 	background: #ffffff;
-
 	position: absolute;
-	top:20px;
-	left:50px;
-	font-size:22px;
+	top: 20px;
+	left: 50px;
+	font-size: 1.3vw;
 }
-
 
 /*枚数選択の文字装飾*/
 .byCount select {
-	margin-left: 60px;
+	margin-left: 2.5vw;
 	font-size: 25px;
 	font-family: "Meiryo", sans-serif;
-	color:#333333;
+	color: #333333;
 	cursor: pointer;
 	text-overflow: ellipsis;
 	border: none;
@@ -169,83 +146,73 @@ th.local1{
 	box-shadow: none;
 	-webkit-appearance: none;
 	appearance: none;
-
-	padding: 7.5px 38px 8px 30px;	/* 数字の位置(上右下左) */
+	padding: 8px 38px 8px 30px; /* 数字の位置(上右下左) */
 }
+
 .byCount select::-ms-expand {
 	display: none;
 }
 
-
-
-.pulldown{	/* プルダウン範囲 */
-	width: 150px;
+.pulldown { /* プルダウン範囲 */
+	width: 80%;
 	z-index: 2;
 }
 
-
-.mai {	/* 文字“枚数”の設定 */
+.mai { /* 文字“枚数”の設定 */
 	position: absolute;
 	top: 13px;
 	z-index: 1;
-	font-size:18px;
+	font-size: 1.3vw;
 }
 
 /*枚数選択プルダウンマーク（▼）の装飾*/
 .byCount::before {
 	position: absolute;
-	top:0.85em;
+/* 	top: 1em; */
 	right: 0.9em;
 	width: 0;
 	height: 0;
+	margin-top:1em;
 	padding: 0;
 	content: '';
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-	border-top: 10px solid #666666;
+	border-left: 13px solid transparent;
+	border-right: 13px solid transparent;
+	border-top: 13px solid #666666;
 	pointer-events: none;
 }
 
-
-
 /* 価格エリア */
-.byPrice{
-	clear:both;
-
-	color:#333333;
-	font-size:18px;
-
-	position:absolute;
-	top:120px;
-	left:21px;
+.byPrice {
+	clear: both;
+	color: #333333;
+	font-size: 1.3vw;
+	position: absolute;
+	top: 120px;
+	left: 21px;
 }
 
-.byPrice span.yen{	/* ○○円の装飾 */
-	font-size:22px;
-	font-weight:bold;
-	margin-left:40px;
-
+.byPrice span.yen { /* ○○円の装飾 */
+	font-size: 1.5vw;
+	font-weight: bold;
+	margin-left: 25px;
 }
-
-
 
 /* カートに入れるボタン */
 .cart_submit_btn {
-	width: 200px;/*ボタンの横の長さ*/
-	height:40px;/*ボタンの縦の長さ*/
-	font-size:20px;/*ボタン文字サイズ*/
-	color: #FFF;/*ボタン文字の色*/
+	width: 85%; /*ボタンの横の長さ*/
+	height: 40px; /*ボタンの縦の長さ*/
+	font-size: 1.5vw; /*ボタン文字サイズ*/
+	color: #FFF; /*ボタン文字の色*/
 	background: #ed7d22; /*ボタンの色*/
 	border-radius: 20px; /*ボタンの角の丸み*/
-	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);/*ボタンの影（立体感）*/
-	border: solid 2px #d27d00;/*ボタンの立体感を出すため*/
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0
+		rgba(0, 0, 0, 0.05); /*ボタンの影（立体感）*/
+	border: solid 2px #d27d00; /*ボタンの立体感を出すため*/
 	outline: 0; /*変な枠線を非表示に*/
 	cursor: pointer; /*マウスを乗せたとき指マークにする*/
-
-	position:absolute;
-	top:200px;
-	left:20px;
-
+	position: absolute;
+	top: 200px;
+	left: 20px;
 }
 /*ボタンをクリックしたときのCSS*/
 .cart_submit_btn:active {
@@ -256,16 +223,57 @@ th.local1{
 
 
 
-/* おすすめピックアップ */
-#pickUp{
- 	clear:both;
-	width:1020px;
-	height:300px;
-/* 	background:#f7f7f7; */
-	border-radius:10px;
+.store_info_area{
+	margin-top:400px;
 }
 
 
+table.store_info_box {
+	border-collapse: collapse; /* 隣り合うセルの線を結合*/
+}
+
+
+.storeinfomation {
+	font-size: 18px;
+	border-left: 3px solid #ed7d22;
+	padding:0 0 0 10px;
+	font-weight: 700;
+	text-align: left;
+
+	margin-bottom:5px;
+}
+
+th.local {
+	font-weight: 100;
+	border: solid 2px #999999;
+	background: #f7f7f7;
+	padding: 7px;
+	width: 100px;
+	min-width: 100px;
+	text-align: center;
+}
+
+th.local1 {
+	font-weight: 100;
+	border: solid 2px #999999;
+	width: 600px;
+	min-width: 600px;
+	text-align: left;
+	padding-left: 5px;
+}
+
+
+
+
+/* おすすめピックアップ */
+#pickUp {
+	clear: both;
+	width: 100%;
+	height: 300px;
+	border-radius: 10px;
+
+	margin-top:50px;
+}
 
 .pickup_title {
 	font-size: 18px;
@@ -273,30 +281,38 @@ th.local1{
 	font-weight: bold;
 }
 
-
-
 .recommend-box {
-	float:left;
-	margin-left:7px;
+	float: left;
+	margin: 1vw;
+	width:30%;
+	heigth:20vh;
 }
 
-.recommend-box img:hover{
+.recommend-box img:hover {
 	opacity: 0.7;
 	cursor: pointer;
 }
-.item-image-box-100 {
-	width: 280px;
-    height: 180px;
-    border:0.8px solid #f7f7f7;
-    border-radius:10px;
-	margin:0 25px;
+
+.pickup_img img {
+	margin-left:1vw;
+	width: 90%;
+	height: 20vh;
+	border: 0.8px solid #f7f7f7;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	object-fit: cover;
 }
-.item-image-box-100:active {
+
+.pickup_img:active {
 	transform: translateY(1px);
 }
 
-.pickup-Name{
-	font-weight:bold;
-	margin:0 25px;
-	text-align:center;
+.pickup-Name {
+
+	margin-left:1vw;
+	font-weight: bold;
+	text-align: center;
+	width:90%;
+	font-size:1.2vw;
 }
