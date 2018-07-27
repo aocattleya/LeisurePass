@@ -21,6 +21,7 @@ h1 {
 	color: #ed7d22;
 	font-size: 22px;
 	text-align: center;
+	padding-left: 70px;
 }
 
 h1 img.ele {
@@ -127,13 +128,14 @@ h1 img:active {
 .smallMoji {
 	font-size: 9px;
 	color: #333333;
-	margin-left: 15px;
+	margin-left: 20px;
+	width: 100%;
 }
 
 .largeMoji {
 	font-size: 0.9vw;
 	color: #333333;
-	margin-left: 15px;
+	margin-left: 35px;
 }
 
 /* ページネーションCSS */
@@ -142,6 +144,7 @@ h1 img:active {
 	clear: left;
 	font-size: 30px;
 	font-weight:bold;
+	padding-left: 60px;
 
 
 }
