@@ -87,7 +87,7 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 		// フォーム入力制限のチェック
 		InputChecker inputChecker = new InputChecker();
 		// 商品ID:1～9文字, 半角数字のみ入力可能
-		productIdErrorMessageList = inputChecker.doCheck("商品ID", productId, 1, 9, true, false, false, true, false,
+		productIdErrorMessageList = inputChecker.doCheck("商品ID", productId, 1, 9, false, false, false, true, false,
 				false, false, false, false);
 		// 商品名:1～20文字, 全角の日本語のみ入力可能
 		productNameErrorMessageList = inputChecker.doCheck("商品名", productName, 1, 20, true, true, true, false, false,
