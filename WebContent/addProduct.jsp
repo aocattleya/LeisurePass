@@ -106,7 +106,7 @@
 					<div class="text-title">
 						商品かな<br>
 					</div>
-					<s:textfield name="productNameKana"
+					<s:textfield name="productNameKana" placeholder="ひらがなで入力"
 						value="%{productNameKana}" class="txt2" />
 					<br>
 					<s:if test="!#session.productNameKanaErrorMessageList.isEmpty()">
@@ -134,7 +134,7 @@
 					<div class="text-title">
 						価格(円)<br>
 					</div>
-					<s:textfield name="price" value="%{price}"
+					<s:textfield name="price" placeholder="半角数字で入力" value="%{price}"
 						class="txt2" />
 					<br>
 					<s:if test="!#session.priceErrorMessageList.isEmpty()">
@@ -151,7 +151,6 @@
 						画像ファイル選択<br>
 					</div>
 					<div class="preview">
-						<%-- <img id="image_path" src="<s:property value="image_file_path"/>"width="100"height="100"/> --%>
 						<s:file name="productImage" accept="image/jpeg"/>
 					</div>
 					<br>
@@ -168,7 +167,7 @@
 					<div class="text-title">
 						発売年月<br>
 					</div>
-					<s:textfield name="releaseDate"
+					<s:textfield name="releaseDate" placeholder="yyyy-MM-dd もしくは yyyy年MM月dd日で入力"
 						value="%{releaseDate}" class="txt2" />
 					<br>
 					<s:if test="!#session.releaseDateErrorMessageList.isEmpty()">
@@ -232,7 +231,7 @@
 					<div class="text-title">
 						URL<br>
 					</div>
-					<s:textfield name="url" value="%{url}"
+					<s:textfield name="url" placeholder="半角英数字で入力" value="%{url}"
 						class="txt2" />
 					<br>
 					<s:if test="!#session.urlErrorMessageList.isEmpty()">
@@ -248,7 +247,7 @@
 					<div class="text-title">
 						開始日<br>
 					</div>
-					<s:textfield name="startDate"
+					<s:textfield name="startDate" placeholder="yyyy-MM-dd もしくは yyyy年MM月dd日で入力"
 						value="%{startDate}" class="txt2" />
 					<br>
 					<s:if test="!#session.startDateErrorMessageList.isEmpty()">
@@ -264,7 +263,7 @@
 					<div class="text-title">
 						終了日<br>
 					</div>
-					<s:textfield name="endDate"
+					<s:textfield name="endDate" placeholder="yyyy-MM-dd もしくは yyyy年MM月dd日で入力"
 						value="%{endDate}" class="txt2" />
 					<br>
 					<s:if test="!#session.endDateErrorMessageList.isEmpty()">
