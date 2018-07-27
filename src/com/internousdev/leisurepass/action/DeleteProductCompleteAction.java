@@ -25,8 +25,8 @@ public class DeleteProductCompleteAction extends ActionSupport implements Sessio
 			AdminItemDAO dao = new AdminItemDAO();
 			System.out.println(dto.getId());
 			System.out.println(dto.getProductId());
-			dao.deleteProduct(dto.getId());
 			dao.deleteCart(dto.getProductId());
+			dao.invalidProduct(dto.getId());
 		}
 
 		// navigation情報を取得

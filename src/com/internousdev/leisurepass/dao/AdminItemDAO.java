@@ -17,7 +17,7 @@ public class AdminItemDAO {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 
-		String sql = "SELECT * FROM product_info WHERE id = ?";
+		String sql = "SELECT * FROM product_info WHERE id = ? AND status=0";
 
 		ProductInfoDTO result = null;
 
@@ -150,13 +150,13 @@ public class AdminItemDAO {
 		return result;
 	}
 
-	// 商品削除
-	public int deleteProduct(int id) {
+	// 商品無効
+	public int invalidProduct(int id) {
 
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 
-		String sql = "DELETE FROM product_info WHERE id=?";
+		String sql = "UPDATE product_info SET status = 1 WHERE id = ?";
 
 		int result = 0;
 
@@ -166,7 +166,7 @@ public class AdminItemDAO {
 
 			System.out.println(preparedStatement.toString());
 			result = preparedStatement.executeUpdate();
-			System.out.println(result + "削除");
+			System.out.println(result + "無効");
 
 		} catch (SQLException e) {
 			e.printStackTrace();

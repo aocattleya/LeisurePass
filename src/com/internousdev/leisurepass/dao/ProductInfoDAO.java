@@ -18,7 +18,7 @@ public class ProductInfoDAO {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		List<ProductInfoDTO> list = new ArrayList<ProductInfoDTO>();
-		String sql = "SELECT * FROM product_info";
+		String sql = "SELECT * FROM product_info WHERE status=0";
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -50,7 +50,7 @@ public class ProductInfoDAO {
 		Connection connection = dbConnector.getConnection();
 
 		ProductInfoDTO dto = new ProductInfoDTO();
-		String sql = "SELECT * FROM product_info WHERE product_id=?";
+		String sql = "SELECT * FROM product_info WHERE product_id=? AND status=0";
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -79,7 +79,7 @@ public class ProductInfoDAO {
 		List<ProductInfoDTO> list = new ArrayList<ProductInfoDTO>();
 
 		// 全てのフィールド／product_infoテーブルから／条件：カテゴリIDとプロダクトID 昇順で並び替える
-		String sql = "select * from product_info where category_id=? and product_id not in(?) order by rand() limit ?,?";
+		String sql = "select * from product_info where status=0 and category_id=? and product_id not in(?) order by rand() limit ?,?";
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, categoryId);
@@ -106,7 +106,7 @@ public class ProductInfoDAO {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		List<ProductInfoDTO> list = new ArrayList<ProductInfoDTO>();
-		String sql = "select * from product_info where";
+		String sql = "select * from product_info where status=0";
 		boolean initializeFlag = true;
 		for (String keyword : keywordsList) {
 			if (initializeFlag) {
@@ -134,150 +134,24 @@ public class ProductInfoDAO {
 		return list;
 	}
 
-	// public List<ProductInfoDTO>
-	// getProductInfoListByKeywordsAndCategoryId(String[] keywordsList, String
-	// categoryId) {
-	// DBConnector dbConnector = new DBConnector();
-	// Connection connection = dbConnector.getConnection();
-	// List<ProductInfoDTO> list = new ArrayList<ProductInfoDTO>();
-	// String sql = "select * from product_info where";
-	// boolean initializeFlag = true;
-	// for (String keyword : keywordsList) {
-	// if (initializeFlag) {
-	// sql += " category_id=" + categoryId + " and (product_name like '%" +
-	// keyword + "%' or product_name_kana like '%" + keyword + "%')";
-	// initializeFlag = false;
-	// } else {
-	// sql += " and (product_name like '%" + keyword + "%' or product_name_kana
-	// like '%" + keyword + "%')";
-	// }
-	// }
-	// try {
-	// PreparedStatement preparedStatement = connection.prepareStatement(sql);
-	// ResultSet resultSet = preparedStatement.executeQuery();
-	// while (resultSet.next()) {
-	// ProductInfoDTO dto = toDto(resultSet);
-	// list.add(dto);
-	// }
-	// } catch (SQLException e) {
-	// e.printStackTrace();
-	// }
-	// try {
-	// connection.close();
-	// } catch (SQLException e) {
-	// e.printStackTrace();
-	// }
-	// return list;
-	// }
-	//
-	// public List<ProductInfoDTO>
-	// getProductInfoListByKeywordsAndPlaceId(String[] keywordsList, String
-	// placeId) {
-	// DBConnector dbConnector = new DBConnector();
-	// Connection connection = dbConnector.getConnection();
-	// List<ProductInfoDTO> list = new ArrayList<ProductInfoDTO>();
-	// String sql = "select * from product_info where";
-	// boolean initializeFlag = true;
-	// for (String keyword : keywordsList) {
-	// if (initializeFlag) {
-	// sql += " place_id=" + placeId + " and (product_name like '%" + keyword +
-	// "%' or product_name_kana like '%" + keyword + "%')";
-	// initializeFlag = false;
-	// } else {
-	// sql += " and (product_name like '%" + keyword + "%' or product_name_kana
-	// like '%" + keyword + "%')";
-	// }
-	// }
-	// try {
-	// PreparedStatement preparedStatement = connection.prepareStatement(sql);
-	// ResultSet resultSet = preparedStatement.executeQuery();
-	// while (resultSet.next()) {
-	// ProductInfoDTO dto = toDto(resultSet);
-	// list.add(dto);
-	// }
-	// } catch (SQLException e) {
-	// e.printStackTrace();
-	// }
-	// try {
-	// connection.close();
-	// } catch (SQLException e) {
-	// e.printStackTrace();
-	// }
-	// return list;
-	// }
-	//
-	// public List<ProductInfoDTO>
-	// getProductInfoListByKeywordsAndCategoryIdAndPlaceId(String[]
-	// keywordsList, String categoryId, String placeId) {
-	// DBConnector dbConnector = new DBConnector();
-	// Connection connection = dbConnector.getConnection();
-	// List<ProductInfoDTO> list = new ArrayList<ProductInfoDTO>();
-	// String sql = "select * from product_info where";
-	// boolean initializeFlag = true;
-	// for (String keyword : keywordsList) {
-	// if (initializeFlag) {
-	// sql += " (category_id=" + categoryId + " and place_id=" + placeId + ")
-	// and (product_name like '%" + keyword + "%' or product_name_kana like '%"
-	// + keyword + "%')";
-	// initializeFlag = false;
-	// } else {
-	// sql += " and (product_name like '%" + keyword + "%' or product_name_kana
-	// like '%" + keyword + "%')";
-	// }
-	// }
-	// try {
-	// PreparedStatement preparedStatement = connection.prepareStatement(sql);
-	// ResultSet resultSet = preparedStatement.executeQuery();
-	// while (resultSet.next()) {
-	// ProductInfoDTO dto = toDto(resultSet);
-	// list.add(dto);
-	// }
-	// } catch (SQLException e) {
-	// e.printStackTrace();
-	// }
-	// try {
-	// connection.close();
-	// } catch (SQLException e) {
-	// e.printStackTrace();
-	// }
-	// return list;
-	// }
-
 	public List<ProductInfoDTO> getProductInfoList(String[] keywordsList, String categoryId, String placeId,
 			String targetDate) {
 
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		List<ProductInfoDTO> list = new ArrayList<ProductInfoDTO>();
-		String sql = "select * from product_info";
-		boolean initializeFlag = true;
+		String sql = "select * from product_info WHERE status=0";
 
 		if (categoryId != null && !categoryId.equals("1")) {
-			if (initializeFlag) {
-				sql += " where category_id=" + categoryId;
-				initializeFlag = false;
-			} else {
-				sql += " and category_id=" + categoryId;
-			}
+			sql += " and category_id=" + categoryId;
 		}
 
 		if (placeId != null && !placeId.equals("1")) {
-			if (initializeFlag) {
-				sql += " where place_id=" + placeId;
-				initializeFlag = false;
-			} else {
-				sql += " and place_id=" + placeId;
-			}
+			sql += " and place_id=" + placeId;
 		}
 
 		if (targetDate != null && !targetDate.equals("")) {
-			System.out.println(targetDate);
-			if (initializeFlag) {
-				sql += " where ('" + targetDate + "' >= start_date and '" + targetDate + "' < end_date)";
-				initializeFlag = false;
-			} else {
-				sql += " and ('" + targetDate + "' >= start_date and '" + targetDate + "' < end_date)";
-			}
+			sql += " and ('" + targetDate + "' >= start_date and '" + targetDate + "' < end_date)";
 		}
 
 		for (int i = 0; i < keywordsList.length; i++){
@@ -287,13 +161,6 @@ public class ProductInfoDAO {
 			}
 
 			if (i == 0){
-				if (initializeFlag) {
-					sql += " where";
-					initializeFlag = false;
-				}else{
-					sql += " and";
-				}
-
 				if (keywordsList.length == 1){
 					sql += " (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
 				}else{
@@ -371,7 +238,7 @@ public class ProductInfoDAO {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 
-		String sql = "SELECT * FROM product_info WHERE id = ?";
+		String sql = "SELECT * FROM product_info WHERE id = ? AND status=0";
 
 		ProductInfoDTO result = null;
 
