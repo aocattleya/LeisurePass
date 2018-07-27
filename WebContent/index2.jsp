@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="css/common.css">
 
 
-<meta http-equiv="refresh" content=" ;URL='HomeAction'" />
+<meta http-equiv="refresh" content="2.6 ;URL='HomeAction'" />
 <link rel="stylesheet" type="text/css"
 	href="https://fonts.googleapis.com/css?family=Inconsolata|Playfair+Display|Rubik">
 
