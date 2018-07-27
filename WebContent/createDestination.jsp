@@ -91,7 +91,7 @@
 					</tr>
 					<tr>
 						<td colspan="2"><s:radio name="sex" list="sexList"
-								value="defaultSexValue" label="性別" placeholder="性別" /></td>
+								value="%{sex}" label="性別" placeholder="性別" /></td>
 					</tr>
 
 					<tr>
