@@ -19,7 +19,7 @@
 
    			// 選択可能範囲
    			minDate: '0y', //今日から
-   			maxDate: '+1y',	// 1年後まで
+   			/* maxDate: '+1y',	// 1年後まで */
    	        // 日付が選択された時、日付をテキストフィールドへセット
    	        onSelect: function(dateText, inst) {
                 $("#date_val").val(dateText);
