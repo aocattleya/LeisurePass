@@ -130,8 +130,10 @@ public class AddProductConfirmAction extends ActionSupport implements SessionAwa
 			productImageErrorMessageList.add("画像ファイルを選択してください");
 		}
 
-		if (!productImageContentType.equals("image/jpeg")) {
-			productImageErrorMessageList.add("jpegを選択してください");
+		if(productImageContentType != null){
+			if (!productImageContentType.equals("image/jpeg")) {
+				productImageErrorMessageList.add("jpegを選択してください");
+			}
 		}
 
 		ProductInfoDTO dto = new ProductInfoDTO();
