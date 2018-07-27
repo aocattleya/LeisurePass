@@ -56,7 +56,7 @@ header .logo img {
 	width: auto;
 	height: 70px;
 	margin-left: 20px;
-	display: block;
+	/* display: block; */
 	z-index:3;
 }
 
