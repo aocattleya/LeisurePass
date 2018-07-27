@@ -46,9 +46,11 @@ public class HomeAction extends ActionSupport implements SessionAware{
 			}
 		}
 
-		ProductInfoDAO dao = new ProductInfoDAO();
-		recommends = dao.selectRecommends(4);
-
+		if (!session.containsKey("homeRecommends")){
+			ProductInfoDAO dao = new ProductInfoDAO();
+			recommends = dao.selectRecommends(4);
+			session.put("homeRecommends", recommends);
+		}
 		for (int i = 0; i < recommends.size(); i++) {
 			System.out.println(recommends.get(i).getProductName());
 		}

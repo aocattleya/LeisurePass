@@ -170,7 +170,7 @@
 
 			<div class="box">
 				<ul>
-					<s:iterator value="recommends">
+					<s:iterator value="#session.homeRecommends">
 						<li>
 							<a href='<s:url action="ProductDetailsAction"><s:param name="productId" value="%{productId}"/></s:url>'>
 								<%-- <img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' />
