@@ -169,21 +169,24 @@
 			<p class=box-text>おすすめピックアップ</p>
 
 			<div class="box">
-				<%-- <ul>
-					<s:iterator value="recommendProducts">
+				<ul>
+					<s:iterator value="recommends">
 						<li>
 							<a href='<s:url action="ProductDetailsAction"><s:param name="productId" value="%{productId}"/></s:url>'>
-								<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' />
+								<%-- <img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' />
 								<div class="text">
 									<s:property value="productName" />
-								</div>
+								</div> --%>
+
+								<span class="image"><img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' /></span>
+								<span class="text"><s:property value="productName" /></span>
 							</a>
 
 						</li>
 					</s:iterator>
-				</ul> --%>
+				</ul>
 
-				<ul>
+				<%-- <ul>
 					<li>
 						<a href='<s:url action="ProductDetailsAction"><s:param name="productId" value="7"/></s:url>'>
 							<span class="image"><img src="./images/ichikawa_city_zoo4.jpg"></span>
@@ -210,7 +213,7 @@
 							<span class="text">三鷹の森ジブリ美術館</span>
 						</a>
 					</li>
-				</ul>
+				</ul> --%>
 			</div>
 
 		</div>

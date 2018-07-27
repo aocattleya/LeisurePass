@@ -1,9 +1,13 @@
 package com.internousdev.leisurepass.action;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.leisurepass.dao.ProductInfoDAO;
+import com.internousdev.leisurepass.dto.ProductInfoDTO;
 import com.internousdev.leisurepass.dto.UserInfoDTO;
 import com.internousdev.leisurepass.util.CommonUtility;
 import com.internousdev.leisurepass.util.SearchConditionLoader;
@@ -15,6 +19,8 @@ public class HomeAction extends ActionSupport implements SessionAware{
 	private String categoryId;
 	private String placeName;
 	private String categoryName;
+
+	private List<ProductInfoDTO> recommends = new ArrayList<ProductInfoDTO>();
 
 	private Map<String, Object> session;
 
@@ -39,6 +45,14 @@ public class HomeAction extends ActionSupport implements SessionAware{
 				result = "admin";
 			}
 		}
+
+		ProductInfoDAO dao = new ProductInfoDAO();
+		recommends = dao.selectRecommends(4);
+
+		for (int i = 0; i < recommends.size(); i++) {
+			System.out.println(recommends.get(i).getProductName());
+		}
+
 
 		SearchConditionLoader loader = new SearchConditionLoader();
 		loader.execute(session);
@@ -76,6 +90,10 @@ public class HomeAction extends ActionSupport implements SessionAware{
 
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
+	}
+
+	public List<ProductInfoDTO> getRecommends() {
+		return recommends;
 	}
 
 	@Override

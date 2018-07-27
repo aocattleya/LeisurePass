@@ -350,4 +350,33 @@ public class ProductInfoDAO {
 
 		return result > 0;
 	}
+
+	public List<ProductInfoDTO> selectRecommends(int limit){
+
+		DBConnector dbConnector = new DBConnector();
+		Connection connection = dbConnector.getConnection();
+		List<ProductInfoDTO> list = new ArrayList<ProductInfoDTO>();
+
+		// ランダム
+		String sql = "SELECT * FROM product_info WHERE status=0 ORDER BY rand() LIMIT ?";
+		//String sql = "select * from product_info where status=0 and category_id=? and product_id not in(?) order by rand() limit ?,?";
+
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, limit);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				ProductInfoDTO dto = toDto(resultSet);
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }
