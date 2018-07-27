@@ -173,7 +173,7 @@
 
 			<s:if test="!(productInfoDtoList==null)">
 				<a href=#top><i
-					class="fas fa-chevron-circle-up faa-bounce animated-hover page_up"></i></a>
+					class="fas fa-chevron-circle-up faa-bounce animated-hover page_up" style="padding-left: 60px;"></i></a>
 			</s:if>
 		</div>
 	</div>
