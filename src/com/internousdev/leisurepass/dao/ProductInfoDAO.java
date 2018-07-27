@@ -162,9 +162,9 @@ public class ProductInfoDAO {
 
 			if (i == 0){
 				if (keywordsList.length == 1){
-					sql += " (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
+					sql += " and (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
 				}else{
-					sql += " ((product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
+					sql += " and ((product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
 				}
 			} else if(i == keywordsList.length - 1){
 				sql += " or (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%'))";

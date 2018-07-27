@@ -104,10 +104,10 @@ public class InputChecker {
 				}
 
 				if(availableFullWidthAlphanumericCharacters){
-					regularExpression +="０-９ ａ-ｚ Ａ-Ｚ";
+					regularExpression +="０-９ａ-ｚＡ-Ｚ";
 					characterTypeList.add("全角英数字");
 				}else{
-					errorExpression +="０-９ ａ-ｚ Ａ-Ｚ";
+					errorExpression +="０-９ａ-ｚＡ-Ｚ";
 				}
 
 				if(!StringUtils.isEmpty(regularExpression)){
