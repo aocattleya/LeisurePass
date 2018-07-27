@@ -60,7 +60,7 @@
 		</s:form>
 
 	<!-- 商品管理画面に戻る -->
-		<a href="http://localhost:8080/leisurepass/AdminProductAction">戻る</a>
+		<a href="AdminProductAction">戻る</a>
 	</div>
 	<jsp:include page="footer.jsp" />
 </body>
