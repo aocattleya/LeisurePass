@@ -43,7 +43,7 @@
 
 	<action name="GoLoginAction" class="com.internousdev.leisurepass.action.GoLoginAction" method="execute">
 		<result name="success">login.jsp</result>
-		<result name="error">home.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 
@@ -107,7 +107,7 @@
 
 	<action name="CreateUserAction" class="com.internousdev.leisurepass.action.CreateUserAction" method="execute">
 		<result name="success">createUser.jsp</result>
-		<result name="error">home.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 
@@ -155,7 +155,7 @@
 
   	<action name="ProductListAction" class="com.internousdev.leisurepass.action.ProductListAction" method="execute">
 		<result name="success">productList.jsp</result>
-		<result name="error">home.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 
@@ -179,7 +179,7 @@
 
 	<action name="CartAction" class="com.internousdev.leisurepass.action.CartAction" method="execute">
 		<result name="success">cart.jsp</result>
-		<result name="error">home.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 
@@ -211,7 +211,7 @@
 
 	<action name="CreateDestinationAction" class="com.internousdev.leisurepass.action.CreateDestinationAction" method="execute">
 		<result name="success">createDestination.jsp</result>
-		<result name="error">home.jsp</result>
+		<result name="error">error.jsp</result>
 		<result name="admin">admin.jsp</result>
 	</action>
 
@@ -228,7 +228,7 @@
 
 	<action name="CreateDestinationCompleteAction" class="com.internousdev.leisurepass.action.CreateDestinationCompleteAction" method="execute">
 		<result name="success">createDestinationComplete.jsp</result>
-		<result name="error">home.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 
@@ -236,7 +236,7 @@
 
 	<action name="MyPageAction" class="com.internousdev.leisurepass.action.MyPageAction" method="execute">
 		<result name="success">mypage.jsp</result>
-		<result name="error">home.jsp</result>
+		<result name="error">error.jsp</result>
 	</action>
 
 
@@ -244,7 +244,7 @@
 
 	<action name="PurchaseHistoryAction" class="com.internousdev.leisurepass.action.PurchaseHistoryAction" method="execute">
 		<result name="success">purchaseHistory.jsp</result>
-		<result name="error">home.jsp</result>
+		<result name="error">error.jsp</result>
 		<result name="admin">admin.jsp</result>
 	</action>
 
