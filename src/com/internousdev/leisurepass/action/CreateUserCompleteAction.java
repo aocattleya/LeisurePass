@@ -41,7 +41,7 @@ public class CreateUserCompleteAction extends ActionSupport implements SessionAw
 		int countNum = 0;
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 
-		countNum = cartInfoDAO.linkToLoginId(String.valueOf(session.get("tempUserId")), loginId);
+		countNum = cartInfoDAO.linkToLoginId(loginId, String.valueOf(session.get("tempUserId")));
 
 		// navigation情報を取得
 		SearchConditionLoader loader = new SearchConditionLoader();
