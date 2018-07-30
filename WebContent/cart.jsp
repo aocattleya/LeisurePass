@@ -10,18 +10,14 @@
 <jsp:include page="includeHead.jsp" />
 <title>カート</title>
 
-<script>
-$(function(){
+<script src="https://sindresorhus.com/devtools-detect/index.js"></script>
 
-	  $(document).keydown(function(event){
-	    var keyCode = event.keyCode;
-	    if(keyCode == 123 // F12キーの制御
-	      )
-	    {
-	      return false;
-	    }
-	  });
-	});
+<script>
+window.addEventListener('devtoolschange', function () {
+  while(true) {
+    debugger
+  }
+})
 </script>
 
 </head>
