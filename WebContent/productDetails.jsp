@@ -83,6 +83,12 @@
 									<s:property value="%{#session.releaseDateString}" />
 								</div>
 							</li>
+							<li>
+								<div class="releaseDate">
+									<s:label value="期間" />
+									<s:property value="%{#session.startDateString}" />～<s:property value="%{#session.endDateString}" />
+								</div>
+							</li>
 						</ul>
 
 					</div>
