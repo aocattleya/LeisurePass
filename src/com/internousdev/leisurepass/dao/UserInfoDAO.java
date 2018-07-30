@@ -15,7 +15,6 @@ public class UserInfoDAO {
 	public int createUser(String familyName,String firstName,String familyNameKana,String firstNameKana,String sex,String email,String loginId,String password){
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
-		System.out.println(familyNameKana);
 		int count = 0;
 		String sql = "insert into user_info(user_id,password,family_name,first_name,family_name_kana,"
 				+ " first_name_kana,sex,email,status,logined,regist_date,update_date)"
@@ -32,7 +31,7 @@ public class UserInfoDAO {
 			preparedstatement.setString(8,email);
 			preparedstatement.setInt(9,0);
 			preparedstatement.setInt(10,1);
-			 count = preparedstatement.executeUpdate();
+			count = preparedstatement.executeUpdate();
 		} catch(SQLException e){
 			e.printStackTrace();
 		}

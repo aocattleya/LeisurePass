@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.leisurepass.dao.CartInfoDAO;
 import com.internousdev.leisurepass.dao.UserInfoDAO;
 import com.internousdev.leisurepass.dto.UserInfoDTO;
 import com.internousdev.leisurepass.util.SearchConditionLoader;
@@ -27,14 +28,20 @@ public class CreateUserCompleteAction extends ActionSupport implements SessionAw
 		String result = ERROR;
 		UserInfoDAO userInfoDao = new UserInfoDAO();
 
-		userInfoDao.createUser(familyName,firstName,familyNameKana,firstNameKana,sex,email,loginId,password);
+		userInfoDao.createUser(familyName, firstName, familyNameKana, firstNameKana, sex, email, loginId, password);
 
 		UserInfoDTO dto = userInfoDao.getUserInfo(loginId, password);
-		if (dto != null){
+		if (dto != null) {
 			session.put("userInfo", dto);
 			session.put("logined", 1);
 			result = SUCCESS;
 		}
+
+		// （仮）ユーザーでカートに入れた情報をログインした時にそのまま入れたカート情報を引き継ぐ処理
+		int countNum = 0;
+		CartInfoDAO cartInfoDAO = new CartInfoDAO();
+
+		countNum = cartInfoDAO.linkToLoginId(String.valueOf(session.get("tempUserId")), loginId);
 
 		// navigation情報を取得
 		SearchConditionLoader loader = new SearchConditionLoader();

@@ -107,7 +107,6 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		UserInfoDAO dao = new UserInfoDAO();
 		if (dao.existLoginId(loginId)) {
 			existLoginIdErrorMessage = "そのIDは既に使われています。";
-			System.out.println("aaa");
 			session.put("existLoginIdErrorMessage", existLoginIdErrorMessage);
 			result = ERROR;
 		}
