@@ -4,6 +4,14 @@ body {
 	font-family: "Meiryo", sans-serif;
 }
 
+/* #contents-box{
+	width: 1020px;
+	margin: 0 auto;
+}
+
+
+ */
+
 /* メイン画像エリア */
 .big-picture {
 	position: relative;
@@ -220,7 +228,7 @@ body {
 }
 
 
-.store_info_box {
+table.store_info_box {
 	border-collapse: collapse; /* 隣り合うセルの線を結合*/
 }
 
@@ -248,8 +256,8 @@ th.local {
 th.local1 {
 	font-weight: 100;
 	border: solid 2px #999999;
-	width: 500px;
-	min-width: 500px;
+	width: 600px;
+	min-width: 600px;
 	text-align: left;
 	padding-left: 5px;
 }
@@ -277,7 +285,7 @@ th.local1 {
 	float: left;
 	margin: 1vw;
 	width:30%;
-	height:300px;
+	text-align:center;
 }
 
 .recommend-box img:hover {
@@ -286,11 +294,10 @@ th.local1 {
 }
 
 .pickup_img img {
-	margin-left:10px;
-
-	width:250px;
-	height: 200px;
-	min-height:200px;
+	margin-left:1vw;
+	width: 90%;
+	min-width:200px;
+	height: 180px;
 	border: 0.8px solid #f7f7f7;
 	border-radius: 10px;
 	display: flex;
@@ -307,6 +314,5 @@ th.local1 {
 	margin-left:1vw;
 	font-weight: bold;
 	text-align: center;
-	width:90%;
-	font-size:1.2vw;
+	font-size:1vw;
 }
