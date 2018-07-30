@@ -14,13 +14,17 @@ contents {
 
 h2 {
 	text-align: center;
+	width: 950px;
 }
 
 #bigBox {
 	border-bottom: 2px solid #f7f7f7;
 	display: inline-block;
 	padding: 20px 0 20px 0;
-	margin-left: 175px;
+	/* margin-left: 175px; */
+	position: relative;
+	left: 100px;
+	/* width: 100%; */
 }
 
 #productImage {
@@ -28,12 +32,16 @@ h2 {
 	border-radius: 10px;
 	position: relative;
 	top: 26px;
+	width: 20vw;
+	min-width: 250px;
 }
 
 .horizontal-list-table {
 	display: inline-block;
 	text-align: center;
 	padding-left: 50px;
+	/* font-size: 1vw; */
+	width: vw;
 }
 
 table th {

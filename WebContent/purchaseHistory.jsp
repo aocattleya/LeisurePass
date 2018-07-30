@@ -85,7 +85,7 @@
 
 				<div class="submit_btn_box">
 					<div id="contents-btn-set">
-						<s:form action="DeletePurchaseHistoryAction">
+						<s:form action="DeletePurchaseHistoryAction" style="width:950px;">
 							<s:submit value="全件購入履歴削除" class="submit_btn" />
 						</s:form>
 					</div>
