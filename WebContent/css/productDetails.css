@@ -277,7 +277,7 @@ th.local1 {
 	float: left;
 	margin: 1vw;
 	width:30%;
-	heigth:120px;
+	height:300px;
 }
 
 .recommend-box img:hover {
@@ -286,9 +286,11 @@ th.local1 {
 }
 
 .pickup_img img {
-	margin-left:1vw;
-	width: 90%;
-	height: 100px;
+	margin-left:10px;
+
+	width:250px;
+	height: 200px;
+	min-height:200px;
 	border: 0.8px solid #f7f7f7;
 	border-radius: 10px;
 	display: flex;
