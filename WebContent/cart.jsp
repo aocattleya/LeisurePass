@@ -10,9 +10,22 @@
 <jsp:include page="includeHead.jsp" />
 <title>カート</title>
 
+<script>
+$(function(){
+
+	  $(document).keydown(function(event){
+	    var keyCode = event.keyCode;
+	    if(keyCode == 123 // F12キーの制御
+	      )
+	    {
+	      return false;
+	    }
+	  });
+	});
+</script>
 
 </head>
-<body>
+<body oncontextmenu="return false;">
 	<jsp:include page="header.jsp" />
 	<div id="main" class="cf">
 	<jsp:include page="navigation.jsp" />
