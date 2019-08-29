@@ -1,13 +1,8 @@
  [![leisurepass](https://user-images.githubusercontent.com/39142850/43310726-5ec0b32a-91c3-11e8-8908-1052b404e82c.jpg)](http://www.internousdev.com/leisurepass)  
 　  
 # ECサイト『LeisurePass！』
-### URL：http://www.internousdev.com/leisurepass  
-（公開時間帯：平日10時 ～ 18時）
 
-
-**プログラミング言語：Java**  
-**フレームワーク：Struts2**  
-**データベース：MySQL**  
+**Java（Struts2） + MySQL**  
 
 **メンバー：10名**  
 **制作期間：1ヶ月**  
